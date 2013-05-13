@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/ic_action_add"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/Aggiungi"/>
+    <item
+        android:id="@+id/Aggiorna"
+        android:orderInCategory="99"
+        android:title="@string/Aggiorna"/>
+    <item
+        android:id="@+id/aboutMain"
+        android:orderInCategory="100"
+        android:title="@string/about"
+        android:titleCondensed="@string/about"/>
+    <item
+        android:id="@+id/Riordina"
+        android:orderInCategory="1"
+        android:title="@string/riordina"
+        android:titleCondensed="@string/riordina"
+        android:visible="true"/>
+    <item
+        android:id="@+id/Esporta"
+        android:orderInCategory="4"
+        android:title="@string/esporta"
+        android:titleCondensed="@string/esporta"
+        android:visible="true"/>
+    <item
+        android:id="@+id/Importa"
+        android:orderInCategory="5"
+        android:title="@string/importa"
+        android:titleCondensed="@string/importa"
+        android:visible="true"/>
+    <item
+        android:id="@+id/Fine_riordinamento"
+        android:icon="@drawable/navigation_accept"
+        android:orderInCategory="3"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/FineRiordinamento"
+        android:titleCondensed="@string/FineRiordinamento"
+        android:visible="false"/>
+
+</menu>

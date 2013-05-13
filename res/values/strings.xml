@@ -1,0 +1,109 @@
+﻿<resources>
+
+    <string name="app_name">"Xday"</string>
+    <string name="Annulla">"Cancel"</string>
+    <string name="menu_settings">"Settings"</string>
+    <string name="title_activity_main">"Xday"</string>
+    <string name="descizione_parametri">"Select the level of precision for displaying the remaining/past time. example: selecting time and day, the remaining time will be displayed in dd-hh format"</string>
+    <string name="Aggiungi">"Add"</string>
+    <string name="Aggiorna">"Refresh"</string>
+    <string name="Manca">"Left:"</string>
+    <string name="Passato">"Passed:"</string>
+    <string name="AllaData">"To:"</string>
+    <string name="DallaData">"From:"</string>
+    <string name="Error">"I'm an error"</string>
+    <string name="DescrizioneDefault">"[Click to insert description]"</string>
+    <string name="Elimina">"Delete"</string>
+    <string name="Conferma">"Confirm"</string>
+    <string name="Modifica">"Edit"</string>
+    <string name="creditsMe">"Application designed and developed by:
+ Antonio Altieri"</string>
+    <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache license 2.0</a></string>
+    <string name="about">"About"</string>
+    <string name="SourceCode">"Source code: "</string>
+    <string name="SelezionaDataWidget">"Select date"</string>
+    <string name="Contatti">"Contact the developer, report bugs, suggest features: \n altieriantonio.dev@gmail.com"</string>
+    <string name="Opzioni">"Options"</string>
+    <string name="Parametri">"Parameters"</string>
+    <string name="nessunaData">"You have not added any date in Xday, add a date before inserting a widget"</string>
+    <string name="riordina">"Reorder"</string>
+    <string name="esporta">"Export"</string>
+    <string name="importa">"Import"</string>
+    <string name="Parametri">"Parameters"</string>
+    <string name="VotamiTitolo">"Do you like Xday? Rate it!"</string>
+    <string name="VotamiCorpo">"Xday is completely free and it's being continually updated, and it will remain forever. However, you can buy the ad-free version on the play store spending less than a cup of coffee. If you want to support me and help me in a totally free mode, you can rate the application on the play store. Thanks for your support!"</string>
+    <string name="ExportError">"Unable to export the database."</string>
+    <string name="ExportSucceded">"Exported successfully in the path: %s"</string>
+    <string name="ImportError">"Error importing the file. Be sure to place the file in this location: %s"</string>
+    <string name="ImportSucceded">"Import was successful."</string>
+    <string name="WrongFile">"The selected file is not a valid file. Select a file with the extension xdy."</string>
+    <string name="sending_crash_report_to_developer">"Sending crash report to developer"</string>
+    <string name="RecensisciSubito">"Review now"</string>
+    <string name="RicordaTardi">"Remember later"</string>
+    <string name="RicordaMai">"Don't remember anymore"</string>
+    <string name="nessunaData_empty_view">"You have not added any date in Xday."</string>
+    <string name="loading">"Loading&#8230;"</string>
+	<string name="importFile"> "Select a File to Import"</string>
+        <string name="acquisto">"If you like Xday and you want to support me, buy Xday ad-free"</string>
+	
+    <!-- da tradurre -->
+    <string name="FineRiordinamento">Fine riordinamento</string>
+    <string name="AltriRingraziamenti">"Tester:
+Circelli Fiorella
+Ruggiero Arianna
+
+English Translator:
+Andrea Venditti
+
+This application uses Joda-time, ActionBarSherlock, ACRA and DragSortListView libraries granted under the Apache License 2.0.
+Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</string>
+    <string name="ConfigurationNotFoundWidgetSolo">"La data da visualizzare in questo widget è stata eliminata o è inaccessibile. Si prega di riconfigurare il widget."</string>
+    <!-- fine da tradurre -->
+
+    <plurals name="Anni">
+        <item quantity="other">"%d years "</item>
+        <item quantity="one">"1 year "</item>
+    </plurals>
+    <plurals name="Mesi">
+        <item quantity="other">"%d months "</item>
+        <item quantity="one">"1 month "</item>
+    </plurals>
+    <plurals name="Settimane">
+        <item quantity="other">"%d weeks "</item>
+        <item quantity="one">"1 week "</item>
+    </plurals>
+    <plurals name="Giorni">
+        <item quantity="other">"%d days "</item>
+        <item quantity="one">"1 day "</item>
+    </plurals>
+    <plurals name="Ore">
+        <item quantity="other">"%d hours "</item>
+        <item quantity="one">"1 hour "</item>
+    </plurals>
+    <plurals name="Minuti">
+        <item quantity="other">"%d minutes "</item>
+        <item quantity="one">"1 minute "</item>
+    </plurals>
+
+    <string-array name="ADDselezionaData">
+        <item>"Set date"</item>
+        <item>"Set the date you want to know the left/passed time"</item>
+    </string-array>
+    <string-array name="ADDselezionaOra">
+        <item>"Set time"</item>
+        <item>"Set time. By default 00:00"</item>
+    </string-array>
+    <string-array name="ADDselezionaParametri">
+        <item>"Set parameters"</item>
+        <item>"Choose how accurately you want to calculate the remaining/past time "</item>
+    </string-array>
+    <string-array name="Parametri">
+        <item name="Anni">"Years"</item>
+        <item name="Mesi">"Month"</item>
+        <item name="Settimane">"Weeks"</item>
+        <item name="Giorni">"Days"</item>
+        <item name="Ore">"Hours"</item>
+        <item name="Minuti">"Minutes"</item>
+    </string-array>
+
+</resources>

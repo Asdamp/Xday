@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/Elimina"
+        android:icon="@drawable/ic_action_delete"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/Elimina"
+        android:titleCondensed="@string/Elimina">
+    </item>
+    <item
+        android:id="@+id/Conferma"
+        android:checkable="false"
+        android:icon="@drawable/ic_action_select"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/Conferma"
+        android:titleCondensed="@string/Conferma">
+    </item>
+
+</menu>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.asdamp.widget.XdayWidgetSingleDateConfigure"
+    android:initialLayout="@layout/loading_view"
+    android:minHeight="40.0dip"
+    android:minWidth="250.0dip"
+    android:previewImage="@drawable/widget_single_date"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1800000" 
+    android:widgetCategory="home_screen" />
