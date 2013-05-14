@@ -46,9 +46,12 @@
 	<string name="importFile"> "Select a File to Import"</string>
         <string name="acquisto">"If you like Xday and you want to support me, buy Xday ad-free"</string>
 	
-    <!-- da tradurre -->
-    <string name="FineRiordinamento">Fine riordinamento</string>
-    <string name="AltriRingraziamenti">"Tester:
+	<string name="Parametri">"Set parameters"</string>
+	<string name="Descrizione">"Description"</string>
+	<string name="InserisciDescrizione">"Insert a description of the date"</string>
+	<string name="minimoNdate">"You must choose at least one parameter"</string>
+  <string name="FineRiordinamento">Rearrange finished</string>   
+<string name="AltriRingraziamenti">"Tester:
 Circelli Fiorella
 Ruggiero Arianna
 
@@ -56,9 +59,8 @@ English Translator:
 Andrea Venditti
 
 This application uses Joda-time, ActionBarSherlock, ACRA and DragSortListView libraries granted under the Apache License 2.0.
-Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</string>
-    <string name="ConfigurationNotFoundWidgetSolo">"La data da visualizzare in questo widget è stata eliminata o è inaccessibile. Si prega di riconfigurare il widget."</string>
-    <!-- fine da tradurre -->
+This application is Open source and it's granted under the Apache License 2.0"</string>
+<string name="ConfigurationNotFoundWidgetSolo">"The date to show in this widget has been eliminated or it's inaccessible. Please reconfigure the widget."</string>
 
     <plurals name="Anni">
         <item quantity="other">"%d years "</item>

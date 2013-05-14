@@ -22,7 +22,7 @@ public class UtilityDate {
 			m++;
 			return df.parse(giorno+"-"+m+"-"+anno+"-"+ora+"-"+minuto);
 		} catch (ParseException e) {
-			System.err.println("problemi nel parsing della data");
+			System.err.println("parsing problem");
 			System.exit(-1);
 		}
 		return null;

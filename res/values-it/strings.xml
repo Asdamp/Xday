@@ -17,6 +17,11 @@
     <string name="Elimina">Elimina</string>
     <string name="Conferma">Conferma</string>
     <string name="Modifica">Modifica</string>
+    	<string name="Parametri">"Seleziona i parametri di precisione"</string>
+    	<string name="Descrizione">"Descrizione"</string>
+	<string name="InserisciDescrizione">"Inserisci una descrizione per la data"</string>
+    	<string name="minimoNdate">"Devi scegliere almeno un parametro"</string>
+	
     <string name="creditsMe">"Applicazione ideata e sviluppata da: 
  Antonio Altieri"</string>
     <string name="AltriRingraziamenti">"Tester: 

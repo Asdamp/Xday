@@ -295,7 +295,7 @@ public class Add extends SherlockFragmentActivity implements
         MultipleChoiceDialog multiplechoicedialog = new MultipleChoiceDialog();
         bundle1.putCharSequenceArray("parametriString", as);
         bundle1.putBooleanArray("parametriBoolean", aflag);
-        bundle1.putString("titolo", "Seleziona i parametri di precisione");
+        bundle1.putString("titolo", this.getString(R.string.Parametri));
         bundle1.putInt("obbligatori", 1);
         multiplechoicedialog.setArguments(bundle1);
         multiplechoicedialog.show(getSupportFragmentManager(), "parametri");
@@ -303,8 +303,8 @@ public class Add extends SherlockFragmentActivity implements
 
 	public void showTextEditDialog(View v) {
 		Bundle p = new Bundle();
-		p.putString(TextEditDialog.TITOLO, "Descrizione");
-		p.putString(TextEditDialog.SOTTOTITOLO, "Inserisci una descrizione");
+		p.putString(TextEditDialog.TITOLO, getString(R.string.Descrizione));
+		p.putString(TextEditDialog.SOTTOTITOLO, getString(R.string.InserisciDescrizione));
 		p.putString(TextEditDialog.STRINGA_BASE, text);
 		DialogFragment textDialog = new TextEditDialog();
 		textDialog.setArguments(p);

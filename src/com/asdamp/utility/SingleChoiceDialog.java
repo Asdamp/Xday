@@ -1,6 +1,8 @@
 
 package com.asdamp.utility;
 
+import com.asdamp.x_day.R;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -50,14 +52,14 @@ public class SingleChoiceDialog extends DialogFragment
                 selezionato = i;
             }
         }
-).setPositiveButton("Conferma", new android.content.DialogInterface.OnClickListener() {
+).setPositiveButton(getString(R.string.Conferma), new android.content.DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialoginterface, int i)
             {
                 chiamante.onSingleDialogPositiveClick(selezionato);
             }
         }
-).setNegativeButton("Annulla", new android.content.DialogInterface.OnClickListener() {
+).setNegativeButton(getString(R.string.Annulla), new android.content.DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialoginterface, int i)
             {

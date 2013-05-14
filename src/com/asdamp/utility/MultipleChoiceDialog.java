@@ -1,5 +1,7 @@
 package com.asdamp.utility;
 
+import com.asdamp.x_day.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -65,16 +67,16 @@ public class MultipleChoiceDialog extends DialogFragment{
 				parametri[quale]=checkato;
 				
 			}})
-		.setPositiveButton("Conferma", new DialogInterface.OnClickListener(){
+		.setPositiveButton(getString(R.string.Conferma), new DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface arg0, int arg1) {
 				int veri=0;
 				for(int i=0;i<parametri.length;i++)	if (parametri[i]) veri++;
 				if(veri>=obbligatori) chiamante.onMultipleDialogPositiveClick(parametri);
-				else Toast.makeText((Context) chiamante, "devi scegliere almeno "+obbligatori+" parametro", Toast.LENGTH_LONG).show();
+				else Toast.makeText((Context) chiamante, getString(R.string.minimoNdate), Toast.LENGTH_LONG).show();
 				
 			}})
-		.setNegativeButton("Annulla", new DialogInterface.OnClickListener(){
+		.setNegativeButton(getString(R.string.Annulla), new DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface arg0, int arg1) {
 				chiamante.onMultipleDialogNegativeClick(MultipleChoiceDialog.this);

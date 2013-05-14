@@ -2,6 +2,8 @@ package com.asdamp.utility;
 
 
 
+import com.asdamp.x_day.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -62,7 +64,7 @@ public class TextEditDialog extends DialogFragment {
 	input.setSelection(input.getText().length());
 	
 	alert.setView(input);
-	alert.setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
+	alert.setPositiveButton(getString(R.string.Conferma), new DialogInterface.OnClickListener() {
 	public void onClick(DialogInterface dialog, int whichButton) {
 	  String testoFinale = input.getText().toString();
 	  c.OnTextEditDialogPositiveClick(testoFinale);
@@ -71,7 +73,7 @@ public class TextEditDialog extends DialogFragment {
 	
 	});
 
-	alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+	alert.setNegativeButton(getString(R.string.Annulla), new DialogInterface.OnClickListener() {
 	  public void onClick(DialogInterface dialog, int whichButton) {
 	    
 	    
