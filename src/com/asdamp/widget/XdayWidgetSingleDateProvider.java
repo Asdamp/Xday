@@ -87,15 +87,16 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 		
 		appwidgetmanager.updateAppWidget(i, remoteviews);
 	}
-	public void ConfigurationNotFound(AppWidgetManager appwidgetmanager, Context context, int i){
+	public void ConfigurationNotFound(AppWidgetManager appwidgetmanager, Context context, int irta){
+		Log.d("WidgetErrIrta",""+irta);
 		RemoteViews remoteviews = new RemoteViews(context.getPackageName(),
 				R.layout.empty_view);
 		remoteviews.setTextViewText(R.id.empty_view_text, context.getString(R.string.ConfigurationNotFoundWidgetSolo));
 		Intent intent1 = new Intent(OPEN_CONFIGURATION);
-		intent1.putExtra("appWidgetId", i);
+		intent1.putExtra("appWidgetId", irta);
 		remoteviews.setOnClickPendingIntent(R.id.empty_view_text,
-				PendingIntent.getBroadcast(context, 0, intent1, 0));
-		appwidgetmanager.updateAppWidget(i, remoteviews);
+				PendingIntent.getBroadcast(context, irta, intent1, 0));
+		appwidgetmanager.updateAppWidget(irta, remoteviews);
 
 	}
 	public void onReceive(final Context context, final Intent intent) {
@@ -125,7 +126,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 							.getInstance(context);
 					int a[]=appwidgetmanager.getAppWidgetIds(new ComponentName(context, XdayWidgetSingleDateProvider.class));
 					for(int id:a) {
-						
+						Log.d("IDwidget",""+id);
 						Data data;
 						try {
 							data = dbadapter.AssociaDataAWidget(id);
@@ -142,6 +143,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 			});}
 			else if(intent.getAction().equals(OPEN_CONFIGURATION)){
 				Intent add = new Intent("com.asdamp.widget.CONFIGURE_WIDGET_SOLO");
+				Log.d("WidgetErr pre open",""+intent.getExtras().getInt("appWidgetId"));
 				add.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, intent.getExtras().getInt("appWidgetId"));
 				add.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				add.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -162,6 +164,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 						data = dbadapter.AssociaDataAWidget(id);
 						aggiornaWidget(appwidgetmanager, data, context, id);
 					} catch (WidgetConfigurationNotFoundException e) {
+						Log.d("widgetErr",""+id);
 						ConfigurationNotFound(appwidgetmanager, context, id);
 					}
 				}
