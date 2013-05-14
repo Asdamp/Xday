@@ -24,11 +24,12 @@ public class About extends SherlockActivity {
 		//
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		TextView t2 = (TextView) findViewById(R.id.textView5);
+		TextView sourceCode = (TextView) findViewById(R.id.sourceCode);
+		sourceCode.setMovementMethod(LinkMovementMethod.getInstance());
+
 		t2.setMovementMethod(LinkMovementMethod.getInstance());
 		Button gPlay = (Button) this.findViewById(R.id.gPlayButton);
-		Button amazon = (Button) this.findViewById(R.id.amazonAppShopButton);
-		MainApplication app=(MainApplication) this.getApplication();
-		
+		Button amazon = (Button) this.findViewById(R.id.amazonAppShopButton);		
 		View t4=this.findViewById(R.id.textView4);
 		if(!this.getResources().getBoolean(R.bool.ad)){
 			t4.setVisibility(View.GONE);
@@ -43,12 +44,12 @@ public class About extends SherlockActivity {
 				try {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri
 							.parse("market://details?id="
-									+ "com.asdamp.x_day")));
+									+ "com.asdamp.x_dayAdFree")));
 				} catch (android.content.ActivityNotFoundException anfe) {
 					startActivity(new Intent(
 							Intent.ACTION_VIEW,
 							Uri.parse("http://play.google.com/store/apps/details?id="
-									+ "com.asdamp.x_day")));
+									+ "com.asdamp.x_dayAdFree")));
 				}
 
 			}
@@ -59,11 +60,11 @@ public class About extends SherlockActivity {
 			public void onClick(View v) {
 				try {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri
-							.parse("amzn://apps/android?p=com.asdamp.x_day")));
+							.parse("amzn://apps/android?p=com.asdamp.x_dayAdFree")));
 				} catch (android.content.ActivityNotFoundException anfe) {
 					startActivity(new Intent(
 							Intent.ACTION_VIEW,
-							Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=com.asdamp.x_day")));
+							Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=com.asdamp.x_dayAdFree")));
 				}
 
 			}

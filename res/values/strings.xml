@@ -18,6 +18,8 @@
     <string name="Modifica">"Edit"</string>
     <string name="creditsMe">"Application designed and developed by:
  Antonio Altieri"</string>
+    <string name="sourceCode"><a href="http://github.com/Asdamp/Xday">Source code</a></string>
+    
     <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache license 2.0</a></string>
     <string name="about">"About"</string>
     <string name="SourceCode">"Source code: "</string>
