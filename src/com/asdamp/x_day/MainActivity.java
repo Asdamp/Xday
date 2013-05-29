@@ -198,14 +198,12 @@ public class MainActivity extends SherlockFragmentActivity implements
 		Costanti.getDB();
 		vista.remove((Data) date.get(i));
 		dataChiamata = -1;
-		if (Costanti.getOsVersion() >= 11) {
-			AppWidgetManager appwidgetmanager = AppWidgetManager
-					.getInstance(this);
-			appwidgetmanager.notifyAppWidgetViewDataChanged(appwidgetmanager
-					.getAppWidgetIds(new ComponentName(this,
-							XdayWidgetProvider.class)), R.id.list_view_widget);
-		}
+		((MainApplication) this.getApplication()).aggiornaWidget();
 	}
+
+	
+		
+	
 
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
@@ -315,6 +313,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 			menu.findItem(R.id.Riordina).setVisible(true);
 			vista.ModRiordina(false);
 			vista.notifyDataSetChanged();
+			((MainApplication) this.getApplication()).aggiornaWidget();
 			break;
 		case R.id.Esporta:
 			File dbf = this.getDatabasePath(DBHelper.DATABASE_NAME);

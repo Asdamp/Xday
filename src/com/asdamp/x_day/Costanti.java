@@ -7,7 +7,7 @@ import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 
 import com.asdamp.database.DBAdapter;
-//the class Costanti is suppesod to be a singleton. this class is initializated by MainApplication class
+//the class Costanti is supposed to be a singleton. this class is initializated by MainApplication class
 public class Costanti {
 	public static final int MODIFICA_DATA = 1;
 	public static final int CANCELLA_DATA = 2;
@@ -15,7 +15,6 @@ public class Costanti {
 	public static final int CREA_DATA = 4;
 	public static final int ANNULLA = 5;
 	public static final int FILE_SELECT_CODE = 6;
-
 	public static int DPI = 0;
 	private static Costanti costanti = null;
 	public static java.text.DateFormat dt;
@@ -25,7 +24,6 @@ public class Costanti {
 
 	public static void inizializza(Context c) {
 		if(costanti==null) costanti= new Costanti(c);
-		
 	}
 
 	private Costanti(Context c) {
