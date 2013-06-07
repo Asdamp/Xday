@@ -15,13 +15,14 @@ import com.asdamp.x_day.R;
 
 public class AddArrayAdapter extends ArrayAdapter<Integer> {
 	private final Context context;
-	private final static Integer a[]={1,2,3};
+	private final static Integer a[]={1,2,3,4};
 	public AddArrayAdapter(Context context) {
 		super(context, R.layout.rawlayout, a);
 		this.context = context;
 	}
 
 	
+
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -43,7 +44,12 @@ public class AddArrayAdapter extends ArrayAdapter<Integer> {
 		{
 		str=res.getStringArray(R.array.ADDselezionaParametri);
 		imageView.setImageDrawable(res.getDrawable(R.drawable.ic_action_tick)); break;}
+		case 3:   
+		{
+		str=res.getStringArray(R.array.ADDselezionaDescrizione);
+		imageView.setImageDrawable(res.getDrawable(R.drawable.ic_action_description)); break;}
 		}
+		
 		titolo.setText(str[0]);
 		descrizione.setText(str[1]);
 		return rowView;

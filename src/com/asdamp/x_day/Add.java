@@ -2,21 +2,28 @@ package com.asdamp.x_day;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.joda.time.DurationFieldType;
 import org.joda.time.PeriodType;
 import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.asdamp.exception.WidgetConfigurationNotFoundException;
 import com.asdamp.utility.DatePickerFragment;
 import com.asdamp.utility.MultipleChoiceDialog;
 import com.asdamp.utility.TextEditDialog;
@@ -29,6 +36,8 @@ import com.actionbarsherlock.app.ActionBar.LayoutParams;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 
 
 public class Add extends SherlockFragmentActivity implements
@@ -58,12 +67,29 @@ public class Add extends SherlockFragmentActivity implements
  
 		//
 		this.setContentView(R.layout.add); 
+		AdView mAdView = (AdView) this.findViewById(R.id.adView);
+		/*ad request*/
+		SharedPreferences shprs = getSharedPreferences(
+				"PrivateOption", 0);
+		final android.content.SharedPreferences.Editor spe = shprs
+				.edit();
+		int i = shprs.getInt("Utilizzi", 0);
+		boolean ad;
+		if (i == 0) {
+			Resources r = this.getResources();
+			ad = r.getBoolean(R.bool.ad);
+			spe.putBoolean("Premium", ad).commit();
+		} else
+			ad = shprs.getBoolean("Premium", true);
+		if (ad) 
+			mAdView.loadAd(new AdRequest().addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
 		AddArrayAdapter a = new AddArrayAdapter(Add.this);
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
 		lista.setAdapter(a);
-		// se ï¿½ stato chiamato da main activity allora setta dei valori di
+		Bundle b=this.getIntent().getExtras();
+		// se è stato chiamato da main activity allora setta dei valori di
 		// default
-		if (this.getIntent().getExtras().getInt("requestCode") == Costanti.CREA_DATA) {
+		if (b.getInt("requestCode") == Costanti.CREA_DATA) {
 			ora = 0;
             minuto = 0;
             anni = false;
@@ -72,22 +98,22 @@ public class Add extends SherlockFragmentActivity implements
             minuti = false;
             settimane = false;
             ore = false;
+            secondi=false;
             Calendar calendar = Calendar.getInstance();
             anno = calendar.get(1);
             mese = calendar.get(2);
             giorno = calendar.get(5);
             text = "";
+            msIni=(new GregorianCalendar()).getTimeInMillis();
 		}
 		// altrimenti prende i valori proprio dalla data
 		else {
-			 d = MainActivity.getData(getIntent().getExtras().getInt("posizioneData"));
-	            ora = d.getOra();
-	            minuto = d.getMinuto();
-	            anno = d.getAnno();
-	            mese = d.getMese();
-	            giorno = d.getGiorno();
-	            estraiPeriodType(d.getTipo());
-	            text = d.getDescrizione();
+				msIni=b.getLong("MsIniziali");
+				Log.d("millisecondi", msIni+"");
+			 	Cursor c=Costanti.getDB().fetchOneDate(msIni);
+			 	c.moveToFirst();
+	            estraiParametri(c);
+	            
 		}
 
 		bundle = new Bundle();
@@ -159,18 +185,17 @@ public class Add extends SherlockFragmentActivity implements
 		//Costanti.getDB().apri();
 		if (requestCode == Costanti.MODIFICA_DATA) {
 			if (resultCode == Costanti.CANCELLA_DATA) {
-				Costanti.getDB().deleteData(d);
+				Costanti.getDB().deleteData(msIni);
 			}
 			if (resultCode == Costanti.TUTTO_BENE) {
-				d.modifica(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, text);
-                Costanti.getDB().updateData(d);
+                Costanti.getDB().updateData(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti,secondi, text, msIni);
 			}
 
 		}
 		if (requestCode == Costanti.CREA_DATA) {
 			if (resultCode == Costanti.TUTTO_BENE) {
-				d = new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, text, this);
-	            Costanti.getDB().createData(d);
+				Log.d("millisecondi inseriti", ""+msIni);
+	            Costanti.getDB().createData(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti,secondi, text,msIni);
 			}
 
 		}
@@ -203,13 +228,42 @@ public class Add extends SherlockFragmentActivity implements
 	 * converte il periodtype in boolean non restituisce nulla perchï¿½ setta
 	 * direttamente i booleani nel suo stato.
 	 */
-	private void estraiPeriodType(PeriodType periodtype) {
-		 anni = periodtype.isSupported(DurationFieldType.years());
-	        mesi = periodtype.isSupported(DurationFieldType.months());
-	        giorni = periodtype.isSupported(DurationFieldType.days());
-	        ore = periodtype.isSupported(DurationFieldType.hours());
-	        minuti = periodtype.isSupported(DurationFieldType.minutes());
-	        settimane = periodtype.isSupported(DurationFieldType.weeks());
+	private void estraiParametri(Cursor cursor) {
+
+	 	anno = cursor.getInt(cursor.getColumnIndex("anno"));
+        mese = cursor.getInt(cursor.getColumnIndex("mese"));
+        giorno = cursor.getInt(cursor.getColumnIndex("giorno"));
+        ora = cursor.getInt(cursor.getColumnIndex("ora"));
+        minuto = cursor.getInt(cursor.getColumnIndex("minuto"));
+        text = cursor.getString(cursor.getColumnIndex("descrizione"));
+		if(cursor.getInt(cursor.getColumnIndex("ore")) > 0)
+            ore = true;
+        else
+            ore = false;
+		if(cursor.getInt(cursor.getColumnIndex("secondi")) > 0)
+            secondi = true;   
+        else
+            secondi = false;
+        if(cursor.getInt(cursor.getColumnIndex("minuti")) > 0)
+            minuti = true;
+        else
+            minuti = false;
+        if(cursor.getInt(cursor.getColumnIndex("anni")) > 0)
+            anni = true;
+        else
+            anni = false;
+        if(cursor.getInt(cursor.getColumnIndex("mesi")) > 0)
+            mesi = true;
+        else
+            mesi = false;
+        if(cursor.getInt(cursor.getColumnIndex("giorni")) > 0)
+            giorni = true;
+        else
+            giorni = false;
+        if(cursor.getInt(cursor.getColumnIndex("settimane")) > 0)
+            settimane = true;
+        else
+            settimane = false;
 	}
 
 	private Bundle creaBundle() {
@@ -224,6 +278,8 @@ public class Add extends SherlockFragmentActivity implements
         bundle.putBoolean("ore", ore);
         bundle.putBoolean("giorni", giorni);
         bundle.putBoolean("minuti", minuti);
+        bundle.putBoolean("secondi", secondi);
+
         bundle.putBoolean("settimane", settimane);
         return bundle;
 
@@ -248,16 +304,21 @@ public class Add extends SherlockFragmentActivity implements
 	}
 
 	protected void onListItemClick(View v, int position) {
-		if (position == 0) {
+		switch(position){
+		case 0:
 			this.showDatePickerDialog(v);
 			aggiornaActionBar();
-		} else if (position == 1) {
+			break;
+		case 1:
 			this.showTimePickerDialog(v);
-			;
 			aggiornaActionBar();
-		} else
+			break;
+		case 2:
 			this.showMultipleChoiceDialog(v);
-
+			break;
+		case 3:
+			this.showTextEditDialog(v);
+		}
 	}
 
 	@SuppressLint("NewApi")
@@ -282,14 +343,15 @@ public class Add extends SherlockFragmentActivity implements
 
 	public void showMultipleChoiceDialog(View v) {
 		Bundle bundle1 = new Bundle();
-        boolean aflag[] = new boolean[6];
+        boolean aflag[] = new boolean[7];
         aflag[0] = anni;
         aflag[1] = mesi;
         aflag[2] = settimane;
         aflag[3] = giorni;
         aflag[4] = ore;
         aflag[5] = minuti;
-       
+        aflag[6] = secondi;
+
         Resources r=v.getContext().getResources();
         String as[] = r.getStringArray(R.array.Parametri);
         MultipleChoiceDialog multiplechoicedialog = new MultipleChoiceDialog();
@@ -318,7 +380,7 @@ public class Add extends SherlockFragmentActivity implements
         giorni = parametri[3];
         ore = parametri[4];
         minuti = parametri[5];
-
+        secondi = parametri [6];
 	}
 
 	public void OnTextEditDialogPositiveClick(String t) {
@@ -431,11 +493,12 @@ public class Add extends SherlockFragmentActivity implements
 	private boolean giorni;
 	private boolean ore;
 	private boolean settimane;
-
+	private boolean secondi;
+	private long msIni;
 	private boolean minuti;
 	private Bundle bundle;
 
-	private Data d;
+
 
 	public void onMultipleDialogNegativeClick(
 			android.support.v4.app.DialogFragment dialog) {
