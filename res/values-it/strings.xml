@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="CodiceAttivazione">"Codice promozionale"</string>
+            
+    <string name="CodiceAttivazioneDescrizione">"Inserisci un codice promozionale per eliminare le pubblicità"</string>
+    <string name="CodiceAccettato">"Codice accettato. Le pubblicità sono state totalmente rimosse"</string>
     <string name="app_name">Xday</string>
     <string name="Annulla">Annulla</string>
-    <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Xday</string>
-    <string name="descizione_parametri">Seleziona il grado di precisione con il quale visualizzare il tempo mancante/passato. esempio: selezionando ora e giorno, il tempo mancante verrà visualizzato nel formato dd-hh</string>
     <string name="Aggiungi">Aggiungi</string>
     <string name="Aggiorna">Aggiorna</string>
     <string name="Manca">Mancano:</string>
@@ -17,8 +18,7 @@
     <string name="Elimina">Elimina</string>
     <string name="Conferma">Conferma</string>
     <string name="Modifica">Modifica</string>
-    	<string name="Parametri">"Seleziona i parametri di precisione"</string>
-    	<string name="Descrizione">"Descrizione"</string>
+   	<string name="Descrizione">"Descrizione"</string>
 	<string name="InserisciDescrizione">"Inserisci una descrizione per la data"</string>
     	<string name="minimoNdate">"Devi scegliere almeno un parametro"</string>
 	
@@ -30,6 +30,15 @@ Ruggiero Arianna
 
 Traduzione inglese: 
 Andrea Venditti
+
+Traduzione spagnola:
+Eduardo López García
+Diego Pacheco
+Javier Juárez
+
+Traduzione tedesca:
+Patrick Elsner
+
 
 Questa applicazione utilizza le librerie Joda-time, ActionBarSherlock, ACRA e DragSortListView concesse sotto licenza Apache 2.0
 Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</string>
@@ -47,7 +56,6 @@ Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</
     <string name="FineRiordinamento">Fine riordinamento</string>
     <string name="esporta">Esporta</string>
     <string name="importa">Importa</string>
-    <string name="Parametri">Parametri</string>
     <string name="VotamiTitolo">Ti piace Xday? Votala!</string>
     <string name="VotamiCorpo">"Xday è un'applicazione completamente gratuita e continuamente aggiornata, e lo resterà per sempre. 
  Puoi tuttavia acquistare la versione senza pubblicità sul play store al costo di meno di un caffè. 
@@ -90,7 +98,11 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
         <item quantity="other">"%d minuti "</item>
         <item quantity="one">"1 minuto "</item>
     </plurals>
-
+	<plurals name="Secondi">
+        <item quantity="other">"%d secondi "</item>
+        <item quantity="one">"1 secondo "</item>
+    </plurals>
+    
     <string-array name="ADDselezionaData">
         <item>Seleziona data</item>
         <item>Scegli la data da cui vuoi conoscere il tempo mancante/passato</item>
@@ -103,6 +115,10 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
         <item>Seleziona parametri</item>
         <item>Scegli con quale precisione calcolare il tempo mancante/passato</item>
     </string-array>
+     <string-array name="ADDselezionaDescrizione">
+        <item>"Imposta una descrizione"</item>
+        <item>"Inserisci una descrizione per la data"</item>
+    </string-array>
     <string-array name="Parametri">
         <item name="Anni">"Anni"</item>
         <item name="Mesi">"Mesi"</item>
@@ -110,6 +126,7 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
         <item name="Giorni">"Giorni"</item>
         <item name="Ore">"Ore"</item>
         <item name="Minuti">"Minuti"</item>
+        <item name="Secondi">"Secondi"</item>
     </string-array>
 
 </resources>

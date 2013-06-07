@@ -1,12 +1,15 @@
-﻿<resources>
+﻿<?xml version="1.0" encoding="utf-8"?><resources>
 
     <string name="app_name">"Xday"</string>
     <string name="Annulla">"Cancel"</string>
-    <string name="menu_settings">"Settings"</string>
     <string name="title_activity_main">"Xday"</string>
-    <string name="descizione_parametri">"Select the level of precision for displaying the remaining/past time. example: selecting time and day, the remaining time will be displayed in dd-hh format"</string>
     <string name="Aggiungi">"Add"</string>
     <string name="Aggiorna">"Refresh"</string>
+    <string name="CodiceAttivazione">"Enter promotion code"</string>
+            
+    <string name="CodiceAttivazioneDescrizione">"Enter promotion code to remove ads"</string>
+    <string name="CodiceAccettato">"Code accepted. Enjoy full premium feature"</string>
+    
     <string name="Manca">"Left:"</string>
     <string name="Passato">"Passed:"</string>
     <string name="AllaData">"To:"</string>
@@ -31,7 +34,6 @@
     <string name="riordina">"Reorder"</string>
     <string name="esporta">"Export"</string>
     <string name="importa">"Import"</string>
-    <string name="Parametri">"Parameters"</string>
     <string name="VotamiTitolo">"Do you like Xday? Rate it!"</string>
     <string name="VotamiCorpo">"Xday is completely free and it's being continually updated, and it will remain forever. However, you can buy the ad-free version on the play store spending less than a cup of coffee. If you want to support me and help me in a totally free mode, you can rate the application on the play store. Thanks for your support!"</string>
     <string name="ExportError">"Unable to export the database."</string>
@@ -47,7 +49,7 @@
     <string name="loading">"Loading&#8230;"</string>
 	<string name="importFile"> "Select a File to Import"</string>
         <string name="acquisto">"If you like Xday and you want to support me, buy Xday ad-free"</string>
-	
+        
 	<string name="Parametri">"Set parameters"</string>
 	<string name="Descrizione">"Description"</string>
 	<string name="InserisciDescrizione">"Insert a description of the date"</string>
@@ -59,6 +61,14 @@ Ruggiero Arianna
 
 English Translator:
 Andrea Venditti
+
+Spanish Traslators:
+Eduardo López García
+Diego Pacheco
+Javier Juárez
+
+German Traslator:
+Patrick Elsner
 
 This application uses Joda-time, ActionBarSherlock, ACRA and DragSortListView libraries granted under the Apache License 2.0.
 This application is Open source and it's granted under the Apache License 2.0"</string>
@@ -88,6 +98,10 @@ This application is Open source and it's granted under the Apache License 2.0"</
         <item quantity="other">"%d minutes "</item>
         <item quantity="one">"1 minute "</item>
     </plurals>
+    <plurals name="Secondi">
+        <item quantity="other">"%d seconds "</item>
+        <item quantity="one">"1 second "</item>
+    </plurals>
 
     <string-array name="ADDselezionaData">
         <item>"Set date"</item>
@@ -101,6 +115,10 @@ This application is Open source and it's granted under the Apache License 2.0"</
         <item>"Set parameters"</item>
         <item>"Choose how accurately you want to calculate the remaining/past time "</item>
     </string-array>
+     <string-array name="ADDselezionaDescrizione">
+        <item>"Set description"</item>
+        <item>"Insert a description of the date"</item>
+    </string-array>
     <string-array name="Parametri">
         <item name="Anni">"Years"</item>
         <item name="Mesi">"Month"</item>
@@ -108,6 +126,7 @@ This application is Open source and it's granted under the Apache License 2.0"</
         <item name="Giorni">"Days"</item>
         <item name="Ore">"Hours"</item>
         <item name="Minuti">"Minutes"</item>
+        <item name="Secondi">"Seconds"</item>
     </string-array>
 
 </resources>
