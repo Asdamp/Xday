@@ -41,7 +41,29 @@ public class DBAdapter
             contentvalues.put("posizione", Integer.valueOf(i));
         return contentvalues;
     }
-
+    private ContentValues createContentValues(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
+    		boolean weeks, boolean days, boolean hours,  boolean minutes,boolean seconds, String s, long msI, 
+            int i)
+    {
+        ContentValues contentvalues = new ContentValues();
+        contentvalues.put("anno", year);
+        contentvalues.put("mese", month);
+        contentvalues.put("giorno", day);
+        contentvalues.put("minuto", minute);
+        contentvalues.put("ora", hour);
+        contentvalues.put("anni", years);
+        contentvalues.put("mesi", months);
+        contentvalues.put("settimane", weeks);
+        contentvalues.put("giorni", days);
+        contentvalues.put("ore", hours);
+        contentvalues.put("minuti", minutes);
+        contentvalues.put("secondi", seconds);
+        contentvalues.put(MILLISECONDI_INIZIALI, msI);
+        contentvalues.put("descrizione", s);
+        if(i != -1)
+            contentvalues.put("posizione", i);
+        return contentvalues;
+    }
     public Data AssociaDataAWidget(int i) throws WidgetConfigurationNotFoundException
     {
         Cursor cursor = database.query(NOME_TAVOLA_WIDGET, null, (new StringBuilder("idWidget=")).append(i).toString(), null, null, null, null);
@@ -86,7 +108,6 @@ catch(SQLiteConstraintException sqliteconstraintexception){
     public Data cercaData(long l) throws WidgetConfigurationNotFoundException
     {
         Cursor cursor = database.query(NOME_TAVOLA, null, (new StringBuilder("millisecondiIniziali=")).append(l).toString(), null, null, null, null);
-        Log.d("conteggio 1", (new StringBuilder()).append(cursor.getCount()).append("       ").append(l).toString());
         cursor.moveToFirst();
         if (cursor.getCount()<=0) throw new WidgetConfigurationNotFoundException("Widget configuration not found in database, please reconfigure the widget");
         return Data.leggi(cursor, context);
@@ -103,10 +124,15 @@ catch(SQLiteConstraintException sqliteconstraintexception){
         ContentValues contentvalues = createContentValues(data, 0);
         return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
     }
-
+    public long createData(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
+    		boolean weeks, boolean days, boolean hours,  boolean minutes, boolean seconds, String s, long msI)
+    {
+        ContentValues contentvalues = createContentValues(year,month, day, hour, minute,years,months,weeks,days,hours,minutes,seconds,s,msI,0);
+        return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
+    }
     public boolean deleteData(long l)
     {
-        return database.delete(NOME_TAVOLA, MILLISECONDI_INIZIALI + "=" + l, null) > 0;
+        return database.delete(NOME_TAVOLA, MILLISECONDI_INIZIALI + " = " + l, null) > 0;
 
     }
 
@@ -119,12 +145,22 @@ catch(SQLiteConstraintException sqliteconstraintexception){
     {
         return database.query(NOME_TAVOLA, null, null, null, null, null, "posizione");
     }
-
+    
+    public Cursor fetchOneDate(long l) 
+    {
+    	Log.d("millisecondiDaquery",l+"=millisecondiIniziali");
+    	Cursor c=database.query(NOME_TAVOLA, null, l+"=millisecondiIniziali", null, null, null, null);
+    	Log.d("cursor lenght", c.getCount()+"");
+        return c;
+    }
     public Data idInPosizione(int i)
     {
         return Data.leggi(database.query(NOME_TAVOLA, null, (new StringBuilder(String.valueOf(i))).append("=posizione").toString(), null, null, null, null), context);
     }
-
+    public void Upgrade(int old)
+    {
+       dbHelper.onUpgrade(database, old, DBHelper.DATABASE_VERSION);
+    }
     public void spostamento(int i, int j, long l)
     {
         if(i > j)
@@ -144,7 +180,17 @@ catch(SQLiteConstraintException sqliteconstraintexception){
             flag = false;
         return flag;
     }
-
+    public boolean updateData(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
+    		boolean weeks, boolean days, boolean hours,  boolean minutes, boolean seconds, String s, long msI)
+    {
+        ContentValues contentvalues = createContentValues(year,month, day, hour, minute,years,months,weeks,days,hours,minutes,seconds, s,msI,-1);
+        boolean flag;
+        if(database.update(NOME_TAVOLA, contentvalues, MILLISECONDI_INIZIALI+"="+msI, null) > 0)
+            flag = true;
+        else
+            flag = false;
+        return flag;
+    }
     public static final String BOOL_ANNO = "anni";
     public static final String BOOL_GIORNO = "giorni";
     public static final String BOOL_MESE = "mesi";
@@ -164,6 +210,6 @@ catch(SQLiteConstraintException sqliteconstraintexception){
     private static final String DATA_WIDGET = "data";
     private static final String IDWIDGET = "idWidget";
     private Context context;
-    private SQLiteDatabase database;
+    public SQLiteDatabase database;
     private DBHelper dbHelper;
 }
