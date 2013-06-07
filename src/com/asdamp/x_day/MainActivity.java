@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import android.annotation.TargetApi;
@@ -21,10 +23,13 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +41,8 @@ import com.actionbarsherlock.view.MenuItem;
 import com.asdamp.database.DBHelper;
 import com.asdamp.utility.LongClickDialog;
 import com.asdamp.widget.XdayWidgetProvider;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
@@ -48,70 +55,89 @@ public class MainActivity extends SherlockFragmentActivity implements
 	public void onCreate(Bundle bundle) {
 		// popup window. request a review on play store after the 4th opening of
 		// the application
-		SharedPreferences sharedpreferences = getSharedPreferences(
-				"PrivateOption", 0);
-		final android.content.SharedPreferences.Editor spe = sharedpreferences
-				.edit();
-		int i = sharedpreferences.getInt("Utilizzi", 0);
-		spe.putInt("Utilizzi", i + 1);
+		setContentView(R.layout.main_activity);
 		Resources r = this.getResources();
 
-		if (i == 4 && r.getBoolean(R.bool.ad)) {
-			android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(
-					this);
-			builder.setMessage(getText(R.string.VotamiCorpo))
-					.setTitle(getText(R.string.VotamiTitolo))
-					.setIcon(R.drawable.ic_launcher);
-			builder.setPositiveButton(getText(R.string.RecensisciSubito),
-					new DialogInterface.OnClickListener() {
-/*this onclick method open the play store for the app review.
- * if the play store doesn't exist, open the amazon appshop
- * if neither play store nor appshop are installed, the method open the xday play store web page*/
-						public void onClick(DialogInterface dialog, int which) {
-							Uri ur;
-							try {
-								ur = Uri.parse("market://details?id=com.asdamp.x_day");
-								startActivity(new Intent(
-										"android.intent.action.VIEW", ur));
-							} catch (ActivityNotFoundException activitynotfoundexception)
+		SharedPreferences shprs = getSharedPreferences(
+				"PrivateOption", 0);
+		final android.content.SharedPreferences.Editor spe = shprs
+				.edit();
+		int i = shprs.getInt("Utilizzi", 0);
+		boolean ad;
+		if (i == 0) {
+			ad = r.getBoolean(R.bool.ad);
+			spe.putBoolean("Premium", ad);
+		} else
+			ad = shprs.getBoolean("Premium", true);
 
-							{
+		spe.putInt("Utilizzi", i + 1);
+		spe.commit();
+		AdView mAdView = (AdView) this.findViewById(R.id.adViewMa);
+		if (ad) {
+			mAdView.loadAd(new AdRequest().addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
+			if (i == 4) {
+				android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(
+						this);
+				builder.setMessage(getText(R.string.VotamiCorpo))
+						.setTitle(getText(R.string.VotamiTitolo))
+						.setIcon(R.drawable.ic_launcher);
+				builder.setPositiveButton(getText(R.string.RecensisciSubito),
+						new DialogInterface.OnClickListener() {
+							/*
+							 * this onclick method open the play store for the
+							 * app review. if the play store doesn't exist, open
+							 * the amazon appshop if neither play store nor
+							 * appshop are installed, the method open the xday
+							 * play store web page
+							 */
+							public void onClick(DialogInterface dialog,
+									int which) {
+								Uri ur;
 								try {
-									ur = Uri.parse("amzn://apps/android?p=com.asdamp.x_day");
+									ur = Uri.parse("market://details?id=com.asdamp.x_day");
 									startActivity(new Intent(
 											"android.intent.action.VIEW", ur));
-								} catch (ActivityNotFoundException acnf) {
-									startActivity(new Intent(
-											Intent.ACTION_VIEW,
-											Uri.parse("http://play.google.com/store/apps/details?id="
-													+ "com.asdamp.x_day")));
+								} catch (ActivityNotFoundException activitynotfoundexception)
+
+								{
+									try {
+										ur = Uri.parse("amzn://apps/android?p=com.asdamp.x_day");
+										startActivity(new Intent(
+												"android.intent.action.VIEW",
+												ur));
+									} catch (ActivityNotFoundException acnf) {
+										startActivity(new Intent(
+												Intent.ACTION_VIEW,
+												Uri.parse("http://play.google.com/store/apps/details?id="
+														+ "com.asdamp.x_day")));
+									}
 								}
+
 							}
 
-						}
+						});
+				builder.setNegativeButton(getText(R.string.RicordaMai),
+						new DialogInterface.OnClickListener() {
 
-					});
-			builder.setNegativeButton(getText(R.string.RicordaMai),
-					new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
 
-						public void onClick(DialogInterface dialog, int which) {
+							}
 
-						}
+						});
+				builder.setNeutralButton(getText(R.string.RicordaTardi),
+						new DialogInterface.OnClickListener() {
 
-					});
-			builder.setNeutralButton(getText(R.string.RicordaTardi),
-					new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								spe.putInt("Utilizzi", 1);
 
-						public void onClick(DialogInterface dialog, int which) {
-							spe.putInt("Utilizzi", 0);
-
-						}
-					});
-			builder.create().show();
+							}
+						});
+				builder.create().show();
+			}
 		}
-		spe.commit();
 		super.onCreate(bundle);
-		setContentView(R.layout.main_activity);
 		lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 		date = new ArrayList<Data>();
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -165,7 +191,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	public static Data getData(int i) {
-		return (Data) date.get(i);
+		return date.get(i);
 	}
 
 	// Get all the date in db
@@ -180,7 +206,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 				 * int c=cursor.getCount(); if(c>0)tv.setVisibility(View.GONE);
 				 * else tv.setVisibility(View.VISIBLE);
 				 */
-				return cursor.getCount();
+				return cursor.getCount(); 
 			}
 			try {
 				date.add(Data.leggi(cursor, this));
@@ -200,10 +226,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 		dataChiamata = -1;
 		((MainApplication) this.getApplication()).aggiornaWidget();
 	}
-
-	
-		
-	
 
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
@@ -249,6 +271,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 								Toast.LENGTH_LONG).show();
 						e.printStackTrace();
 					}
+					int oldVersionDB=SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY).getVersion();
+					Costanti.getDB().Upgrade(oldVersionDB);
 					leggiDati();
 					aggiorna();
 				} else
@@ -270,6 +294,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		Intent intent = new Intent("com.asdamp.x_day.ADD");
 		intent.putExtra("requestCode", 1);
 		intent.putExtra("posizioneData", i);
+		intent.putExtra("MsIniziali", date.get(i).getMillisecondiIniziali());
 		startActivityForResult(intent, 1);
 	}
 
@@ -306,6 +331,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 			menu.findItem(R.id.Fine_riordinamento).setVisible(true);
 			vista.ModRiordina(true);
 			vista.notifyDataSetChanged();
+			this.pauseAutoUpdate();
 			break;
 		case R.id.Fine_riordinamento:
 			menuitem.setVisible(false);
@@ -314,6 +340,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 			vista.ModRiordina(false);
 			vista.notifyDataSetChanged();
 			((MainApplication) this.getApplication()).aggiornaWidget();
+			this.resumeAutoUpdate();
 			break;
 		case R.id.Esporta:
 			File dbf = this.getDatabasePath(DBHelper.DATABASE_NAME);
@@ -362,7 +389,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	protected void onResume() {
 		super.onResume();
 		// with this broadcast receiver the app refresh itself every minute
-		broadcastReceiver = new BroadcastReceiver() {
+		/*broadcastReceiver = new BroadcastReceiver() {
 
 			@Override
 			public void onReceive(Context context, Intent intent) {
@@ -373,20 +400,27 @@ public class MainActivity extends SherlockFragmentActivity implements
 			}
 		};
 		registerReceiver(broadcastReceiver, new IntentFilter(
-				"android.intent.action.TIME_TICK"));
+				"android.intent.action.TIME_TICK"));*/
+		this.resumeAutoUpdate();
 		leggiDati();
 
 		aggiorna();
 	}
-
-	protected void onStop() {
-		try {
-			unregisterReceiver(broadcastReceiver);
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		}
-		super.onStop();
+	private void pauseAutoUpdate(){
+		timer.cancel();
+		timer.purge();
 	}
+	private void resumeAutoUpdate(){
+		timer = new Timer();
+	    timer.scheduleAtFixedRate(new TimerTask()
+	        {
+	            public void run()
+	            {
+	            	mHandler.obtainMessage(1).sendToTarget();
+	            }
+	        }, 0, 1000);
+	}
+
 
 	protected void showLongClickDialog(View view, int i) {
 		Bundle bundle = new Bundle();
@@ -420,10 +454,16 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	private static ArrayList<Data> date;
-	private BroadcastReceiver broadcastReceiver;
 	private int dataChiamata;
 	private DragSortListView lv;
 	private Menu menu;
 	private ArrayAdapterPrincipale vista;
+	private Timer timer;
+	public Handler mHandler = new Handler() {
+
+        public void handleMessage(Message msg) {
+              aggiorna();
+    }
+	};    
 
 }
