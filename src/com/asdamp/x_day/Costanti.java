@@ -2,6 +2,7 @@ package com.asdamp.x_day;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build.VERSION;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
@@ -21,7 +22,8 @@ public class Costanti {
 	private static DBAdapter database;
 	public static String DescrizioneDefault ;
 	private static int Os;
-
+	public static SharedPreferences shprs;
+	public static android.content.SharedPreferences.Editor spe;
 	public static void inizializza(Context c) {
 		if(costanti==null) costanti= new Costanti(c);
 	}
@@ -34,7 +36,10 @@ public class Costanti {
 		DisplayMetrics dm = c.getResources().getDisplayMetrics();
 		DPI = dm.densityDpi;	
 		DescrizioneDefault=c.getString(R.string.DescrizioneDefault);
-		
+		shprs = c.getSharedPreferences(
+				"PrivateOption", 0);
+		final android.content.SharedPreferences.Editor spe = shprs
+				.edit();
 	}
 
 	public static DBAdapter getDB() {

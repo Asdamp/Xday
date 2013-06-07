@@ -34,7 +34,12 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
             Data data = (Data)date.get(i);
             new UtilityDate();
             textview.setText(UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(UtilityDate.creaData(data.getAnno(), data.getMese(), data.getGiorno(), data.getMinuto(), data.getOra()), Costanti.dt));
-            textview1.setText(data.aggiorna());
+            try{
+            	textview1.setText(data.aggiorna());
+            }
+            catch (ArithmeticException e){
+            	textview1.setText(context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");
+            }
             String s = data.getDescrizione();
             ImageView imageview;
             if(s.equalsIgnoreCase(""))

@@ -24,15 +24,14 @@
         dslv:slide_shuffle_speed="0.3" />
  
     <com.google.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-        android:id="@id/adView"
+        android:id="@+id/adViewMa"
+        xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"       
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
         ads:adUnitId="a15113dbdd765cd"
-        ads:loadAdOnCreate="@bool/ad"
         ads:testDevices="TEST_EMULATOR, A2642CE92F5DAD2149B05FE4B1F32EA5" />
 
     <TextView

@@ -5,10 +5,12 @@ import org.acra.annotation.*;
 
 import com.asdamp.widget.XdayWidgetProvider;
 
+import android.annotation.TargetApi;
 import android.app.Application;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 
 @ReportsCrashes(
 		formKey = "",
@@ -31,7 +33,7 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		ACRA.init(this);
+		/*ACRA.init(this);*/
 
 		initSingletons();
 	}
@@ -50,6 +52,7 @@ public class MainApplication extends Application {
 	    return true;
 	}
 	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void aggiornaWidget() {
 		if (Costanti.getOsVersion() >= 11) {
 			AppWidgetManager appwidgetmanager = AppWidgetManager

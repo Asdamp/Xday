@@ -21,7 +21,6 @@
 	     android:layout_height="wrap_content"
 	     android:layout_alignParentBottom="true"
 	     android:layout_centerHorizontal="true"
-	     ads:loadAdOnCreate="@bool/ad"
 	     ads:testDevices="TEST_EMULATOR,A2642CE92F5DAD2149B05FE4B1F32EA5"
 	     app:adSize="SMART_BANNER"
 	     app:adUnitId="a15113dbdd765cd" >
