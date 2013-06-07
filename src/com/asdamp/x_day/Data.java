@@ -1,45 +1,48 @@
 
 package com.asdamp.x_day;
 
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
-import java.util.*;
 import org.joda.time.*;
 /* this class isn't an activity. this class represent a Date*/
 public class Data
 {
 
-    public Data(int i, int j, int k, int l, int i1, boolean flag, boolean flag1, 
-            boolean flag2, boolean flag3, boolean flag4, boolean flag5, String s, long l1, 
+    public Data(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
+    		boolean weeks, boolean days, boolean hours,  boolean minutes, boolean seconds, String s, long msI, 
             Context context)
     {
-        anno = i;
-        mese = j;
-        giorno = k;
-        ora = l;
-        minuto = i1;
-        tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5);
+        anno = year;
+        mese = month;
+        giorno = day;
+        ora = hour;
+        minuto = minute;
+        tipo = creaPeriodType(years, months, weeks,days, hours,  minutes, seconds);
         descrizione = s;
-        millisecondiIniziali = l1;
+        millisecondiIniziali = msI;
         c = context;
     }
 
     public Data(int i, int j, int k, int l, int i1, boolean flag, boolean flag1, 
-            boolean flag2, boolean flag3, boolean flag4, boolean flag5, String s, Context context)
+            boolean flag2, boolean flag3, boolean flag4, boolean flag5,boolean seconds, String s, Context context)
     {
-        millisecondiIniziali = (new GregorianCalendar()).getTimeInMillis();
+        millisecondiIniziali =(new GregorianCalendar()).getTimeInMillis();
         anno = i;
         mese = j;
         giorno = k;
         ora = l;
         minuto = i1;
-        tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5);
+        tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5, seconds);
         descrizione = s;
         c = context;
     }
 
-    private PeriodType creaPeriodType(boolean flag, boolean flag1, boolean flag2, boolean flag3, boolean flag4, boolean flag5)
+    private PeriodType creaPeriodType(boolean flag, boolean flag1, boolean flag2, boolean flag3, boolean flag4, boolean flag5, boolean seconds)
     {
         ArrayList<DurationFieldType> arraylist = new ArrayList<DurationFieldType>();
         if(flag)
@@ -54,6 +57,8 @@ public class Data
             arraylist.add(DurationFieldType.hours());
         if(flag5)
             arraylist.add(DurationFieldType.minutes());
+        if(seconds)
+            arraylist.add(DurationFieldType.seconds());
         DurationFieldType adurationfieldtype[] = new DurationFieldType[arraylist.size()];
         int i = 0;
         Iterator<DurationFieldType> iterator = arraylist.iterator();
@@ -69,43 +74,49 @@ public class Data
     public static Data leggi(Cursor cursor, Context context)
     {
         int anno = cursor.getInt(cursor.getColumnIndex("anno"));
-        int j = cursor.getInt(cursor.getColumnIndex("mese"));
-        int k = cursor.getInt(cursor.getColumnIndex("giorno"));
-        int l = cursor.getInt(cursor.getColumnIndex("ora"));
-        int i1 = cursor.getInt(cursor.getColumnIndex("minuto"));
+        int mese = cursor.getInt(cursor.getColumnIndex("mese"));
+        int giorno = cursor.getInt(cursor.getColumnIndex("giorno"));
+        int ora = cursor.getInt(cursor.getColumnIndex("ora"));
+        int minuto = cursor.getInt(cursor.getColumnIndex("minuto"));
+
         long l1 = cursor.getLong(cursor.getColumnIndex("millisecondiIniziali"));
         String s = cursor.getString(cursor.getColumnIndex("descrizione"));
-        boolean flag;
-        boolean flag1;
-        boolean flag2;
-        boolean flag3;
-        boolean flag4;
-        boolean flag5;
+        boolean ore;
+        boolean minuti;
+        boolean anni;
+        boolean mesi;
+        boolean giorni;
+        boolean settimane;
+        boolean secondi;
         if(cursor.getInt(cursor.getColumnIndex("ore")) > 0)
-            flag = true;
+            ore = true;
         else
-            flag = false;
+            ore = false;
+        if(cursor.getInt(cursor.getColumnIndex("secondi")) > 0)
+            secondi = true;
+        else
+            secondi = false;
         if(cursor.getInt(cursor.getColumnIndex("minuti")) > 0)
-            flag1 = true;
+            minuti = true;
         else
-            flag1 = false;
+            minuti = false;
         if(cursor.getInt(cursor.getColumnIndex("anni")) > 0)
-            flag2 = true;
+            anni = true;
         else
-            flag2 = false;
+            anni = false;
         if(cursor.getInt(cursor.getColumnIndex("mesi")) > 0)
-            flag3 = true;
+            mesi = true;
         else
-            flag3 = false;
+            mesi = false;
         if(cursor.getInt(cursor.getColumnIndex("giorni")) > 0)
-            flag4 = true;
+            giorni = true;
         else
-            flag4 = false;
+            giorni = false;
         if(cursor.getInt(cursor.getColumnIndex("settimane")) > 0)
-            flag5 = true;
+            settimane = true;
         else
-            flag5 = false;
-        return new Data(anno, j, k, l, i1, flag2, flag3, flag5, flag4, flag, flag1, s, l1, context);
+            settimane = false;
+        return new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti,secondi, s, l1, context);
     }
 
     public String aggiorna()
@@ -126,6 +137,8 @@ public class Data
         int l;
         String s3;
         int i1;
+        int sec;
+        String secondiT;
         String s4;
         int j1;
         String s5;
@@ -175,6 +188,7 @@ public class Data
             
             s3 = resources.getQuantityString(R.plurals.Giorni, l, l);
         }
+        
         i1 = period.getHours();
         if(i1 == 0)
         {
@@ -193,8 +207,21 @@ public class Data
            
             s5 = resources.getQuantityString(R.plurals.Minuti, j1, j1);
         }
-        s6 = (new StringBuilder(String.valueOf(s))).append(s1).append(s2).append(s3).append(s4).append(s5).toString();
+        sec = period.getSeconds();
+        if(sec == 0)
+        {
+            secondiT = "";
+        } else
+        {
+            
+            secondiT = resources.getQuantityString(R.plurals.Secondi, sec, sec);
+        }
+        s6 = (new StringBuilder(String.valueOf(s))).append(s1).append(s2).append(s3).append(s4).append(s5).append(secondiT).toString();
         if(s6.equalsIgnoreCase(""))
+        	if(tipo.isSupported(DurationFieldType.seconds()))
+            {
+                s6 = resources.getQuantityString(R.plurals.Secondi, 0, 0);
+            } else
             if(tipo.isSupported(DurationFieldType.minutes()))
             {
                 s6 = resources.getQuantityString(R.plurals.Minuti, 0, 0);
@@ -304,7 +331,7 @@ public class Data
     }
 
     public void modifica(int i, int j, int k, int l, int i1, boolean flag, boolean flag1, 
-            boolean flag2, boolean flag3, boolean flag4, boolean flag5, String s)
+            boolean flag2, boolean flag3, boolean flag4, boolean flag5, boolean seconds, String s)
     {
         ora = l;
         minuto = i1;
@@ -312,7 +339,7 @@ public class Data
         mese = j;
         giorno = k;
         descrizione = s;
-        tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5);
+        tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5, seconds);
     }
 
     public void setAnno(int i)
