@@ -66,4 +66,36 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@color/holo_grey" >
+
+        <Button
+            android:id="@+id/Annulla"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/Annulla" />
+
+           <View
+               android:layout_width="1dp"
+               android:layout_height="match_parent"
+               android:layout_marginBottom="4dp"
+               android:layout_marginTop="4dp"
+               android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/Conferma"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/Conferma" />
+
+    </LinearLayout>
+
  </LinearLayout>

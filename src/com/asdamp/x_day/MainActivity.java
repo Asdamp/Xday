@@ -1,16 +1,21 @@
 package com.asdamp.x_day;
 
 import java.io.File;
+import com.amazon.device.ads.AdLayout;
+import com.amazon.device.ads.AdRegistration;
+import com.amazon.device.ads.AdTargetingOptions;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import android.annotation.TargetApi;
 import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
@@ -35,9 +40,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.amazon.device.ads.AdRegistration;
 import com.asdamp.database.DBHelper;
 import com.asdamp.utility.LongClickDialog;
 import com.asdamp.widget.XdayWidgetProvider;
@@ -57,9 +64,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 		// the application
 		setContentView(R.layout.main_activity);
 		Resources r = this.getResources();
-
-		SharedPreferences shprs = getSharedPreferences(
+		shprs = getSharedPreferences(
 				"PrivateOption", 0);
+		
+
 		final android.content.SharedPreferences.Editor spe = shprs
 				.edit();
 		int i = shprs.getInt("Utilizzi", 0);
@@ -72,9 +80,14 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 		spe.putInt("Utilizzi", i + 1);
 		spe.commit();
-		AdView mAdView = (AdView) this.findViewById(R.id.adViewMa);
+		/*provvisorio*/ AdRegistration.setAppKey("3c665e8fe2ef44dcbaee4dfa933a42cb");
+		AdRegistration.enableTesting(false);
+		AdRegistration.enableLogging(false);
+
+		AdLayout mAdView = (/*AdView*/AdLayout) this.findViewById(R.id.adView);
 		if (ad) {
-			mAdView.loadAd(new AdRequest().addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
+			//mAdView.loadAd(new AdRequest().addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
+			mAdView.loadAd(new AdTargetingOptions());
 			if (i == 4) {
 				android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(
 						this);
@@ -137,6 +150,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 				builder.create().show();
 			}
 		}
+		
 		super.onCreate(bundle);
 		lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 		date = new ArrayList<Data>();
@@ -221,7 +235,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 	// delete date
 	private void rimuoviData(int i) {
 		Costanti.getDB().deleteData((Data) date.get(i));
-		Costanti.getDB();
 		vista.remove((Data) date.get(i));
 		dataChiamata = -1;
 		((MainApplication) this.getApplication()).aggiornaWidget();
@@ -285,6 +298,9 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 	public boolean onCreateOptionsMenu(Menu menu1) {
 		getSupportMenuInflater().inflate(R.menu.activity_main, menu1);
+		//activate autoreorder?
+		boolean reorder=shprs.getBoolean(autoreorder, false);
+		menu1.findItem(R.id.Temporale).setChecked(reorder);
 		menu = menu1;
 		return true;
 	}
@@ -312,7 +328,20 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 	public boolean onOptionsItemSelected(MenuItem menuitem) {
 		switch (menuitem.getItemId()) {
-
+		case R.id.Temporale:
+			boolean ch=!menuitem.isChecked();
+			shprs.edit().putBoolean(autoreorder, ch).commit();
+			menuitem.setChecked(ch);
+			if(ch){
+				Collections.sort(date, date.get(0));
+				for(int i=1;i<=date.size();i++){
+					long msTemp=date.get(i-1).getMillisecondiIniziali();
+					Costanti.getDB().cambiaPosizione(msTemp,i);
+				}
+				((MainApplication) this.getApplication()).aggiornaWidget();
+			}
+		
+			break;
 		case R.id.menu_settings:
 			dataChiamata = -1;
 			Intent intent = new Intent("com.asdamp.x_day.ADD");
@@ -325,7 +354,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case R.id.aboutMain:
 			startActivity(new Intent(this, About.class));
 			break;
-		case R.id.Riordina:
+		case R.id.Manuale:
 			menuitem.setVisible(false);
 			lv.setDragEnabled(true);
 			menu.findItem(R.id.Fine_riordinamento).setVisible(true);
@@ -388,23 +417,15 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 	protected void onResume() {
 		super.onResume();
-		// with this broadcast receiver the app refresh itself every minute
-		/*broadcastReceiver = new BroadcastReceiver() {
-
-			@Override
-			public void onReceive(Context context, Intent intent) {
-				if (intent.getAction().compareTo(
-						"android.intent.action.TIME_TICK") == 0)
-					aggiorna();
-
-			}
-		};
-		registerReceiver(broadcastReceiver, new IntentFilter(
-				"android.intent.action.TIME_TICK"));*/
 		this.resumeAutoUpdate();
 		leggiDati();
 
-		aggiorna();
+		aggiorna();	
+		boolean reorder=shprs.getBoolean(autoreorder, false);
+		if(reorder)/*la riga sottostante riordina in ordine temporale.*/
+		Collections.sort(date, date.get(0));
+
+			
 	}
 	private void pauseAutoUpdate(){
 		timer.cancel();
@@ -436,6 +457,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 				getText(R.string.Parametri).toString());
 	}
 
+
+
 	private void showFileChooser() {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("file/*");
@@ -452,9 +475,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 					Toast.LENGTH_SHORT).show();
 		}
 	}
-
+	public static final String autoreorder="AutoReorder";
 	private static ArrayList<Data> date;
 	private int dataChiamata;
+	private SharedPreferences shprs;
 	private DragSortListView lv;
 	private Menu menu;
 	private ArrayAdapterPrincipale vista;

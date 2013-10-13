@@ -1,0 +1,10 @@
+Have you ever wondered to calculate how many days are left to your birthday?
+Or how many days did you live in your entire life?
+Or how many minutes do you have before your holyday end?
+Xday answers all your questions.
+Set a date, set an hour and Xday will calculate for you the time left or passed collecting all your preferred date in one single screen, constantly updated.
+Calculating days left to an event will not be a problem anymore and you can check them using the widget included in the app.
+
+If you like the app recommend it to your friends and write a review
+For bugs or ideas contact me: AltieriAntonio.dev@gmail.com
+Source code: github.com/Asdamp/Xday

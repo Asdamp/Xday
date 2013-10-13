@@ -21,7 +21,12 @@
         android:orderInCategory="1"
         android:title="@string/riordina"
         android:titleCondensed="@string/riordina"
-        android:visible="true"/>
+        android:visible="true">
+        <menu>
+            <item android:id="@+id/Manuale" android:title="@string/Manuale"/>
+            <item android:id="@+id/Temporale" android:title="@string/Temporale" android:checkable="true"/>
+        </menu>
+    </item>
     <item
         android:id="@+id/Esporta"
         android:orderInCategory="4"

@@ -2,6 +2,7 @@
 package com.asdamp.x_day;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 
@@ -10,10 +11,11 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import org.joda.time.*;
 /* this class isn't an activity. this class represent a Date*/
-public class Data
+public class Data implements Comparator<Data>
 {
 
-    public Data(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
+	
+	public Data(int year, int month, int day, int hour, int minute, boolean years, boolean months, 
     		boolean weeks, boolean days, boolean hours,  boolean minutes, boolean seconds, String s, long msI, 
             Context context)
     {
@@ -26,6 +28,9 @@ public class Data
         descrizione = s;
         millisecondiIniziali = msI;
         c = context;
+        GregorianCalendar gregoriancalendar1 = new GregorianCalendar(anno, mese, giorno, ora, minuto);
+        msFinali=gregoriancalendar1.getTimeInMillis();
+
     }
 
     public Data(int i, int j, int k, int l, int i1, boolean flag, boolean flag1, 
@@ -40,6 +45,9 @@ public class Data
         tipo = creaPeriodType(flag, flag1, flag2, flag3, flag4, flag5, seconds);
         descrizione = s;
         c = context;
+        GregorianCalendar gregoriancalendar1 = new GregorianCalendar(anno, mese, giorno, ora, minuto);
+        msFinali=gregoriancalendar1.getTimeInMillis();
+
     }
 
     private PeriodType creaPeriodType(boolean flag, boolean flag1, boolean flag2, boolean flag3, boolean flag4, boolean flag5, boolean seconds)
@@ -126,7 +134,7 @@ public class Data
         GregorianCalendar gregoriancalendar = new GregorianCalendar();
         GregorianCalendar gregoriancalendar1 = new GregorianCalendar(anno, mese, giorno, ora, minuto);
         Instant instant = new Instant(gregoriancalendar.getTimeInMillis());
-        Instant instant1 = new Instant(gregoriancalendar1.getTimeInMillis());
+        Instant InstFinale = new Instant(gregoriancalendar1.getTimeInMillis());
         Period period;
         int anno;
         String s;
@@ -144,15 +152,15 @@ public class Data
         String s5;
         String s6;
         double d;
-        if(instant.isAfter(instant1))
+        if(instant.isAfter(InstFinale))
         {
             PeriodType periodtype1 = tipo;
-            period = new Period(instant1, instant, periodtype1);
+            period = new Period(InstFinale, instant, periodtype1);
             flag = true;
         } else
         {
             PeriodType periodtype = tipo;
-            period = new Period(instant, instant1, periodtype);
+            period = new Period(instant, InstFinale, periodtype);
         }
         anno = period.getYears();
         if(anno == 0)
@@ -381,15 +389,22 @@ public class Data
     {
         tipo = periodtype;
     }
-
+    public int compare(Data lhs, Data rhs) {
+		if(lhs.msFinali<rhs.msFinali) return 1;
+		else if (lhs.msFinali>rhs.msFinali) return -1;
+		return 0;
+	}
     private int anno;
     private Context c;
     private String descrizione;
     private int giorno;
     private int mese;
     private long millisecondiIniziali;
+    public long msFinali;
     private int minuto;
     private int ora;
     private int percentuale;
     PeriodType tipo;
+	
+	
 }

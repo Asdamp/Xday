@@ -10,7 +10,7 @@
         android:id="@+id/listaMainActivity"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@id/adView"
+        android:layout_above="@+id/adView"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         dslv:collapsed_height="1.0dip"
@@ -22,8 +22,17 @@
         dslv:remove_enabled="true"
         dslv:remove_mode="clickRemove"
         dslv:slide_shuffle_speed="0.3" />
- 
-    <com.google.ads.AdView
+
+  <com.amazon.device.ads.AdLayout  
+	     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+	     android:id="@+id/adView"
+	     android:layout_width="match_parent"
+	     android:layout_height="wrap_content"
+	     android:layout_alignParentBottom="true"
+	     android:layout_centerHorizontal="true" >
+	 </com.amazon.device.ads.AdLayout  >
+	 
+ <!--     <com.google.ads.AdView
         android:id="@+id/adViewMa"
         xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"       
         android:layout_width="wrap_content"
@@ -33,16 +42,5 @@
         ads:adSize="SMART_BANNER"
         ads:adUnitId="a15113dbdd765cd"
         ads:testDevices="TEST_EMULATOR, A2642CE92F5DAD2149B05FE4B1F32EA5" />
-
-    <TextView
-        android:id="@+id/nessunaData"
-        android:layout_width="124dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:alpha="0.3"
-        android:gravity="center"
-        android:text="@string/nessunaData_empty_view"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:visibility="gone" />
-
+-->
 </RelativeLayout>

@@ -1,27 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asdamp.x_day"
     android:installLocation="auto"
-    android:versionCode="7"
-    android:versionName="1.2.7"
-    
-     >
-	<uses-sdk
+    android:versionCode="11"
+    android:versionName="1.3" >
+
+    <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
-	
- 
+        android:targetSdkVersion="18" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
-        android:allowBackup="false"
         android:name="com.asdamp.x_day.MainApplication"
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-       
         <activity
             android:name="com.asdamp.x_day.MainActivity"
             android:icon="@drawable/ic_launcher"
@@ -61,12 +58,10 @@
             android:name="com.asdamp.widget.WidgetRemote"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        
-		 
-		  
         <activity android:name="com.asdamp.widget.XdayWidgetSingleDateConfigure" >
             <intent-filter>
                 <action android:name="com.asdamp.widget.CONFIGURE_WIDGET_SOLO" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -81,19 +76,26 @@
         <activity
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-        
+
         <receiver android:name="com.asdamp.widget.XdayWidgetSingleDateProvider" >
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.asdamp.widget.OPEN_APP_SOLO" />
-                <action android:name="com.asdamp.widget.REFRESH_WIDGET_SOLO" /> 
-                <action android:name="com.asdamp.widget.OPEN_CONFIGURATION_SOLO" /> 
+                <action android:name="com.asdamp.widget.REFRESH_WIDGET_SOLO" />
+                <action android:name="com.asdamp.widget.OPEN_CONFIGURATION_SOLO" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/info_widget_data_unica" />
         </receiver>
+        <receiver
+            android:name="com.asdamp.x_day.Notification"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.amazon.device.ads.AdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>
 
 </manifest>

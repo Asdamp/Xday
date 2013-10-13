@@ -1,8 +1,11 @@
 package com.asdamp.x_day;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
+
+import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.utility.UtilityDate;
 import java.util.ArrayList;
 
@@ -32,6 +35,13 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
         if(date.size() != 0)
         {
             Data data = (Data)date.get(i);
+            try {
+				textview2.setTextColor(Costanti.getDB().cercaColore(data.getMillisecondiIniziali()));
+			} catch (DateNotFoundException e1) {
+				textview2.setTextColor(-16746590);
+				e1.printStackTrace();
+			}
+
             new UtilityDate();
             textview.setText(UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(UtilityDate.creaData(data.getAnno(), data.getMese(), data.getGiorno(), data.getMinuto(), data.getOra()), Costanti.dt));
             try{

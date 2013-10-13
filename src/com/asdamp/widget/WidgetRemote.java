@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.asdamp.database.DBAdapter;
+import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.utility.UtilityDate;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
@@ -58,6 +59,7 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 	}
 
 	public int getCount() {
+		if(cursore==null) cursore =Costanti.getDB().fetchAllData();
 		 return(cursore.getCount());
 	}
 
@@ -76,7 +78,6 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 		RemoteViews row = new RemoteViews(ctxt.getPackageName(), R.layout.widget_list_layout);
 		if(!cursore.moveToPosition(position)) return null;
 		Data posizione= Data.leggi(cursore,ctxt); 
-		System.out.println("view in posizione "+position);
 		Date d=UtilityDate.creaData(posizione.getAnno(), posizione.getMese(), posizione.getGiorno(), posizione.getMinuto(), posizione.getOra());
 		data=UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d, Costanti.dt);
 		
@@ -86,10 +87,18 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 		
 		if(temp.equalsIgnoreCase("")){
 			row.setViewVisibility(idDescrizionePersonale, View.GONE);
+		
 		}
 		else{
+			try {
+				row.setTextColor(idDescrizionePersonale, database.cercaColore(posizione.getMillisecondiIniziali()));
+			} catch (DateNotFoundException e) {
+				row.setTextColor(idDescrizionePersonale, -16746590);
+
+			}
 			row.setViewVisibility(idDescrizionePersonale, View.VISIBLE);
 			row.setTextViewText(idDescrizionePersonale, temp);
+			
 		}
 		
 		if(posizione.getPercentuale()==maxBarraProgressi){

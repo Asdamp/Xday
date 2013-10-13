@@ -1,5 +1,7 @@
 package com.asdamp.utility;
 
+import com.asdamp.x_day.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -43,7 +45,6 @@ public class LongClickDialog extends DialogFragment{
 		Bundle s=this.getArguments();
 		descrizioni=(String[]) s.getCharSequenceArray(PARAMETRI_STRING);
 		titolo=s.getString(TITOLO);
-		
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		LongClickDialogAdapter ad=new LongClickDialogAdapter(getActivity(), descrizioni);
 		builder.setAdapter(ad, new DialogInterface.OnClickListener(){
@@ -52,7 +53,7 @@ public class LongClickDialog extends DialogFragment{
 				chiamante.onLongClickDialogClick(which);
 				
 			}})
-		.setNegativeButton("Annulla", new DialogInterface.OnClickListener(){
+		.setNegativeButton(getString(R.string.Annulla), new DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface arg0, int arg1) {
 				chiamante.onLongClickDialogNegativeClick(LongClickDialog.this);

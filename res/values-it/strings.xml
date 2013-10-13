@@ -12,6 +12,10 @@
     <string name="Manca">Mancano:</string>
     <string name="Passato">Passati:</string>
     <string name="AllaData">Alla data:</string>
+        <string name="Temporale">Temporale</string>
+            <string name="Manuale">Manuale</string>
+            <string name="Notifica_il_giorno_e_arrivato">"Il giorno tanto atteso, è finalmente arrivato"</string>
+            
     <string name="DallaData">Dalla data:</string>
     <string name="Error">"I'm an error"</string>
     <string name="DescrizioneDefault">[Clicca per inserire descrizione]</string>
@@ -73,7 +77,7 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
     <string name="ConfigurationNotFoundWidgetSolo">"La data da visualizzare in questo widget è stata eliminata o è inaccessibile. Si prega di riconfigurare il widget."</string>
     <string name="loading">"Caricamento&#8230;"</string>
 		<string name="importFile"> "Seleziona un file da importare"</string>
-    
+    <string name="nessunaDataSelezionata">Non hai selezionato nessuna data, pertanto il widget non sarà aggiunto</string>
     <plurals name="Anni">
         <item quantity="other">"%d anni "</item>
         <item quantity="one">"1 anno "</item>
@@ -118,6 +122,22 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
      <string-array name="ADDselezionaDescrizione">
         <item>"Imposta una descrizione"</item>
         <item>"Inserisci una descrizione per la data"</item>
+    </string-array>
+     <string-array name="ADDselezionaColore">
+        <item>"Seleziona colore"</item>
+        <item>"Imposta un colore per la descrizione"</item>
+    </string-array>
+     <string-array name="ADDselezionaPromemoria">
+        <item>"Imposta promemoria"</item>
+        <item>"Imposta una notifica per il tuo evento"</item>
+    </string-array>
+    <string-array name="WidgetSingleSelezionaColore">
+        <item>"Seleziona colore"</item>
+        <item>"Imposta il colore di sfondo del widget"</item>
+    </string-array>
+    <string-array name="WidgetSingleSelezionaData">
+        <item>"Seleziona evento"</item>
+        <item>"Scegli l'evento da visualizzare nel widget"</item>
     </string-array>
     <string-array name="Parametri">
         <item name="Anni">"Anni"</item>
