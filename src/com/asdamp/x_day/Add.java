@@ -270,7 +270,14 @@ public class Add extends SherlockFragmentActivity implements
 		//set or delete alarm
 		Intent inte=new Intent(this, Notification.class);
 		inte.setData(Uri.parse((this.msIni+"")));
-		inte.putExtra("titolo", this.text);
+		/* se la data da notificare non ha un titolo, setta come titolo della notifica la sua data
+		 * altrimenti setta come titolo della notifica, il titolo della data
+		 */
+		if(text.equals(""))	{	
+			inte.putExtra("titolo", UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(anno, mese, giorno, ora, minuto, Costanti.dt));
+		}
+		else inte.putExtra("titolo", this.text);
+		
 		PendingIntent pi=PendingIntent.getBroadcast(this, 0, inte, PendingIntent.FLAG_UPDATE_CURRENT);
 		AlarmManager am = (AlarmManager) this.getSystemService(ALARM_SERVICE);
 		if(this.notifica && isAfterToday()){

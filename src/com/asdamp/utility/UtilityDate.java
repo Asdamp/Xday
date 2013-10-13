@@ -14,7 +14,12 @@ public class UtilityDate {
 		return dateFormat.format(date);
 		
 	}
-	
+	public static String convertiDataInStringaBasandosiSuConfigurazione(int anno, int mese, int giorno, int minuto, int ora, DateFormat dt){
+		Date date = UtilityDate.creaData(anno, mese, giorno, minuto, ora);
+		DateFormat dateFormat = dt;
+		return dateFormat.format(date);
+		
+	}
 	public static Date creaData(int anno, int mese, int giorno, int minuto, int ora){
 		DateFormat df=new SimpleDateFormat("dd-MM-yyyy-kk-mm");
 		try {
