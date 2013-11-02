@@ -1,9 +1,7 @@
 package com.asdamp.x_day;
 
 import java.io.File;
-import com.amazon.device.ads.AdLayout;
-import com.amazon.device.ads.AdRegistration;
-import com.amazon.device.ads.AdTargetingOptions;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -44,9 +42,9 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.amazon.device.ads.AdRegistration;
 import com.asdamp.database.DBHelper;
 import com.asdamp.utility.LongClickDialog;
+import com.asdamp.utility.StartupUtility;
 import com.asdamp.widget.XdayWidgetProvider;
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
@@ -60,100 +58,25 @@ public class MainActivity extends SherlockFragmentActivity implements
 	}
 
 	public void onCreate(Bundle bundle) {
-		// popup window. request a review on play store after the 4th opening of
-		// the application
-		setContentView(R.layout.main_activity);
-		Resources r = this.getResources();
-		shprs = getSharedPreferences(
-				"PrivateOption", 0);
-		
-
-		final android.content.SharedPreferences.Editor spe = shprs
-				.edit();
-		int i = shprs.getInt("Utilizzi", 0);
-		boolean ad;
-		if (i == 0) {
-			ad = r.getBoolean(R.bool.ad);
-			spe.putBoolean("Premium", ad);
-		} else
-			ad = shprs.getBoolean("Premium", true);
-
-		spe.putInt("Utilizzi", i + 1);
-		spe.commit();
-		/*provvisorio*/ AdRegistration.setAppKey("3c665e8fe2ef44dcbaee4dfa933a42cb");
-		AdRegistration.enableTesting(false);
-		AdRegistration.enableLogging(false);
-
-		AdLayout mAdView = (/*AdView*/AdLayout) this.findViewById(R.id.adView);
-		if (ad) {
-			//mAdView.loadAd(new AdRequest().addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
-			mAdView.loadAd(new AdTargetingOptions());
-			if (i == 4) {
-				android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(
-						this);
-				builder.setMessage(getText(R.string.VotamiCorpo))
-						.setTitle(getText(R.string.VotamiTitolo))
-						.setIcon(R.drawable.ic_launcher);
-				builder.setPositiveButton(getText(R.string.RecensisciSubito),
-						new DialogInterface.OnClickListener() {
-							/*
-							 * this onclick method open the play store for the
-							 * app review. if the play store doesn't exist, open
-							 * the amazon appshop if neither play store nor
-							 * appshop are installed, the method open the xday
-							 * play store web page
-							 */
-							public void onClick(DialogInterface dialog,
-									int which) {
-								Uri ur;
-								try {
-									ur = Uri.parse("market://details?id=com.asdamp.x_day");
-									startActivity(new Intent(
-											"android.intent.action.VIEW", ur));
-								} catch (ActivityNotFoundException activitynotfoundexception)
-
-								{
-									try {
-										ur = Uri.parse("amzn://apps/android?p=com.asdamp.x_day");
-										startActivity(new Intent(
-												"android.intent.action.VIEW",
-												ur));
-									} catch (ActivityNotFoundException acnf) {
-										startActivity(new Intent(
-												Intent.ACTION_VIEW,
-												Uri.parse("http://play.google.com/store/apps/details?id="
-														+ "com.asdamp.x_day")));
-									}
-								}
-
-							}
-
-						});
-				builder.setNegativeButton(getText(R.string.RicordaMai),
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-
-							}
-
-						});
-				builder.setNeutralButton(getText(R.string.RicordaTardi),
-						new DialogInterface.OnClickListener() {
-
-							public void onClick(DialogInterface dialog,
-									int which) {
-								spe.putInt("Utilizzi", 1);
-
-							}
-						});
-				builder.create().show();
-			}
-		}
-		
 		super.onCreate(bundle);
+		shprs=StartupUtility.getInstance(this).shprs;
+		setContentView(R.layout.main_activity);
+		StartupUtility st=StartupUtility.getInstance(this);
+		AdView ad=(AdView) this.findViewById(R.id.adView);
+		st.showAdMobAds(ad);
+		st.toPlayStore(getText(R.string.VotamiTitolo), getText(R.string.VotamiCorpo), R.drawable.ic_launcher,getText(R.string.RecensisciSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),4, "com.asdamp.x_day");
+		st.toPlayStore(getString(R.string.prova_smartpizza), getText(R.string.SmartPizzaCorpo), R.drawable.smart_pizza,getText(R.string.VediSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),7, "com.asdamp.smartpizza");
+		st.showChangelogIfVersionChanged(getText(R.string.cl));
 		lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 		date = new ArrayList<Data>();
+		setListView();
+
+	}
+
+	/**Initialize the list view of the main activity
+	 * 
+	 */
+	private void setListView() {
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> adapterview, View view,
@@ -197,7 +120,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 		});
 		vista = new ArrayAdapterPrincipale(this, date);
 		lv.setAdapter(vista);
-
 	}
 
 	private void aggiorna() {

@@ -142,4 +142,5 @@ This application is Open source and it's granted under the Apache License 2.0"</
     <item quantity="other">"%d seconds "</item>
     <item quantity="one">"1 second "</item>
   </plurals>
+    <string name="changelog">Changelog</string>
 </resources>

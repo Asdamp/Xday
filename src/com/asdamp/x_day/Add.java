@@ -28,14 +28,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.amazon.device.ads.AdLayout;
-import com.amazon.device.ads.AdTargetingOptions;
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
 import com.asdamp.utility.ColorPickerDialog;
 import com.asdamp.utility.DatePickerFragment;
 import com.asdamp.utility.MultipleChoiceDialog;
+import com.asdamp.utility.StartupUtility;
 import com.asdamp.utility.TextEditDialog;
 import com.asdamp.utility.TimePickerFragment;
 import com.asdamp.utility.UtilityDate;
@@ -78,28 +76,10 @@ public class Add extends SherlockFragmentActivity implements
  
 		//
 		this.setContentView(R.layout.add); 
-		//AdView mAdView = (AdView) this.findViewById(R.id.adView);
-		AdLayout mAdView = (AdLayout) this.findViewById(R.id.adView);
-		/*ad request*/
-		SharedPreferences shprs = getSharedPreferences(
-				"PrivateOption", 0);
-		final android.content.SharedPreferences.Editor spe = shprs
-				.edit();
-		int i = shprs.getInt("Utilizzi", 0);
-		boolean ad;
-		if (i == 0) {
-			Resources r = this.getResources();
-			ad = r.getBoolean(R.bool.ad);
-			spe.putBoolean("Premium", ad).commit();
-		} else
-			ad = shprs.getBoolean("Premium", true);
-		if (ad) 
-			//mAdView.loadAd(new AdRequest().addTestDevice("TEST_EMULATOR").addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
-			mAdView.loadAd(new AdTargetingOptions());
-
-		
+		AdView ads=(AdView)this.findViewById(R.id.adView);
+		StartupUtility.getInstance(this).showAdMobAds(ads);
 		Bundle b=this.getIntent().getExtras();
-		// se è stato chiamato da main activity allora setta dei valori di
+		// se ï¿½ stato chiamato da main activity allora setta dei valori di
 		// default
 		if (b.getInt("requestCode") == Costanti.CREA_DATA) {
 			ora = 0;
@@ -200,7 +180,7 @@ public class Add extends SherlockFragmentActivity implements
 		b.putString(AddArrayAdapter.SUBTITLE, res.getStringArray(R.array.ADDselezionaPromemoria)[1]);
 		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_color);
 		b.putBoolean(AddArrayAdapter.CHECK_BOX, true);
-		if(!isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data è già passata, le notifiche vengono disattivate
+		if(!isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data ï¿½ giï¿½ passata, le notifiche vengono disattivate
 
 		Log.d("chacked",""+notifica);
 		b.putBoolean(AddArrayAdapter.CHECKED, this.notifica);
@@ -286,6 +266,7 @@ public class Add extends SherlockFragmentActivity implements
 		am.set(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(), pi);
 		}
 		else am.cancel(pi);
+		
 		finish();
 	}
 	
@@ -312,7 +293,7 @@ public class Add extends SherlockFragmentActivity implements
 	/*
 	 * questo metodo viene chiamato nel caso in cui si vuole modificare una data
 	 * esistente. la data ha un periodtype come parametro di stato tuttavia
-	 * l'add tratta più agevolmente i booleani questo metodo semplicemente
+	 * l'add tratta piï¿½ agevolmente i booleani questo metodo semplicemente
 	 * converte il periodtype in boolean non restituisce nulla perchï¿½ setta
 	 * direttamente i booleani nel suo stato.
 	 */
@@ -398,7 +379,7 @@ public class Add extends SherlockFragmentActivity implements
 		tv.setText(dataStr);
 		
 		//aggiornamento Adapter. Imposta l'opzione di notifica attivata o disattivata in base 
-		//a se la data è già passata oppure no
+		//a se la data ï¿½ giï¿½ passata oppure no
 		ada.setInactive(5, !this.isAfterToday());
 
 	}

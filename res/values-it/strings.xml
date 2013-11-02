@@ -22,6 +22,8 @@
     <string name="Elimina">Elimina</string>
     <string name="Conferma">Conferma</string>
     <string name="Modifica">Modifica</string>
+        <string name="SmartPizzaCorpo">Prova</string>
+    
    	<string name="Descrizione">"Descrizione"</string>
 	<string name="InserisciDescrizione">"Inserisci una descrizione per la data"</string>
     	<string name="minimoNdate">"Devi scegliere almeno un parametro"</string>
@@ -50,6 +52,8 @@ Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</
     <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Licenza Apache 2.0</a></string>
     <string name="about">About</string>
     <string name="SourceCode">"Source code: "</string>
+        <string name="VediSubito">"Vedi subito"</string>
+    
     <string name="SelezionaDataWidget">Seleziona data</string>
     <string name="Contatti">"Per contattare lo sviluppatore, segnalare bug, proporre funzionalità: 
  altieriantonio.dev@gmail.com"</string>
@@ -147,6 +151,7 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
         <item name="Ore">"Ore"</item>
         <item name="Minuti">"Minuti"</item>
         <item name="Secondi">"Secondi"</item>
-    </string-array>
+    </string-array>
+        <string name="prova_smartpizza">Prova SmartPizza!</string>
 
 </resources>

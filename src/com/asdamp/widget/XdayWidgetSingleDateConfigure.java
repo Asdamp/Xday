@@ -17,8 +17,6 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.amazon.device.ads.AdLayout;
-import com.amazon.device.ads.AdTargetingOptions;
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
 import com.asdamp.utility.ColorPickerDialog;
@@ -66,8 +64,7 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 		c.moveToFirst();
 		
 		//show ad
-		//AdView mAdView = (AdView) this.findViewById(R.id.adView);
-				AdLayout mAdView = (AdLayout) this.findViewById(R.id.adView);
+		AdView mAdView = (AdView) this.findViewById(R.id.adView);
 		/*ad request*/
 		SharedPreferences shprs = getSharedPreferences(
 				"PrivateOption", 0);
@@ -82,8 +79,7 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 		} else
 			ad = shprs.getBoolean("Premium", true);
 		if (ad) 
-			//mAdView.loadAd(new AdRequest().addTestDevice("TEST_EMULATOR").addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
-			mAdView.loadAd(new AdTargetingOptions());
+			mAdView.loadAd(new AdRequest().addTestDevice("TEST_EMULATOR").addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));
 		//end of show ad
 		AddArrayAdapter a = showLayout();
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);

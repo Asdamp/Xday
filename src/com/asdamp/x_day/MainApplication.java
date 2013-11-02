@@ -3,6 +3,7 @@ package com.asdamp.x_day;
 import org.acra.*;
 import org.acra.annotation.*;
 
+import com.asdamp.utility.StartupUtility;
 import com.asdamp.widget.XdayWidgetProvider;
 
 import android.annotation.TargetApi;

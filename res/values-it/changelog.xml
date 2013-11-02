@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cl">
+"1.3 Update colorato
+· Ora è possibile colorare i titoli delle date
+· Ora è possibile colorare lo sfondo del widget piccolo
+· Aggiunta la possibilità di riordinare automaticamente
+
+1.2.7
+· Aggiunte nuove lingue: Tedesco e Spagnolo
+· Inserire una descrizione all'evento è più semplice adesso
+· Nuovo parametro aggiunto: secondi
+
+1.2.5
+· Aggiunta lingua inglese
+· Disponibile il source code di Xday, link nella descrizione
+· Migliorato il widget contenente una singola data"</string>
+    
+</resources>
