@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cl">
-"1.3 Update colorato
+"
+1.4
+· Aggiunta la possibilità di impostare una semplice notifica
+· Ora è possibile condividere i vostri eventi
+· Ora è possibile selezionare ed eliminare più di una data per volta
+
+1.3 Update colorato
 · Ora è possibile colorare i titoli delle date
 · Ora è possibile colorare lo sfondo del widget piccolo
 · Aggiunta la possibilità di riordinare automaticamente

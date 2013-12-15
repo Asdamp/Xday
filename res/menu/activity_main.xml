@@ -47,5 +47,4 @@
         android:title="@string/FineRiordinamento"
         android:titleCondensed="@string/FineRiordinamento"
         android:visible="false"/>
-
 </menu>

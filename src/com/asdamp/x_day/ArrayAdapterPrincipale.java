@@ -1,6 +1,7 @@
 package com.asdamp.x_day;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
@@ -27,6 +28,7 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
 
     public View getView(int i, View view, ViewGroup viewgroup)
     {
+    	
         View view1 = ((LayoutInflater)context.getSystemService("layout_inflater")).inflate(R.layout.principale, viewgroup, false);
         TextView textview = (TextView)view1.findViewById(R.id.data);
         TextView textview1 = (TextView)view1.findViewById(R.id.mancante);
@@ -42,15 +44,14 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
 				e1.printStackTrace();
 			}
 
-            new UtilityDate();
-            textview.setText(UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(UtilityDate.creaData(data.getAnno(), data.getMese(), data.getGiorno(), data.getMinuto(), data.getOra()), Costanti.dt));
+            textview.setText(date.get(i).toString());
             try{
             	textview1.setText(data.aggiorna());
             }
             catch (ArithmeticException e){
             	textview1.setText(context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");
             }
-            String s = data.getDescrizione();
+            String s = data.getDescrizioneIfExists();
             ImageView imageview;
             if(s.equalsIgnoreCase(""))
             {
@@ -82,4 +83,5 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
     private final Context context;
     private ArrayList<Data> date;
     private boolean riordina;
+	
 }

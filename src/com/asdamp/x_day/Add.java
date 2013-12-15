@@ -4,22 +4,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.joda.time.DurationFieldType;
-import org.joda.time.PeriodType;
-
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -28,11 +25,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.asdamp.exception.DateNotFoundException;
-import com.asdamp.exception.WidgetConfigurationNotFoundException;
+
+import com.android.datetimepicker.date.DatePickerDialog;
+import com.android.datetimepicker.date.DatePickerDialog.OnDateSetListener;
+import com.android.datetimepicker.time.RadialPickerLayout;
+import com.android.datetimepicker.time.TimePickerDialog;
+import com.android.datetimepicker.time.TimePickerDialog.OnTimeSetListener;
+import com.asdamp.notification.Notification;
 import com.asdamp.utility.ColorPickerDialog;
-import com.asdamp.utility.DatePickerFragment;
 import com.asdamp.utility.MultipleChoiceDialog;
+import com.asdamp.utility.ShareUtility;
 import com.asdamp.utility.StartupUtility;
 import com.asdamp.utility.TextEditDialog;
 import com.asdamp.utility.TimePickerFragment;
@@ -44,6 +46,7 @@ import com.actionbarsherlock.app.ActionBar.LayoutParams;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 
@@ -51,8 +54,7 @@ import com.google.ads.AdView;
 public class Add extends SherlockFragmentActivity implements
 		TextEditDialog.TextEditDialogInterface,
 		MultipleChoiceDialog.MultipleChoiceDialogListener,
-		DatePickerFragment.DatePickerListener,
-		TimePickerFragment.TimePickerListener,
+		
 		ColorPickerDialog.OnColorChangedListener{
 
 	@Override
@@ -178,7 +180,7 @@ public class Add extends SherlockFragmentActivity implements
 		
 		b.putString(AddArrayAdapter.TITLE, res.getStringArray(R.array.ADDselezionaPromemoria)[0]);
 		b.putString(AddArrayAdapter.SUBTITLE, res.getStringArray(R.array.ADDselezionaPromemoria)[1]);
-		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_color);
+		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_alarms);
 		b.putBoolean(AddArrayAdapter.CHECK_BOX, true);
 		if(!isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data � gi� passata, le notifiche vengono disattivate
 
@@ -222,20 +224,21 @@ public class Add extends SherlockFragmentActivity implements
 	private void operazioniFinali(int resultCode) {
 		setResult(resultCode, this.getIntent().putExtra("data", creaBundle()));
 		int requestCode = this.getIntent().getExtras().getInt("requestCode");
+		Data d=new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, secondi, text,msIni,color,notifica, this);
 		//Costanti.getDB().apri();
 		if (requestCode == Costanti.MODIFICA_DATA) {
 			if (resultCode == Costanti.CANCELLA_DATA) {
 				Costanti.getDB().deleteData(msIni);
 			}
 			if (resultCode == Costanti.TUTTO_BENE) {
-                Costanti.getDB().updateData(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti,secondi, text, msIni,color,notifica);
+                Costanti.getDB().updateData(d);
 			}
 
 		}
 		if (requestCode == Costanti.CREA_DATA) {
 			if (resultCode == Costanti.TUTTO_BENE) {
 				Log.d("millisecondi inseriti", ""+msIni);
-	            Costanti.getDB().createData(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti,secondi, text,msIni,color,notifica);
+	            Costanti.getDB().createData(d);
 			}
 
 		}
@@ -247,41 +250,24 @@ public class Add extends SherlockFragmentActivity implements
 			appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(cn), R.id.list_view_widget);
 	
 		}
-		//set or delete alarm
-		Intent inte=new Intent(this, Notification.class);
-		inte.setData(Uri.parse((this.msIni+"")));
-		/* se la data da notificare non ha un titolo, setta come titolo della notifica la sua data
-		 * altrimenti setta come titolo della notifica, il titolo della data
-		 */
-		if(text.equals(""))	{	
-			inte.putExtra("titolo", UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(anno, mese, giorno, ora, minuto, Costanti.dt));
-		}
-		else inte.putExtra("titolo", this.text);
-		
-		PendingIntent pi=PendingIntent.getBroadcast(this, 0, inte, PendingIntent.FLAG_UPDATE_CURRENT);
-		AlarmManager am = (AlarmManager) this.getSystemService(ALARM_SERVICE);
-		if(this.notifica && isAfterToday()){
-		
-		Calendar cal=new GregorianCalendar(anno, mese, giorno,ora,minuto);
-		am.set(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(), pi);
-		}
-		else am.cancel(pi);
+		Notification.scheduleNotificationById(this,d);
 		
 		finish();
 	}
 	
-	public boolean isAfterToday(){
-		Calendar cal=new GregorianCalendar(anno, mese, giorno,ora,minuto);
-		Calendar today=new GregorianCalendar();
 
-		long msFin =cal.getTimeInMillis();
-		if(msFin>today.getTimeInMillis()) return true;
-		return false;
-	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		this.getSupportMenuInflater().inflate(R.menu.activity_add, menu);
+		MenuItem shareItem=menu.findItem(R.id.share);
+		ShareActionProvider sap=(ShareActionProvider) shareItem.getActionProvider();
+		String text;
+		String subject;
+		Data dTemp=new Data(anno, mese, giorno, ora, minuto, anni, mesi, giorni, ore, minuti, secondi, anni, this.text, msIni, color,notifica, this);
+		subject=dTemp.getDescrizione();
+		text=dTemp.getShareText();
+		ShareUtility.shareText(sap, text, subject);
 		return true;
 	}
 
@@ -362,37 +348,80 @@ public class Add extends SherlockFragmentActivity implements
 
 	private void aggiornaAdd() {
 		//aggiornamento ActionBar
+		aggiornaTestoActionBar();
+		aggiornaColoreActionBar();
+		
+		// converta le informazioni della data in data, poi in stringa
+		// in base alla configurazione del sistema
+		
+		aggiornaDataActionBar();
+		
+		//aggiornamento Adapter. Imposta l'opzione di notifica attivata o disattivata in base 
+		//a se la data � gi� passata oppure no
+		aggiornaOpzioniAttive();
+
+	}
+
+	/**
+	 * 
+	 */
+	private void aggiornaOpzioniAttive() {
+		ada.setInactive(5, !this.isAfterToday());
+	}
+	/* TODO
+	 * questo metodo è temporaneo. Quando verrà fatto il refactor di tutto il progetto,
+	 * potrà essere eliminato, usando dove necessario, data.isAfterToday()*/
+	public boolean isAfterToday(){
+		Calendar cal=new GregorianCalendar(anno, mese, giorno,ora,minuto);
+		Calendar today=new GregorianCalendar();
+
+		long msFin =cal.getTimeInMillis();
+		if(msFin>today.getTimeInMillis()) return true;
+		return false;
+	}
+	/**
+	 * 
+	 */
+	private void aggiornaDataActionBar() {
+		Date d = UtilityDate.creaData(anno, mese, giorno, minuto, ora);
+		String dataStr = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
+				Costanti.dt);
+		dataStr=dataStr+" "+UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
+				DateFormat.getTimeFormat(this));
+		TextView tv = (TextView) findViewById(R.id.sottotilobottone);
+		tv.setText(dataStr);
+	}
+
+	/**
+	 * 
+	 */
+	private void aggiornaColoreActionBar() {
+		Button b = (Button) findViewById(R.id.buttoneriassuntivo);
+		aggiornaTestoActionBar();
+		b.setTextColor(color);
+		TextView tv = (TextView) findViewById(R.id.sottotilobottone);
+		tv.setTextColor(color);
+	}
+
+	/**
+	 * @return
+	 */
+	private Button aggiornaTestoActionBar() {
 		Button b = (Button) findViewById(R.id.buttoneriassuntivo);
 		if (text.equalsIgnoreCase(""))
 			b.setText(Costanti.DescrizioneDefault);
 		else
 			b.setText(text);
-		b.setTextColor(color);
-		TextView tv = (TextView) findViewById(R.id.sottotilobottone);
-		tv.setTextColor(color);
-		// converta le informazioni della data in data, poi in stringa
-		// in base alla configurazione del sistema
-		
-		Date d = UtilityDate.creaData(anno, mese, giorno, minuto, ora);
-		String dataStr = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
-				Costanti.dt);
-		tv.setText(dataStr);
-		
-		//aggiornamento Adapter. Imposta l'opzione di notifica attivata o disattivata in base 
-		//a se la data � gi� passata oppure no
-		ada.setInactive(5, !this.isAfterToday());
-
+		return b;
 	}
 
 	protected void onListItemClick(View v, int position) {
 		switch(position){
 		case 0:
 			this.showDatePickerDialog(v);
-			aggiornaAdd();
 			break;
 		case 1:
 			this.showTimePickerDialog(v);
-			aggiornaAdd();
 			break;
 		case 2:
 			this.showMultipleChoiceDialog(v);
@@ -413,14 +442,35 @@ public class Add extends SherlockFragmentActivity implements
 			}
 	}
 
-	@SuppressLint("NewApi")
 	public void showTimePickerDialog(View v) {
-		DialogFragment timeDialog = new TimePickerFragment();
-		Bundle b = new Bundle();
-		b.putInt(TimePickerFragment.HOUR, ora);
-		b.putInt(TimePickerFragment.MINUTE, minuto);
-		timeDialog.setArguments(b);
-		timeDialog.show(getSupportFragmentManager(), "Seleziona ora");
+		if(MainApplication.isMoreThenICS()){
+		OnTimeSetListener onTimeSet=new OnTimeSetListener(){
+			public void onTimeSet(RadialPickerLayout view, int hourOfDay,
+					int minute) {
+				ora=hourOfDay;
+				minuto=minute;
+				aggiornaDataActionBar();
+				aggiornaOpzioniAttive();
+				
+			}};
+		TimePickerDialog dp= TimePickerDialog.newInstance(onTimeSet,ora,minuto,true);
+		dp.show(getSupportFragmentManager(), "Seleziona ora");
+		}
+		else {
+			TimePickerFragment.TimePickerListener tps = new TimePickerFragment.TimePickerListener() {
+
+				public void setTime(int o, int mi) {
+					ora = o;
+					minuto = mi;
+					aggiornaDataActionBar();
+					aggiornaOpzioniAttive();
+
+				}
+			};
+			TimePickerFragment timeDialog = TimePickerFragment.newInstance(ora,
+					minuto, tps);
+			timeDialog.show(getSupportFragmentManager(), "Seleziona ora");
+		}
 	}
 	public void showColorPickerDialog(View v) {
 		
@@ -430,13 +480,19 @@ public class Add extends SherlockFragmentActivity implements
 		colorDialog.show();
 	}
 	public void showDatePickerDialog(View v) {
-		DialogFragment dateDialog = new DatePickerFragment();
-		Bundle b = new Bundle();
-		b.putInt(DatePickerFragment.YEAR, anno);
-		b.putInt(DatePickerFragment.MONTH, mese);
-		b.putInt(DatePickerFragment.DAY, giorno);
-		dateDialog.setArguments(b);
-		dateDialog.show(getSupportFragmentManager(), "Seleziona data");
+		OnDateSetListener onDateSet=new OnDateSetListener(){
+
+			public void onDateSet(DatePickerDialog dialog, int year,
+					int monthOfYear, int dayOfMonth) {
+				anno=year;
+				mese=monthOfYear;
+				giorno=dayOfMonth;
+				aggiornaDataActionBar();
+				aggiornaOpzioniAttive();
+			}};
+		DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,anno,mese,giorno);
+		dp.show(getSupportFragmentManager(), "Seleziona data");
+		
 	}
 
 	public void showMultipleChoiceDialog(View v) {
@@ -488,106 +544,14 @@ public class Add extends SherlockFragmentActivity implements
 
 	public void onColorChanged(int color) {
 		this.color=color;
-		this.aggiornaAdd();
+		this.aggiornaColoreActionBar();
 	}
 	public void OnTextEditDialogPositiveClick(String t) {
 		text = t;
-		aggiornaAdd();
+		this.aggiornaTestoActionBar();
 	}
 
-	public int getOra() {
-		return ora;
-	}
 
-	public int getMinuto() {
-		return minuto;
-	}
-
-	public void setHour(int ora) {
-		this.ora = ora;
-		aggiornaAdd();
-	}
-
-	public void setMinute(int minuto) {
-		this.minuto = minuto;
-		aggiornaAdd();
-	}
-
-	public int getAnno() {
-		return anno;
-	}
-
-	public int getMese() {
-		return mese;
-	}
-
-	public int getGiorno() {
-		return giorno;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setYear(int anno) {
-		this.anno = anno;
-		aggiornaAdd();
-	}
-
-	public void setMonth(int mese) {
-		this.mese = mese;
-		aggiornaAdd();
-	}
-
-	public void setDay(int giorno) {
-		this.giorno = giorno;
-		aggiornaAdd();
-	}
-
-	public boolean isAnni() {
-		return anni;
-	}
-
-	public boolean isMesi() {
-		return mesi;
-	}
-
-	public boolean isGiorni() {
-		return giorni;
-	}
-
-	public boolean isOre() {
-		return ore;
-	}
-
-	public boolean isMinuti() {
-		return minuti;
-	}
-
-	public void setAnni(boolean anni) {
-		this.anni = anni;
-
-	}
-
-	public void setMesi(boolean mesi) {
-		this.mesi = mesi;
-
-	}
-
-	public void setGiorni(boolean giorni) {
-		this.giorni = giorni;
-
-	}
-
-	public void setOre(boolean ore) {
-		this.ore = ore;
-
-	}
-
-	public void setMinuti(boolean minuti) {
-		this.minuti = minuti;
-
-	}
 
 	private int ora;
 	private int minuto;

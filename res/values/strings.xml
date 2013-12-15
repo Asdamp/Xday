@@ -143,4 +143,5 @@ This application is Open source and it's granted under the Apache License 2.0"</
     <item quantity="one">"1 second "</item>
   </plurals>
     <string name="changelog">Changelog</string>
+    <string name="Condividi">Share via</string>
 </resources>

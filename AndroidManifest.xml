@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asdamp.x_day"
     android:installLocation="auto"
-    android:versionCode="12"
-    android:versionName="1.4" >
+    android:versionCode="16"
+    android:versionName="1.4"
+     >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -11,7 +12,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    
+    
 
     <application
         android:name="com.asdamp.x_day.MainApplication"
@@ -90,12 +95,16 @@
                 android:resource="@xml/info_widget_data_unica" />
         </receiver>
         <receiver
-            android:name="com.asdamp.x_day.Notification"
+            android:name="com.asdamp.notification.Notification"
             android:process=":remote" />
-
-        <activity
-            android:name="com.amazon.device.ads.AdActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+		<receiver 
+		    android:name="com.asdamp.notification.refreshNotification">
+		    <intent-filter>
+                   <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                               <action android:name="com.asdamp.prova"/>
+                   
+            </intent-filter></receiver>
+    
     </application>
 
 </manifest>

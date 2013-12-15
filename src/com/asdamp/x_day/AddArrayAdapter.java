@@ -5,6 +5,7 @@ package com.asdamp.x_day;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,8 +64,8 @@ public class AddArrayAdapter extends ArrayAdapter<Object> {
 			checkBox.setChecked(checked);//if necessary, set the checkbox checked
 		}
 		if(bundle[position].getBoolean(INACTIVE, false)){
-			ImageView inaIm = (ImageView) rowView.findViewById(R.id.inactiveImage);
-			inaIm.setVisibility(View.VISIBLE);
+			int color=context.getResources().getColor(R.color.holo_grey);
+			rowView.setBackgroundColor(color);
 		}
 		titolo.setText(bundle[position].getString(TITLE));
 		descrizione.setText(bundle[position].getString(SUBTITLE));

@@ -154,10 +154,13 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 	public void onSingleDialogNegativeClick(int i) {
 	}
 	private void operazioniFinali(){
-		if(data==null){
-		Toast.makeText(this, this.getString(R.string.nessunaDataSelezionata), Toast.LENGTH_LONG).show();
 		Intent intent = new Intent();
 		intent.putExtra("appWidgetId", mAppWidgetId);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		if(data==null){
+		Toast.makeText(this, this.getString(R.string.nessunaDataSelezionata), Toast.LENGTH_LONG).show();
+		
+		
 		setResult(RESULT_CANCELED, intent);
 		finish();
 		}
@@ -168,8 +171,6 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 				data.getMillisecondiIniziali(), color);
 		XdayWidgetSingleDateProvider.aggiornaWidget(appwidgetmanager, data,color,
 				this, mAppWidgetId);
-		Intent intent = new Intent();
-		intent.putExtra("appWidgetId", mAppWidgetId);
 		setResult(RESULT_OK, intent);
 		finish();
 		}

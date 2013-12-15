@@ -7,52 +7,42 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import android.annotation.TargetApi;
-import android.appwidget.AppWidgetManager;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.DialogFragment;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
-
+import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
+import com.actionbarsherlock.widget.ShareActionProvider.OnShareTargetSelectedListener;
 import com.asdamp.database.DBHelper;
-import com.asdamp.utility.LongClickDialog;
+import com.asdamp.utility.ShareUtility;
 import com.asdamp.utility.StartupUtility;
-import com.asdamp.widget.XdayWidgetProvider;
-import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
 public class MainActivity extends SherlockFragmentActivity implements
-		com.asdamp.utility.LongClickDialog.LongClickDialogListener {
+ActionMode.Callback {
 
 	public MainActivity() {
 	}
@@ -65,7 +55,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		AdView ad=(AdView) this.findViewById(R.id.adView);
 		st.showAdMobAds(ad);
 		st.toPlayStore(getText(R.string.VotamiTitolo), getText(R.string.VotamiCorpo), R.drawable.ic_launcher,getText(R.string.RecensisciSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),4, "com.asdamp.x_day");
-		st.toPlayStore(getString(R.string.prova_smartpizza), getText(R.string.SmartPizzaCorpo), R.drawable.smart_pizza,getText(R.string.VediSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),7, "com.asdamp.smartpizza");
+		//st.toPlayStore(getString(R.string.prova_smartpizza), getText(R.string.SmartPizzaCorpo), R.drawable.smart_pizza,getText(R.string.VediSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),7, "com.asdamp.smartpizza");
 		st.showChangelogIfVersionChanged(getText(R.string.cl));
 		lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 		date = new ArrayList<Data>();
@@ -77,21 +67,25 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 * 
 	 */
 	private void setListView() {
+		this.registerForContextMenu(lv);
+
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> adapterview, View view,
 					int i, long l) {
-				onListItemClick(i);
+				onListItemClick(view,i);
 			}
 		});
 		// set-up listview
-		lv.setLongClickable(true);
+	//	lv.setLongClickable(true);
 		DragSortController dragsortcontroller = new DragSortController(lv);
 		dragsortcontroller.setDragHandleId(R.id.drag_image);
 		dragsortcontroller.setRemoveEnabled(true);
 		dragsortcontroller.setRemoveMode(DragSortController.FLING_REMOVE);
+		lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		lv.setFloatViewManager(dragsortcontroller);
 		lv.setOnTouchListener(dragsortcontroller);
+		lv.setLongClickable(true);
 		lv.setDropListener(new DragSortListView.DropListener() {
 
 			public void drop(int i, int j) {
@@ -114,8 +108,13 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 			public boolean onItemLongClick(AdapterView<?> adapterview,
 					View view, int i, long l) {
-				showLongClickDialog(view, i);
-				return false;
+				if(mode==null){ 
+					mode=startActionMode(MainActivity.this);
+					pauseAutoUpdate();
+				}
+				boolean checkState=!(lv.isItemChecked(i));
+				lv.setItemChecked(i, checkState);
+				return toggleListItem(view, i);
 			}
 		});
 		vista = new ArrayAdapterPrincipale(this, date);
@@ -153,12 +152,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 		} while (true);
 	}
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	// delete date
+
 	private void rimuoviData(int i) {
 		Costanti.getDB().deleteData((Data) date.get(i));
 		vista.remove((Data) date.get(i));
-		dataChiamata = -1;
 		((MainApplication) this.getApplication()).aggiornaWidget();
 	}
 
@@ -176,9 +173,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 				File dbfi = this.getDatabasePath(DBHelper.DATABASE_NAME);
 				File desti = new File(path);
-				Pattern pattern = Pattern.compile("([^\\s]+(\\.(?i)(xdy))$)");
-				Matcher m = pattern.matcher(desti.getAbsolutePath());
-				if (m.find()) {
+	
 					FileChannel src = null;
 					FileChannel dst = null;
 					try {
@@ -210,9 +205,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 					Costanti.getDB().Upgrade(oldVersionDB);
 					leggiDati();
 					aggiorna();
-				} else
-					Toast.makeText(this, this.getString(R.string.WrongFile),
-							Toast.LENGTH_LONG).show();
+				
 			}
 		}
 
@@ -223,30 +216,24 @@ public class MainActivity extends SherlockFragmentActivity implements
 		//activate autoreorder?
 		boolean reorder=shprs.getBoolean(autoreorder, false);
 		menu1.findItem(R.id.Temporale).setChecked(reorder);
-		menu = menu1;
+		mainMenu = menu1;
 		return true;
 	}
 
-	protected void onListItemClick(int i) {
-		dataChiamata = i;
+	protected void onListItemClick(View v,int i) {
+		if(mode==null){
 		Intent intent = new Intent("com.asdamp.x_day.ADD");
 		intent.putExtra("requestCode", 1);
 		intent.putExtra("posizioneData", i);
 		intent.putExtra("MsIniziali", date.get(i).getMillisecondiIniziali());
 		startActivityForResult(intent, 1);
+		}
+		else{
+			this.toggleListItem(v, i);
+		}
 	}
 
-	public void onLongClickDialogClick(int i) {
-		if (i == 0)
-			rimuoviData(dataChiamata);
-		else if (i == 1)
-			onListItemClick(dataChiamata);
-		else
-			Toast.makeText(this, "I'm an Error", Toast.LENGTH_SHORT).show();
-	}
-
-	public void onLongClickDialogNegativeClick(DialogFragment dialogfragment) {
-	}
+	
 
 	public boolean onOptionsItemSelected(MenuItem menuitem) {
 		switch (menuitem.getItemId()) {
@@ -265,9 +252,9 @@ public class MainActivity extends SherlockFragmentActivity implements
 		
 			break;
 		case R.id.menu_settings:
-			dataChiamata = -1;
 			Intent intent = new Intent("com.asdamp.x_day.ADD");
 			intent.putExtra("requestCode", 4);
+			this.pauseAutoUpdate();
 			startActivityForResult(intent, 4);
 			break;
 		case R.id.Aggiorna:
@@ -279,7 +266,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case R.id.Manuale:
 			menuitem.setVisible(false);
 			lv.setDragEnabled(true);
-			menu.findItem(R.id.Fine_riordinamento).setVisible(true);
+			mainMenu.findItem(R.id.Fine_riordinamento).setVisible(true);
 			vista.ModRiordina(true);
 			vista.notifyDataSetChanged();
 			this.pauseAutoUpdate();
@@ -287,7 +274,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case R.id.Fine_riordinamento:
 			menuitem.setVisible(false);
 			lv.setDragEnabled(false);
-			menu.findItem(R.id.Riordina).setVisible(true);
+			mainMenu.findItem(R.id.Riordina).setVisible(true);
 			vista.ModRiordina(false);
 			vista.notifyDataSetChanged();
 			((MainApplication) this.getApplication()).aggiornaWidget();
@@ -350,10 +337,14 @@ public class MainActivity extends SherlockFragmentActivity implements
 			
 	}
 	private void pauseAutoUpdate(){
-		timer.cancel();
-		timer.purge();
+		if(timer!=null){
+			timer.cancel();
+			timer.purge();
+			timer=null;
+		}
 	}
 	private void resumeAutoUpdate(){
+		if(timer==null){
 		timer = new Timer();
 	    timer.scheduleAtFixedRate(new TimerTask()
 	        {
@@ -362,21 +353,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	            	mHandler.obtainMessage(1).sendToTarget();
 	            }
 	        }, 0, 1000);
-	}
-
-
-	protected void showLongClickDialog(View view, int i) {
-		Bundle bundle = new Bundle();
-		dataChiamata = i;
-		String as[] = new String[2];
-		as[0] = getText(R.string.Elimina).toString();
-		as[1] = getText(R.string.Modifica).toString();
-		LongClickDialog longclickdialog = new LongClickDialog();
-		bundle.putCharSequenceArray("parametriString", as);
-		bundle.putString("titolo", getText(R.string.Opzioni).toString());
-		longclickdialog.setArguments(bundle);
-		longclickdialog.show(getSupportFragmentManager(),
-				getText(R.string.Parametri).toString());
+		}
 	}
 
 
@@ -397,19 +374,124 @@ public class MainActivity extends SherlockFragmentActivity implements
 					Toast.LENGTH_SHORT).show();
 		}
 	}
+
+	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+		// Inflate a menu resource providing context menu items
+        MenuInflater inflater = mode.getMenuInflater();
+        this.contextMenu=menu;
+        inflater.inflate(R.menu.activity_main_context, menu);     
+        return true;
+	}
+
+	public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+		return false;
+	}
+
+	public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+		
+		switch(item.getItemId()){
+		case(R.id.elimina):
+			SparseBooleanArray posDaEliminare=lv.getCheckedItemPositions();
+			for(int i=lv.getCount()-1;i>=0;i--){
+				
+				Log.d("eliminazione",i+" "+posDaEliminare.get(i));
+				if(posDaEliminare.get(i)) {this.rimuoviData(i);
+				lv.setItemChecked(i, false);
+				lv.getChildAt(i).setBackgroundColor(0);
+				}
+			}
+			vista.notifyDataSetChanged();
+			mode.finish();
+			this.mode=null;
+			break;
+		case(R.id.share):{
+			int i = firstChecked();
+			lv.setItemChecked(i, false);
+			Data d=date.get(i);
+			String shareText;
+			shareText = d.getShareText();
+			ShareUtility.shareText(this,shareText, d.getDescrizione());
+			mode.finish();
+			break;
+		}
+		}
+		return true;
+	}
+
+
+
+	/**
+	 * @return
+	 */
+	private int firstChecked() {
+		Log.d("share","initializing share");
+		SparseBooleanArray checkedItem=lv.getCheckedItemPositions();
+		int i=0;
+		boolean found=false;
+		while(i<=checkedItem.size()-1 && !found){			
+			if(checkedItem.get(i)) {
+				found=true;
+			}
+			else
+			i++;
+		}
+		return i;
+	}
+
+	public void onDestroyActionMode(ActionMode mode) {
+		for(int i=0;i<lv.getCount();i++){
+			lv.setItemChecked(i, false);
+			lv.getChildAt(i).setBackgroundResource(0);
+		}
+		this.resumeAutoUpdate();
+		this.mode=null;
+	}    
+	/**
+	 * @param view
+	 * @param i
+	 * @return
+	 */
+	private boolean toggleListItem(View view, int i) {
+		boolean checkState=lv.isItemChecked(i);
+		//toggle checked item
+		Log.d("checked",i+"-->"+lv.getCheckedItemPositions().get(i));
+		int colore;
+		if(checkState) colore=MainActivity.this.getResources().getColor(R.color.holo_light_blu_trans);
+		else colore=MainActivity.this.getResources().getColor(R.color.transparent);
+		view.setBackgroundColor(colore);
+		int checkedNum=checkedItemCount();
+		if(checkedNum<=0)mode.finish();
+		else if(checkedNum>=2) contextMenu.findItem(R.id.share).setVisible(false);
+		else contextMenu.findItem(R.id.share).setVisible(true);
+		return checkState;
+	}
+
+	/**
+	 * 
+	 */
+	private int checkedItemCount() {
+		SparseBooleanArray checked = lv.getCheckedItemPositions();
+		int num=0;
+		for (int i = 0; i < date.size(); i++){
+		    if (checked.get(i))
+		        num++;
+		}
+		return num;
+	}
+	
 	public static final String autoreorder="AutoReorder";
 	private static ArrayList<Data> date;
-	private int dataChiamata;
 	private SharedPreferences shprs;
 	private DragSortListView lv;
-	private Menu menu;
+	private Menu mainMenu;
+	private Menu contextMenu;
 	private ArrayAdapterPrincipale vista;
 	private Timer timer;
+	private ActionMode mode=null;
 	public Handler mHandler = new Handler() {
 
         public void handleMessage(Message msg) {
               aggiorna();
     }
-	};    
-
+	};
 }

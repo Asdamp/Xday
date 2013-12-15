@@ -1,15 +1,20 @@
 package com.asdamp.database;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.util.Log;
 
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
+import com.asdamp.notification.Notification;
 import com.asdamp.x_day.Data;
 
 public class DBAdapter {
@@ -19,25 +24,22 @@ public class DBAdapter {
 	}
 
 	private ContentValues createContentValues(Data data, int i) {
-		ContentValues contentvalues = new ContentValues();
-		contentvalues.put("anno", Integer.valueOf(data.getAnno()));
-		contentvalues.put("mese", Integer.valueOf(data.getMese()));
-		contentvalues.put("giorno", Integer.valueOf(data.getGiorno()));
-		contentvalues.put("minuto", Integer.valueOf(data.getMinuto()));
-		contentvalues.put("ora", Integer.valueOf(data.getOra()));
-		contentvalues.put("anni", Boolean.valueOf(data.getBoolAnni()));
-		contentvalues.put("mesi", Boolean.valueOf(data.getBoolMesi()));
-		contentvalues
-				.put("settimane", Boolean.valueOf(data.getBoolSettimana()));
-		contentvalues.put("giorni", Boolean.valueOf(data.getBoolGiorni()));
-		contentvalues.put("ore", Boolean.valueOf(data.getBoolOre()));
-		contentvalues.put("minuti", Boolean.valueOf(data.getBoolMinuti()));
-		contentvalues.put("millisecondiIniziali",
-				Long.valueOf(data.getMillisecondiIniziali()));
-		contentvalues.put("descrizione", data.getDescrizione());
-		if (i != -1)
-			contentvalues.put("posizione", Integer.valueOf(i));
-		return contentvalues;
+		return this.createContentValues(data.getAnno(),
+				data.getMese(), 
+				data.getGiorno(),
+				data.getOra(), 
+				data.getMinuto(),
+				data.getBoolAnni(),
+				data.getBoolMesi(), 
+				data.getBoolSettimane(), 
+				data.getBoolGiorni(), 
+				data.getBoolOre(),
+				data.getBoolMinuti(),
+				data.getBoolSecondi(),
+				data.getDescrizioneIfExists(),
+				data.getMillisecondiIniziali(),
+				data.getColor(), 
+				data.isNotificationEnabled(), i);
 	}
 
 	private ContentValues createContentValues(int year, int month, int day,
@@ -69,7 +71,7 @@ public class DBAdapter {
 
 	public Cursor AssociaDataAWidget(int i)
 			throws WidgetConfigurationNotFoundException {
-		Cursor cursor = database.query(NOME_TAVOLA_WIDGET, null, IDWIDGET+"="
+		Cursor cursor = database.query(NOME_TAVOLA_WIDGET, null, IDWIDGET + "="
 				+ i, null, null, null, null);
 		if (cursor.getCount() <= 0)
 			throw new WidgetConfigurationNotFoundException(
@@ -118,7 +120,7 @@ public class DBAdapter {
 			dbHelper = new DBHelper(context);
 			database = dbHelper.getWritableDatabase();
 		} catch (Exception exception) {
-			Log.e("DB", "il database era già aperto");
+			Log.e("DB", "il database era giï¿½ aperto");
 		}
 		return this;
 	}
@@ -147,15 +149,24 @@ public class DBAdapter {
 	public long createData(int year, int month, int day, int hour, int minute,
 			boolean years, boolean months, boolean weeks, boolean days,
 			boolean hours, boolean minutes, boolean seconds, String s,
-			long msI, int color,boolean notifica) {
+			long msI, int color, boolean notifica) {
 		ContentValues contentvalues = createContentValues(year, month, day,
 				hour, minute, years, months, weeks, days, hours, minutes,
-				seconds, s, msI, color,notifica, 0);
+				seconds, s, msI, color, notifica, 0);
 
 		return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
 	}
 
 	public boolean deleteData(long l) {
+		// delete notification if exist
+		Intent inte = new Intent(context, Notification.class);
+		inte.setData(Uri.parse(l + ""));
+		PendingIntent pi = PendingIntent.getBroadcast(context, 0, inte,
+				PendingIntent.FLAG_UPDATE_CURRENT);
+		AlarmManager am = (AlarmManager) context
+				.getSystemService(Context.ALARM_SERVICE);
+		am.cancel(pi);
+		// delete from table
 		return database.delete(NOME_TAVOLA, MILLISECONDI_INIZIALI + " = " + l,
 				null) > 0;
 
@@ -169,7 +180,10 @@ public class DBAdapter {
 		return database.query(NOME_TAVOLA, null, null, null, null, null,
 				"posizione");
 	}
-
+	public Cursor fetchAllData(String selection) {
+		return database.query(NOME_TAVOLA, null, selection, null, null, null,
+				"posizione");
+	}
 	public Cursor fetchOneDate(long l) {
 		Log.d("millisecondiDaquery", l + "=millisecondiIniziali");
 		Cursor c = database.query(NOME_TAVOLA, null, l
@@ -185,7 +199,8 @@ public class DBAdapter {
 	}
 
 	public void Upgrade(int old) {
-		dbHelper.onUpgrade(database, old, DBHelper.DATABASE_VERSION);
+		if (old != DBHelper.DATABASE_VERSION)
+			dbHelper.onUpgrade(database, old, DBHelper.DATABASE_VERSION);
 	}
 
 	public void spostamento(int i, int j, long l) {
@@ -220,7 +235,7 @@ public class DBAdapter {
 			String s, long msI, int color, boolean notifica) {
 		ContentValues contentvalues = createContentValues(year, month, day,
 				hour, minute, years, months, weeks, days, hours, minutes,
-				seconds, s, msI, color,notifica, -1);
+				seconds, s, msI, color, notifica, -1);
 		boolean flag;
 		if (database.update(NOME_TAVOLA, contentvalues, MILLISECONDI_INIZIALI
 				+ "=" + msI, null) > 0)
@@ -229,13 +244,15 @@ public class DBAdapter {
 			flag = false;
 		return flag;
 	}
+
 	public void cambiaPosizione(long msI, int i) {
-		ContentValues cv=new ContentValues();
+		ContentValues cv = new ContentValues();
 		cv.put(POSIZIONE, i);
-		database.update(NOME_TAVOLA, cv, MILLISECONDI_INIZIALI+ "=" + msI, null);
-		
-		
+		database.update(NOME_TAVOLA, cv, MILLISECONDI_INIZIALI + "=" + msI,
+				null);
+
 	}
+
 	public static final String BOOL_ANNO = "anni";
 	public static final String BOOL_GIORNO = "giorni";
 	public static final String BOOL_MESE = "mesi";
@@ -259,5 +276,5 @@ public class DBAdapter {
 	private Context context;
 	public SQLiteDatabase database;
 	private DBHelper dbHelper;
-	
+
 }

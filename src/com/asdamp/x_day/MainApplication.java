@@ -35,7 +35,6 @@ public class MainApplication extends Application {
 		super.onCreate();
 
 		//ACRA.init(this);
-
 		initSingletons();
 	}
 
@@ -52,7 +51,9 @@ public class MainApplication extends Application {
 	    }
 	    return true;
 	}
-	
+	public  static boolean isMoreThenICS(){
+		return(android.os.Build.VERSION.SDK_INT>android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH);
+	}
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void aggiornaWidget() {
 		if (Costanti.getOsVersion() >= 11) {

@@ -1,7 +1,6 @@
 package com.asdamp.utility;
 
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -13,22 +12,20 @@ public class TimePickerFragment extends DialogFragment implements
 		android.app.TimePickerDialog.OnTimeSetListener {
 
 	public interface TimePickerListener {
-		public void setMinute(int m);
-
-		public void setHour(int h);
+		public void setTime(int ora,int minuti);
 
 	}
 
-	public static final String HOUR = "hour";
+	private int ora;
 
-	public static final String MINUTE = "minute";
+	private int minuti;
 
-	private TimePickerListener chiamante;
+	private TimePickerListener listener;
 
 	public TimePickerFragment() {
 	}
-
-	@Override
+	
+	/*@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		try {
@@ -37,21 +34,26 @@ public class TimePickerFragment extends DialogFragment implements
 			throw new ClassCastException(activity.toString()
 					+ " must implement TimePickerListener");
 		}
+	}*/
+	public static TimePickerFragment newInstance(int ora, int minuti, TimePickerListener s){
+		TimePickerFragment tpf=new TimePickerFragment();
+		tpf.initialize(ora,minuti,s);
+		return tpf;
+	}
+	private void initialize(int ora2, int minuti2, TimePickerListener s) {
+		ora=ora2;
+		minuti=minuti2;
+		listener=s;
 	}
 
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		// Use the current time as the default values for the picker
-		Bundle b=this.getArguments();
-		int hour = b.getInt(HOUR);
-		int minute = b.getInt(MINUTE);
-
 		// Create a new instance of TimePickerDialog and return it
-		return new TimePickerDialog(getActivity(), this, hour, minute,
+		return new TimePickerDialog(getActivity(), this, ora, minuti,
 				DateFormat.is24HourFormat(getActivity()));
 	}
 
 	public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-		chiamante.setHour(hourOfDay);
-		chiamante.setMinute(minute);
+		listener.setTime(hourOfDay, minute);
+		
 	}
 }

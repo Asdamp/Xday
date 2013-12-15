@@ -3,7 +3,8 @@
     android:id="@+id/relative_layout_widget_single_data"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:columnCount="5"
+    android:columnCount="5"    
+  
     android:orientation="horizontal" >
 
     <ImageView
@@ -25,6 +26,7 @@
         android:id="@+id/layout_dati_main_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        
         android:layout_toRightOf="@id/drag_image" >
 
         <TextView

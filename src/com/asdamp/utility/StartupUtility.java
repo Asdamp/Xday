@@ -59,7 +59,9 @@ public class StartupUtility {
 			ads.loadAd(new AdRequest().addTestDevice(AdRequest.TEST_EMULATOR)
 					.addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276")
 					.addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5")
-					.addTestDevice("3A4195F433B132420871F4202A7789C3"));
+					.addTestDevice("3A4195F433B132420871F4202A7789C3")
+					.addTestDevice("814F884FB86C9018023155DD51B428D0")
+);
 	}
 
 	public void changeAd(boolean ads) {

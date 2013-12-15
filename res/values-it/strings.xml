@@ -153,5 +153,10 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
         <item name="Secondi">"Secondi"</item>
     </string-array>
         <string name="prova_smartpizza">Prova SmartPizza!</string>
+
+        <string name="condividi">Condividi</string>
+
+        <string name="condividi_con">condividi con</string>
 
-</resources>
+        <string name="passato_all_evento">"Sono passati {0}dall’evento {1}."</string>
+        <string name="mancano_all_evento">"Mancano {0}all’evento {1}."</string></resources>
