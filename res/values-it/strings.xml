@@ -34,17 +34,7 @@
 Circelli Fiorella
 Ruggiero Arianna
 
-Traduzione inglese: 
-Andrea Venditti
-
-Traduzione spagnola:
-Eduardo López García
-Diego Pacheco
-Javier Juárez
-
-Traduzione tedesca:
-Patrick Elsner
-
+Grazie a tutti coloro che si sono impegnati per la traduzione. 
 
 Questa applicazione utilizza le librerie Joda-time, ActionBarSherlock, ACRA e DragSortListView concesse sotto licenza Apache 2.0
 Questa applicazione è Open source ed è concessa sotto la licenza Apache 2.0"</string>
@@ -83,32 +73,38 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
 		<string name="importFile"> "Seleziona un file da importare"</string>
     <string name="nessunaDataSelezionata">Non hai selezionato nessuna data, pertanto il widget non sarà aggiunto</string>
     <plurals name="Anni">
+        <item quantity="one">"1 anno "</item>        
         <item quantity="other">"%d anni "</item>
-        <item quantity="one">"1 anno "</item>
     </plurals>
     <plurals name="Mesi">
+                <item quantity="one">"1 mese "</item>
+        
         <item quantity="other">"%d mesi "</item>
-        <item quantity="one">"1 mese "</item>
     </plurals>
     <plurals name="Settimane">
+                <item quantity="one">"1 settimana "</item>
+        
         <item quantity="other">"%d settimane "</item>
-        <item quantity="one">"1 settimana "</item>
     </plurals>
     <plurals name="Giorni">
+                <item quantity="one">"1 giorno "</item>
+        
         <item quantity="other">"%d giorni "</item>
-        <item quantity="one">"1 giorno "</item>
     </plurals>
     <plurals name="Ore">
+                <item quantity="one">"1 ora "</item>
+        
         <item quantity="other">"%d ore "</item>
-        <item quantity="one">"1 ora "</item>
     </plurals>
     <plurals name="Minuti">
+                <item quantity="one">"1 minuto "</item>
+        
         <item quantity="other">"%d minuti "</item>
-        <item quantity="one">"1 minuto "</item>
     </plurals>
 	<plurals name="Secondi">
+	            <item quantity="one">"1 secondo "</item>
+	    
         <item quantity="other">"%d secondi "</item>
-        <item quantity="one">"1 secondo "</item>
     </plurals>
     
     <string-array name="ADDselezionaData">
@@ -158,5 +154,6 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l'appl
 
         <string name="condividi_con">condividi con</string>
 
-        <string name="passato_all_evento">"Sono passati {0}dall’evento {1}."</string>
+		  <string name="Changelog">Changelog</string>
+                <string name="passato_all_evento">"Sono passati {0}dall’evento {1}."</string>
         <string name="mancano_all_evento">"Mancano {0}all’evento {1}."</string></resources>

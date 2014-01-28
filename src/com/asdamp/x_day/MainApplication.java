@@ -2,8 +2,6 @@ package com.asdamp.x_day;
 
 import org.acra.*;
 import org.acra.annotation.*;
-
-import com.asdamp.utility.StartupUtility;
 import com.asdamp.widget.XdayWidgetProvider;
 
 import android.annotation.TargetApi;
@@ -34,7 +32,7 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		//ACRA.init(this);
+		ACRA.init(this);
 		initSingletons();
 	}
 
@@ -52,7 +50,7 @@ public class MainApplication extends Application {
 	    return true;
 	}
 	public  static boolean isMoreThenICS(){
-		return(android.os.Build.VERSION.SDK_INT>android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH);
+		return(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH);
 	}
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void aggiornaWidget() {
@@ -64,4 +62,9 @@ public class MainApplication extends Application {
 							XdayWidgetProvider.class)), R.id.list_view_widget);
 		}
 }
+
+	public static boolean isMoreThenGB() {
+		return(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.GINGERBREAD);
+
+	}
 }

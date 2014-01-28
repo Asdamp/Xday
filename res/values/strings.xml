@@ -21,12 +21,13 @@
   <string name="Elimina">Delete</string>
   <string name="Conferma">Confirm</string>
   <string name="Modifica">Edit</string>
+  <string name="SmartPizzaCorpo">Try it</string>
   <string name="Descrizione">"Description"</string>
   <string name="InserisciDescrizione">"Insert a description of the date"</string>
   <string name="minimoNdate">"You must choose at least one parameter"</string>
   <string name="creditsMe">\"Application designed and developed by:
  Antonio Altieri\"</string>
-  <string name="AltriRingraziamenti">"Tester:
+  <string name="AltriRingraziamenti">\"Tester:
 Circelli Fiorella
 Ruggiero Arianna
 
@@ -42,12 +43,12 @@ German Traslator:
 Patrick Elsner
 
 This application uses Joda-time, ActionBarSherlock, ACRA and DragSortListView libraries granted under the Apache License 2.0.
-This application is Open source and it's granted under the Apache License 2.0"</string>
+This application is Open source and it\'s granted under the Apache License 2.0\"</string>
   <string name="acquisto">If you like Xday and you want to support me, buy Xday ad-free</string>
   <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache license 2.0</a></string>
   <string name="about">About</string>
-  <string name="sourceCode"><a href="http://github.com/Asdamp/Xday">Source code</a></string>
-  
+  <string name="SourceCode">"Source code: "</string>
+  <string name="VediSubito">"Take a look"</string>
   <string name="SelezionaDataWidget">Select date</string>
   <string name="Contatti">Contact the developer, report bugs, suggest features: \n altieriantonio.dev@gmail.com</string>
   <string name="Opzioni">Options</string>
@@ -73,6 +74,12 @@ This application is Open source and it's granted under the Apache License 2.0"</
   <string name="loading">"Loading…"</string>
   <string name="importFile"> \"Select a File to Import\"</string>
   <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
+  <string name="prova_smartpizza">Try SmartPizza!</string>
+  <string name="condividi">Share</string>
+  <string name="condividi_con">Share with</string>
+  <string name="Changelog">Changelog</string>
+  <string name="passato_all_evento">"Passed {0}from {1}."</string>
+  <string name="mancano_all_evento">"Left {0}from {1}."</string>
   <string-array name="ADDselezionaData">
     <item>Set date</item>
     <item>Set the date from which you want to know the left/passed time</item>
@@ -94,7 +101,7 @@ This application is Open source and it's granted under the Apache License 2.0"</
     <item>"Set a color for the description"</item>
   </string-array>
   <string-array name="ADDselezionaPromemoria">
-    <item>"set a reminder"</item>
+    <item>"Set a reminder"</item>
     <item>"Set a notification for your event"</item>
   </string-array>
   <string-array name="WidgetSingleSelezionaColore">
@@ -115,33 +122,33 @@ This application is Open source and it's granted under the Apache License 2.0"</
     <item name="Secondi">"Seconds"</item>
   </string-array>
   <plurals name="Anni">
-    <item quantity="other">"%d years "</item>
     <item quantity="one">"1 year "</item>
+    <item quantity="other">"%d years "</item>
   </plurals>
   <plurals name="Mesi">
-    <item quantity="other">"%d months "</item>
     <item quantity="one">"1 month "</item>
+    <item quantity="other">"%d months "</item>
   </plurals>
   <plurals name="Settimane">
-    <item quantity="other">"%d weeks "</item>
     <item quantity="one">"1 week "</item>
+    <item quantity="other">"%d weeks "</item>
   </plurals>
   <plurals name="Giorni">
-    <item quantity="other">"%d days "</item>
     <item quantity="one">"1 day "</item>
+    <item quantity="other">"%d days "</item>
   </plurals>
   <plurals name="Ore">
-    <item quantity="other">"%d hours "</item>
     <item quantity="one">"1 hour "</item>
+    <item quantity="other">"%d hours "</item>
   </plurals>
   <plurals name="Minuti">
-    <item quantity="other">"%d minutes "</item>
     <item quantity="one">"1 minute "</item>
+    <item quantity="other">"%d minutes "</item>
   </plurals>
   <plurals name="Secondi">
-    <item quantity="other">"%d seconds "</item>
     <item quantity="one">"1 second "</item>
+    <item quantity="other">"%d seconds "</item>
   </plurals>
-    <string name="changelog">Changelog</string>
-    <string name="Condividi">Share via</string>
+    <string name="seleziona_ora">Time select</string>
+    <string name="seleziona_data">Date select</string>
 </resources>

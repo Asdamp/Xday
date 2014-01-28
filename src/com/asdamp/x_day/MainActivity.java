@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
@@ -22,6 +21,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,8 +32,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.ShareActionProvider;
-import com.actionbarsherlock.widget.ShareActionProvider.OnShareTargetSelectedListener;
 import com.asdamp.database.DBHelper;
 import com.asdamp.utility.ShareUtility;
 import com.asdamp.utility.StartupUtility;
@@ -56,7 +54,7 @@ ActionMode.Callback {
 		st.showAdMobAds(ad);
 		st.toPlayStore(getText(R.string.VotamiTitolo), getText(R.string.VotamiCorpo), R.drawable.ic_launcher,getText(R.string.RecensisciSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),4, "com.asdamp.x_day");
 		//st.toPlayStore(getString(R.string.prova_smartpizza), getText(R.string.SmartPizzaCorpo), R.drawable.smart_pizza,getText(R.string.VediSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),7, "com.asdamp.smartpizza");
-		st.showChangelogIfVersionChanged(getText(R.string.cl));
+		st.showChangelogIfVersionChanged(getText(R.string.cl),getText(R.string.Changelog));
 		lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 		date = new ArrayList<Data>();
 		setListView();
@@ -222,6 +220,7 @@ ActionMode.Callback {
 
 	protected void onListItemClick(View v,int i) {
 		if(mode==null){
+		lv.setItemChecked(i, false);
 		Intent intent = new Intent("com.asdamp.x_day.ADD");
 		intent.putExtra("requestCode", 1);
 		intent.putExtra("posizioneData", i);
@@ -241,7 +240,7 @@ ActionMode.Callback {
 			boolean ch=!menuitem.isChecked();
 			shprs.edit().putBoolean(autoreorder, ch).commit();
 			menuitem.setChecked(ch);
-			if(ch){
+			if(ch && !date.isEmpty()){
 				Collections.sort(date, date.get(0));
 				for(int i=1;i<=date.size();i++){
 					long msTemp=date.get(i-1).getMillisecondiIniziali();
@@ -328,10 +327,13 @@ ActionMode.Callback {
 		super.onResume();
 		this.resumeAutoUpdate();
 		leggiDati();
+		if(lv==null){
+			lv = (DragSortListView) findViewById(R.id.listaMainActivity);
 
+		}
 		aggiorna();	
 		boolean reorder=shprs.getBoolean(autoreorder, false);
-		if(reorder)/*la riga sottostante riordina in ordine temporale.*/
+		if(reorder && !date.isEmpty())/*la riga sottostante riordina in ordine temporale.*/
 		Collections.sort(date, date.get(0));
 
 			
@@ -397,7 +399,8 @@ ActionMode.Callback {
 				Log.d("eliminazione",i+" "+posDaEliminare.get(i));
 				if(posDaEliminare.get(i)) {this.rimuoviData(i);
 				lv.setItemChecked(i, false);
-				lv.getChildAt(i).setBackgroundColor(0);
+				View temp =lv.getChildAt(i);
+				if(temp!=null) lv.getChildAt(i).setBackgroundColor(0);
 				}
 			}
 			vista.notifyDataSetChanged();
@@ -439,8 +442,12 @@ ActionMode.Callback {
 	}
 
 	public void onDestroyActionMode(ActionMode mode) {
+		Log.d("Action Mode", "Beginning destroy action mode. listview have "+ lv.getCount()+" elements");
 		for(int i=0;i<lv.getCount();i++){
+			Log.d("Action Mode", "Setting normal color for "+i+".");			
 			lv.setItemChecked(i, false);
+			View v=lv.getChildAt(i);
+			if(v!=null)
 			lv.getChildAt(i).setBackgroundResource(0);
 		}
 		this.resumeAutoUpdate();
@@ -452,15 +459,33 @@ ActionMode.Callback {
 	 * @return
 	 */
 	private boolean toggleListItem(View view, int i) {
-		boolean checkState=lv.isItemChecked(i);
-		//toggle checked item
+		boolean checkState=lv.getCheckedItemPositions().get(i);
+				//lv.isItemChecked(i);
+		//toggle checked item 
 		Log.d("checked",i+"-->"+lv.getCheckedItemPositions().get(i));
 		int colore;
-		if(checkState) colore=MainActivity.this.getResources().getColor(R.color.holo_light_blu_trans);
-		else colore=MainActivity.this.getResources().getColor(R.color.transparent);
-		view.setBackgroundColor(colore);
+
+		if(MainApplication.isMoreThenICS()){
+			if(checkState) colore=MainActivity.this.getResources().getColor(R.color.holo_light_blu_trans);
+			else colore=0;//transparent
+			lv.getChildAt(i).setBackgroundColor(colore);
+		}
+		else {
+			SparseBooleanArray ba=lv.getCheckedItemPositions();
+			colore=MainActivity.this.getResources().getColor(R.color.holo_light_blu_trans);
+			for (int j = 0; j < date.size(); j++){
+			    if (ba.get(j))
+			    	lv.getChildAt(lv.getCount()-1-j).setBackgroundColor(colore);
+			    else
+			    	lv.getChildAt(lv.getCount()-1-j).setBackgroundColor(0);
+
+			}
+			//lv.getChildAt(lv.getCount()-1-i).setBackgroundColor(colore);
+		}
 		int checkedNum=checkedItemCount();
-		if(checkedNum<=0)mode.finish();
+		if(checkedNum<=0){
+			if(mode!=null) mode.finish();
+		}
 		else if(checkedNum>=2) contextMenu.findItem(R.id.share).setVisible(false);
 		else contextMenu.findItem(R.id.share).setVisible(true);
 		return checkState;
@@ -490,8 +515,8 @@ ActionMode.Callback {
 	private ActionMode mode=null;
 	public Handler mHandler = new Handler() {
 
-        public void handleMessage(Message msg) {
-              aggiorna();
+        synchronized public void handleMessage(Message msg) {
+            aggiorna();
     }
 	};
 }

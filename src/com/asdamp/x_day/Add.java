@@ -5,14 +5,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -32,13 +28,7 @@ import com.android.datetimepicker.time.RadialPickerLayout;
 import com.android.datetimepicker.time.TimePickerDialog;
 import com.android.datetimepicker.time.TimePickerDialog.OnTimeSetListener;
 import com.asdamp.notification.Notification;
-import com.asdamp.utility.ColorPickerDialog;
-import com.asdamp.utility.MultipleChoiceDialog;
-import com.asdamp.utility.ShareUtility;
-import com.asdamp.utility.StartupUtility;
-import com.asdamp.utility.TextEditDialog;
-import com.asdamp.utility.TimePickerFragment;
-import com.asdamp.utility.UtilityDate;
+import com.asdamp.utility.*;
 import com.asdamp.widget.XdayWidgetProvider;
 import com.asdamp.x_day.R;
 import com.actionbarsherlock.app.ActionBar;
@@ -47,7 +37,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.ShareActionProvider;
-import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 
 
@@ -184,7 +173,7 @@ public class Add extends SherlockFragmentActivity implements
 		b.putBoolean(AddArrayAdapter.CHECK_BOX, true);
 		if(!isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data � gi� passata, le notifiche vengono disattivate
 
-		Log.d("chacked",""+notifica);
+		Log.d("AddCheckedNotification",""+notifica);
 		b.putBoolean(AddArrayAdapter.CHECKED, this.notifica);
 
 		bf[5]=(Bundle) b.clone();
@@ -264,7 +253,7 @@ public class Add extends SherlockFragmentActivity implements
 		ShareActionProvider sap=(ShareActionProvider) shareItem.getActionProvider();
 		String text;
 		String subject;
-		Data dTemp=new Data(anno, mese, giorno, ora, minuto, anni, mesi, giorni, ore, minuti, secondi, anni, this.text, msIni, color,notifica, this);
+		Data dTemp=new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, secondi, this.text, msIni, color,notifica, this);
 		subject=dTemp.getDescrizione();
 		text=dTemp.getShareText();
 		ShareUtility.shareText(sap, text, subject);
@@ -454,7 +443,7 @@ public class Add extends SherlockFragmentActivity implements
 				
 			}};
 		TimePickerDialog dp= TimePickerDialog.newInstance(onTimeSet,ora,minuto,true);
-		dp.show(getSupportFragmentManager(), "Seleziona ora");
+		dp.show(getSupportFragmentManager(), getString(R.string.seleziona_ora));
 		}
 		else {
 			TimePickerFragment.TimePickerListener tps = new TimePickerFragment.TimePickerListener() {
@@ -469,7 +458,7 @@ public class Add extends SherlockFragmentActivity implements
 			};
 			TimePickerFragment timeDialog = TimePickerFragment.newInstance(ora,
 					minuto, tps);
-			timeDialog.show(getSupportFragmentManager(), "Seleziona ora");
+			timeDialog.show(getSupportFragmentManager(), getString(R.string.seleziona_ora));
 		}
 	}
 	public void showColorPickerDialog(View v) {
@@ -480,18 +469,36 @@ public class Add extends SherlockFragmentActivity implements
 		colorDialog.show();
 	}
 	public void showDatePickerDialog(View v) {
-		OnDateSetListener onDateSet=new OnDateSetListener(){
+		if(MainApplication.isMoreThenGB()){
+			OnDateSetListener onDateSet=new OnDateSetListener(){
 
-			public void onDateSet(DatePickerDialog dialog, int year,
-					int monthOfYear, int dayOfMonth) {
-				anno=year;
-				mese=monthOfYear;
-				giorno=dayOfMonth;
-				aggiornaDataActionBar();
-				aggiornaOpzioniAttive();
-			}};
-		DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,anno,mese,giorno);
-		dp.show(getSupportFragmentManager(), "Seleziona data");
+				public void onDateSet(DatePickerDialog dialog, int year,
+						int monthOfYear, int dayOfMonth) {
+					anno=year;
+					mese=monthOfYear;
+					giorno=dayOfMonth;
+					aggiornaDataActionBar();
+					aggiornaOpzioniAttive();
+				}};
+			DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,anno,mese,giorno);
+			dp.show(getSupportFragmentManager(), getString(R.string.seleziona_data));
+		}
+		else{
+			DatePickerFragment.DatePickerListener tps = new DatePickerFragment.DatePickerListener() {
+
+				public void onDateSet(int y, int m, int d) {
+					anno=y;
+					mese=m;
+					giorno=d;
+					aggiornaDataActionBar();
+					aggiornaOpzioniAttive();
+					
+				}
+			};
+			DatePickerFragment dateDialog = DatePickerFragment.newInstance(anno,mese,giorno, tps);
+			dateDialog.show(getSupportFragmentManager(), getString(R.string.seleziona_data));
+		}
+		
 		
 	}
 
@@ -513,6 +520,8 @@ public class Add extends SherlockFragmentActivity implements
         bundle1.putBooleanArray("parametriBoolean", aflag);
         bundle1.putString("titolo", this.getString(R.string.Parametri));
         bundle1.putInt("obbligatori", 1);
+        bundle1.putString("mdate", this.getString(R.string.minimoNdate));
+
         multiplechoicedialog.setArguments(bundle1);
         multiplechoicedialog.show(getSupportFragmentManager(), "parametri");
 	}

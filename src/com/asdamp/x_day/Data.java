@@ -78,16 +78,17 @@ public class Data implements Comparator<Data> {
 			arraylist.add(DurationFieldType.minutes());
 		if (seconds)
 			arraylist.add(DurationFieldType.seconds());
-		DurationFieldType adurationfieldtype[] = new DurationFieldType[arraylist
-				.size()];
-		int i = 0;
-		Iterator<DurationFieldType> iterator = arraylist.iterator();
-		do {
-			if (!iterator.hasNext())
-				return PeriodType.forFields(adurationfieldtype);
+		DurationFieldType[] adurationfieldtype = arraylist.toArray(new DurationFieldType[arraylist.size()]);/*.iterator();
+		while(iterator.hasNext()){
 			adurationfieldtype[i] = (DurationFieldType) iterator.next();
 			i++;
-		} while (true);
+		}*/
+		if(adurationfieldtype==null || adurationfieldtype.length==0){
+			adurationfieldtype=new DurationFieldType[1];
+			adurationfieldtype[0]=DurationFieldType.days();
+		}
+		return PeriodType.forFields(adurationfieldtype);
+			
 	}
 
 	public static Data leggi(Cursor cursor, Context context) {

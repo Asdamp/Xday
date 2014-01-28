@@ -13,7 +13,7 @@
         android:id="@+id/Conferma"
         android:checkable="false"
         android:icon="@drawable/ic_action_select"
-        android:showAsAction="ifRoom"
+        android:showAsAction="always"
         android:title="@string/Conferma"
         android:titleCondensed="@string/Conferma" android:orderInCategory="3">
     </item>
