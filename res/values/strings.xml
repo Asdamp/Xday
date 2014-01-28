@@ -151,4 +151,5 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
   </plurals>
     <string name="seleziona_ora">Time select</string>
     <string name="seleziona_data">Date select</string>
+    <string name="overflow">Overflow. The result number is too big.</string>
 </resources>

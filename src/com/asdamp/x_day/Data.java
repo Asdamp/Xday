@@ -7,14 +7,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.text.format.DateFormat;
-
 import org.joda.time.*;
-
 import com.asdamp.utility.UtilityDate;
 
 /* this class isn't an activity. this class represent a Date*/
@@ -168,12 +165,17 @@ public class Data implements Comparator<Data> {
 		String s5;
 		String s6;
 		double d;
-		if (instant.isAfter(InstFinale)) {
-			PeriodType periodtype1 = tipo;
-			period = new Period(InstFinale, instant, periodtype1);
+		PeriodType periodtype = tipo;
+
+		try{
+			if (instant.isAfter(InstFinale)) {
+			period = new Period(InstFinale, instant, periodtype);
 		} else {
-			PeriodType periodtype = tipo;
 			period = new Period(instant, InstFinale, periodtype);
+		}
+		}
+		catch(ArithmeticException e){
+			return  c.getString(R.string.overflow);
 		}
 		anno = period.getYears();
 		if (anno == 0) {
