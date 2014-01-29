@@ -119,7 +119,7 @@ ActionMode.Callback {
 		lv.setAdapter(vista);
 	}
 
-	private void aggiorna() {
+	private synchronized void aggiorna() {
 		vista.notifyDataSetChanged();
 	}
 
@@ -264,16 +264,16 @@ ActionMode.Callback {
 			break;
 		case R.id.Manuale:
 			menuitem.setVisible(false);
+			this.pauseAutoUpdate();
 			lv.setDragEnabled(true);
 			mainMenu.findItem(R.id.Fine_riordinamento).setVisible(true);
 			vista.ModRiordina(true);
 			vista.notifyDataSetChanged();
-			this.pauseAutoUpdate();
 			break;
 		case R.id.Fine_riordinamento:
 			menuitem.setVisible(false);
 			lv.setDragEnabled(false);
-			mainMenu.findItem(R.id.Riordina).setVisible(true);
+			mainMenu.findItem(R.id.Manuale).setVisible(true);
 			vista.ModRiordina(false);
 			vista.notifyDataSetChanged();
 			((MainApplication) this.getApplication()).aggiornaWidget();
@@ -338,7 +338,7 @@ ActionMode.Callback {
 
 			
 	}
-	private void pauseAutoUpdate(){
+	private synchronized void pauseAutoUpdate(){
 		if(timer!=null){
 			timer.cancel();
 			timer.purge();
@@ -459,16 +459,21 @@ ActionMode.Callback {
 	 * @return
 	 */
 	private boolean toggleListItem(View view, int i) {
-		boolean checkState=lv.getCheckedItemPositions().get(i);
+		SparseBooleanArray sp=lv.getCheckedItemPositions();
+		boolean checkState=sp.get(i);
 				//lv.isItemChecked(i);
 		//toggle checked item 
+		Log.d("SparseBooleanArrayCount",sp.size()+"");
+		Log.d("DateCount",lv.getCount()+"");
 		Log.d("checked",i+"-->"+lv.getCheckedItemPositions().get(i));
 		int colore;
 
 		if(MainApplication.isMoreThenICS()){
 			if(checkState) colore=MainActivity.this.getResources().getColor(R.color.holo_light_blu_trans);
 			else colore=0;//transparent
-			lv.getChildAt(i).setBackgroundColor(colore);
+			/*View v=lv.getChildAt(i);
+			if(v!=null)
+			v*/view.setBackgroundColor(colore);
 		}
 		else {
 			SparseBooleanArray ba=lv.getCheckedItemPositions();
