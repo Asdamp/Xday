@@ -3,11 +3,11 @@ package com.asdamp.x_day;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.asdamp.utility.StartupUtility;
 import com.asdamp.utility.TextEditDialog;
+
 import android.net.Uri;
-
 import android.os.Bundle;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
@@ -32,14 +32,10 @@ TextEditDialog.TextEditDialogInterface{
 
 		t2.setMovementMethod(LinkMovementMethod.getInstance());
 		Button gPlay = (Button) this.findViewById(R.id.gPlayButton);
-		Button amazon = (Button) this.findViewById(R.id.amazonAppShopButton);		
 		View t4=this.findViewById(R.id.textView4);
-		SharedPreferences shprs = getSharedPreferences(
-				"PrivateOption", 0);
-		if(!shprs.getBoolean("Premium", true)){
+		if(!StartupUtility.getInstance(this).isPremium()){
 			t4.setVisibility(View.GONE);
 			gPlay.setVisibility(View.GONE);
-			amazon.setVisibility(View.GONE);
 		}
 		else{
 		gPlay.setOnClickListener(new OnClickListener() 
@@ -59,29 +55,14 @@ TextEditDialog.TextEditDialogInterface{
 
 			}
 		});
-		amazon.setOnClickListener(new OnClickListener() 
-		{
-
-			public void onClick(View v) {
-				try {
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri
-							.parse("amzn://apps/android?p=com.asdamp.x_dayAdFree")));
-				} catch (android.content.ActivityNotFoundException anfe) {
-					startActivity(new Intent(
-							Intent.ACTION_VIEW,
-							Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=com.asdamp.x_dayAdFree")));
-				}
-
-			}
-		});
 
 		}
 	}
 	@Override
-	/*public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu) {
 		this.getSupportMenuInflater().inflate(R.menu.activity_about, menu);
 		return true;
-	}*/
+	}
 	
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -105,16 +86,16 @@ TextEditDialog.TextEditDialogInterface{
 		textDialog.show(getSupportFragmentManager(), "testo");
 	}
 	public void OnTextEditDialogPositiveClick(String t) {
-		if(t.equalsIgnoreCase("appoftheday")){
+		String codice=t.trim();
+		codice=codice.replaceAll("\\s+","");
+		if(codice.equalsIgnoreCase("appgratis") || codice.equalsIgnoreCase("appsgratis")){
 			Toast.makeText(getApplicationContext(), this.getString(R.string.CodiceAccettato), Toast.LENGTH_LONG).show();
-			SharedPreferences sharedpreferences = getSharedPreferences("PrivateOption", 0);
-			final android.content.SharedPreferences.Editor spe = sharedpreferences.edit();
-			spe.putBoolean("Premium", false);
-			spe.commit();
+			StartupUtility.getInstance(this).setPremium(false);
 			Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
 		}
+		else Toast.makeText(this, R.string.this_code_is_invalid_please_try_to_insert_it_again_, Toast.LENGTH_LONG).show();
 		
 	}
 }

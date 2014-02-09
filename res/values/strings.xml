@@ -31,16 +31,7 @@
 Circelli Fiorella
 Ruggiero Arianna
 
-English Translator:
-Andrea Venditti
-
-Spanish Traslators:
-Eduardo López García
-Diego Pacheco
-Javier Juárez
-
-German Traslator:
-Patrick Elsner
+<a href="www.getlocalization.com/xday/">Translators</a>
 
 This application uses Joda-time, ActionBarSherlock, ACRA and DragSortListView libraries granted under the Apache License 2.0.
 This application is Open source and it\'s granted under the Apache License 2.0\"</string>
@@ -80,6 +71,8 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
   <string name="Changelog">Changelog</string>
   <string name="passato_all_evento">"Passed {0}from {1}."</string>
   <string name="mancano_all_evento">"Left {0}from {1}."</string>
+  <string name="sourceCode">"github.com/Asdamp/Xday"</string>
+  
   <string-array name="ADDselezionaData">
     <item>Set date</item>
     <item>Set the date from which you want to know the left/passed time</item>
@@ -152,4 +145,5 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="seleziona_ora">Time select</string>
     <string name="seleziona_data">Date select</string>
     <string name="overflow">Overflow. The result number is too big.</string>
+    <string name="this_code_is_invalid_please_try_to_insert_it_again_">This code is invalid. Please try to insert it again.</string>
 </resources>
