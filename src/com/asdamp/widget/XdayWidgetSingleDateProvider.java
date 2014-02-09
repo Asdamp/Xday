@@ -41,17 +41,17 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 			Intent intent = new Intent("com.asdamp.widget.REFRESH_WIDGET_SOLO");
 			intent.putExtra("appWidgetId", i);
 			remoteviews.setOnClickPendingIntent(R.id.refresh_widget_solo,
-					PendingIntent.getBroadcast(context, 0, intent, 0));
+					PendingIntent.getBroadcast(context, i, intent, 0));
 			Intent intent1 = new Intent("com.asdamp.widget.OPEN_APP_SOLO");
 			intent1.putExtra("appWidgetId", i);
 			remoteviews.setOnClickPendingIntent(
 					R.id.relative_layout_widget_single_data,
-					PendingIntent.getBroadcast(context, 0, intent1, 0));
+					PendingIntent.getBroadcast(context, i, intent1, 0));
 			Intent intent2 = new Intent(OPEN_CONFIGURATION);
 			intent2.putExtra("appWidgetId", i);
 			remoteviews.setOnClickPendingIntent(
 					R.id.single_widget_configure,
-					PendingIntent.getBroadcast(context, 0, intent2, 0));
+					PendingIntent.getBroadcast(context, i, intent2, 0));
 		/*end. All intents are enabled*/	
 			
 			String s = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(
@@ -118,6 +118,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 	}
 	public void onReceive(final Context context, final Intent intent) {
 		super.onReceive(context, intent);
+		int idWidget=intent.getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
 		if (intent.getAction().equals(OPEN_APP)) {
 			PackageManager pm = context.getPackageManager();
 			Intent i = pm.getLaunchIntentForPackage(context.getPackageName());
@@ -129,15 +130,13 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 				AppWidgetManager.ACTION_APPWIDGET_DELETED)) {
 			Log.d("widgetAction", "eliminazione widget avvenuta:");
 			DBAdapter db = Costanti.getDB(); 
-			boolean a = db.eliminaDataWidget(intent.getExtras().getInt(
-					AppWidgetManager.EXTRA_APPWIDGET_ID,
-					AppWidgetManager.INVALID_APPWIDGET_ID));
+			boolean a = db.eliminaDataWidget(idWidget);
 			Log.d("widgetAction", "" + a);
 		}
 			else if(intent.getAction().equals(OPEN_CONFIGURATION)){
 				Intent add = new Intent("com.asdamp.widget.CONFIGURE_WIDGET_SOLO");
-				Log.d("WidgetErr pre open",""+intent.getExtras().getInt("appWidgetId"));
-				add.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, intent.getExtras().getInt("appWidgetId"));
+				Log.d("WidgetErr pre open",""+idWidget);
+				add.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, idWidget);
 				add.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				add.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				context.startActivity(add);
