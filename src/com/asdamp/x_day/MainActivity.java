@@ -51,7 +51,7 @@ ActionMode.Callback {
 		setContentView(R.layout.main_activity);
 		StartupUtility st=StartupUtility.getInstance(this);
 		AdView ad=(AdView) this.findViewById(R.id.adView);
-		st.showAdMobAds(ad);
+		st.showAdMobAds(ad); 
 		st.toPlayStore(getText(R.string.VotamiTitolo), getText(R.string.VotamiCorpo), R.drawable.ic_launcher,getText(R.string.RecensisciSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),4, "com.asdamp.x_day");
 		//st.toPlayStore(getString(R.string.prova_smartpizza), getText(R.string.SmartPizzaCorpo), R.drawable.smart_pizza,getText(R.string.VediSubito),getText(R.string.RicordaMai),getText(R.string.RicordaTardi),7, "com.asdamp.smartpizza");
 		st.showChangelogIfVersionChanged(getText(R.string.cl),getText(R.string.Changelog));

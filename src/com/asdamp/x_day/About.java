@@ -61,6 +61,8 @@ TextEditDialog.TextEditDialogInterface{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		this.getSupportMenuInflater().inflate(R.menu.activity_about, menu);
+		if(StartupUtility.getInstance(this).isPremium())
+			menu.findItem(R.id.CodiceAttivazione).setVisible(false);
 		return true;
 	}
 	

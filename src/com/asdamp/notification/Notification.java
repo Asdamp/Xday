@@ -54,7 +54,7 @@ public class Notification extends BroadcastReceiver{
 		        .setLights(Color.WHITE, 500, 1500)
 		        .setSound(alarmSound)
 		        .setContentText(c.getText(R.string.Notifica_il_giorno_e_arrivato))
-		        .addAction(R.drawable.ic_action_share, c.getString(R.string.condividi), sharePendIntent)
+		        .addAction(R.drawable.ic_action_share_dark, c.getString(R.string.condividi), sharePendIntent)
         		.addAction(R.drawable.ic_action_configure, c.getString(R.string.Modifica), pendingAdd);
 				
 		// Creates an explicit intent for an Activity in your app

@@ -9,6 +9,9 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -19,8 +22,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.datetimepicker.date.DatePickerDialog;
 import com.android.datetimepicker.date.DatePickerDialog.OnDateSetListener;
@@ -39,6 +44,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.ShareActionProvider;
 import com.google.ads.AdView;
 
+import android.graphics.PorterDuff.Mode;
 
 public class Add extends SherlockFragmentActivity implements
 		TextEditDialog.TextEditDialogInterface,
@@ -73,37 +79,24 @@ public class Add extends SherlockFragmentActivity implements
 		// se � stato chiamato da main activity allora setta dei valori di
 		// default
 		if (b.getInt("requestCode") == Costanti.CREA_DATA) {
-			ora = 0;
-            minuto = 0;
-            anni = false;
-            mesi = false;
-            giorni = true;
-            minuti = false;
-            settimane = false;
-            ore = false;
-            secondi=false;
-            Calendar calendar = Calendar.getInstance();
-            anno = calendar.get(1);
-            mese = calendar.get(2);
-            giorno = calendar.get(5);
-            text = "";
-            msIni=(new GregorianCalendar()).getTimeInMillis();
-            notifica=false;
+			setupNewDate();
 		}
 		// altrimenti prende i valori proprio dalla data
 		else {
 				msIni=b.getLong("MsIniziali");
 				Log.d("millisecondi", msIni+"");
-			 	
-	            estraiParametri(msIni);
+				try {
+					color = Costanti.getDB().cercaColore(msIni);
+					estraiParametri(msIni);
+				} catch (Exception e) {
+					Toast.makeText(this, "Unable to retrive information about this date", Toast.LENGTH_SHORT).show();
+					setupNewDate();
+				}
+	           
 	            
 		}
 		
-		try {
-			color = Costanti.getDB().cercaColore(msIni);
-		} catch (Exception e) {
-			color=-16746590;
-		}
+		
 		ada = showLayout();
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
 		lista.setAdapter(ada);
@@ -129,6 +122,29 @@ public class Add extends SherlockFragmentActivity implements
 			}
 
 		});
+	}
+
+	/**
+	 * 
+	 */
+	public void setupNewDate() {
+		ora = 0;
+		minuto = 0;
+		anni = false;
+		mesi = false;
+		giorni = true;
+		minuti = false;
+		settimane = false;
+		ore = false;
+		secondi=false;
+		Calendar calendar = Calendar.getInstance();
+		anno = calendar.get(1);
+		mese = calendar.get(2);
+		giorno = calendar.get(5);
+		text = "";
+		msIni=(new GregorianCalendar()).getTimeInMillis();
+		notifica=false;   
+		color=Color.parseColor("#0099cc");
 	}
 
 	@Override
@@ -251,6 +267,7 @@ public class Add extends SherlockFragmentActivity implements
 		this.getSupportMenuInflater().inflate(R.menu.activity_add, menu);
 		MenuItem shareItem=menu.findItem(R.id.share);
 		ShareActionProvider sap=(ShareActionProvider) shareItem.getActionProvider();
+		sap.setShareHistoryFileName("xday_share_history.xml");
 		String text;
 		String subject;
 		Data dTemp=new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, secondi, this.text, msIni, color,notifica, this);
@@ -384,12 +401,17 @@ public class Add extends SherlockFragmentActivity implements
 	/**
 	 * 
 	 */
+	@SuppressLint("NewApi")
 	private void aggiornaColoreActionBar() {
 		Button b = (Button) findViewById(R.id.buttoneriassuntivo);
 		aggiornaTestoActionBar();
-		b.setTextColor(color);
-		TextView tv = (TextView) findViewById(R.id.sottotilobottone);
-		tv.setTextColor(color);
+		//next 3 lines color the action bar. a white 9.png is colored with a colorFilter
+		Drawable iv=this.getResources().getDrawable(R.drawable.ab_solid_xday_white);
+		iv.setColorFilter(color, PorterDuff.Mode.DARKEN);
+		this.getSupportActionBar().setBackgroundDrawable(iv);
+		//b.setTextColor(color);
+		//TextView tv = (TextView) findViewById(R.id.sottotilobottone);
+		//tv.setTextColor(color);
 	}
 
 	/**

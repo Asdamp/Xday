@@ -1,5 +1,77 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar" />
+    <style name="Theme.Xday" parent="@style/Theme.Sherlock.Light">
+        <item name="actionBarItemBackground">@drawable/selectable_background_xday</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Xday</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Xday</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Xday</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Xday</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Xday</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_xday</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_xday</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Xday</item>
+   		 <item name="actionOverflowButtonStyle">@style/Widget.Sherlock.ActionButton.Overflow</item>
+   		    <item name="actionModeShareDrawable">@drawable/ic_action_share_dark</item>
+   		 
+    </style>
+	
+    <style name="ActionBar.Solid.Xday" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_xday</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_xday</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_xday</item>
+        <item name="progressBarStyle">@style/ProgressBar.Xday</item>
+        <item name="titleTextStyle">@style/TitleText.xday</item>
+        
+    </style>
+
+    <style name="ActionBar.Transparent.Xday" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="background">@drawable/ab_transparent_xday</item>
+        <item name="progressBarStyle">@style/ProgressBar.Xday</item>
+    </style>
+
+    <style name="PopupMenu.Xday" parent="@style/Widget.Sherlock.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_xday</item>
+    </style>
+
+    <style name="DropDownListView.Xday" parent="@style/Widget.Sherlock.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_xday</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Xday" parent="@style/Widget.Sherlock.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_xday</item>
+        <item name="titleTextStyle">@style/TitleText.xday</item>
+    </style>
+
+	<style name="TitleText.xday" parent="@style/TextAppearance.Sherlock.Widget.ActionBar.Title">
+   	 	<item name="android:textColor">@color/white</item>
+   	 	<item name="android:textStyle">bold</item>
+	</style>
+
+    <style name="DropDownNav.Xday" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_xday</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_xday</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_xday</item>
+    </style>
+
+    <style name="ProgressBar.Xday" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_xday</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Xday" parent="@style/Widget.Sherlock.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_xday</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Xday.Widget" parent="@style/Theme.Sherlock">
+        <item name="actionBarItemBackground">@drawable/selectable_background_xday</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Xday</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Xday</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Xday</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Xday</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Xday</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_xday</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_xday</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Xday</item>
+    </style>
 
 </resources>
