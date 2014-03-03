@@ -3,7 +3,7 @@
 	<string name="CodiceAttivazione">"Codice promozionale"</string>
             
     <string name="CodiceAttivazioneDescrizione">"Inserisci un codice promozionale per eliminare le pubblicità"</string>
-    <string name="CodiceAccettato">"Codice accettato. Le pubblicità sono state totalmente rimosse"</string>
+    <string name="CodiceAccettato">"Congratulazioni! Hai appena sbloccato la Versione senza pubblicità di Xday grazie ad AppGratis!"</string>
     <string name="app_name">Xday</string>
     <string name="Annulla">Annulla</string>
     <string name="title_activity_main">Xday</string>

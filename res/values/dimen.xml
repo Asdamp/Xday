@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_bottom_add_fragment">0dp</dimen>
+    <dimen name="margin_left_add_fragment">40dp</dimen>
+        <dimen name="progress_bar_add_fragment">20dp</dimen>
+            <dimen name="progress_bar_margin_add_fragment">5dp</dimen>
+                <dimen name="progress_bar_margin_left_right_fragment">35dp</dimen>
+            
+</resources>

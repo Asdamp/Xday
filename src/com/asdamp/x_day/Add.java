@@ -4,18 +4,27 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import uk.co.chrisjenx.paralloid.Parallaxor;
+import uk.co.chrisjenx.paralloid.transform.LeftAngleTransformer;
+import uk.co.chrisjenx.paralloid.transform.LinearTransformer;
 import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -24,6 +33,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +49,7 @@ import com.asdamp.widget.XdayWidgetProvider;
 import com.asdamp.x_day.R;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.LayoutParams;
+import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -51,6 +63,7 @@ public class Add extends SherlockFragmentActivity implements
 		MultipleChoiceDialog.MultipleChoiceDialogListener,
 		
 		ColorPickerDialog.OnColorChangedListener{
+
 
 	@Override
 	protected void onCreate(Bundle s) {
@@ -100,6 +113,14 @@ public class Add extends SherlockFragmentActivity implements
 		ada = showLayout();
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
 		lista.setAdapter(ada);
+		View vh=new View(this);
+		/*View someView = (View).findViewById(someId):
+			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)
+			someView .getLayoutParams();
+			params.height = 130;
+			someView .setLayoutParams(params);
+		lista.addHeaderView();*/
+		lista.bringToFront();
 		bundle = new Bundle();
 
 		creaBundle();
@@ -124,9 +145,8 @@ public class Add extends SherlockFragmentActivity implements
 		});
 	}
 
-	/**
-	 * 
-	 */
+
+	
 	public void setupNewDate() {
 		ora = 0;
 		minuto = 0;
@@ -151,6 +171,11 @@ public class Add extends SherlockFragmentActivity implements
 	protected void onResume() {
 
 		super.onResume();
+		/*RelativeLayout imageView = (RelativeLayout) findViewById(R.id.add_date_view);
+	        ListView scrollView = (ListView) findViewById(R.id.listaAdd);
+	        if (scrollView instanceof Parallaxor) {
+	            ((Parallaxor) scrollView).parallaxViewBy(imageView,0.5f);
+	        }*/
 		creaBundle();
 	}
 	private AddArrayAdapter showLayout(){
@@ -409,9 +434,22 @@ public class Add extends SherlockFragmentActivity implements
 		Drawable iv=this.getResources().getDrawable(R.drawable.ab_solid_xday_white);
 		iv.setColorFilter(color, PorterDuff.Mode.DARKEN);
 		this.getSupportActionBar().setBackgroundDrawable(iv);
+		
 		//b.setTextColor(color);
 		//TextView tv = (TextView) findViewById(R.id.sottotilobottone);
 		//tv.setTextColor(color);
+		if(Build.VERSION.SDK_INT >= 19/*KITKAT*/)
+		try{	
+			View v = findViewById(R.id.linear_layout_main);
+			Drawable d=this.getWindow().getDecorView().getBackground();
+			LayerDrawable bgDrawable = (LayerDrawable) d;
+			Drawable draw=bgDrawable.findDrawableByLayerId(R.id.statusbar_background);
+			final ColorDrawable shape = (ColorDrawable)  draw;
+			shape.setColor(color);
+		}
+		catch(Exception e){
+			e.printStackTrace(System.err);
+		}
 	}
 
 	/**

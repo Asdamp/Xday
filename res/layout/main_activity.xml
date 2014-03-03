@@ -4,14 +4,17 @@
     xmlns:dslv="http://schemas.android.com/apk/res-auto"
     android:id="@id/linear_layout_main"
     android:layout_width="wrap_content"
+        android:fitsSystemWindows="true"
+    
     android:layout_height="wrap_content" >
 
     <com.mobeta.android.dslv.DragSortListView
         android:id="@+id/listaMainActivity"
-      	
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/adView"
+        android:background="@color/card_grey"
+        android:divider="@null"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         dslv:collapsed_height="1.0dip"

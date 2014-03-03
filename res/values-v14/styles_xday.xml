@@ -19,7 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Xday" parent="@style/Theme.Sherlock.Light">
+    <style name="Theme.Base.v14" parent="@style/Theme.Sherlock.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_xday</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Xday</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Xday</item>
@@ -35,7 +35,10 @@
         
         
     </style>
-
+	<style name="Theme.Xday" parent="@style/Theme.Base.v14">
+	                 
+        
+    </style>
     <style name="ActionBar.Solid.Xday" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_xday</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_xday</item>

@@ -1,5 +1,6 @@
 package com.asdamp.notification;
 
+import com.asdamp.database.DBAdapter;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
 
@@ -24,7 +25,9 @@ public class refreshNotification extends BroadcastReceiver {
 	}
 
 	private void refreshAll() {
-		Cursor c=Costanti.getDB().fetchAllData("notifica>0");
+		DBAdapter db=Costanti.getDB();
+		if(db==null) Costanti.inizializza(context);
+		Cursor c=db.fetchAllData("notifica>0");
 		Data data;
 		while(c.moveToNext()){
 			data=Data.leggi(c, context);

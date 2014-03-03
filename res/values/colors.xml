@@ -18,5 +18,6 @@
     <color name="holo_dark_orange">#FF8800</color>
     <color name="holo_dark_red">#CC0000</color>
     <color name="holo_grey">#40888888</color>
-    
+    <color name="card_grey">#ffeeeeee</color>
+    <color name="card_shadow">#8c666666</color>
 </resources>

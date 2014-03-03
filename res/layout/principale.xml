@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.asdamp.layout.CheckedRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relative_layout_widget_single_data"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:columnCount="5"    
-  
-    android:orientation="horizontal" >
-
-    <ImageView
-        android:id="@id/drag_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:adjustViewBounds="false"
-        android:baselineAlignBottom="false"
-        android:cropToPadding="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/drag_icon"
-        android:visibility="visible" />
-
+    android:background="@drawable/main_list_highlighter"
+    android:columnCount="5"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp" >
+    
     <RelativeLayout
         android:id="@+id/layout_dati_main_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="6dp"
         android:layout_toRightOf="@id/drag_image" >
 
         <TextView
@@ -98,11 +86,25 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_below="@id/alladata"
-            android:layout_marginBottom="10.0dip"
             android:layout_marginLeft="40.0dip"
             android:layout_marginRight="20.0dip"
             android:layout_marginTop="2.0dip"
             android:max="1000" />
+
     </RelativeLayout>
 
-</RelativeLayout>
+    <ImageView
+        android:id="@id/drag_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="false"
+        android:baselineAlignBottom="false"
+        android:cropToPadding="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/drag_icon"
+        android:visibility="visible" />
+
+</com.asdamp.layout.CheckedRelativeLayout>

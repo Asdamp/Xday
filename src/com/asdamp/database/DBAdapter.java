@@ -120,7 +120,7 @@ public class DBAdapter {
 			dbHelper = new DBHelper(context);
 			database = dbHelper.getWritableDatabase();
 		} catch (Exception exception) {
-			Log.e("DB", "il database era gi� aperto");
+			Log.e("DB", "il database era già aperto");
 		}
 		return this;
 	}
@@ -171,7 +171,13 @@ public class DBAdapter {
 				null) > 0;
 
 	}
-
+	public int numRecordsDate(){
+		Cursor mCount= database.rawQuery("select count(*) from "+NOME_TAVOLA, null);
+		mCount.moveToFirst();
+		int count= mCount.getInt(0);
+		mCount.close();
+		return count;
+	}
 	public boolean deleteData(Data data) {
 		return deleteData(data.getMillisecondiIniziali());
 	}
@@ -182,7 +188,7 @@ public class DBAdapter {
 	}
 	public Cursor fetchAllData(String selection) {
 		return database.query(NOME_TAVOLA, null, selection, null, null, null,
-				"posizione");
+				null);
 	}
 	public Cursor fetchOneDate(long l) {
 		Log.d("millisecondiDaquery", l + "=millisecondiIniziali");
@@ -251,6 +257,12 @@ public class DBAdapter {
 		database.update(NOME_TAVOLA, cv, MILLISECONDI_INIZIALI + "=" + msI,
 				null);
 
+	}
+
+	public void restart() {
+		chiudi();
+		apri();
+		
 	}
 
 	public static final String BOOL_ANNO = "anni";

@@ -6,6 +6,8 @@ import com.actionbarsherlock.view.MenuItem;
 import com.asdamp.utility.StartupUtility;
 import com.asdamp.utility.TextEditDialog;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import android.net.Uri;
 import android.os.Bundle;
 import android.content.Intent;
@@ -26,13 +28,13 @@ TextEditDialog.TextEditDialogInterface{
 		setContentView(R.layout.about);
 		//
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		TextView t2 = (TextView) findViewById(R.id.textView5);
+		TextView t2 = (TextView) findViewById(R.id.add_fragment_giorni);
 		TextView sourceCode = (TextView) findViewById(R.id.sourceCode);
 		sourceCode.setMovementMethod(LinkMovementMethod.getInstance());
 
 		t2.setMovementMethod(LinkMovementMethod.getInstance());
 		Button gPlay = (Button) this.findViewById(R.id.gPlayButton);
-		View t4=this.findViewById(R.id.textView4);
+		View t4=this.findViewById(R.id.add_fragment_settimane);
 		if(!StartupUtility.getInstance(this).isPremium()){
 			t4.setVisibility(View.GONE);
 			gPlay.setVisibility(View.GONE);

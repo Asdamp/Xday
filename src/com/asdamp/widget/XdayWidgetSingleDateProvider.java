@@ -9,11 +9,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
@@ -98,6 +100,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 		try {
 			data = dbadapter.cercaData(c.getLong(c.getColumnIndex("data")));
 			col= c.getInt(c.getColumnIndex(DBAdapter.COLORE_WIDGET));
+			c.close();
 			aggiornaWidget(appwidgetmanager, data, col, context, i);
 		} catch (WidgetConfigurationNotFoundException e) {
 			ConfigurationNotFound(appwidgetmanager, context, i);
@@ -118,7 +121,9 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 	}
 	public void onReceive(final Context context, final Intent intent) {
 		super.onReceive(context, intent);
-		int idWidget=intent.getExtras().getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
+		Bundle b=intent.getExtras();
+		if(b== null) return;
+		int idWidget=b.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID);
 		if (intent.getAction().equals(OPEN_APP)) {
 			PackageManager pm = context.getPackageManager();
 			Intent i = pm.getLaunchIntentForPackage(context.getPackageName());
