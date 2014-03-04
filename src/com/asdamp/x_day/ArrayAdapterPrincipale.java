@@ -44,9 +44,9 @@ public class ArrayAdapterPrincipale extends ArrayAdapter<Data>
 				e1.printStackTrace();
 			}
 
-            textview.setText(date.get(i).toString());
+            textview.setText(" "+date.get(i).toString());
             try{
-            	textview1.setText(data.aggiorna());
+            	textview1.setText(" "+data.aggiorna());
             }
             catch (ArithmeticException e){
             	textview1.setText(context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");

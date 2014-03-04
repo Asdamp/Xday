@@ -163,7 +163,7 @@ public class Data implements Comparator<Data> {
 		String s4;
 		int j1;
 		String s5;
-		String s6;
+		String stringaTotale="";
 		double d;
 		PeriodType periodtype = tipo;
 
@@ -179,69 +179,81 @@ public class Data implements Comparator<Data> {
 		}
 		anno = period.getYears();
 		if (anno == 0) {
-			s = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-			s = resources.getQuantityString(R.plurals.Anni, anno, anno);
+			stringaTotale = stringaTotale+ " "+resources.getQuantityString(R.plurals.Anni, anno, anno);
 		}
 		j = period.getMonths();
 		if (j == 0) {
-			s1 = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-
-			s1 = resources.getQuantityString(R.plurals.Mesi, j, j);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			s1 = tmp+resources.getQuantityString(R.plurals.Mesi, j, j);
 		}
 		k = period.getWeeks();
 		if (k == 0) {
-			s2 = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-			s2 = resources.getQuantityString(R.plurals.Settimane, k, k);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Settimane, k, k);
 		}
 		l = period.getDays();
 		if (l == 0) {
-			s3 = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-
-			s3 = resources.getQuantityString(R.plurals.Giorni, l, l);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Giorni, l, l);
 		}
 
 		i1 = period.getHours();
 		if (i1 == 0) {
-			s4 = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-
-			s4 = resources.getQuantityString(R.plurals.Ore, i1, i1);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Ore, i1, i1);
 		}
 		j1 = period.getMinutes();
 		if (j1 == 0) {
-			s5 = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-
-			s5 = resources.getQuantityString(R.plurals.Minuti, j1, j1);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			stringaTotale = stringaTotale+ tmp+resources.getQuantityString(R.plurals.Minuti, j1, j1);
 		}
 		sec = period.getSeconds();
 		if (sec == 0) {
-			secondiT = "";
+			stringaTotale = stringaTotale+"";
 		} else {
-
-			secondiT = resources.getQuantityString(R.plurals.Secondi, sec, sec);
+			String tmp;
+			if(stringaTotale.equalsIgnoreCase("")) tmp="";
+			else tmp=", ";
+			stringaTotale = stringaTotale+ tmp+resources.getQuantityString(R.plurals.Secondi, sec, sec);
 		}
-		s6 = (new StringBuilder(String.valueOf(s))).append(s1).append(s2)
-				.append(s3).append(s4).append(s5).append(secondiT).toString();
-		if (s6.equalsIgnoreCase(""))
+	
+		if (stringaTotale.equalsIgnoreCase(""))
 			if (tipo.isSupported(DurationFieldType.seconds())) {
-				s6 = resources.getQuantityString(R.plurals.Secondi, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Secondi, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.minutes())) {
-				s6 = resources.getQuantityString(R.plurals.Minuti, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Minuti, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.hours())) {
-				s6 = resources.getQuantityString(R.plurals.Ore, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Ore, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.days())) {
-				s6 = resources.getQuantityString(R.plurals.Giorni, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Giorni, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.weeks())) {
-				s6 = resources.getQuantityString(R.plurals.Settimane, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Settimane, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.months())) {
-				s6 = resources.getQuantityString(R.plurals.Mesi, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Mesi, 0, 0);
 			} else {
-				s6 = resources.getQuantityString(R.plurals.Giorni, 0, 0);
+				stringaTotale = resources.getQuantityString(R.plurals.Giorni, 0, 0);
 			}
 		
 		d = (double) (gregoriancalendar.getTimeInMillis() - millisecondiIniziali)
@@ -250,7 +262,7 @@ public class Data implements Comparator<Data> {
 			percentuale = 1000;
 		else
 			percentuale = (int) Math.floor(1000D * d);
-		return s6;
+		return stringaTotale;
 	}
 
 	public int getAnno() {
@@ -297,7 +309,7 @@ public class Data implements Comparator<Data> {
 		Date d = UtilityDate.creaData(anno, mese, giorno, minuto, ora);
 		String dataStr = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
 				Costanti.dt);
-		dataStr=dataStr+" "+UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
+		dataStr=dataStr+" - "+UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
 				DateFormat.getTimeFormat(c));
 		return dataStr;
 		}
