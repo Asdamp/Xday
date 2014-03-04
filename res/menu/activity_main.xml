@@ -16,7 +16,7 @@
         android:id="@+id/aboutMain"
         android:orderInCategory="100"
         android:title="@string/about"
-        android:titleCondensed="@string/about" android:showAsAction="always|withText"/>
+        android:titleCondensed="@string/about"/>
     <item
         android:id="@+id/Riordina"
         android:orderInCategory="1"

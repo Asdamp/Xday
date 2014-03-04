@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">UtilityAndroid</string>
+  <string name="Annulla">Annulla</string>
+    <string name="Conferma">Conferma</string>
+      <string name="Share">Condividi</string>
+    
+</resources>

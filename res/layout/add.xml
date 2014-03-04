@@ -13,10 +13,11 @@
         android:layout_above="@+id/adView"
         android:layout_alignParentTop="true"
         android:clipToPadding="false"
-        android:divider="@color/card_shadow"
+       
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false">
-        <!--  android:paddingTop="200dp"--> 
+        <!--  android:paddingTop="200dp"
+         android:divider="@color/card_shadow"--> 
 
     </uk.co.chrisjenx.paralloid.views.ParallaxListView>
 

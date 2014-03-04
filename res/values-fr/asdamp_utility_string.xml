@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Utilitaire Android</string>
+  <string name="Annulla">Annuler</string>
+    <string name="Conferma">Confirmer</string>
+      <string name="Share">Partager</string>
+    
+</resources>

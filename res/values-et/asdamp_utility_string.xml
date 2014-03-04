@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">UtilityAndroid</string>
+  <string name="Annulla">Katkesta</string>
+    <string name="Conferma">Kinnita</string>
+      <string name="Share">Jaga</string>
+    
+</resources>

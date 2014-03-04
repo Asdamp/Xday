@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">UtilityAndroid</string>
+  <string name="Annulla">Cancel</string>
+    <string name="Conferma">Confirm</string>
+      <string name="Share">Share</string>
+    
+</resources>
