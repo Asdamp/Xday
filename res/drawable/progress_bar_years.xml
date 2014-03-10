@@ -4,14 +4,14 @@
     <shape>
         <corners android:radius="0dip" />
         <stroke android:width="2px" android:color="#80c4c4c4"/>
-        <solid android:color="#e2f0b6"/>
+        <solid android:color="@color/year_empty"/>
     </shape>
 </item>
 <item android:id="@android:id/progress">
     <clip>
         <shape>
             <corners android:radius="0dip" />
-            <solid android:color="#99cc00"/>
+            <solid android:color="@color/year_full"/>
         </shape>
     </clip>
 </item>

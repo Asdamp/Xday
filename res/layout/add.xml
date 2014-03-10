@@ -15,9 +15,9 @@
         android:clipToPadding="false"
        
         android:footerDividersEnabled="false"
-        android:headerDividersEnabled="false">
-        <!--  android:paddingTop="200dp"
-         android:divider="@color/card_shadow"--> 
+        android:headerDividersEnabled="false"
+        android:paddingTop="200dp"
+        android:divider="@color/card_shadow">
 
     </uk.co.chrisjenx.paralloid.views.ParallaxListView>
 
@@ -32,11 +32,11 @@
         app:adUnitId="a15113dbdd765cd" >
     </com.google.ads.AdView>
 
-  <!--   <include
-        android:id="@+id/add_date_view"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        layout="@layout/add_date_fragment"
-        android:background="@color/card_shadow" />- -->
+   <include
+       android:id="@+id/add_date_view"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentTop="true"
+       layout="@layout/add_date_fragment"
+       android:background="@color/white" />
 
 </RelativeLayout>

@@ -114,12 +114,7 @@ public class Add extends SherlockFragmentActivity implements
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
 		lista.setAdapter(ada);
 		View vh=new View(this);
-		/*View someView = (View).findViewById(someId):
-			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)
-			someView .getLayoutParams();
-			params.height = 130;
-			someView .setLayoutParams(params);
-		lista.addHeaderView();*/
+		
 		lista.bringToFront();
 		bundle = new Bundle();
 
@@ -143,6 +138,7 @@ public class Add extends SherlockFragmentActivity implements
 			}
 
 		});
+		parallaxViews();
 	}
 
 
@@ -171,12 +167,21 @@ public class Add extends SherlockFragmentActivity implements
 	protected void onResume() {
 
 		super.onResume();
-		/*RelativeLayout imageView = (RelativeLayout) findViewById(R.id.add_date_view);
+		
+		creaBundle();
+	}
+
+
+
+	/**
+	 * 
+	 */
+	public void parallaxViews() {
+		RelativeLayout imageView = (RelativeLayout) findViewById(R.id.add_date_view);
 	        ListView scrollView = (ListView) findViewById(R.id.listaAdd);
 	        if (scrollView instanceof Parallaxor) {
 	            ((Parallaxor) scrollView).parallaxViewBy(imageView,0.5f);
-	        }*/
-		creaBundle();
+	        }
 	}
 	private AddArrayAdapter showLayout(){
 		Bundle bf[]= new Bundle[6];

@@ -4,14 +4,14 @@
     <shape>
         <corners android:radius="0dip" />
         <stroke android:width="2px" android:color="#80c4c4c4"/>
-        <solid android:color="#ffecc0"/>
+        <solid android:color="@color/week_empty"/>
     </shape>
 </item>
 <item android:id="@android:id/progress">
     <clip>
         <shape>
             <corners android:radius="0dip" />
-            <solid android:color="#ffbb33"/>
+            <solid android:color="@color/week_full"/>
         </shape>
     </clip>
 </item>

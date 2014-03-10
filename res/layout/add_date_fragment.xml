@@ -2,7 +2,7 @@
   <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
-      android:background="@color/holo_grey" >
+      android:background="@color/white" >
 
       <ProgressBar
           android:id="@+id/add_fragment_pb_minuti"
@@ -214,16 +214,86 @@
           android:textColor="@color/white" />
 
       <TextView
-          android:id="@+id/textView1"
+          android:id="@+id/add_fragment_tv_years"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignBottom="@+id/add_fragment_pb_anni"
           android:layout_alignParentLeft="true"
-          android:layout_marginBottom="-8dp"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
           android:fontFamily="condensed"
           android:text="11"
           android:textAppearance="?android:attr/textAppearanceLarge"
-          android:textColor="#99cc00"
+          android:textColor="@color/year_full"
+          android:textSize="30sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/TextView01"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/add_fragment_mesi"
+          android:layout_alignParentRight="true"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
+          android:fontFamily="condensed"
+          android:text="11"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/month_full"
+          android:textSize="30sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/TextView02"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/add_fragment_settimane"
+          android:layout_alignParentLeft="true"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
+          android:fontFamily="condensed"
+          android:text="11"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/week_full"
+          android:textSize="30sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/TextView04"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/add_fragment_giorni"
+          android:layout_alignParentRight="true"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
+          android:fontFamily="condensed"
+          android:text="11"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/day_full"
+          android:textSize="30sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/TextView03"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/add_fragment_ore"
+          android:layout_alignParentLeft="true"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
+          android:fontFamily="condensed"
+          android:text="11"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/hour_full"
+          android:textSize="30sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/TextView05"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/add_fragment_minuti"
+          android:layout_alignParentRight="true"
+          android:layout_marginBottom="@dimen/add_fragment_text_align_margin"
+          android:fontFamily="condensed"
+          android:text="11"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/minute_full"
           android:textSize="30sp"
           android:textStyle="bold" />
 
