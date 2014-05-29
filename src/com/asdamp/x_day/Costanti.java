@@ -1,13 +1,17 @@
 package com.asdamp.x_day;
 
 
+import android.annotation.SuppressLint;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
-
 import com.asdamp.database.DBAdapter;
+import com.asdamp.widget.XdayWidgetProvider;
 //the class Costanti is supposed to be a singleton. this class is initializated by MainApplication class
 public class Costanti {
 	public static final int MODIFICA_DATA = 1;
@@ -19,6 +23,8 @@ public class Costanti {
 	public static int DPI = 0;
 	private static Costanti costanti = null;
 	public static java.text.DateFormat dt;
+	public static java.text.DateFormat tf;
+
 	private static DBAdapter database;
 	public static String DescrizioneDefault ;
 	private static int Os;
@@ -30,7 +36,8 @@ public class Costanti {
 
 	private Costanti(Context c) {
 		
-		Costanti.dt = DateFormat.getDateFormat(c);
+		dt = DateFormat.getDateFormat(c);
+		tf = DateFormat.getTimeFormat(c);
 		database = (new DBAdapter(c));
 		Os = VERSION.SDK_INT;
 		DisplayMetrics dm = c.getResources().getDisplayMetrics();
@@ -56,6 +63,17 @@ public class Costanti {
 	public static int getDPI(){
 		
 		return DPI;
+	}
+
+	@SuppressLint("NewApi")
+	public static void updateWidget(Context c) {
+		if(Costanti.getOsVersion()>=Build.VERSION_CODES.HONEYCOMB){
+			AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(c);
+			final ComponentName cn = new ComponentName(c, XdayWidgetProvider.class);
+			appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(cn), R.id.list_view_widget);
+	
+		}
+		
 	}
 	
 

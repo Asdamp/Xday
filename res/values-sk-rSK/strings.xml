@@ -3,7 +3,7 @@
 <resources>
   <string name="CodiceAttivazione">"Propagačný kód"</string>
   <string name="CodiceAttivazioneDescrizione">"Zadajte propagačný kód pre odstránenie reklám"</string>
-  <string name="CodiceAccettato">"Kód prijatý. Užije si všetky prémiové funkcie."</string>
+  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
   <string name="app_name">Xdeň</string>
   <string name="Annulla">Zrušiť</string>
   <string name="title_activity_main">Xdeň</string>
@@ -17,7 +17,7 @@
   <string name="Notifica_il_giorno_e_arrivato">"Ten dlho očakávaný deň je konečne tu"</string>
   <string name="DallaData">Od:</string>
   <string name="Error">"Ja som chyba"</string>
-  <string name="DescrizioneDefault">[Click to insert description]</string>
+  <string name="DescrizioneDefault">[Kliknúť pre vloženie popisu]</string>
   <string name="Elimina">Zmazať</string>
   <string name="Conferma">Potvrdiť</string>
   <string name="Modifica">Upraviť</string>
@@ -50,18 +50,18 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
   <string name="acquisto">If you like Xday and you want to support me, buy Xday ad-free</string>
   <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache licencia 2.0</a></string>
   <string name="about">O aplikácii</string>
-  <string name="SourceCode">"Source code: "</string>
+  <string name="SourceCode">"Zdrojový kód: "</string>
   <string name="VediSubito">"Take a look"</string>
-  <string name="SelezionaDataWidget">Select date</string>
+  <string name="SelezionaDataWidget">Vyber dátum</string>
   <string name="Contatti">Contact the developer, report bugs, suggest features: \n altieriantonio.dev@gmail.com</string>
   <string name="Opzioni">Nastavenia</string>
-  <string name="Parametri">Set parameters</string>
+  <string name="Parametri">Nastaviť parametre</string>
   <string name="nessunaData">You haven\'t still added any date in Xday, add a date before inserting a widget</string>
-  <string name="riordina">Reorder</string>
+  <string name="riordina">Zoradiť</string>
   <string name="FineRiordinamento">Rearrange finished</string>
   <string name="esporta">Export</string>
   <string name="importa">Import</string>
-  <string name="VotamiTitolo">Do you like Xday? Rate it!</string>
+  <string name="VotamiTitolo">Páči sa Vám Xdeň? Ohodnoťte ho!</string>
   <string name="VotamiCorpo">Xday is completely free and it\'s being continually updated, and it will remain forever. However, you can buy the ad-free version on the play store spending less than a cup of coffee. If you want to support me and help me in a totally free mode, you can rate the application on the play store. Thanks for your support!</string>
   <string name="ExportError">"Unable to export the database."</string>
   <string name="ExportSucceded">"Exported successfully in the path: %s"</string>
@@ -78,7 +78,7 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
   <string name="importFile"> "Select a File to Import"</string>
   <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
   <string name="prova_smartpizza">Try SmartPizza!</string>
-  <string name="condividi">Share</string>
+  <string name="condividi">Zdielať</string>
   <string name="condividi_con">Share with</string>
   <string name="Changelog">Changelog</string>
   <string name="passato_all_evento">"Passed {0}from {1}."</string>
@@ -94,27 +94,27 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <item>"Set time. By default 00:00"</item>
   </string-array>
   <string-array name="ADDselezionaParametri">
-    <item>Set parameters</item>
+    <item>Nastaviť parametre</item>
     <item>Choose how accurately you want to calculate the remaining/past time </item>
   </string-array>
   <string-array name="ADDselezionaDescrizione">
-    <item>"Set a description"</item>
+    <item>"Nastaviť popis"</item>
     <item>"Insert a description of the date"</item>
   </string-array>
   <string-array name="ADDselezionaColore">
-    <item>"Select color"</item>
-    <item>"Set a color for the description"</item>
+    <item>"Vybrať farbu"</item>
+    <item>"Nastaviť farbu pre popis"</item>
   </string-array>
   <string-array name="ADDselezionaPromemoria">
     <item>"Set a reminder"</item>
     <item>"Set a notification for your event"</item>
   </string-array>
   <string-array name="WidgetSingleSelezionaColore">
-    <item>"Select color"</item>
+    <item>"Vybrať farbu"</item>
     <item>"Set widget's background color"</item>
   </string-array>
   <string-array name="WidgetSingleSelezionaData">
-    <item>"Select event"</item>
+    <item>"Vybrať udalosť"</item>
     <item>"Select the event to be displayed in the widget"</item>
   </string-array>
   <string-array name="Parametri">
@@ -127,31 +127,31 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <item name="Secondi">"Seconds"</item>
   </string-array>
   <plurals name="Anni">
-    <item quantity="one">"1 year"</item>
+    <item quantity="one">"1 rok"</item>
     <item quantity="other">"%d years"</item>
   </plurals>
   <plurals name="Mesi">
-    <item quantity="one">"1 month"</item>
+    <item quantity="one">"1 mesiac"</item>
     <item quantity="other">"%d months"</item>
   </plurals>
   <plurals name="Settimane">
-    <item quantity="one">"1 week"</item>
+    <item quantity="one">"1 týždeň"</item>
     <item quantity="other">"%d weeks"</item>
   </plurals>
   <plurals name="Giorni">
-    <item quantity="one">"1 day"</item>
+    <item quantity="one">"1 deň"</item>
     <item quantity="other">"%d days"</item>
   </plurals>
   <plurals name="Ore">
-    <item quantity="one">"1 hour"</item>
+    <item quantity="one">"1 hodina"</item>
     <item quantity="other">"%d hours"</item>
   </plurals>
   <plurals name="Minuti">
-    <item quantity="one">"1 minute"</item>
+    <item quantity="one">"1 minúta"</item>
     <item quantity="other">"%d minutes"</item>
   </plurals>
   <plurals name="Secondi">
-    <item quantity="one">"1 second"</item>
+    <item quantity="one">"1 sekunda"</item>
     <item quantity="other">"%d seconds"</item>
   </plurals>
     <string name="seleziona_ora">Time select</string>
@@ -159,4 +159,6 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="overflow">Overflow. The result number is too big.</string>
     <string name="this_code_is_invalid_please_try_to_insert_it_again_">This code is invalid. Please try to insert it again.</string>
     <string name="inport_error_file_corrupted">The selected file is corrupted or it doesn\'t contain xday datas</string>
+    <string name="add_modify_date_settings">Add/modify date settings</string>
+    <string name="settings">Settings</string>
 </resources>

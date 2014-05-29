@@ -3,7 +3,7 @@
 <resources>
   <string name="CodiceAttivazione">"Eingabe Aktions-Code"</string>
   <string name="CodiceAttivazioneDescrizione">"Eingabe Aktions-Code zum entfernen der Werbung"</string>
-  <string name="CodiceAccettato">"Code akzeptiert. Genieß die komplette Premium-Funktionalität"</string>
+  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
   <string name="app_name">"Xday"</string>
   <string name="Annulla">"Abbruch"</string>
   <string name="title_activity_main">"Xday"</string>
@@ -158,4 +158,6 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="overflow">Überschreitung! Die Ergebniszahl ist zu groß.</string>
     <string name="this_code_is_invalid_please_try_to_insert_it_again_">This code is invalid. Please try to insert it again.</string>
     <string name="inport_error_file_corrupted">The selected file is corrupted or it doesn\'t contain xday datas</string>
+    <string name="add_modify_date_settings">Add/modify date settings</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -2,14 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asdamp.x_day"
     android:installLocation="auto"
-    android:versionCode="25"
-    android:versionName="1.5.2"
+    android:versionCode="28"
+    android:versionName="1.5.3"
      >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
-
+	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>  
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -36,15 +36,15 @@
         </activity>
         <activity
             android:name="com.asdamp.x_day.Add"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main" 
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="com.asdamp.x_day.ADD" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <receiver
+            android:label="Xday (3x3)"
             android:name="com.asdamp.widget.XdayWidgetProvider"
             android:enabled="@bool/honeycombOrAbove" >
             <intent-filter>
@@ -82,7 +82,9 @@
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-        <receiver android:name="com.asdamp.widget.XdayWidgetSingleDateProvider" >
+        <receiver 
+            android:label="Xday (4x1)"
+            android:name="com.asdamp.widget.XdayWidgetSingleDateProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.asdamp.widget.OPEN_APP_SOLO" />

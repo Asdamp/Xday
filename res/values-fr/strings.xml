@@ -3,12 +3,12 @@
 <resources>
   <string name="CodiceAttivazione">Code promotionnel</string>
   <string name="CodiceAttivazioneDescrizione">tapez le code promotionnel pour retirer les publicités</string>
-  <string name="CodiceAccettato">Code accepté. Vous bénéficier maintenant de la version premium.</string>
+  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
   <string name="app_name">Xday</string>
   <string name="Annulla">Annuler</string>
   <string name="title_activity_main">Xday</string>
   <string name="Aggiungi">Ajouter </string>
-  <string name="Aggiorna">Actualiser</string>
+  <string name="Aggiorna">Rafraîchir </string>
   <string name="Manca">Restant:</string>
   <string name="Passato">Passé:</string>
   <string name="AllaData">A:</string>
@@ -27,26 +27,26 @@
   <string name="minimoNdate">Vous devez choisir au moins un paramètre </string>
   <string name="creditsMe">Application conçue et développée par: 
 Antonio Altieri</string>
-  <string name="AltriRingraziamenti">\Tester:\n
+  <string name="AltriRingraziamenti">\Tester par:\n
 Circelli Fiorella\n
 Ruggiero Arianna\n
 \n
-<a href="www.getlocalization.com/xday/stats">Translators</a>\n
-German: maxhauser\n
-Slovak: stileth\n
-French: tnt, lordseta, Aurel45, oeil2lynx, ShaEnigma, Cza, fredatgetlocalization\n
-Portuguese: lookenx, fernandolopes, naldao\n
-Estonian: TanelTerras\n
-Chinese: Felix2yu\n
-This application uses <a href="http://www.joda.org/joda-time/">Joda-time</a>, 
+<a href="www.getlocalization.com/xday/stats">Traducteurs</a>\n
+Allemand: maxhauser\n
+Slovaque: stileth\n
+Français: tnt, lordseta, Aurel45, oeil2lynx, ShaEnigma, Cza, fredatgetlocalization\n
+Portuguais: lookenx, fernandolopes, naldao\n
+Estonien: TanelTerras\n
+Chinois: Felix2yu\n
+Cette application utilise <a href="http://www.joda.org/joda-time/">Joda-time</a>, 
 <a href="http://actionbarsherlock.com/">ActionBarScherlock</a>, 
 <a href="http://acra.ch/">Acra</a>,
 <a href="https://github.com/bauerca/drag-sort-listview">DragSortListView</a>, 
 <a href="https://github.com/attenzione/android-ColorPickerPreference">ColorPickerPreference</a>, 
 <a href="https://github.com/chrisjenx/Paralloid">Paralloid</a>, 
 <a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>, 
- libraries granted under the Apache License 2.0.\n
-This application is Open source and it\'s granted under the Apache License 2.0\"</string>
+bibliothèques accordées sous la licence Apache 2.0.\n
+Cette application est Open Source et c\'est accordé sous licence Apache 2.0\"</string>
   <string name="acquisto">Si vous aimez Xday et que vous voulez m\'aider, achetez Xday ad-free</string>
   <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache license 2.0</a></string>
   <string name="about">A propos</string>
@@ -159,4 +159,6 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="overflow">Dépassement. Le nombre de résultats est trop grand.</string>
     <string name="this_code_is_invalid_please_try_to_insert_it_again_">Ce code est invalide. Essayez de le retaper à nouveau </string>
     <string name="inport_error_file_corrupted">Le fichier sélectionné est corrompu ou ne contient pas de données Xday.</string>
+    <string name="add_modify_date_settings">Add/modify date settings</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -1,28 +1,19 @@
 package com.asdamp.widget;
 
-import java.util.ArrayList;
-import java.util.Date;
 
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.DateNotFoundException;
-import com.asdamp.utility.UtilityDate;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
 import com.asdamp.x_day.R;
-
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
-import android.widget.TextView;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class WidgetRemote extends RemoteViewsService {
 	@Override
@@ -35,7 +26,6 @@ public class WidgetRemote extends RemoteViewsService {
 class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 
 	private Context ctxt;
-	private int appWidgetId;
 	private int idData;
 	private Cursor cursore;
 	private int idMancante;
@@ -53,8 +43,6 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
     	idProgressi=R.id.progressi;
     	maxBarraProgressi=1000;
 		this.ctxt = ctxt;
-		appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-				AppWidgetManager.INVALID_APPWIDGET_ID);
 		//database.close();
 	}
 
@@ -77,28 +65,22 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 		String data;
 		RemoteViews row = new RemoteViews(ctxt.getPackageName(), R.layout.widget_list_layout);
 		if(!cursore.moveToPosition(position)) return null;
-		Data posizione= Data.leggi(cursore,ctxt); 
-		Date d=UtilityDate.creaData(posizione.getAnno(), posizione.getMese(), posizione.getGiorno(), posizione.getMinuto(), posizione.getOra());
-		data=UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d, Costanti.dt);
-		
+		Data posizione= Data.leggi(cursore); 
+		data=posizione.toString();
 		row.setTextViewText(idData, data);
-		row.setTextViewText(idMancante, posizione.aggiorna());		
-		String temp=posizione.getDescrizione();
-		
+		row.setTextViewText(idMancante, posizione.aggiorna(ctxt));		
+		String temp=posizione.getDescrizione();		
 		if(temp.equalsIgnoreCase("")){
-			row.setViewVisibility(idDescrizionePersonale, View.GONE);
-		
+			row.setViewVisibility(idDescrizionePersonale, View.GONE);	
 		}
 		else{
 			try {
 				row.setTextColor(idDescrizionePersonale, database.cercaColore(posizione.getMillisecondiIniziali()));
 			} catch (DateNotFoundException e) {
 				row.setTextColor(idDescrizionePersonale, -16746590);
-
 			}
 			row.setViewVisibility(idDescrizionePersonale, View.VISIBLE);
-			row.setTextViewText(idDescrizionePersonale, temp);
-			
+			row.setTextViewText(idDescrizionePersonale, temp);			
 		}
 		
 		if(posizione.getPercentuale()==maxBarraProgressi){

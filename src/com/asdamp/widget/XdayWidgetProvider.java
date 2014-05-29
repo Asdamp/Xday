@@ -1,5 +1,6 @@
 package com.asdamp.widget;
 
+import com.asdamp.x_day.Add;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.R;
 
@@ -74,7 +75,7 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 		final Context context2 = context;
 		super.onReceive(context, intent);
 		if (intent.getAction().equals(ACTION_ADD)) {
-			Intent add = new Intent("com.asdamp.x_day.ADD");
+			Intent add = new Intent(context, Add.class);
 			add.putExtra("requestCode", Costanti.CREA_DATA);
 			add.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			add.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

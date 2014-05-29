@@ -31,7 +31,8 @@ TextEditDialog.TextEditDialogInterface{
 		TextView t2 = (TextView) findViewById(R.id.add_fragment_giorni);
 		TextView sourceCode = (TextView) findViewById(R.id.sourceCode);
 		sourceCode.setMovementMethod(LinkMovementMethod.getInstance());
-
+		TextView altriRingraziamenti = (TextView) findViewById(R.id.add_fragment_mesi);
+		altriRingraziamenti.setMovementMethod(LinkMovementMethod.getInstance());
 		t2.setMovementMethod(LinkMovementMethod.getInstance());
 		Button gPlay = (Button) this.findViewById(R.id.gPlayButton);
 		View t4=this.findViewById(R.id.add_fragment_settimane);
@@ -63,8 +64,8 @@ TextEditDialog.TextEditDialogInterface{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		this.getSupportMenuInflater().inflate(R.menu.activity_about, menu);
-		/*if(StartupUtility.getInstance(this).isPremium())
-			menu.findItem(R.id.CodiceAttivazione).setVisible(false);*/
+		if(StartupUtility.getInstance(this).isPremium())
+			menu.findItem(R.id.CodiceAttivazione).setVisible(false);
 		return true;
 	}
 	
@@ -74,9 +75,9 @@ TextEditDialog.TextEditDialogInterface{
 			finish();
 			break;
 		}
-	/*	case R.id.CodiceAttivazione:{
+		case R.id.CodiceAttivazione:{
 			this.showTextEditDialog();
-		}*/
+		}
 		}
 		return true;
 	}
@@ -92,7 +93,7 @@ TextEditDialog.TextEditDialogInterface{
 	public void OnTextEditDialogPositiveClick(String t) {
 		String codice=t.trim();
 		codice=codice.replaceAll("\\s+","");
-		if(codice.equalsIgnoreCase("appgratis") || codice.equalsIgnoreCase("appsgratis")){
+		if(codice.equalsIgnoreCase("appoftheday") || codice.equalsIgnoreCase("appsoftheday") || codice.equalsIgnoreCase("getmyapps")){
 			Toast.makeText(getApplicationContext(), this.getString(R.string.CodiceAccettato), Toast.LENGTH_LONG).show();
 			StartupUtility.getInstance(this).setPremium(false);
 			Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );

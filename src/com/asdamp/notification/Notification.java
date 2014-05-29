@@ -30,9 +30,9 @@ public class Notification extends BroadcastReceiver {
 		long idData = Long.parseLong(i.getDataString());
 		Cursor notificationDataCursor = Costanti.getDB().fetchOneDate(idData);
 		if (notificationDataCursor.moveToFirst()) {
-			Data d = Data.leggi(notificationDataCursor, c);
+			Data d = Data.leggi(notificationDataCursor);
 			Intent shareIntent = ShareUtility.getShareIntent(c,
-					d.getShareText(), d.getDescrizione());
+					d.getShareText(c), d.getDescrizione());
 			PendingIntent sharePendIntent = PendingIntent.getActivity(c, 0,
 					shareIntent, 0);
 			Intent openAdd = new Intent("com.asdamp.x_day.ADD");
@@ -108,7 +108,7 @@ public class Notification extends BroadcastReceiver {
 				.getSystemService(Context.ALARM_SERVICE);
 		if (d.isNotificationEnabled() && d.isAfterToday()) {
 
-			am.set(AlarmManager.RTC_WAKEUP, d.msFinali, pi);
+			am.set(AlarmManager.RTC_WAKEUP, d.getTimeInMillis(), pi);
 		} else
 			am.cancel(pi);
 

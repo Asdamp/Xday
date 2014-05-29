@@ -5,37 +5,33 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcelable;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.asdamp.database.DBAdapter;
 import com.asdamp.database.DBHelper;
-import com.asdamp.utility.IOUtils;
 import com.asdamp.utility.ShareUtility;
 import com.asdamp.utility.StartupUtility;
 import com.google.ads.AdView;
@@ -81,6 +77,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	 */
 	private void setListView() {
 		this.registerForContextMenu(lv);
+		//TODO list.SetEmptyView()
 
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -102,7 +99,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		lv.setDropListener(new DragSortListView.DropListener() {
 
 			public void drop(int i, int j) {
-				Data data = (Data) MainActivity.date.get(i);
+				Data data = (Data) getDate(i);
 				Costanti.getDB().spostamento(i + 1, j + 1,
 						data.getMillisecondiIniziali());
 				vista.remove(data);
@@ -138,10 +135,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 		vista.notifyDataSetChanged();
 	}
 
-	public static Data getData(int i) {
-		return date.get(i);
-	}
-
 	// Get all the date in db
 	private int leggiDati() {
 		date.clear();
@@ -149,15 +142,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 		do {
 			if (!cursor.moveToNext()) {
-				/*
-				 * TextView tv=(TextView) this.findViewById(R.id.nessunaData);
-				 * int c=cursor.getCount(); if(c>0)tv.setVisibility(View.GONE);
-				 * else tv.setVisibility(View.VISIBLE);
-				 */
 				return cursor.getCount();
 			}
 			try {
-				date.add(Data.leggi(cursor, this));
+				date.add(Data.leggi(cursor));
 			} catch (IllegalArgumentException illegalargumentexception) {
 				Log.e("lettura", illegalargumentexception.getMessage(),
 						illegalargumentexception);
@@ -174,55 +162,54 @@ public class MainActivity extends SherlockFragmentActivity implements
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
+		Data data;
 		switch (requestCode) {
+		
 		case Costanti.FILE_SELECT_CODE:
 			if (resultCode == RESULT_OK) {
-				// Get the Uri of the selected file
-				Uri uri = intent.getData();
-				Log.d("percorso file selezionato",
-						"File Path: " + uri.toString());
-
-				File dbfi = this.getDatabasePath(DBHelper.DATABASE_NAME);
-
-				InputStream src = null;
-				OutputStream dst = null;
+				DBAdapter db=Costanti.getDB();
+				Uri uri=intent.getData();
 				try {
-					dst = new FileOutputStream(dbfi);
-					src = getContentResolver().openInputStream(uri);
-					IOUtils.copy(src, dst);
-					src.close();
-					dst.close();
-
-				} catch (FileNotFoundException e) {
-					Toast.makeText(
-							this,
-							this.getString(R.string.ImportError, uri.toString()),
-							Toast.LENGTH_LONG).show();
-					e.printStackTrace();
-				} catch (IOException e) {
-					Toast.makeText(
-							this,
-							this.getString(R.string.ImportError, uri.toString()),
-							Toast.LENGTH_LONG).show();
-					e.printStackTrace();
+					db.importDB(intent.getData()/* Get the Uri of the selected file*/);
+				} catch (IOException e) {	
+					Crouton.makeText(this,this.getString(R.string.ImportError, uri.toString()),Style.ALERT).show();
 				}
-
-				Costanti.getDB().restart();
-				if (Costanti.getDB().numRecordsDate() > 0)
-					Crouton.makeText(this,
-							this.getString(R.string.ImportSucceded),
-							Style.CONFIRM).show();
+				if (db.numRecordsDate() > 0)
+					Crouton.makeText(this,this.getString(R.string.ImportSucceded),Style.CONFIRM).show();
 				else
-					Crouton.makeText(this,
-							R.string.inport_error_file_corrupted, Style.ALERT).show();
-
+					Crouton.makeText(this,R.string.inport_error_file_corrupted, Style.ALERT).show();
 				leggiDati();
 				aggiorna();
 
 			}
+			break;
+		case Costanti.MODIFICA_DATA:
+			data=intent.getParcelableExtra("data");
+            int index=date.indexOf(data);
+			switch (resultCode){
+			case Costanti.TUTTO_BENE:
+                Costanti.getDB().updateData(data);
+                date.remove(index);
+                date.add(index, data);
+                break;
+			case Costanti.CANCELLA_DATA:
+				this.rimuoviData(index);break;
+			}
+			break;
+		case Costanti.CREA_DATA:
+			data=intent.getParcelableExtra("data");
+			switch (resultCode){
+			case Costanti.TUTTO_BENE:
+	            Costanti.getDB().createData(data);
+	            date.add(data);
+	            break;
+			}
+			
 		}
 
 	}
+
+
 
 	public boolean onCreateOptionsMenu(Menu menu1) {
 		getSupportMenuInflater().inflate(R.menu.activity_main, menu1);
@@ -236,14 +223,17 @@ public class MainActivity extends SherlockFragmentActivity implements
 	protected void onListItemClick(View v, int i) {
 		if (mode == null) {
 			lv.setItemChecked(i, false);
-			Intent intent = new Intent("com.asdamp.x_day.ADD");
+			Intent intent = new Intent(this, Add.class);
 			intent.putExtra("requestCode", 1);
-			intent.putExtra("posizioneData", i);
-			intent.putExtra("MsIniziali", date.get(i).getMillisecondiIniziali());
+			intent.putExtra("data", (Parcelable) getDate(i));
 			startActivityForResult(intent, 1);
 		} else {
 			this.toggleListItem(v, i);
 		}
+	}
+
+	private synchronized Data getDate(int i) {
+		return date.get(i);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem menuitem) {
@@ -253,9 +243,9 @@ public class MainActivity extends SherlockFragmentActivity implements
 			shprs.edit().putBoolean(autoreorder, ch).commit();
 			menuitem.setChecked(ch);
 			if (ch && !date.isEmpty()) {
-				Collections.sort(date, date.get(0));
+				Collections.sort(date, getDate(0));
 				for (int i = 1; i <= date.size(); i++) {
-					long msTemp = date.get(i - 1).getMillisecondiIniziali();
+					long msTemp = getDate(i - 1).getMillisecondiIniziali();
 					Costanti.getDB().cambiaPosizione(msTemp, i);
 				}
 				((MainApplication) this.getApplication()).aggiornaWidget();
@@ -263,7 +253,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 			mainMenu.findItem(R.id.Manuale).setVisible(!ch);
 			break;
 		case R.id.menu_settings:
-			Intent intent = new Intent("com.asdamp.x_day.ADD");
+			Intent intent = new Intent(this,Add.class);
 			intent.putExtra("requestCode", 4);
 			this.pauseAutoUpdate();
 			startActivityForResult(intent, 4);
@@ -348,7 +338,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 										 * la riga sottostante riordina in
 										 * ordine temporale.
 										 */
-			Collections.sort(date, date.get(0));
+		Collections.sort(date, getDate(0));
 
 	}
 
@@ -422,9 +412,9 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case (R.id.share): {
 			int i = firstChecked();
 			lv.setItemChecked(i, false);
-			Data d = date.get(i);
+			Data d = getDate(i);
 			String shareText;
-			shareText = d.getShareText();
+			shareText = d.getShareText(this);
 			ShareUtility.shareText(this, shareText, d.getDescrizione());
 			mode.finish();
 			break;
@@ -475,31 +465,6 @@ public class MainActivity extends SherlockFragmentActivity implements
 		// lv.isItemChecked(i);
 		// toggle checked item
 		Log.d("checked", i + "-->" + lv.getCheckedItemPositions().get(i));
-		int colore;
-/*
-		if (MainApplication.isMoreThenICS()) {
-			if (checkState)
-				colore = MainActivity.this.getResources().getColor(
-						R.color.holo_light_blu_trans);
-			else
-				colore = 0;// transparent
-			/*
-			 * View v=lv.getChildAt(i); if(v!=null) v
-			 *//*view.setBackgroundColor(colore);*/
-		/*} else {
-			SparseBooleanArray ba = lv.getCheckedItemPositions();
-			colore = MainActivity.this.getResources().getColor(
-					R.color.holo_light_blu_trans);
-			for (int j = 0; j < date.size(); j++) {
-				if (ba.get(j))
-					lv.getChildAt(lv.getCount() - 1 - j).setBackgroundColor(
-							colore);
-				else
-					lv.getChildAt(lv.getCount() - 1 - j).setBackgroundColor(0);
-
-			}
-			// lv.getChildAt(lv.getCount()-1-i).setBackgroundColor(colore);
-		}*/
 		int checkedNum = checkedItemCount();
 		if (checkedNum <= 0) {
 			if (mode != null)

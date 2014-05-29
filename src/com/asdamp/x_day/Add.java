@@ -1,43 +1,25 @@
 package com.asdamp.x_day;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import uk.co.chrisjenx.paralloid.Parallaxor;
-import uk.co.chrisjenx.paralloid.transform.LeftAngleTransformer;
-import uk.co.chrisjenx.paralloid.transform.LinearTransformer;
 import android.annotation.SuppressLint;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.res.Resources;
-import android.database.Cursor;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.text.format.DateFormat;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.android.datetimepicker.date.DatePickerDialog;
 import com.android.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 import com.android.datetimepicker.time.RadialPickerLayout;
@@ -45,18 +27,16 @@ import com.android.datetimepicker.time.TimePickerDialog;
 import com.android.datetimepicker.time.TimePickerDialog.OnTimeSetListener;
 import com.asdamp.notification.Notification;
 import com.asdamp.utility.*;
-import com.asdamp.widget.XdayWidgetProvider;
 import com.asdamp.x_day.R;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.LayoutParams;
-import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.ShareActionProvider;
 import com.google.ads.AdView;
-
-import android.graphics.PorterDuff.Mode;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class Add extends SherlockFragmentActivity implements
 		TextEditDialog.TextEditDialogInterface,
@@ -96,30 +76,20 @@ public class Add extends SherlockFragmentActivity implements
 		}
 		// altrimenti prende i valori proprio dalla data
 		else {
-				msIni=b.getLong("MsIniziali");
-				Log.d("millisecondi", msIni+"");
-				try {
-					color = Costanti.getDB().cercaColore(msIni);
-					estraiParametri(msIni);
+			try {
+				data=b.getParcelable("data");
+				Log.d("Modify", data.toString());
 				} catch (Exception e) {
-					Toast.makeText(this, "Unable to retrive information about this date", Toast.LENGTH_SHORT).show();
+					Crouton.makeText(this, "Unable to retrive information about this date", Style.ALERT).show();
 					setupNewDate();
 				}
 	           
 	            
 		}
-		
-		
 		ada = showLayout();
 		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
 		lista.setAdapter(ada);
-		View vh=new View(this);
-		
-		lista.bringToFront();
-		bundle = new Bundle();
-
-		creaBundle();
-
+		lista.bringToFront(); //put the list on the parallax view
 		aggiornaAdd();
 		Button pulsante = (Button) findViewById(R.id.buttoneriassuntivo);
 		pulsante.setOnClickListener(new View.OnClickListener() {
@@ -144,23 +114,10 @@ public class Add extends SherlockFragmentActivity implements
 
 	
 	public void setupNewDate() {
-		ora = 0;
-		minuto = 0;
-		anni = false;
-		mesi = false;
-		giorni = true;
-		minuti = false;
-		settimane = false;
-		ore = false;
-		secondi=false;
-		Calendar calendar = Calendar.getInstance();
-		anno = calendar.get(1);
-		mese = calendar.get(2);
-		giorno = calendar.get(5);
-		text = "";
-		msIni=(new GregorianCalendar()).getTimeInMillis();
-		notifica=false;   
-		color=Color.parseColor("#0099cc");
+		data=new Data(false,false,false,true,false,false,false);
+		data.set(Data.HOUR_OF_DAY, 0);
+		data.set(Data.MINUTE, 0);
+		data.set(Data.SECOND, 0);
 	}
 
 	@Override
@@ -168,7 +125,7 @@ public class Add extends SherlockFragmentActivity implements
 
 		super.onResume();
 		
-		creaBundle();
+		//creaBundle();
 	}
 
 
@@ -176,12 +133,12 @@ public class Add extends SherlockFragmentActivity implements
 	/**
 	 * 
 	 */
-	public void parallaxViews() {
+	public void parallaxViews() {/*
 		RelativeLayout imageView = (RelativeLayout) findViewById(R.id.add_date_view);
 	        ListView scrollView = (ListView) findViewById(R.id.listaAdd);
 	        if (scrollView instanceof Parallaxor) {
 	            ((Parallaxor) scrollView).parallaxViewBy(imageView,0.5f);
-	        }
+	        }*/
 	}
 	private AddArrayAdapter showLayout(){
 		Bundle bf[]= new Bundle[6];
@@ -217,10 +174,10 @@ public class Add extends SherlockFragmentActivity implements
 		b.putString(AddArrayAdapter.SUBTITLE, res.getStringArray(R.array.ADDselezionaPromemoria)[1]);
 		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_alarms);
 		b.putBoolean(AddArrayAdapter.CHECK_BOX, true);
-		if(!isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data � gi� passata, le notifiche vengono disattivate
-
-		Log.d("AddCheckedNotification",""+notifica);
-		b.putBoolean(AddArrayAdapter.CHECKED, this.notifica);
+		if(!data.isAfterToday())  b.putBoolean(AddArrayAdapter.INACTIVE, true);//se la data � gi� passata, le notifiche vengono disattivate
+		boolean notifica= data.isNotifica();
+		Log.d("AddCheckedNotification",data.toString()+" : "+notifica);
+		b.putBoolean(AddArrayAdapter.CHECKED, notifica);
 
 		bf[5]=(Bundle) b.clone();
 		AddArrayAdapter a=new AddArrayAdapter(Add.this, bf);
@@ -230,22 +187,15 @@ public class Add extends SherlockFragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home: {
-			// aggiungere bundle per non farlo crashare
 			operazioniFinali(Costanti.ANNULLA);
 			break;
 		}
 
 		case R.id.Conferma: {
-			setResult(Costanti.TUTTO_BENE,
-					this.getIntent().putExtra("data", creaBundle()));
 			operazioniFinali(Costanti.TUTTO_BENE);
 			break;
 		}
-		case R.id.Elimina: {
-			// aggiungo un bundle al putextra.altrimenti non va.ma é
-			// necessario?
-			setResult(Costanti.CANCELLA_DATA,
-					this.getIntent().putExtra("data", creaBundle()));
+		case R.id.Elimina: {	
 			operazioniFinali(Costanti.CANCELLA_DATA);
 			break;
 		}
@@ -257,36 +207,9 @@ public class Add extends SherlockFragmentActivity implements
 
 	@SuppressLint("NewApi")
 	private void operazioniFinali(int resultCode) {
-		setResult(resultCode, this.getIntent().putExtra("data", creaBundle()));
-		int requestCode = this.getIntent().getExtras().getInt("requestCode");
-		Data d=new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, secondi, text,msIni,color,notifica, this);
-		//Costanti.getDB().apri();
-		if (requestCode == Costanti.MODIFICA_DATA) {
-			if (resultCode == Costanti.CANCELLA_DATA) {
-				Costanti.getDB().deleteData(msIni);
-			}
-			if (resultCode == Costanti.TUTTO_BENE) {
-                Costanti.getDB().updateData(d);
-			}
-
-		}
-		if (requestCode == Costanti.CREA_DATA) {
-			if (resultCode == Costanti.TUTTO_BENE) {
-				Log.d("millisecondi inseriti", ""+msIni);
-	            Costanti.getDB().createData(d);
-			}
-
-		}
-	
-		//update list-widget
-		if(Costanti.getOsVersion()>=Build.VERSION_CODES.HONEYCOMB){
-			AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-			final ComponentName cn = new ComponentName(this, XdayWidgetProvider.class);
-			appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(cn), R.id.list_view_widget);
-	
-		}
-		Notification.scheduleNotificationById(this,d);
-		
+		setResult(resultCode, this.getIntent().putExtra("data", (Parcelable) data));		
+		Costanti.updateWidget(this);	
+		Notification.scheduleNotificationById(this,data);		
 		finish();
 	}
 	
@@ -300,9 +223,8 @@ public class Add extends SherlockFragmentActivity implements
 		sap.setShareHistoryFileName("xday_share_history.xml");
 		String text;
 		String subject;
-		Data dTemp=new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane, giorni, ore, minuti, secondi, this.text, msIni, color,notifica, this);
-		subject=dTemp.getDescrizione();
-		text=dTemp.getShareText();
+		subject=data.getDescrizione();
+		text=data.getShareText(this);
 		ShareUtility.shareText(sap, text, subject);
 		return true;
 	}
@@ -319,7 +241,7 @@ public class Add extends SherlockFragmentActivity implements
 	 * converte il periodtype in boolean non restituisce nulla perch� setta
 	 * direttamente i booleani nel suo stato.
 	 */
-	private void estraiParametri(Long msIni) {
+/*	private void estraiParametri(Long msIni) {
 		Cursor cursor=Costanti.getDB().fetchOneDate(msIni);
 	 	cursor.moveToFirst();
 	 	anno = cursor.getInt(cursor.getColumnIndex("anno"));
@@ -363,7 +285,7 @@ public class Add extends SherlockFragmentActivity implements
         Log.d("notifica", ""+notifica);
 	}
 
-	private Bundle creaBundle() {
+/*	private Bundle creaBundle() {
 		bundle.putInt("anno", anno);
         bundle.putInt("mese", mese);
         bundle.putInt("giorno", giorno);
@@ -380,7 +302,7 @@ public class Add extends SherlockFragmentActivity implements
         bundle.putBoolean("settimane", settimane);
         return bundle;
 
-	}
+	}*/
 
 	private void aggiornaAdd() {
 		//aggiornamento ActionBar
@@ -402,30 +324,15 @@ public class Add extends SherlockFragmentActivity implements
 	 * 
 	 */
 	private void aggiornaOpzioniAttive() {
-		ada.setInactive(5, !this.isAfterToday());
+		ada.setInactive(5, !data.isAfterToday());
 	}
-	/* TODO
-	 * questo metodo è temporaneo. Quando verrà fatto il refactor di tutto il progetto,
-	 * potrà essere eliminato, usando dove necessario, data.isAfterToday()*/
-	public boolean isAfterToday(){
-		Calendar cal=new GregorianCalendar(anno, mese, giorno,ora,minuto);
-		Calendar today=new GregorianCalendar();
-
-		long msFin =cal.getTimeInMillis();
-		if(msFin>today.getTimeInMillis()) return true;
-		return false;
-	}
+	
 	/**
 	 * 
 	 */
 	private void aggiornaDataActionBar() {
-		Date d = UtilityDate.creaData(anno, mese, giorno, minuto, ora);
-		String dataStr = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
-				Costanti.dt);
-		dataStr=dataStr+" "+UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(d,
-				DateFormat.getTimeFormat(this));
 		TextView tv = (TextView) findViewById(R.id.sottotilobottone);
-		tv.setText(dataStr);
+		tv.setText(data.toString());
 	}
 
 	/**
@@ -433,8 +340,8 @@ public class Add extends SherlockFragmentActivity implements
 	 */
 	@SuppressLint("NewApi")
 	private void aggiornaColoreActionBar() {
-		Button b = (Button) findViewById(R.id.buttoneriassuntivo);
 		aggiornaTestoActionBar();
+		int color=data.getColor();
 		//next 3 lines color the action bar. a white 9.png is colored with a colorFilter
 		Drawable iv=this.getResources().getDrawable(R.drawable.ab_solid_xday_white);
 		iv.setColorFilter(color, PorterDuff.Mode.DARKEN);
@@ -445,7 +352,6 @@ public class Add extends SherlockFragmentActivity implements
 		//tv.setTextColor(color);
 		if(Build.VERSION.SDK_INT >= 19/*KITKAT*/)
 		try{	
-			View v = findViewById(R.id.linear_layout_main);
 			Drawable d=this.getWindow().getDecorView().getBackground();
 			LayerDrawable bgDrawable = (LayerDrawable) d;
 			Drawable draw=bgDrawable.findDrawableByLayerId(R.id.statusbar_background);
@@ -462,10 +368,11 @@ public class Add extends SherlockFragmentActivity implements
 	 */
 	private Button aggiornaTestoActionBar() {
 		Button b = (Button) findViewById(R.id.buttoneriassuntivo);
-		if (text.equalsIgnoreCase(""))
+		String descrizione=data.getDescrizioneIfExists();
+		if (descrizione.equalsIgnoreCase(""))
 			b.setText(Costanti.DescrizioneDefault);
 		else
-			b.setText(text);
+			b.setText(descrizione);
 		return b;
 	}
 
@@ -486,12 +393,10 @@ public class Add extends SherlockFragmentActivity implements
 		case 4:
 			this.showColorPickerDialog(v);
 			break;
-		case 5:
-			
+		case 5:			
 			CheckBox cb=(CheckBox) v.findViewById(R.id.AddCheckBox);
 			cb.toggle();
-			this.notifica=cb.isChecked();
-			
+			data.setNotification(cb.isChecked());
 			break;
 			}
 	}
@@ -501,34 +406,39 @@ public class Add extends SherlockFragmentActivity implements
 		OnTimeSetListener onTimeSet=new OnTimeSetListener(){
 			public void onTimeSet(RadialPickerLayout view, int hourOfDay,
 					int minute) {
-				ora=hourOfDay;
-				minuto=minute;
+				Log.d("Hour",hourOfDay+"");
+				Log.d("Minute",minute+"");
+
+				data.setHour(hourOfDay);
+				data.setMinute(minute);
 				aggiornaDataActionBar();
 				aggiornaOpzioniAttive();
 				
 			}};
-		TimePickerDialog dp= TimePickerDialog.newInstance(onTimeSet,ora,minuto,true);
+		TimePickerDialog dp= TimePickerDialog.newInstance(onTimeSet,data.getHour(),data.getMinute(),true);
 		dp.show(getSupportFragmentManager(), getString(R.string.seleziona_ora));
 		}
 		else {
 			TimePickerFragment.TimePickerListener tps = new TimePickerFragment.TimePickerListener() {
 
 				public void setTime(int o, int mi) {
-					ora = o;
-					minuto = mi;
+					Log.d("Hour",o+"");
+					Log.d("Minute",mi+"");
+					data.setHour( o);
+					data.setMinute( mi);
 					aggiornaDataActionBar();
 					aggiornaOpzioniAttive();
 
 				}
 			};
-			TimePickerFragment timeDialog = TimePickerFragment.newInstance(ora,
-					minuto, tps);
+			TimePickerFragment timeDialog = TimePickerFragment.newInstance(data.getHour(),
+					data.getMinute(), tps);
 			timeDialog.show(getSupportFragmentManager(), getString(R.string.seleziona_ora));
 		}
 	}
 	public void showColorPickerDialog(View v) {
 		
-		ColorPickerDialog colorDialog = new ColorPickerDialog(this, color);
+		ColorPickerDialog colorDialog = new ColorPickerDialog(this, data.getColor());
 		colorDialog.setOnColorChangedListener(this);
 		colorDialog.setAlphaSliderVisible(true);
 		colorDialog.show();
@@ -539,28 +449,29 @@ public class Add extends SherlockFragmentActivity implements
 
 				public void onDateSet(DatePickerDialog dialog, int year,
 						int monthOfYear, int dayOfMonth) {
-					anno=year;
-					mese=monthOfYear;
-					giorno=dayOfMonth;
+					data.setYear(year);
+					data.setMonth(monthOfYear);
+					data.setDay(dayOfMonth);
 					aggiornaDataActionBar();
 					aggiornaOpzioniAttive();
 				}};
-			DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,anno,mese,giorno);
+			DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,data.getYear(),data.getMonth(),data.getDay());
 			dp.show(getSupportFragmentManager(), getString(R.string.seleziona_data));
 		}
 		else{
 			DatePickerFragment.DatePickerListener tps = new DatePickerFragment.DatePickerListener() {
 
-				public void onDateSet(int y, int m, int d) {
-					anno=y;
-					mese=m;
-					giorno=d;
+				public void onDateSet(int year,
+						int monthOfYear, int dayOfMonth) {
+					data.setYear(year);
+					data.setMonth(monthOfYear);
+					data.setDay(dayOfMonth);
 					aggiornaDataActionBar();
 					aggiornaOpzioniAttive();
 					
 				}
 			};
-			DatePickerFragment dateDialog = DatePickerFragment.newInstance(anno,mese,giorno, tps);
+			DatePickerFragment dateDialog = DatePickerFragment.newInstance(data.getYear(),data.getMonth(),data.getDay(), tps);
 			dateDialog.show(getSupportFragmentManager(), getString(R.string.seleziona_data));
 		}
 		
@@ -570,13 +481,13 @@ public class Add extends SherlockFragmentActivity implements
 	public void showMultipleChoiceDialog(View v) {
 		Bundle bundle1 = new Bundle();
         boolean aflag[] = new boolean[7];
-        aflag[0] = anni;
-        aflag[1] = mesi;
-        aflag[2] = settimane;
-        aflag[3] = giorni;
-        aflag[4] = ore;
-        aflag[5] = minuti;
-        aflag[6] = secondi;
+        aflag[0] = data.getBoolAnni();
+        aflag[1] = data.getBoolMesi();
+        aflag[2] = data.getBoolSettimane();
+        aflag[3] = data.getBoolGiorni();
+        aflag[4] = data.getBoolOre();
+        aflag[5] = data.getBoolMinuti();
+        aflag[6] = data.getBoolSecondi();
 
         Resources r=v.getContext().getResources();
         String as[] = r.getStringArray(R.array.Parametri);
@@ -595,20 +506,14 @@ public class Add extends SherlockFragmentActivity implements
 		Bundle p = new Bundle();
 		p.putString(TextEditDialog.TITOLO, getString(R.string.Descrizione));
 		p.putString(TextEditDialog.SOTTOTITOLO, getString(R.string.InserisciDescrizione));
-		p.putString(TextEditDialog.STRINGA_BASE, text);
+		p.putString(TextEditDialog.STRINGA_BASE, data.getDescrizioneIfExists());
 		DialogFragment textDialog = new TextEditDialog();
 		textDialog.setArguments(p);
 		textDialog.show(this.getSupportFragmentManager(), "testo");
 	}
 
 	public void onMultipleDialogPositiveClick(boolean[] parametri) {
-		anni = parametri[0];
-        mesi = parametri[1];
-        settimane = parametri[2];
-        giorni = parametri[3];
-        ore = parametri[4];
-        minuti = parametri[5];
-        secondi = parametri [6];
+		data.setPeriodType(parametri[0],parametri[1],parametri[2],parametri[3],parametri[4],parametri[5],parametri[6]);
 	}
 
 	public void onMultipleDialogNegativeClick(
@@ -617,34 +522,18 @@ public class Add extends SherlockFragmentActivity implements
 	}
 
 	public void onColorChanged(int color) {
-		this.color=color;
+		data.setColor(color);
 		this.aggiornaColoreActionBar();
 	}
 	public void OnTextEditDialogPositiveClick(String t) {
-		text = t;
+		data.setDescription(t);
 		this.aggiornaTestoActionBar();
 	}
 
 
 
-	private int ora;
-	private int minuto;
-	private int anno;
-	private int mese;
-	private int giorno;
-	private boolean notifica;
-	private String text;
-	private boolean anni;
-	private boolean mesi;
-	private boolean giorni;
-	private boolean ore;
-	private boolean settimane;
-	private boolean secondi;
-	private long msIni;
-	private boolean minuti;
-	private Bundle bundle;
-	private int color;
-private AddArrayAdapter ada;
+	private Data data;
+	private AddArrayAdapter ada;
 
 
 }

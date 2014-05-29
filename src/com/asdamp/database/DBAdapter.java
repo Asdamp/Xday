@@ -1,5 +1,12 @@
 package com.asdamp.database;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
@@ -11,24 +18,51 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
 import com.asdamp.notification.Notification;
+import com.asdamp.utility.IOUtils;
+import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
+import com.asdamp.x_day.R;
 
 public class DBAdapter {
 
 	public DBAdapter(Context context1) {
 		context = context1;
 	}
+	/**
+	 * @param intent
+	 * @throws IOException 
+	 */
+	public void importDB(Uri uri) throws IOException {
+		
+		Log.d("percorso file selezionato",
+				"File Path: " + uri.toString());
 
+		File dbfi = context.getDatabasePath(DBHelper.DATABASE_NAME);
+
+		InputStream src = null;
+		OutputStream dst = null;
+		
+			dst = new FileOutputStream(dbfi);
+			src = context.getContentResolver().openInputStream(uri);
+			IOUtils.copy(src, dst);
+			src.close();
+			dst.close();
+
+	
+
+		restart();
+	}
 	private ContentValues createContentValues(Data data, int i) {
-		return this.createContentValues(data.getAnno(),
-				data.getMese(), 
-				data.getGiorno(),
-				data.getOra(), 
-				data.getMinuto(),
+		return this.createContentValues(data.getYear(),
+				data.getMonth(), 
+				data.getDay(),
+				data.getHour(), 
+				data.getMinute(),
 				data.getBoolAnni(),
 				data.getBoolMesi(), 
 				data.getBoolSettimane(), 
@@ -133,7 +167,7 @@ public class DBAdapter {
 		if (cursor.getCount() <= 0)
 			throw new WidgetConfigurationNotFoundException(
 					"Widget configuration not found in database, please reconfigure the widget");
-		return Data.leggi(cursor, context);
+		return Data.leggi(cursor);
 	}
 
 	public void chiudi() {
@@ -153,7 +187,6 @@ public class DBAdapter {
 		ContentValues contentvalues = createContentValues(year, month, day,
 				hour, minute, years, months, weeks, days, hours, minutes,
 				seconds, s, msI, color, notifica, 0);
-
 		return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
 	}
 
@@ -201,7 +234,7 @@ public class DBAdapter {
 	public Data idInPosizione(int i) {
 		return Data.leggi(database.query(NOME_TAVOLA, null, (new StringBuilder(
 				String.valueOf(i))).append("=posizione").toString(), null,
-				null, null, null), context);
+				null, null, null));
 	}
 
 	public void Upgrade(int old) {

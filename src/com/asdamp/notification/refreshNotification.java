@@ -30,7 +30,7 @@ public class refreshNotification extends BroadcastReceiver {
 		Cursor c=db.fetchAllData("notifica>0");
 		Data data;
 		while(c.moveToNext()){
-			data=Data.leggi(c, context);
+			data=Data.leggi(c);
 			Notification.scheduleNotificationById(context, data);
 		}
 	}

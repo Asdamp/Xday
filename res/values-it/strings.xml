@@ -3,7 +3,7 @@
 <resources>
   <string name="CodiceAttivazione">Codice promozionale</string>
   <string name="CodiceAttivazioneDescrizione">"Inserisci un codice promozionale per eliminare le pubblicità"</string>
-  <string name="CodiceAccettato">"Codice accettato. Le pubblicità sono state totalmente rimosse"</string>
+  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
   <string name="app_name">Xday</string>
   <string name="Annulla">Annulla</string>
   <string name="title_activity_main">Xday</string>
@@ -162,4 +162,6 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l\'app
     <string name="overflow">Overflow. Il risultato è troppo grande per essere rappresentato</string>
     <string name="this_code_is_invalid_please_try_to_insert_it_again_">Codice non valido, si prega di riprovare ad inserirlo</string>
     <string name="inport_error_file_corrupted">Il file selezionato è corrotto o non contiene dati riguardanti xday</string>
+    <string name="add_modify_date_settings">Add/modify date settings</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -15,11 +15,9 @@ import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
-
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
-import com.asdamp.utility.UtilityDate;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
 import com.asdamp.x_day.R;
@@ -55,13 +53,9 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 					R.id.single_widget_configure,
 					PendingIntent.getBroadcast(context, i, intent2, 0));
 		/*end. All intents are enabled*/	
-			
-			String s = UtilityDate.convertiDataInStringaBasandosiSuConfigurazione(
-					UtilityDate.creaData(data.getAnno(), data.getMese(),
-							data.getGiorno(), data.getMinuto(), data.getOra()),
-					Costanti.dt);
+			String s = data.toString();
 			remoteviews.setTextViewText(idData, s);
-			remoteviews.setTextViewText(idMancante, data.aggiorna());
+			remoteviews.setTextViewText(idMancante, data.aggiorna(context));
 			String s1 = data.getDescrizione();
 			if (s1.equalsIgnoreCase("")) {
 				remoteviews.setViewVisibility(idDescrizionePersonale, 8);
@@ -85,8 +79,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 				remoteviews.setProgressBar(idProgressi, 1000,
 						data.getPercentuale(), false);
 				remoteviews.setViewVisibility(idProgressi, 0);
-			}
-			
+			}	
 			appwidgetmanager.updateAppWidget(i, remoteviews);
 		
 

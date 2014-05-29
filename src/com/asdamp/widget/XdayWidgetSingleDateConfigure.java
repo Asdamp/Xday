@@ -8,12 +8,10 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -21,7 +19,6 @@ import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
 import com.asdamp.utility.ColorPickerDialog;
 import com.asdamp.utility.SingleChoiceDialog;
-import com.asdamp.utility.UtilityDate;
 import com.asdamp.x_day.AddArrayAdapter;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
@@ -178,7 +175,7 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 	public void onSingleDialogPositiveClick(int i) {
 		if(i<0) return;
 		c.moveToPosition(i);
-		data = Data.leggi(c, this);
+		data = Data.leggi(c);
 	}
 
 	private void showSingleChoiceDialog(View v) {
@@ -198,15 +195,7 @@ public class XdayWidgetSingleDateConfigure extends SherlockFragmentActivity impl
 				
 				String s = c.getString(c.getColumnIndex("descrizione"));
 				if (s.equals(""))
-					s = UtilityDate
-							.convertiDataInStringaBasandosiSuConfigurazione(
-									UtilityDate.creaData(
-											c.getInt(c.getColumnIndex("anno")),
-											c.getInt(c.getColumnIndex("mese")),
-											c.getInt(c.getColumnIndex("giorno")),
-											c.getInt(c.getColumnIndex("minuto")),
-											c.getInt(c.getColumnIndex("ora"))),
-									Costanti.dt);
+					s = Data.leggi(c).toString();
 				date.add(s);
 			} while (c.moveToNext());
 		Bundle bundle = new Bundle();

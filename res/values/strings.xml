@@ -3,7 +3,7 @@
 <resources>
   <string name="CodiceAttivazione">"Promotional code"</string>
   <string name="CodiceAttivazioneDescrizione">"Enter promotion code to remove ads"</string>
-  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday thanks to AppGratis."</string>
+  <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
   <string name="app_name">Xday</string>
   <string name="Annulla">Cancel</string>
   <string name="title_activity_main">Xday</string>
@@ -31,7 +31,7 @@
 Circelli Fiorella\n
 Ruggiero Arianna\n
 \n
-<a href="www.getlocalization.com/xday/stats">Translators</a>\n
+<a href="http://www.getlocalization.com/xday/stats">Translators</a>\n
 German: maxhauser\n
 Slovak: stileth\n
 French: tnt, lordseta, Aurel45, oeil2lynx, ShaEnigma, Cza, fredatgetlocalization\n
@@ -83,7 +83,7 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
   <string name="Changelog">Changelog</string>
   <string name="passato_all_evento">"Passed {0}from {1}."</string>
   <string name="mancano_all_evento">"Left {0}from {1}."</string>
-  <string name="sourceCode"><a href="github.com/Asdamp/Xday">Source Code</a></string>
+  <string name="sourceCode"><a href="http://github.com/Asdamp/Xday">Source Code</a></string>
   
   <string-array name="ADDselezionaData">
     <item>Set date</item>
@@ -159,4 +159,6 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="overflow">Overflow. The result number is too big.</string>
     <string name="this_code_is_invalid_please_try_to_insert_it_again_">This code is invalid. Please try to insert it again.</string>
     <string name="inport_error_file_corrupted">The selected file is corrupted or it doesn\'t contain xday datas</string>
+    <string name="add_modify_date_settings">Add/modify date settings</string>
+    <string name="settings">Settings</string>
 </resources>
