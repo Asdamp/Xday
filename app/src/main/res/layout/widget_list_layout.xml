@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout_widget_single_data"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="5"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/mancanoopassato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descrizionePersonale"
+        android:layout_gravity="left"
+        android:layout_marginLeft="14.0dip"
+        android:text="@string/Manca"
+        android:textSize="18.0sp" />
+
+    <TextView
+        android:id="@+id/alladata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mancante"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30.0dip"
+        android:layout_marginTop="3.0dip"
+        android:fontFamily="condensed"
+        android:text="@string/AllaData"
+        android:textSize="12.0sp" />
+
+    <TextView
+        android:id="@id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mancante"
+        android:layout_gravity="left"
+        android:layout_marginTop="3.0dip"
+        android:layout_toRightOf="@id/alladata"
+        android:fontFamily="condensed"
+        android:text="@string/Error"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textSize="12.0sp" />
+
+    <TextView
+        android:id="@id/mancante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descrizionePersonale"
+        android:layout_gravity="left"
+        android:text="@string/Error"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textSize="18.0sp" />
+
+    <TextView
+        android:id="@id/descrizionePersonale"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="sans-serif-bold"
+        android:gravity="center"
+        android:text="@string/Error"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/android_blu"
+        android:textSize="20.0sp"
+        android:textStyle="italic"
+        android:typeface="sans" />
+
+    <ProgressBar
+        android:id="@+id/progressi"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/alladata"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="40.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="2.0dip"
+        android:max="1000" />
+
+</RelativeLayout>

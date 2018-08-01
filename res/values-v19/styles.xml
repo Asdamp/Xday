@@ -1,8 +1,0 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <style name="Theme.Xday" parent="@style/Theme.Base.v14">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowBackground">@drawable/extended_window_background</item>
-    </style>
-
-</resources>

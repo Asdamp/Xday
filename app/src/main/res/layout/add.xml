@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DateListActivity"
+   >
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_boxes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:hasClearButton="true"
+        app:iconSignifier="@drawable/ic_title_black"
+
+        app:labelText="Nome"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/etv_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <Button
+        android:id="@+id/btn_date_select"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start|center"
+        android:textColorHint="@color/md_blue_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_boxes"
+        tools:text="Data" />
+
+    <Button
+        android:id="@+id/btn_time_select"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical|center_horizontal|center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_date_select"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Ora" />
+
+    <LinearLayout
+        android:id="@+id/toggle_year"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_select">
+
+        <com.github.zagum.switchicon.SwitchIconView
+            android:id="@+id/switch_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            app:si_animation_duration="500"
+            app:si_disabled_alpha=".5"
+            app:si_disabled_color="#b7b7b7"
+            app:si_enabled="false"
+            app:si_no_dash="true"
+            app:si_tint_color="#ff3c00"
+            app:srcCompat="@drawable/ic_action_year" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test" />
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="336dp" />
+    <!-- <ListView
+         android:id="@+id/listaAdd"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+         android:layout_marginStart="8dp"
+         android:layout_marginLeft="8dp"
+         android:layout_marginTop="8dp"
+         android:layout_marginEnd="8dp"
+         android:layout_marginRight="8dp"
+         android:layout_marginBottom="8dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+
+         android:footerDividersEnabled="false"
+         android:headerDividersEnabled="false">
+
+     </ListView>-->
+
+
+
+</android.support.constraint.ConstraintLayout>

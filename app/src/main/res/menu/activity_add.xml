@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/Elimina"
+        android:icon="@drawable/ic_action_delete"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom"
+        android:title="@string/Elimina"
+        android:titleCondensed="@string/Elimina">
+    </item>
+    <item
+        android:id="@+id/Conferma"
+        android:checkable="false"
+        android:icon="@drawable/ic_action_select"
+        android:showAsAction="always"
+        android:title="@string/Conferma"
+        android:titleCondensed="@string/Conferma" android:orderInCategory="3">
+    </item>
+     <item
+            android:id="@+id/share"
+            android:showAsAction="always"
+            android:title="@string/condividi"
+            android:actionProviderClass=
+                "com.actionbarsherlock.widget.ShareActionProvider" android:orderInCategory="1"/>
+
+</menu>
