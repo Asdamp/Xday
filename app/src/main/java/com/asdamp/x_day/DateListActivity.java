@@ -10,6 +10,7 @@ import android.os.Message;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -41,8 +42,6 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class DateListActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -203,12 +202,12 @@ public class DateListActivity extends AppCompatActivity
                     try {
                         db.importDB(intent.getData()/* Get the Uri of the selected file*/);
                     } catch (IOException e) {
-                        Crouton.makeText(this,this.getString(R.string.ImportError, uri.toString()), Style.ALERT).show();
+                        Snackbar.make(mDateRecyclerView,this.getString(R.string.ImportError, uri.toString()), Snackbar.LENGTH_SHORT).show();
                     }
                     if (db.numRecordsDate() > 0)
-                        Crouton.makeText(this,this.getString(R.string.ImportSucceded),Style.CONFIRM).show();
+                        Snackbar.make(mDateRecyclerView,this.getString(R.string.ImportSucceded),Snackbar.LENGTH_SHORT).show();
                     else
-                        Crouton.makeText(this,R.string.inport_error_file_corrupted, Style.ALERT).show();
+                        Snackbar.make(mDateRecyclerView,R.string.inport_error_file_corrupted, Snackbar.LENGTH_SHORT).show();
                     leggiDati();
                     aggiorna();
 
@@ -320,18 +319,20 @@ public class DateListActivity extends AppCompatActivity
                         dst.transferFrom(src, 0, src.size());
                         src.close();
                         dst.close();
-                        Crouton.makeText(
-                                this,
+                        Snackbar.make(
+                                mDateRecyclerView,
                                 this.getString(R.string.ExportSucceded,
-                                        dest.getAbsolutePath()), Style.INFO).show();
+                                        dest.getAbsolutePath()), Snackbar.LENGTH_SHORT).show();
 
                     } catch (FileNotFoundException e) {
-                        Crouton.makeText(this, this.getText(R.string.ExportError),
-                                Style.ALERT).show();
+                        Snackbar.make(
+                                mDateRecyclerView, this.getText(R.string.ExportError),
+                                Snackbar.LENGTH_SHORT).show();
                         e.printStackTrace();
                     } catch (IOException e) {
-                        Crouton.makeText(this, this.getText(R.string.ExportError),
-                                Style.ALERT).show();
+                        Snackbar.make(
+                                mDateRecyclerView, this.getText(R.string.ExportError),
+                                Snackbar.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
 
