@@ -27,6 +27,7 @@ import com.asdamp.utility.Glide4Engine;
 import com.asdamp.utility.MultipleChoiceDialog;
 import com.asdamp.utility.TextEditDialog;
 import com.asdamp.utility.UserInfoUtility;
+import com.crashlytics.android.Crashlytics;
 import com.github.zagum.switchicon.SwitchIconView;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -96,7 +97,6 @@ public class Add extends AppCompatActivity {
 
         this.setContentView(R.layout.activity_add_date);
         ButterKnife.bind(this);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

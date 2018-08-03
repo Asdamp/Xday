@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.asdamp.x_day"
     android:installLocation="auto"
-    android:versionCode="28"
-    android:versionName="1.5.3">
+    >
 
     <uses-sdk tools:overrideLibrary="com.shrikanthravi.collapsiblecalendarview" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
