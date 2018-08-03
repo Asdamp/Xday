@@ -62,13 +62,13 @@ public class DBAdapter {
 				data.getDescrizioneIfExists(),
 				data.getMillisecondiIniziali(),
 				data.getColor(), 
-				data.isNotificationEnabled(), i);
+				data.isNotificationEnabled(), i, data.getImage());
 	}
 
 	private ContentValues createContentValues(int year, int month, int day,
 			int hour, int minute, boolean years, boolean months, boolean weeks,
 			boolean days, boolean hours, boolean minutes, boolean seconds,
-			String s, long msI, int color, boolean notifica, int i) {
+			String s, long msI, int color, boolean notifica, int i, Uri image) {
 		ContentValues contentvalues = new ContentValues();
 		contentvalues.put("anno", year);
 		contentvalues.put("mese", month);
@@ -86,6 +86,10 @@ public class DBAdapter {
 		contentvalues.put("descrizione", s);
 		contentvalues.put("colore", color);
 		contentvalues.put("notifica", notifica);
+		if(image!=null)
+			contentvalues.put("immagine", image.toString());
+		else
+			contentvalues.put("immagine", (String) null);
 
 		if (i != -1)
 			contentvalues.put("posizione", i);
@@ -166,7 +170,7 @@ public class DBAdapter {
 		return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
 	}
 
-	public long createData(int year, int month, int day, int hour, int minute,
+/*	public long createData(int year, int month, int day, int hour, int minute,
 			boolean years, boolean months, boolean weeks, boolean days,
 			boolean hours, boolean minutes, boolean seconds, String s,
 			long msI, int color, boolean notifica) {
@@ -174,7 +178,7 @@ public class DBAdapter {
 				hour, minute, years, months, weeks, days, hours, minutes,
 				seconds, s, msI, color, notifica, 0);
 		return database.insertOrThrow(NOME_TAVOLA, null, contentvalues);
-	}
+	}*/
 
 	public boolean deleteData(long l) {
 		// delete notification if exist
@@ -254,7 +258,7 @@ public class DBAdapter {
 		return flag;
 	}
 
-	public boolean updateData(int year, int month, int day, int hour,
+/*	public boolean updateData(int year, int month, int day, int hour,
 			int minute, boolean years, boolean months, boolean weeks,
 			boolean days, boolean hours, boolean minutes, boolean seconds,
 			String s, long msI, int color, boolean notifica) {
@@ -268,7 +272,7 @@ public class DBAdapter {
 		else
 			flag = false;
 		return flag;
-	}
+	}*/
 
 	public void cambiaPosizione(long msI, int i) {
 		ContentValues cv = new ContentValues();

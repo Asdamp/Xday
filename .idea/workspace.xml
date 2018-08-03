@@ -1,765 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel" />
+      </config>
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="Android studio conversion">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/lint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/AddArrayAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/exception/DateNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/exception/WidgetConfigurationNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/layout/CheckedRelativeLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/refreshNotification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/DatePickerFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/IOUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/MultipleChoiceDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ShareUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/SingleChoiceDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/StartupUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/TextEditDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/TimePickerFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/WidgetRemote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateConfigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/About.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/AppGlideModuleXday.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Costanti.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_bottom_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_solid_xday_white.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_stacked_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_texture_tile_xday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_transparent_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_bottom_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_top_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/drag_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_alarms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_configure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_delete_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_description.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_premium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_share_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_share_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_tick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_year.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/menu_dropdown_panel_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/navigation_accept.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/navigation_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_bg_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_primary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_secondary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/smart_pizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_disabled_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/drag_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_alarms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_configure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_description.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_premium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_tick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/navigation_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_bottom_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_solid_xday_white.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_stacked_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_texture_tile_xday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_transparent_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_bottom_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_top_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/drag_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_alarms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_configure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_delete_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_description.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_premium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_share_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_share_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_tick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_year.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/menu_dropdown_panel_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/navigation_accept.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/navigation_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_bg_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_primary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_secondary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/smart_pizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_disabled_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/bg_widget_list.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/list_widget_preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/slideme_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/widget_frame.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/widget_single_date.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/drag_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_alarms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_configure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_description.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_tick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/navigation_accept.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/navigation_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v19/extended_window_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_camera.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_gallery.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_manage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_send.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_share.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_bottom_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_solid_xday_white.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_stacked_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_texture_tile_xday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_transparent_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/amazon_app_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/bar_widget_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_bottom_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_top_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/drag_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_alarms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_configure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_delete_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_description.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_premium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_share_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_share_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_tick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_year.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/menu_dropdown_panel_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/navigation_accept.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/navigation_refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/play_store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_bg_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_primary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_secondary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/smart_pizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_disabled_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_bottom_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_solid_xday_white.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_stacked_solid_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_texture_tile_xday.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_transparent_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_bottom_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_top_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_year.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/menu_dropdown_panel_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_bg_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_primary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_secondary_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/smart_pizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_default_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_disabled_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_focused_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_pressed_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_xday.9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_year.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ab_background_textured_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_pressed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_cab_done_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/card_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_title_black.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/list_select.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/main_list_highlighter.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_days.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_hours.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_minutes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_months.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_weeks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_years.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_horizontal_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/selectable_background_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/spinner_background_ab_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_indicator_ab_xday.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/test1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/test2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/color_picker_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/about.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_date_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_date_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/empty_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/loading_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_date_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/principale.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rawlayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/solo_testo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_list_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_single_data_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_about.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/date_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/widget_single_config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-af-rZA/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-af-rZA/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-cs-rCZ/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-cs-rCZ/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-de/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-es/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-es/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-et-rEE/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-et-rEE/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-fr/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-fr/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-hdpi/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-it/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-it/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ldpi/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-mdpi/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-pt-rBR/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-pt-rBR/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-pt-rPT/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-pt-rPT/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-sk-rSK/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-sk-rSK/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v11/bools.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-zh-rCN/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-zh-rCN/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/bools.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/drawables.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/md_colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/info_widget.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/info_widget_data_unica.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/preference.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-summary.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/Glide4Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_day.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_month.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_second.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_week.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_day.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_month.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_second.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_week.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_day.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_month.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_second.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_week.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_day.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_month.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_second.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_week.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_day.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_month.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_second.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_week.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_calendar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_clock.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/date_parameters_switchers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayStore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Xday.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Xday.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/GoogleAdMobAdsSdk-6.4.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/acra-4.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/android-support-v4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/joda-time-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proguard-project.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_bottom_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_solid_xday_white.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_stacked_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_texture_tile_xday.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ab_transparent_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/btn_cab_done_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/btn_cab_done_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/btn_cab_done_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/cab_background_bottom_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/cab_background_top_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/drag_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_alarms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_configure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_delete_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_share_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_share_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_tick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/list_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/list_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/menu_dropdown_panel_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/navigation_accept.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/navigation_refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/progress_bg_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/progress_primary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/progress_secondary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/smart_pizza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/spinner_ab_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/spinner_ab_disabled_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/spinner_ab_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/spinner_ab_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_selected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_selected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_selected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_unselected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_unselected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/tab_unselected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/drag_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_alarms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_configure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_action_tick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/navigation_refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-ldpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_bottom_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_solid_xday_white.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_stacked_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_texture_tile_xday.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ab_transparent_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/btn_cab_done_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/btn_cab_done_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/btn_cab_done_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/cab_background_bottom_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/cab_background_top_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/drag_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_alarms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_configure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_delete_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_share_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_share_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_action_tick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/list_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/list_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/menu_dropdown_panel_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/navigation_accept.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/navigation_refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/progress_bg_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/progress_primary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/progress_secondary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/smart_pizza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/spinner_ab_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/spinner_ab_disabled_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/spinner_ab_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/spinner_ab_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_selected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_selected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_selected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_unselected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_unselected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/tab_unselected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/bg_widget_list.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/list_widget_preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/slideme_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/widget_frame.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-nodpi/widget_single_date.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/drag_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_alarms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_configure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_action_tick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/navigation_accept.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/navigation_refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-tvdpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-v19/extended_window_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_bottom_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_solid_xday_white.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_stacked_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_texture_tile_xday.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ab_transparent_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/amazon_app_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/bar_widget_list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/btn_cab_done_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/btn_cab_done_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/btn_cab_done_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/cab_background_bottom_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/cab_background_top_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/drag_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_alarms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_clock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_configure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_delete_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_description.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_premium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_share_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_share_light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_action_tick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/list_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/list_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/menu_dropdown_panel_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/navigation_accept.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/navigation_refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/play_store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/progress_bg_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/progress_primary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/progress_secondary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/smart_pizza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/spinner_ab_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/spinner_ab_disabled_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/spinner_ab_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/spinner_ab_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_selected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_selected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_selected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_unselected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_unselected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/tab_unselected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_bottom_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_solid_xday_white.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_stacked_solid_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_texture_tile_xday.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ab_transparent_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/btn_cab_done_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/btn_cab_done_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/btn_cab_done_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/cab_background_bottom_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/cab_background_top_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/list_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/list_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/menu_dropdown_panel_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/progress_bg_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/progress_primary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/progress_secondary_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/smart_pizza.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/spinner_ab_default_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/spinner_ab_disabled_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/spinner_ab_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/spinner_ab_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_selected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_selected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_selected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_unselected_focused_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_unselected_pressed_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/tab_unselected_xday.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/ab_background_textured_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/background_pressed.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/btn_cab_done_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/card_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/list_select.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/main_list_highlighter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_days.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_hours.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_minutes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_months.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_weeks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_bar_years.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/progress_horizontal_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/selectable_background_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/spinner_background_ab_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable/tab_indicator_ab_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout-land/color_picker_dialog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/about.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/add.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/add_date_fragment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/empty_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/layout_widget.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/loading_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/main_activity.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/principale.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/pulsante_sinistra.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/rawlayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/solo_testo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/widget_list_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/widget_single_data_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/activity_about.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/activity_add.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/activity_main_context.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/widget_single_config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-af-rZA/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-af-rZA/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-af-rZA/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-ar/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-ar/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-ar/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-cs-rCZ/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-cs-rCZ/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-cs-rCZ/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-de/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-de/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-de/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-es/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-es/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-es/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-et-rEE/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-et-rEE/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-et-rEE/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-fr/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-fr/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-fr/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-hdpi/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-it/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-it/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-it/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-ldpi/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-mdpi/dimens.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rBR/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rBR/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rBR/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rPT/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rPT/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-pt-rPT/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-sk-rSK/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-sk-rSK/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-sk-rSK/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v11/bools.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v14/styles_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v16/styles_xday.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v19/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-zh-rCN/asdamp_utility_string.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-zh-rCN/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-zh-rCN/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/bools.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/dimen.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/xml/info_widget.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/xml/info_widget_data_unica.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/xml/preference.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/database/DBAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/database/DBHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/exception/DateNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/exception/WidgetConfigurationNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/notification/Notification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/notification/refreshNotification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/widget/WidgetRemote.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/widget/XdayWidgetProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/widget/XdayWidgetSingleDateConfigure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/widget/XdayWidgetSingleDateProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/About.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/Add.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/AddArrayAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/AddDateFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/ArrayAdapterPrincipale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/Costanti.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/asdamp/x_day/MainApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_action_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/ic_action_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -779,6 +95,135 @@
         <projects_view />
       </state>
     </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app_bar_add_date.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-327">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="218" selection-start-line="218" selection-end-line="218" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ic_add_a_photo_black_24dp.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="839">
+              <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3053">
+              <caret line="430" column="14" selection-start-line="430" selection-start-column="14" selection-end-line="430" selection-end-column="14" />
+              <folding>
+                <element signature="e#14637#14638#0" expanded="true" />
+                <element signature="e#14656#14657#0" expanded="true" />
+                <element signature="e#14692#14693#0" expanded="true" />
+                <element signature="e#14717#14718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Uri.java" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Android/Sdk/sources/android-27/android/net/Uri.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Add.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="256" column="35" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="35" />
+              <folding>
+                <element signature="e#9960#9993#0" expanded="true" />
+                <element signature="e#10584#10618#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Glide4Engine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/Glide4Engine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>switc</find>
+      <find>app:si_no_dash=&quot;true&quot;</find>
+      <find>temp</find>
+      <find>op</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>app:si_no_dash=&quot;false&quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -832,6 +277,10 @@
                 <option name="description" value="Displays the sub-projects of root project 'Xday'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesAndResourcesWithProguardForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1230,11 +679,6 @@
                 <option name="name" value="generateReleaseResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs lint on just the fatal issues in the release build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="lintVitalRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Uninstalls the Debug build." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="uninstallDebug" />
@@ -1397,10 +841,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="checkDebugClasspath" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformDexArchiveWithExternalLibsDexMergerForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1696,6 +1136,10 @@
                 <option name="description" value="Displays the sub-projects of project ':app'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="transformClassesAndResourcesWithProguardForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -2094,11 +1538,6 @@
                 <option name="name" value="generateReleaseResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Runs lint on just the fatal issues in the release build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="lintVitalRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Uninstalls the Debug build." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="uninstallDebug" />
@@ -2256,10 +1695,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="checkDebugClasspath" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="transformDexArchiveWithExternalLibsDexMergerForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -2896,6 +2331,29 @@
       </map>
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/date_parameters_switchers.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_calendar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_clock.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/DeviceUtility.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/Glide4Engine.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/add.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1936" />
@@ -2906,7 +2364,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2917,6 +2374,11 @@
             <path>
               <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
@@ -2924,6 +2386,13 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
@@ -2932,16 +2401,73 @@
               <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="utility" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="x_day" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="C:/Android/Sdk" />
+    <property name="device.picker.selection" value="192.168.0.187:5555" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -2978,7 +2504,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -3097,40 +2623,50 @@
       <option name="presentableId" value="Default" />
       <updated>1533052923204</updated>
     </task>
+    <task id="LOCAL-00001" summary="Android studio conversion">
+      <created>1533108181544</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533108181544</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info active="true" id="Build Variants" order="2" sideWeight="0.5046555" side_tool="true" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.4" />
+      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4978678" weight="0.32960895" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49733475" weight="0.32960895" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Build" visible="true" weight="0.32960895" />
-      <window_info anchor="right" id="Gradle" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49534452" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4989339" weight="0.32960895" />
+      <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.4" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32960895" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3139,5 +2675,398 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Android studio conversion" />
     <option name="LAST_COMMIT_MESSAGE" value="Android studio conversion" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java</url>
+          <line>49</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java</url>
+          <line>218</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java</url>
+          <line>258</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="9" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/Glide4Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="205" column="52" selection-start-line="205" selection-start-column="52" selection-end-line="205" selection-end-column="52" />
+          <folding>
+            <element signature="e#9960#9993#0" expanded="true" />
+            <element signature="e#10584#10618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/md_colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4794">
+          <caret line="282" column="37" selection-start-line="282" selection-start-column="31" selection-end-line="282" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/layout/CheckedRelativeLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/AddArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialdatetimepicker-3.6.0.aar/cb395223a250378259bf1923e2efaeab/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="121" column="18" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_calendar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_clock.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_date_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/date_parameters_switchers.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/md_colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4794">
+          <caret line="282" column="37" selection-start-line="282" selection-start-column="31" selection-end-line="282" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/principale.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zhihu.android/matisse/0.5.1/2a1c6eab8a974cfff6a2d0b5afafa67f9e7be35/matisse-0.5.1-sources.jar!/com/zhihu/matisse/internal/entity/CaptureStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zhihu.android/matisse/0.5.1/2a1c6eab8a974cfff6a2d0b5afafa67f9e7be35/matisse-0.5.1-sources.jar!/com/zhihu/matisse/Matisse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-327">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/Glide4Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/WidgetRemote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-319">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/Sdk/sources/android-27/android/net/Uri.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3053">
+          <caret line="430" column="14" selection-start-line="430" selection-start-column="14" selection-end-line="430" selection-end-column="14" />
+          <folding>
+            <element signature="e#14637#14638#0" expanded="true" />
+            <element signature="e#14656#14657#0" expanded="true" />
+            <element signature="e#14692#14693#0" expanded="true" />
+            <element signature="e#14717#14718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="256" column="35" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="35" />
+          <folding>
+            <element signature="e#9960#9993#0" expanded="true" />
+            <element signature="e#10584#10618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

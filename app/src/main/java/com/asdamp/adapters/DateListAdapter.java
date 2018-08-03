@@ -83,7 +83,10 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             holder.mDescription.setTextColor(context.getResources().getColor(R.color.md_red_500));
         }
         Palette p = null;
-        if(i==0){
+        if(data.getImage()!=null)
+        GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
+
+       /* if(i==0){
             GlideApp.with(context).load(R.drawable.test1).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
             Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                     R.drawable.test1);
@@ -95,7 +98,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                     R.drawable.test2);
             p = Palette.from(icon).generate();
-        }
+        }*/
         holder.mDate.setText(" "+date.get(i).toString());
         try{
             holder.mLeft.setText(" "+data.aggiorna(context));

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -60,7 +61,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 	public Data(int year, int month, int day, int hour, int minute,
 			boolean years, boolean months, boolean weeks, boolean days,
 			boolean hours, boolean minutes, boolean seconds, String s,
-			long msI, int color, boolean notification) {
+			long msI, int color, boolean notification, Uri image) {
 		
 		super(year,month,day,hour,minute);
 		this.color=color;
@@ -69,7 +70,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 				seconds);
 		descrizione = s;
 		millisecondiIniziali = msI;
-
+		this.image=image;
 
 	}
 
@@ -109,7 +110,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		long l1 = cursor.getLong(cursor.getColumnIndex("millisecondiIniziali"));
 		String s = cursor.getString(cursor.getColumnIndex("descrizione"));
 		int colore=cursor.getInt(cursor.getColumnIndex("colore"));
-
+		String image=cursor.getString(cursor.getColumnIndex("immagine"));
 		boolean ore;
 		boolean minuti;
 		boolean anni;
@@ -149,8 +150,13 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		 if(cursor.getInt(cursor.getColumnIndex("notifica")) > 0)
 	            notifica = true;
 		 else notifica=false;
+		 Uri imageUri;
+		 if(image!=null)
+		 	imageUri=Uri.parse(image);
+		 else
+		 	imageUri=null;
 		return new Data(anno, mese, giorno, ora, minuto, anni, mesi, settimane,
-				giorni, ore, minuti, secondi, s, l1, colore, notifica);
+				giorni, ore, minuti, secondi, s, l1, colore, notifica,imageUri);
 	}
 	public static int[] timeDistance(Date to,PeriodType pt){
 		GregorianCalendar gc=new GregorianCalendar();
@@ -404,6 +410,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		dest.writeByte((byte) (notifica ? 1 : 0));
 		dest.writeInt(color);
 		dest.writeLong(this.getTimeInMillis());
+		dest.writeParcelable(image,0);
 		dest.writeSerializable(tipo);
 	}
 	public static final Parcelable.Creator<Data> CREATOR = new Parcelable.Creator<Data>() {
@@ -421,12 +428,15 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 	    notifica=in.readByte() != 0;
 	    color=in.readInt();
 	    this.setTimeInMillis(in.readLong());
-	    tipo=(PeriodType) in.readSerializable();
+		image= in.readParcelable(Uri.class.getClassLoader());
+
+		tipo=(PeriodType) in.readSerializable();
 	}
 	private String descrizione;
 	private long millisecondiIniziali;
 	private boolean notifica;
 	private int color;
+	private Uri image;
 	private PeriodType tipo;
 	public int describeContents() {
 		// TODO Auto-generated method stub
@@ -479,9 +489,12 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		
 	}
 
-	
-	
 
-	
-	
+	public Uri getImage() {
+		return image;
+	}
+
+	public void setImage(Uri image) {
+		this.image = image;
+	}
 }
