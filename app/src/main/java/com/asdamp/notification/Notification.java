@@ -10,8 +10,8 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.TaskStackBuilder;
 
 import com.asdamp.utility.ShareUtility;
 import com.asdamp.x_day.Costanti;
