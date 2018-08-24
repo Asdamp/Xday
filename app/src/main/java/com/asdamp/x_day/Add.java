@@ -32,11 +32,14 @@ import com.zhihu.matisse.MimeType;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
+import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class Add extends AppCompatActivity {
 
 
     private static final int REQUEST_IMAGE_CHOOSE = 500;
+    @BindView(R.id.text_field_boxes)
+    TextFieldBoxes mTextFildTitleBox;
     @BindView(R.id.etv_event_name)
     ExtendedEditText mEditTitle;
     @BindView(R.id.btn_date_select)
@@ -100,22 +103,24 @@ public class Add extends AppCompatActivity {
         }
         Bundle b=this.getIntent().getExtras();
 
-        if (b==null || b.getInt("requestCode") == Costanti.CREA_DATA) {
+        if (b==null) {
             setupNewDate();
         }
         // altrimenti prende i valori proprio dalla data
         else {
             try {
                 data=b.getParcelable("data");
-                Log.d("Modify", data.toString());
             } catch (Exception e) {
-                Snackbar.make(mCoordinator, "Unable to retrieve information about this date", Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(mCoordinator, "Unable to retrieve information about this date", Snackbar.LENGTH_SHORT).show();
                 setupNewDate();
             }
 
 
         }
+        if(data==null){
+            setupNewDate();
 
+        }
         configViews();
 
         //set previous/default date and time

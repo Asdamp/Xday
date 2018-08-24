@@ -43,7 +43,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		super();
 		this.millisecondiIniziali=this.getTimeInMillis();
 		this.setTimeInMillis(ms);
-		tipo=creaPeriodType(true, true, true, true, true, true, true);
+		tipo=creaPeriodType(false,false,false,true,false,false,false);
 		descrizione="";
 		notifica=false;
 		color=Color.parseColor("#0099CC");

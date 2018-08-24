@@ -36,7 +36,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -69,8 +72,16 @@ public class DateListActivity extends AppCompatActivity
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, Add.class);
-            //TODO parsedate
-            intent.putExtra("data", (Parcelable) new Data());
+            Date selectedDate = null;
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            try {
+                selectedDate=formatter.parse(""+mCollapsibleCalendar.getSelectedDay().getDay()+"-"+(mCollapsibleCalendar.getSelectedDay().getMonth()+1)+"-"+mCollapsibleCalendar.getSelectedDay().getYear());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if (selectedDate != null) {
+                intent.putExtra("data", (Parcelable) new Data(selectedDate.getTime()));
+            }
             intent.putExtra("requestCode", Costanti.CREA_DATA);
             startActivityForResult(intent, Costanti.CREA_DATA);
         });
