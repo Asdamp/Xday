@@ -90,6 +90,7 @@ dependencies {
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
     implementation 'com.wdullaer:materialdatetimepicker:3.6.0'
     implementation 'com.jaychang:simpletext:2.0.1'
+    implementation "com.github.skydoves:powermenu:2.0.5"
 
     implementation 'com.github.Asdamp:Collapsible-Calendar-View-Android:ee1eead465'
     implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'

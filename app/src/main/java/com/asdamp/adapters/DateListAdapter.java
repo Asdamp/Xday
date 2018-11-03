@@ -37,7 +37,8 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
     private ArrayList<Data> date;
     public OnListItemClickListener callback;
     public interface OnListItemClickListener{
-        void onListItemClick(int i);
+        void onListItemClick(View v,int i);
+        boolean onListItemLongClick(View v,int i);
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -94,19 +95,6 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         if(data.getImage()!=null)
         GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
 
-       /* if(i==0){
-            GlideApp.with(context).load(R.drawable.test1).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-            Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
-                    R.drawable.test1);
-            p = Palette.from(icon).generate();
-
-        }
-        else if(i==1){
-            GlideApp.with(context).load(R.drawable.test2).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-            Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
-                    R.drawable.test2);
-            p = Palette.from(icon).generate();
-        }*/
         holder.mDate.setText(date.get(i).toString());
         try{
             String lefttext=data.aggiorna(context);
@@ -125,25 +113,14 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             holder.mDescription.setVisibility(View.VISIBLE);
             holder.mDescription.setText(s);
         }
-        if(p!=null && p.getDominantSwatch()!=null)
+        if(p!=null && p.getDominantSwatch()!=null )
             holder.mLeft.setTextColor(ColorUtils.setAlphaComponent(p.getDominantSwatch().getBodyTextColor(), 255));
-      /*  if(data.getPercentuale() == 1000)
-        {
-            holder.mLeftOrPassed.setText(context.getText(R.string.Passato));
-            holder.mFromOrTo.setText(context.getText(R.string.DallaData));
-            holder.mProgress.setVisibility(View.GONE);
-        } else
-        {
-            holder.mProgress.setProgress(1000-data.getPercentuale());
-            holder.mProgress.setVisibility(View.VISIBLE);
-        }*/
-        if(callback!=null)
-            holder.itemView.setOnClickListener(v->callback.onListItemClick(i));
-        // imageview = (ImageView)view1.findViewById(R.id.drag_image);
-            /*if(riordina)
-                imageview.setVisibility(View.VISIBLE);
-            else
-                imageview.setVisibility(View.GONE);*/
+        if(callback!=null) {
+            holder.itemView.setOnClickListener(v -> callback.onListItemClick(holder.itemView,i));
+            holder.itemView.setOnLongClickListener(v -> callback.onListItemLongClick(holder.itemView,i));
+
+        }
+
     }
     public SpannableStringBuilder makeSpannable(String text, String regex) {
 
