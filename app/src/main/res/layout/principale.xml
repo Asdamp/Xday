@@ -16,33 +16,34 @@
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:id="@+id/container"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
 
 
         <ImageView
             android:id="@+id/iv_date_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="Date image"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop"
 
-            app:srcCompat="@color/md_red_500"
-            android:contentDescription="Date image" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/md_red_500" />
 
         <TextView
             android:id="@+id/mancante"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
+            android:lines="2"
+            android:padding="5dp"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:textAppearance="?android:textAppearanceLarge"
@@ -102,19 +103,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descrizionePersonale"
             tools:text="Data" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
+            android:layout_marginStart="35dp"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/md_grey_200"
             app:layout_constraintBottom_toBottomOf="@+id/data"
             app:layout_constraintEnd_toStartOf="@+id/data"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/data"
-            android:layout_marginStart="35dp"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintTop_toTopOf="@+id/data" />
 
         <View
             android:id="@+id/view"
