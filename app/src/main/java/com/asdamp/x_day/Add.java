@@ -192,6 +192,7 @@ public class Add extends AppCompatActivity {
                 .imageEngine(new Glide4Engine())
                 .forResult(REQUEST_IMAGE_CHOOSE));
         mFabConfirm.setOnClickListener(v -> {
+
             operazioniFinali(Costanti.TUTTO_BENE);
         });
 

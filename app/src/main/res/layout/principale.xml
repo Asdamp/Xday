@@ -32,21 +32,23 @@
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"
 
-            app:srcCompat="@color/md_red_500" />
+            app:srcCompat="@color/md_red_500"
+            android:contentDescription="Date image" />
 
         <TextView
             android:id="@+id/mancante"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:paddingStart="15dp"
             android:layout_marginTop="10dp"
-            android:paddingEnd="15dp"
             android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/md_white_1000"
             android:textSize="18.0sp"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
+            android:textStyle="bold"
             app:autoSizeMaxTextSize="25sp"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeStepGranularity="2sp"
@@ -71,7 +73,7 @@
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/md_white_1000"
             android:textSize="20.0sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="sans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +96,7 @@
             android:textColor="@color/md_white_1000"
             android:textSize="12.0sp"
 
+            android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
