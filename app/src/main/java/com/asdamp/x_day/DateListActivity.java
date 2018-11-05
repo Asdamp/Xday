@@ -2,26 +2,33 @@ package com.asdamp.x_day;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import com.asdamp.utility.ImageUtils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.asdamp.adapters.DateListAdapter;
@@ -29,14 +36,22 @@ import com.asdamp.database.DBAdapter;
 import com.asdamp.database.DBHelper;
 import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
+import com.skydoves.powermenu.MenuAnimation;
+import com.skydoves.powermenu.OnMenuItemClickListener;
+import com.skydoves.powermenu.PowerMenu;
+import com.skydoves.powermenu.PowerMenuItem;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -69,6 +84,16 @@ public class DateListActivity extends AppCompatActivity
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, Add.class);
+            Date selectedDate = null;
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            try {
+                selectedDate=formatter.parse(""+mCollapsibleCalendar.getSelectedDay().getDay()+"-"+(mCollapsibleCalendar.getSelectedDay().getMonth()+1)+"-"+mCollapsibleCalendar.getSelectedDay().getYear());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if (selectedDate != null) {
+                intent.putExtra("data", (Parcelable) new Data(selectedDate.getTime()));
+            }
             intent.putExtra("requestCode", Costanti.CREA_DATA);
             startActivityForResult(intent, Costanti.CREA_DATA);
         });
@@ -88,7 +113,46 @@ public class DateListActivity extends AppCompatActivity
 
         mDateRecyclerView.setLayoutManager(layoutManager);
         DateListAdapter ad=new DateListAdapter(dates);
-        ad.setOnListItemClickListener(this::onListItemClick);
+        ad.setOnListItemClickListener(new DateListAdapter.OnListItemClickListener() {
+            @SuppressWarnings("ResultOfMethodCallIgnored")
+            @Override
+            public void onListItemClick(View v,int i) {
+                DateListActivity.this.onListItemClick(i);
+            }
+
+            @Override
+            public boolean onListItemLongClick(View v, int i) {
+
+                PowerMenu powerMenu = new PowerMenu.Builder(DateListActivity.this)
+                        .addItem(new PowerMenuItem(getString(R.string.delete), false))
+                        .addItem(new PowerMenuItem(getString(R.string.share), false))
+
+                        .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT) // Animation start point (TOP | LEFT)
+                        .setMenuRadius(10f)
+                        .setMenuShadow(10f)
+                        .setSelectedEffect(true)
+
+                        .setSelectedTextColor(Color.BLUE)
+                        .setMenuColor(Color.WHITE)
+
+                        .build();
+                powerMenu.setOnMenuItemClickListener((position, item) -> {
+                    powerMenu.dismiss();
+                    switch (position){
+                        case 0:
+                            Costanti.getDB().deleteData(dates.get(i));
+                            dates.remove(i);
+                            ad.notifyItemRemoved(i);
+                            break;
+                        case 1:
+                            ImageUtils.shareView(DateListActivity.this,v);
+                    }
+
+                });
+                powerMenu.showAsAnchorLeftTop(v);
+                return true;
+            }
+        });
         mDateRecyclerView.setAdapter(ad);
 
         mCollapsibleCalendar = findViewById(R.id.calendarView);
@@ -405,9 +469,6 @@ public class DateListActivity extends AppCompatActivity
                     Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 
 
 

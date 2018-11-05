@@ -3,17 +3,15 @@ package com.asdamp.x_day;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,13 +19,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.asdamp.adapters.AddArrayAdapter;
 import com.asdamp.notification.Notification;
 import com.asdamp.utility.Glide4Engine;
-import com.asdamp.utility.MultipleChoiceDialog;
-import com.asdamp.utility.TextEditDialog;
 import com.asdamp.utility.UserInfoUtility;
-import com.crashlytics.android.Crashlytics;
 import com.github.zagum.switchicon.SwitchIconView;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -38,11 +32,14 @@ import com.zhihu.matisse.MimeType;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
+import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class Add extends AppCompatActivity {
 
 
     private static final int REQUEST_IMAGE_CHOOSE = 500;
+    @BindView(R.id.text_field_boxes)
+    TextFieldBoxes mTextFildTitleBox;
     @BindView(R.id.etv_event_name)
     ExtendedEditText mEditTitle;
     @BindView(R.id.btn_date_select)
@@ -106,22 +103,24 @@ public class Add extends AppCompatActivity {
         }
         Bundle b=this.getIntent().getExtras();
 
-        if (b==null || b.getInt("requestCode") == Costanti.CREA_DATA) {
+        if (b==null) {
             setupNewDate();
         }
         // altrimenti prende i valori proprio dalla data
         else {
             try {
                 data=b.getParcelable("data");
-                Log.d("Modify", data.toString());
             } catch (Exception e) {
-                Snackbar.make(mCoordinator, "Unable to retrieve information about this date", Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(mCoordinator, "Unable to retrieve information about this date", Snackbar.LENGTH_SHORT).show();
                 setupNewDate();
             }
 
 
         }
+        if(data==null){
+            setupNewDate();
 
+        }
         configViews();
 
         //set previous/default date and time
@@ -193,6 +192,7 @@ public class Add extends AppCompatActivity {
                 .imageEngine(new Glide4Engine())
                 .forResult(REQUEST_IMAGE_CHOOSE));
         mFabConfirm.setOnClickListener(v -> {
+
             operazioniFinali(Costanti.TUTTO_BENE);
         });
 

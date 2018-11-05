@@ -1,12 +1,17 @@
 package com.asdamp.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v7.graphics.Palette;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.core.graphics.ColorUtils;
+import androidx.palette.graphics.Palette;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Color;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +23,11 @@ import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
 import com.asdamp.x_day.GlideApp;
 import com.asdamp.x_day.R;
+import com.jaychang.st.SimpleText;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +37,8 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
     private ArrayList<Data> date;
     public OnListItemClickListener callback;
     public interface OnListItemClickListener{
-        void onListItemClick(int i);
+        void onListItemClick(View v,int i);
+        boolean onListItemLongClick(View v,int i);
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -86,22 +95,11 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         if(data.getImage()!=null)
         GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
 
-       /* if(i==0){
-            GlideApp.with(context).load(R.drawable.test1).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-            Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
-                    R.drawable.test1);
-            p = Palette.from(icon).generate();
-
-        }
-        else if(i==1){
-            GlideApp.with(context).load(R.drawable.test2).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-            Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
-                    R.drawable.test2);
-            p = Palette.from(icon).generate();
-        }*/
-        holder.mDate.setText(" "+date.get(i).toString());
+        holder.mDate.setText(date.get(i).toString());
         try{
-            holder.mLeft.setText(" "+data.aggiorna(context));
+            String lefttext=data.aggiorna(context);
+
+            holder.mLeft.setText(makeSpannable(lefttext, "\\d+"));
         }
         catch (ArithmeticException e){
             holder.mLeft.setText(context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");
@@ -115,27 +113,38 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             holder.mDescription.setVisibility(View.VISIBLE);
             holder.mDescription.setText(s);
         }
-        if(p!=null && p.getDominantSwatch()!=null)
+        if(p!=null && p.getDominantSwatch()!=null )
             holder.mLeft.setTextColor(ColorUtils.setAlphaComponent(p.getDominantSwatch().getBodyTextColor(), 255));
-      /*  if(data.getPercentuale() == 1000)
-        {
-            holder.mLeftOrPassed.setText(context.getText(R.string.Passato));
-            holder.mFromOrTo.setText(context.getText(R.string.DallaData));
-            holder.mProgress.setVisibility(View.GONE);
-        } else
-        {
-            holder.mProgress.setProgress(1000-data.getPercentuale());
-            holder.mProgress.setVisibility(View.VISIBLE);
-        }*/
-        if(callback!=null)
-            holder.itemView.setOnClickListener(v->callback.onListItemClick(i));
-        // imageview = (ImageView)view1.findViewById(R.id.drag_image);
-            /*if(riordina)
-                imageview.setVisibility(View.VISIBLE);
-            else
-                imageview.setVisibility(View.GONE);*/
-    }
+        if(callback!=null) {
+            holder.itemView.setOnClickListener(v -> callback.onListItemClick(holder.itemView,i));
+            holder.itemView.setOnLongClickListener(v -> callback.onListItemLongClick(holder.itemView,i));
 
+        }
+
+    }
+    public SpannableStringBuilder makeSpannable(String text, String regex) {
+
+        StringBuffer sb = new StringBuffer();
+        SpannableStringBuilder spannable = new SpannableStringBuilder();
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            sb.setLength(0); // clear
+            String group = matcher.group();
+            // caution, this code assumes your regex has single char delimiters
+            matcher.appendReplacement(sb, group);
+
+            spannable.append(sb.toString());
+            int start = spannable.length() - group.length();
+
+            spannable.setSpan( new RelativeSizeSpan(2.0f), start, spannable.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        sb.setLength(0);
+        matcher.appendTail(sb);
+        spannable.append(sb.toString());
+        return spannable;
+    }
     @Override
     public int getItemCount() {
         return date.size();

@@ -168,4 +168,6 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
 </resources>

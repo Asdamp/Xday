@@ -43,7 +43,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		super();
 		this.millisecondiIniziali=this.getTimeInMillis();
 		this.setTimeInMillis(ms);
-		tipo=creaPeriodType(true, true, true, true, true, true, true);
+		tipo=creaPeriodType(false,false,false,true,false,false,false);
 		descrizione="";
 		notifica=false;
 		color=Color.parseColor("#0099CC");
@@ -220,6 +220,8 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		hours=passed[4];
 		minutes=passed[5];
 		seconds=passed[6];
+		boolean foundNotZero=false;
+
 		if (years == 0) {
 			stringaTotale = stringaTotale+"";
 		} else {
@@ -230,7 +232,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale =  stringaTotale+tmp+resources.getQuantityString(R.plurals.Mesi, months, months);
 		}
 		if (weeks == 0) {
@@ -238,7 +240,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Settimane, weeks, weeks);
 		}
 		if (days == 0) {
@@ -246,7 +248,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Giorni, days, days);
 		}
 
@@ -255,7 +257,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale = stringaTotale+tmp+resources.getQuantityString(R.plurals.Ore, hours, hours);
 		}
 		if (minutes == 0) {
@@ -263,7 +265,7 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale = stringaTotale+ tmp+resources.getQuantityString(R.plurals.Minuti, minutes, minutes);
 		}
 		if (seconds == 0) {
@@ -271,10 +273,9 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		} else {
 			String tmp;
 			if(stringaTotale.equalsIgnoreCase("")) tmp="";
-			else tmp=", ";
+			else tmp=" ";
 			stringaTotale = stringaTotale+ tmp+resources.getQuantityString(R.plurals.Secondi, seconds, seconds);
 		}
-	
 		if (stringaTotale.equalsIgnoreCase(""))
 			if (tipo.isSupported(DurationFieldType.seconds())) {
 				stringaTotale = resources.getQuantityString(R.plurals.Secondi, 0, 0);
