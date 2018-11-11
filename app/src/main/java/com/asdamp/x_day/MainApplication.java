@@ -8,6 +8,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 
 import com.asdamp.widget.XdayWidgetProvider;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 
 public class MainApplication extends Application {
@@ -20,6 +21,7 @@ public class MainApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		AndroidThreeTen.init(this);
 
 		//ACRA.init(this);
 		initSingletons();

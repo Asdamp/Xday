@@ -3,6 +3,7 @@ package com.asdamp.x_day;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -28,6 +29,8 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
+
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -183,14 +186,20 @@ public class Add extends AppCompatActivity {
             UserInfoUtility.smallVibration(this);
 
         });
-        mFabAddImage.setOnClickListener(v -> Matisse.from(Add.this)
+        mFabAddImage.setOnClickListener(v -> {
+                /*Matisse.from(Add.this)
                 .choose(MimeType.ofAll())
                 .maxSelectable(1)
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
 
                 .thumbnailScale(0.85f)
                 .imageEngine(new Glide4Engine())
-                .forResult(REQUEST_IMAGE_CHOOSE));
+                .forResult(REQUEST_IMAGE_CHOOSE));*/
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CHOOSE);
+                });
         mFabConfirm.setOnClickListener(v -> {
 
             operazioniFinali(Costanti.TUTTO_BENE);
@@ -205,7 +214,9 @@ public class Add extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CHOOSE && resultCode == RESULT_OK) {
-            this.data.setImage(Matisse.obtainResult(data).get(0));
+            //this.data.setImage(Matisse.obtainResult(data).get(0));
+            Uri selectedImage = data.getData();
+            this.data.setImage(selectedImage);
             //Log.d("Matisse", "mSelected: " + mImageSelected);
             GlideApp.with(this).load(this.data.getImage()).fitCenter().into(mImageView);
         }

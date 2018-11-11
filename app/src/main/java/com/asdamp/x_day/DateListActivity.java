@@ -34,12 +34,13 @@ import android.widget.Toast;
 import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
 import com.asdamp.database.DBHelper;
-import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 import com.skydoves.powermenu.MenuAnimation;
 import com.skydoves.powermenu.OnMenuItemClickListener;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
+
+import org.threeten.bp.LocalDate;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -86,11 +87,12 @@ public class DateListActivity extends AppCompatActivity
             Intent intent = new Intent(this, Add.class);
             Date selectedDate = null;
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            try {
-                selectedDate=formatter.parse(""+mCollapsibleCalendar.getSelectedDay().getDay()+"-"+(mCollapsibleCalendar.getSelectedDay().getMonth()+1)+"-"+mCollapsibleCalendar.getSelectedDay().getYear());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+                try {
+                    selectedDate = formatter.parse("" + mCollapsibleCalendar.getSelectedDay().getDayOfMonth() + "-" + (mCollapsibleCalendar.getSelectedDay().getMonthValue()) + "-" + mCollapsibleCalendar.getSelectedDay().getYear());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
             if (selectedDate != null) {
                 intent.putExtra("data", (Parcelable) new Data(selectedDate.getTime()));
             }
@@ -159,10 +161,10 @@ public class DateListActivity extends AppCompatActivity
         mCollapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
             @Override
             public void onDaySelect() {
-                Day day = mCollapsibleCalendar.getSelectedDay();
+                LocalDate day = mCollapsibleCalendar.getSelectedDay();
                 //todo selezionare date
                 Log.i(getClass().getName(), "Selected Day: "
-                        + day.getYear() + "/" + (day.getMonth() + 1) + "/" + day.getDay());
+                        + day.getYear() + "/" + (day.getMonthValue()) + "/" + day.getDayOfMonth());
                 mCollapsibleCalendar.collapse(500);
             }
 
@@ -419,7 +421,8 @@ public class DateListActivity extends AppCompatActivity
         this.resumeAutoUpdate();
         leggiDati();
         for(Data date:dates){
-            mCollapsibleCalendar.addEventTag(date.getYear(),date.getMonth(),date.getDay(),getResources().getColor(R.color.md_white_1000));
+
+            mCollapsibleCalendar.addEventTag(LocalDate.of(date.getYear(),date.getMonth()+1,date.getDay()),getResources().getColor(R.color.md_white_1000));
         }
        /* if (lv == null) {
             lv = (ListView) findViewById(R.id.listaMainActivity);
