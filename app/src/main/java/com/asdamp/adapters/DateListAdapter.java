@@ -86,14 +86,13 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         Context context=holder.itemView.getContext();
         Data data = date.get(i);
         CardView cardView= (CardView) holder.itemView;
-        try {
-            cardView.setCardBackgroundColor(Costanti.getDB().cercaColore(data.getMillisecondiIniziali()));
-        } catch (DateNotFoundException e1) {
-            holder.mDescription.setTextColor(context.getResources().getColor(R.color.md_red_500));
-        }
+        cardView.setCardBackgroundColor(data.getColor());
+
         Palette p = null;
         if(data.getImage()!=null)
-        GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
+            GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
+        else
+            GlideApp.with(context).load(data.getColor()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
 
         holder.mDate.setText(date.get(i).toString());
         try{
@@ -108,7 +107,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         if(s.equalsIgnoreCase(""))
         {
             holder.mDescription.setVisibility(View.GONE);
-        } else
+    } else
         {
             holder.mDescription.setVisibility(View.VISIBLE);
             holder.mDescription.setText(s);

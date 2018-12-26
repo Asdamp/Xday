@@ -3,9 +3,12 @@ package com.asdamp.x_day;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+
+import androidx.annotation.ColorInt;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -19,12 +22,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.asdamp.notification.Notification;
 import com.asdamp.utility.Glide4Engine;
 import com.asdamp.utility.UserInfoUtility;
 import com.github.zagum.switchicon.SwitchIconView;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
+import com.thebluealliance.spectrum.SpectrumDialog;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import com.zhihu.matisse.Matisse;
@@ -34,6 +39,7 @@ import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
@@ -49,6 +55,8 @@ public class Add extends AppCompatActivity {
     Button mBtnSelectDate;
     @BindView(R.id.btn_time_select)
     Button mBtnSelectTime;
+    @BindView(R.id.btn_color_select)
+    Button mBtnColorSelect;
     @BindView(R.id.toggle_year)
     View mToggleYear;
     @BindView(R.id.toggle_month)
@@ -87,7 +95,8 @@ public class Add extends AppCompatActivity {
     JellyToggleButton mNotificationSwitch;
     @BindView(R.id.coordinator)
     CoordinatorLayout mCoordinator;
-
+    @BindView(R.id.iv_curr_color)
+    CircleImageView mIvCurrColor;
     private Data data;
   //  private Uri mImageSelected;
 
@@ -129,6 +138,7 @@ public class Add extends AppCompatActivity {
         //set previous/default date and time
         mBtnSelectDate.setText(Costanti.dt.format(data.getTime()));
         mBtnSelectTime.setText(Costanti.tf.format(data.getTime()));
+        mBtnColorSelect.setText(getString(R.string.date_color));
 
         //set previous/default date and time
         mSwitchYear.setIconEnabled(data.getBoolAnni());
@@ -204,7 +214,10 @@ public class Add extends AppCompatActivity {
 
             operazioniFinali(Costanti.TUTTO_BENE);
         });
+        mBtnColorSelect.setOnClickListener(v-> this.showColorPicker());
+        ColorDrawable cd = new ColorDrawable(data.getColor());
 
+        mIvCurrColor.setImageDrawable(cd);
         GlideApp.with(this).load(data.getImage()).fitCenter().into(mImageView);
 
     }
@@ -221,7 +234,23 @@ public class Add extends AppCompatActivity {
             GlideApp.with(this).load(this.data.getImage()).fitCenter().into(mImageView);
         }
     }
+    private void showColorPicker() {
+        new SpectrumDialog.Builder(this)
+                .setColors(R.array.colors_selector)
+                .setSelectedColor(data.getColor())
+                .setDismissOnColorSelected(true)
+                .setOutlineWidth(2)
+                .setOnColorSelectedListener(new SpectrumDialog.OnColorSelectedListener() {
+                    @Override public void onColorSelected(boolean positiveResult, @ColorInt int color) {
+                        if (positiveResult) {
+                            data.setColor(color);
+                            ColorDrawable cd = new ColorDrawable(data.getColor());
 
+                            mIvCurrColor.setImageDrawable(cd);
+                        }
+                    }
+                }).build().show(getSupportFragmentManager(), "dialog_demo_1");
+    }
     public void setupNewDate() {
         data=new Data(false,false,false,true,false,false,false);
         data.set(Data.HOUR_OF_DAY, 0);

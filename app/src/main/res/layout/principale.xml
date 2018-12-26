@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
 
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/md_red_500" />
+             />
 
         <TextView
             android:id="@+id/mancante"

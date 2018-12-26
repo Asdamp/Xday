@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".DateListActivity"
     tools:showIn="@layout/activity_add_date"
    >
@@ -57,6 +56,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_field_boxes"
         tools:text="Data" />
+
+    <Button
+        android:id="@+id/btn_color_select"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+
+        android:drawablePadding="3dp"
+
+        android:fontFamily="sans-serif"
+        android:gravity="start|center"
+        android:textAllCaps="false"
+        android:textColorHint="@color/md_blue_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_curr_color"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        tools:text="Colore" />
 
     <Button
         android:id="@+id/btn_time_select"
@@ -165,6 +187,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_curr_color"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_color_select"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_color_select"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FFFFFF"
+        tools:src="@color/A400red" />
 
     <!-- <ListView
          android:id="@+id/listaAdd"
