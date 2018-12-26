@@ -25,8 +25,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         signingConfig signingConfigs.config
-        versionCode 32
-        versionName "2.0-alpha3"
+        versionCode 33
+        versionName "2.0-alpha4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
