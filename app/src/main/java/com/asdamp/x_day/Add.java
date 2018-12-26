@@ -10,6 +10,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.ColorInt;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.asdamp.views.CheckableFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -86,7 +88,7 @@ public class Add extends AppCompatActivity {
     @BindView(R.id.switch_second)
     SwitchIconView mSwitchSecond;
     @BindView(R.id.fab_add_image)
-    FloatingActionButton mFabAddImage;
+    CheckableFloatingActionButton mFabAddImage;
     @BindView(R.id.fab)
     FloatingActionButton mFabConfirm;
     @BindView(R.id.iv_date_image)
@@ -152,6 +154,8 @@ public class Add extends AppCompatActivity {
         mEditTitle.setText(data.getDescrizioneIfExists());
 
         mNotificationSwitch.setCheckedImmediately(data.isNotifica());
+        if(data.getImage()!=null)
+            mFabAddImage.setChecked(true);
     }
 
     private void configViews() {
@@ -197,22 +201,23 @@ public class Add extends AppCompatActivity {
 
         });
         mFabAddImage.setOnClickListener(v -> {
-                /*Matisse.from(Add.this)
-                .choose(MimeType.ofAll())
-                .maxSelectable(1)
-                .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+             if(!mFabAddImage.isChecked()) {
+                 Intent intent = new Intent();
+                 intent.setType("image/*");
+                 intent.setAction(Intent.ACTION_GET_CONTENT);
+                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CHOOSE);
+             }
+            else{
+                 data.setImage(null);
+                 mFabAddImage.setChecked(false);
+                 mImageView.setImageDrawable(null);
+             }
+        });
 
-                .thumbnailScale(0.85f)
-                .imageEngine(new Glide4Engine())
-                .forResult(REQUEST_IMAGE_CHOOSE));*/
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CHOOSE);
-                });
         mFabConfirm.setOnClickListener(v -> {
 
             operazioniFinali(Costanti.TUTTO_BENE);
+
         });
         mBtnColorSelect.setOnClickListener(v-> this.showColorPicker());
         ColorDrawable cd = new ColorDrawable(data.getColor());
@@ -232,6 +237,7 @@ public class Add extends AppCompatActivity {
             this.data.setImage(selectedImage);
             //Log.d("Matisse", "mSelected: " + mImageSelected);
             GlideApp.with(this).load(this.data.getImage()).fitCenter().into(mImageView);
+            mFabAddImage.setChecked(true);
         }
     }
     private void showColorPicker() {
