@@ -16,25 +16,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_notification.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_share.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/refreshNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/refreshNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -2866,7 +2848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545833756994</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Notifications now works on Android 8+">
+      <created>1545933727909</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1545933727909</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2921,7 +2910,8 @@
     <MESSAGE value="Color selection for each date" />
     <MESSAGE value="Elimina immagine" />
     <MESSAGE value="Alpha 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alpha 4" />
+    <MESSAGE value="Notifications now works on Android 8+" />
+    <option name="LAST_COMMIT_MESSAGE" value="Notifications now works on Android 8+" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3341,7 +3331,7 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -197,7 +197,13 @@ public class Add extends AppCompatActivity {
              if(!mFabAddImage.isChecked()) {
                  Intent intent = new Intent();
                  intent.setType("image/*");
-                 intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+
+                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                     intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+                 }
+                 else
+                     intent.setAction(Intent.ACTION_GET_CONTENT);
+
                  startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CHOOSE);
              }
             else{
@@ -326,7 +332,7 @@ public class Add extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        XdayNotification.sendNotification(this,1545927480456L);
+       // XdayNotification.sendNotification(this,1545927480456L);
 
         operazioniFinali(Costanti.ANNULLA);
     }
