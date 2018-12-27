@@ -14,7 +14,7 @@ import android.util.Log;
 
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
-import com.asdamp.notification.Notification;
+import com.asdamp.notification.XdayNotification;
 import com.asdamp.utility.IOUtils;
 import com.asdamp.x_day.Data;
 
@@ -182,7 +182,7 @@ public class DBAdapter {
 
 	public boolean deleteData(long l) {
 		// delete notification if exist
-		Intent inte = new Intent(context, Notification.class);
+		Intent inte = new Intent(context, XdayNotification.class);
 		inte.setData(Uri.parse(l + ""));
 		PendingIntent pi = PendingIntent.getBroadcast(context, 0, inte,
 				PendingIntent.FLAG_UPDATE_CURRENT);

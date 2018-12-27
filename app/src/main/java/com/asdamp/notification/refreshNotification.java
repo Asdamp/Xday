@@ -31,7 +31,7 @@ public class refreshNotification extends BroadcastReceiver {
 		Data data;
 		while(c.moveToNext()){
 			data=Data.leggi(c);
-			Notification.scheduleNotificationById(context, data);
+			XdayNotification.scheduleNotificationById(context, data);
 		}
 	}
 

@@ -2,8 +2,11 @@ package com.asdamp.x_day;
 
 import android.annotation.TargetApi;
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 
@@ -22,7 +25,13 @@ public class MainApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		AndroidThreeTen.init(this);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
+			NotificationChannel notificationChannel = new NotificationChannel("dates",
+				getString(R.string.notification_channel_name_dates), NotificationManager.IMPORTANCE_DEFAULT);
+			NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			manager.createNotificationChannel(notificationChannel);
+		}
 		//ACRA.init(this);
 		initSingletons();
 	}

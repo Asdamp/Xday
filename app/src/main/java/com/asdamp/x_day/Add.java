@@ -2,9 +2,9 @@ package com.asdamp.x_day;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 
@@ -13,7 +13,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.asdamp.views.CheckableFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,20 +23,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.asdamp.notification.Notification;
-import com.asdamp.utility.Glide4Engine;
+import com.asdamp.notification.XdayNotification;
 import com.asdamp.utility.UserInfoUtility;
 import com.github.zagum.switchicon.SwitchIconView;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
 import com.thebluealliance.spectrum.SpectrumDialog;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
-import com.zhihu.matisse.Matisse;
-import com.zhihu.matisse.MimeType;
-
-import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -204,7 +197,7 @@ public class Add extends AppCompatActivity {
              if(!mFabAddImage.isChecked()) {
                  Intent intent = new Intent();
                  intent.setType("image/*");
-                 intent.setAction(Intent.ACTION_GET_CONTENT);
+                 intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
                  startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_IMAGE_CHOOSE);
              }
             else{
@@ -220,6 +213,8 @@ public class Add extends AppCompatActivity {
 
         });
         mBtnColorSelect.setOnClickListener(v-> this.showColorPicker());
+        mIvCurrColor.setOnClickListener(v-> this.showColorPicker());
+
         ColorDrawable cd = new ColorDrawable(data.getColor());
 
         mIvCurrColor.setImageDrawable(cd);
@@ -235,9 +230,14 @@ public class Add extends AppCompatActivity {
             //this.data.setImage(Matisse.obtainResult(data).get(0));
             Uri selectedImage = data.getData();
             this.data.setImage(selectedImage);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                this.getContentResolver().takePersistableUriPermission(selectedImage, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            }
             //Log.d("Matisse", "mSelected: " + mImageSelected);
             GlideApp.with(this).load(this.data.getImage()).fitCenter().into(mImageView);
             mFabAddImage.setChecked(true);
+
+
         }
     }
     private void showColorPicker() {
@@ -304,7 +304,7 @@ public class Add extends AppCompatActivity {
         data.setDescription(mEditTitle.getText().toString());
         setResult(resultCode, this.getIntent().putExtra("data", (Parcelable) data));
         Costanti.updateWidget(this);
-        Notification.scheduleNotificationById(this,data);
+        XdayNotification.scheduleNotificationById(this,data);
         finish();
     }
 
@@ -326,6 +326,8 @@ public class Add extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        XdayNotification.sendNotification(this,1545927480456L);
+
         operazioniFinali(Costanti.ANNULLA);
     }
 

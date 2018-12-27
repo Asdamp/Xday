@@ -91,8 +91,8 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         Palette p = null;
         if(data.getImage()!=null)
             GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-        else
-            GlideApp.with(context).load(data.getColor()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
+       /* else
+            GlideApp.with(context).load(data.getColor()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));*/
 
         holder.mDate.setText(date.get(i).toString());
         try{

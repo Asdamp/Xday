@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.asdamp.x_day"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         vectorDrawables.useSupportLibrary = true
         compileOptions {
@@ -25,8 +25,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         signingConfig signingConfigs.config
-        versionCode 33
-        versionName "2.0-alpha4"
+        versionCode 35
+        versionName "2.0-alpha6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
