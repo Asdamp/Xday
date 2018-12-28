@@ -48,6 +48,8 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         public TextView mLeft;
         @BindView(R.id.descrizionePersonale)
         public TextView mDescription;
+        @BindView(R.id.iv_date_image)
+        public ImageView mImage;
       /*  @BindView(R.id.alladata)
         public TextView mFromOrTo;
         @BindView(R.id.mancanoopassato)
@@ -89,10 +91,12 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         cardView.setCardBackgroundColor(data.getColor());
 
         Palette p = null;
+        holder.mImage.setImageDrawable(null);
         if(data.getImage()!=null)
-            GlideApp.with(context).load(data.getImage()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));
-       /* else
-            GlideApp.with(context).load(data.getColor()).centerCrop().into((ImageView) cardView.findViewById(R.id.iv_date_image));*/
+            GlideApp.with(context).load(data.getImage()).centerCrop().into(holder.mImage);
+      /*  else
+            holder.mImage.setVisibility(View.INVISIBLE
+            );*/
 
         holder.mDate.setText(date.get(i).toString());
         try{

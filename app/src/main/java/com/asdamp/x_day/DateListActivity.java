@@ -166,6 +166,13 @@ public class DateListActivity extends AppCompatActivity
                 Log.i(getClass().getName(), "Selected Day: "
                         + day.getYear() + "/" + (day.getMonthValue()) + "/" + day.getDayOfMonth());
                 mCollapsibleCalendar.collapse(500);
+                for (int i = 0; i < dates.size(); i++) {
+                    Data date = dates.get(i);
+                    if (date.getDay() == day.getDayOfMonth()) {
+                        mDateRecyclerView.smoothScrollToPosition(i);
+                        break;
+                    }
+                }
             }
 
             @Override
