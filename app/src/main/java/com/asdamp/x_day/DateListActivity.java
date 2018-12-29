@@ -2,12 +2,9 @@ package com.asdamp.x_day;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
@@ -27,31 +24,23 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
-import com.asdamp.database.DBHelper;
+import com.pixplicity.easyprefs.library.Prefs;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 import com.skydoves.powermenu.MenuAnimation;
-import com.skydoves.powermenu.OnMenuItemClickListener;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
 
 import org.threeten.bp.LocalDate;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -66,6 +55,8 @@ public class DateListActivity extends AppCompatActivity
     RecyclerView mDateRecyclerView;
     private ArrayList<Data> dates;
     private Timer timer;
+    DateListAdapter mListAdapter;
+
     public Handler mHandler = new Handler() {
 
         synchronized public void handleMessage(Message msg) {
@@ -114,8 +105,8 @@ public class DateListActivity extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         mDateRecyclerView.setLayoutManager(layoutManager);
-        DateListAdapter ad=new DateListAdapter(dates);
-        ad.setOnListItemClickListener(new DateListAdapter.OnListItemClickListener() {
+        mListAdapter = new DateListAdapter(dates);
+        mListAdapter.setOnListItemClickListener(new DateListAdapter.OnListItemClickListener() {
             @SuppressWarnings("ResultOfMethodCallIgnored")
             @Override
             public void onListItemClick(View v,int i) {
@@ -144,7 +135,7 @@ public class DateListActivity extends AppCompatActivity
                         case 0:
                             Costanti.getDB().deleteData(dates.get(i));
                             dates.remove(i);
-                            ad.notifyItemRemoved(i);
+                            mListAdapter.notifyItemRemoved(i);
                             break;
                         case 1:
                             ImageUtils.shareView(DateListActivity.this,v);
@@ -155,7 +146,7 @@ public class DateListActivity extends AppCompatActivity
                 return true;
             }
         });
-        mDateRecyclerView.setAdapter(ad);
+        mDateRecyclerView.setAdapter(mListAdapter);
 
         mCollapsibleCalendar = findViewById(R.id.calendarView);
         mCollapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
@@ -215,24 +206,70 @@ public class DateListActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        switch (item.getItemId()) {
+            case R.id.time:
+                if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
+                    boolean currReverse=Prefs.getBoolean("reverse",false);
+                    Prefs.putBoolean("reverse",!currReverse);
 
-        } else if (id == R.id.nav_slideshow) {
+                }
+                else {
+                    Prefs.putString("sortby", "time");
+                    Prefs.putString("sorttype", "asc");
+                }
+                sortList();
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+                break;
+            case R.id.alphabetical:
+                if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
+                    boolean currReverse=Prefs.getBoolean("reverse",false);
+                    Prefs.putBoolean("reverse",!currReverse);
 
-        } else if (id == R.id.nav_send) {
+                }
+                else {
+                    Prefs.putString("sortby", "alphabetical");
+                    Prefs.putString("sorttype", "asc");
+                }
+                sortList();
+                break;
+            case R.id.color:
+                if(Prefs.getString("sortby","time").equalsIgnoreCase("color")){
+                    boolean currReverse=Prefs.getBoolean("reverse",false);
+                    Prefs.putBoolean("reverse",!currReverse);
+                }
+                else {
+                    Prefs.putString("sortby", "color");
+                    Prefs.putString("sorttype", "asc");
+                }
+                sortList();
+                break;
+            case R.id.aboutMain:
+                startActivity(new Intent(this, About.class));
+                break;
 
+            default:
+                return false;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void sortList() {
+        if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
+            mListAdapter.sortList(Data::compare,Prefs.getBoolean("reverse",false));
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
+            mListAdapter.sortList((o1, o2) -> o1.getDescrizione().compareTo(o2.getDescrizione()),Prefs.getBoolean("reverse",false));
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("color")){
+            mListAdapter.sortList((o1, o2) -> Integer.compare(o1.getColor(),o2.getColor()),Prefs.getBoolean("reverse",false));
+        }
+    }
+
     private synchronized void aggiorna() {
         mDateRecyclerView.getAdapter().notifyDataSetChanged();
     }
@@ -294,6 +331,8 @@ public class DateListActivity extends AppCompatActivity
                         Costanti.getDB().updateData(data);
                         dates.remove(index);
                         dates.add(index, data);
+                        sortList();
+
                         break;
                     case Costanti.CANCELLA_DATA:
                         this.rimuoviData(index);break;
@@ -305,6 +344,8 @@ public class DateListActivity extends AppCompatActivity
                     case Costanti.TUTTO_BENE:
                         Costanti.getDB().createData(data);
                         dates.add(data);
+                        sortList();
+
                         break;
                 }
 
@@ -334,92 +375,6 @@ public class DateListActivity extends AppCompatActivity
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem) {
-        switch (menuitem.getItemId()) {
-            case R.id.Temporale:
-                boolean ch = !menuitem.isChecked();
-                /*shprs.edit().putBoolean(autoreorder, ch).commit();
-                menuitem.setChecked(ch);
-                if (ch && !date.isEmpty()) {
-                    Collections.sort(date, getDate(0));
-                    for (int i = 1; i <= date.size(); i++) {
-                        long msTemp = getDate(i - 1).getMillisecondiIniziali();
-                        Costanti.getDB().cambiaPosizione(msTemp, i);
-                    }
-                    ((MainApplication) this.getApplication()).aggiornaWidget();
-                }
-                mainMenu.findItem(R.id.Manuale).setVisible(!ch);*/
-                break;
-            case R.id.menu_settings:
-                Intent intent = new Intent(this,Add.class);
-                intent.putExtra("requestCode", 4);
-                this.pauseAutoUpdate();
-                startActivityForResult(intent, 4);
-                break;
-            case R.id.Aggiorna:
-                aggiorna();
-                break;
-            case R.id.aboutMain:
-                startActivity(new Intent(this, About.class));
-                break;
-		/*case R.id.Manuale:
-			menuitem.setVisible(false);
-			this.pauseAutoUpdate();
-			lv.setDragEnabled(true);
-			mainMenu.findItem(R.id.Fine_riordinamento).setVisible(true);
-			vista.ModRiordina(true);
-			vista.notifyDataSetChanged();
-			break;
-		case R.id.Fine_riordinamento:
-			menuitem.setVisible(false);
-			lv.setDragEnabled(false);
-			mainMenu.findItem(R.id.Manuale).setVisible(true);
-			vista.ModRiordina(false);
-			vista.notifyDataSetChanged();
-			((MainApplication) this.getApplication()).aggiornaWidget();
-			this.resumeAutoUpdate();
-			break;*/
-            case R.id.Esporta:
-                File dbf = this.getDatabasePath(DBHelper.DATABASE_NAME);
-                File dest = new File(Environment.getExternalStorageDirectory(),
-                        "Xdaydb.xdy");
-
-                if (dbf.exists()) {
-                    FileChannel src = null;
-                    FileChannel dst = null;
-                    try {
-                        src = new FileInputStream(dbf).getChannel();
-                        dst = new FileOutputStream(dest).getChannel();
-                        dst.transferFrom(src, 0, src.size());
-                        src.close();
-                        dst.close();
-                        Snackbar.make(
-                                mDateRecyclerView,
-                                this.getString(R.string.ExportSucceded,
-                                        dest.getAbsolutePath()), Snackbar.LENGTH_SHORT).show();
-
-                    } catch (FileNotFoundException e) {
-                        Snackbar.make(
-                                mDateRecyclerView, this.getText(R.string.ExportError),
-                                Snackbar.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        Snackbar.make(
-                                mDateRecyclerView, this.getText(R.string.ExportError),
-                                Snackbar.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    }
-
-                }
-
-                break;
-            case R.id.Importa: {
-                this.showFileChooser();
-
-                break;
-            }
-            default:
-                return false;
-        }
         return true;
     }
 
@@ -435,7 +390,9 @@ public class DateListActivity extends AppCompatActivity
             lv = (ListView) findViewById(R.id.listaMainActivity);
 
         }*/
+       sortList();
         aggiorna();
+
        /* boolean reorder = shprs.getBoolean(autoreorder, false);
         if (reorder && !date.isEmpty())/*
          * la riga sottostante riordina in
@@ -445,13 +402,13 @@ public class DateListActivity extends AppCompatActivity
 
     }
 
-    private synchronized void pauseAutoUpdate() {
+  /*  private synchronized void pauseAutoUpdate() {
         if (timer != null) {
             timer.cancel();
             timer.purge();
             timer = null;
         }
-    }
+    }*/
 
     private void resumeAutoUpdate() {
         if (timer == null) {
@@ -464,21 +421,7 @@ public class DateListActivity extends AppCompatActivity
         }
     }
 
-    private void showFileChooser() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
 
-        try {
-            startActivityForResult(
-                    Intent.createChooser(intent,
-                            this.getString(R.string.importFile)),
-                    Costanti.FILE_SELECT_CODE);
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(this, "Please install a File Manager.",
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
 

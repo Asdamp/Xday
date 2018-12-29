@@ -8,7 +8,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -17,10 +17,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete_vect.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_sort_by_alpha_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_time.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/my_backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xday.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Xday.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,96 +115,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Add.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+      <file leaf-file-name="activity_date_list_drawer.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1713">
-              <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="18" column="141" selection-start-line="18" selection-start-column="141" selection-end-line="18" selection-end-column="141" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Costanti.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Costanti.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateListActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DateListActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="147" column="34" lean-forward="true" selection-start-line="147" selection-start-column="34" selection-end-line="148" selection-end-column="31" />
+            <state relative-caret-position="409">
+              <caret line="392" column="18" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3518#3549#0" expanded="true" />
+                <element signature="e#3551#3583#0" expanded="true" />
+                <element signature="e#4603#4629#0" expanded="true" />
+                <element signature="e#4690#4715#0" expanded="true" />
+                <element signature="e#9847#9848#0" expanded="true" />
+                <element signature="e#9916#9917#0" expanded="true" />
+                <element signature="e#11811#11863#0" expanded="true" />
+                <element signature="e#12023#12062#0" expanded="true" />
+                <element signature="e#12175#12211#0" expanded="true" />
+                <element signature="e#13309#13310#0" expanded="true" />
+                <element signature="e#13344#13345#0" expanded="true" />
+                <element signature="e#13407#13408#0" expanded="true" />
+                <element signature="e#13434#13435#0" expanded="true" />
+                <element signature="e#14875#15022#0" expanded="true" />
+                <element signature="e#15021#15022#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java">
+      <file leaf-file-name="MainApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+            <state relative-caret-position="289">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XdayNotification.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java">
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="79" column="117" selection-start-line="79" selection-start-column="117" selection-end-line="79" selection-end-column="117" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ImageUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShareUtility.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ShareUtility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
-              <folding>
-                <element signature="e#5309#5310#0" expanded="true" />
-                <element signature="e#5343#5344#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -203,8 +190,35 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="323">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="935">
+              <caret line="59" column="56" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -215,19 +229,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
         <option value="valueResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>switc</find>
-      <find>app:si_no_dash=&quot;true&quot;</find>
-      <find>temp</find>
-      <find>op</find>
-      <find>glidea</find>
       <find>getselectedda</find>
       <find>picass</find>
       <find>fabb</find>
@@ -235,7 +244,6 @@
       <find>counter</find>
       <find>show</find>
       <find>colorpic</find>
-      <find>onactivity</find>
       <find>circle</find>
       <find>setcolor</find>
       <find>showpickj</find>
@@ -250,6 +258,15 @@
       <find>share</find>
       <find>action_get</find>
       <find>Documen</find>
+      <find>onmenu</find>
+      <find>Add Date</find>
+      <find>onmenui</find>
+      <find>menu</find>
+      <find>drawer</find>
+      <find>import6a</find>
+      <find>adapter</find>
+      <find>onactivity</find>
+      <find>onresu</find>
     </findStrings>
     <replaceStrings>
       <replace>app:si_no_dash=&quot;false&quot;</replace>
@@ -2514,7 +2531,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" />
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/local.properties" />
@@ -2529,15 +2545,21 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/Notification.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ImageUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/my_backup_rules.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml" />
       </list>
     </option>
   </component>
@@ -2551,7 +2573,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Xday" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Xday" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xday" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Xday" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2575,35 +2614,22 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+              <item name="x_day" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="asdamp" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Xday" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xday" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xday" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xday" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2856,7 +2882,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545934288038</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Scroll to date when selected">
+      <created>1546009635583</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1546009635583</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2870,29 +2903,29 @@
       <window_info id="Build Variants" order="3" sideWeight="0.51482797" side_tool="true" weight="0.24970178" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5057654" side_tool="true" visible="true" weight="0.32882166" />
+      <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49662027" weight="0.32882166" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.4950298" weight="0.32882166" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49662027" weight="0.32882166" />
+      <window_info anchor="bottom" id="Logcat" order="11" sideWeight="0.4942346" visible="true" weight="0.32882166" />
       <window_info id="Captures" order="6" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.485172" visible="true" weight="0.24970178" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4942346" weight="0.32882166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48279953" visible="true" weight="0.24970178" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49383697" weight="0.32882166" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.51482797" side_tool="true" visible="true" weight="0.24970178" />
+      <window_info id="Structure" order="1" sideWeight="0.51720047" side_tool="true" visible="true" weight="0.24970178" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821073" weight="0.39968154" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Assistant" order="9" weight="0.32995737" />
-      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="right" id="Assistant" order="9" weight="0.32962227" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" x="0" y="0" width="593" height="1215" id="Documentation" order="10" sideWeight="0.501182" side_tool="true" weight="0.32962227" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="593" height="1215" id="Documentation" order="10" sideWeight="0.501182" side_tool="true" weight="0.32962227" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32960895" />
@@ -2913,20 +2946,15 @@
     <MESSAGE value="Alpha 4" />
     <MESSAGE value="Notifications now works on Android 8+" />
     <MESSAGE value="Compatible with api level 16+ instead of 19+" />
-    <option name="LAST_COMMIT_MESSAGE" value="Compatible with api level 16+ instead of 19+" />
+    <MESSAGE value="Scroll to date when selected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scroll to date when selected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java</url>
-          <line>226</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java</url>
-          <line>90</line>
+          <line>81</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -2952,40 +2980,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_a_photo_black_24dp.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Android/Sdk/sources/android-27/android/net/Uri.java" />
-    <entry file="file://$PROJECT_DIR$/private.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/google-services.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -3213,45 +3207,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="166" column="23" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.core/core/1.0.1/ae10d2e1965b944830c2c2aaf154765ceb32e0bc/core-1.0.1-sources.jar!/androidx/core/app/NotificationCompat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5185">
-          <caret line="336" column="21" selection-start-line="336" selection-start-column="21" selection-end-line="336" selection-end-column="21" />
-          <folding>
-            <element signature="e#10939#10940#0" expanded="true" />
-            <element signature="e#10973#10974#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -3293,41 +3252,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#297#314#0" expanded="true" />
+            <element signature="e#346#363#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1713">
-          <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
+        <state relative-caret-position="-50">
+          <caret line="259" selection-start-line="259" selection-end-line="259" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_context.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2992">
+          <caret line="176" column="26" selection-start-line="176" selection-start-column="26" selection-end-line="176" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+        <state relative-caret-position="170">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="59" column="56" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/my_backup_rules.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
-          <folding>
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5343#5344#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="367">
+          <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="147" column="34" lean-forward="true" selection-start-line="147" selection-start-column="34" selection-end-line="148" selection-end-column="31" />
+        <state relative-caret-position="409">
+          <caret line="392" column="18" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3518#3549#0" expanded="true" />
+            <element signature="e#3551#3583#0" expanded="true" />
+            <element signature="e#4603#4629#0" expanded="true" />
+            <element signature="e#4690#4715#0" expanded="true" />
+            <element signature="e#9847#9848#0" expanded="true" />
+            <element signature="e#9916#9917#0" expanded="true" />
+            <element signature="e#11811#11863#0" expanded="true" />
+            <element signature="e#12023#12062#0" expanded="true" />
+            <element signature="e#12175#12211#0" expanded="true" />
+            <element signature="e#13309#13310#0" expanded="true" />
+            <element signature="e#13344#13345#0" expanded="true" />
+            <element signature="e#13407#13408#0" expanded="true" />
+            <element signature="e#13434#13435#0" expanded="true" />
+            <element signature="e#14875#15022#0" expanded="true" />
+            <element signature="e#15021#15022#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_date_list_drawer.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="141" selection-start-line="18" selection-start-column="141" selection-end-line="18" selection-end-column="141" />
         </state>
       </provider>
     </entry>

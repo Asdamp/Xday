@@ -2,6 +2,7 @@ package com.asdamp.adapters;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.palette.graphics.Palette;
 import androidx.cardview.widget.CardView;
@@ -26,6 +27,8 @@ import com.asdamp.x_day.R;
 import com.jaychang.st.SimpleText;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,31 +38,24 @@ import butterknife.ButterKnife;
 public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHolder>
 {
     private ArrayList<Data> date;
-    public OnListItemClickListener callback;
+    private OnListItemClickListener callback;
     public interface OnListItemClickListener{
         void onListItemClick(View v,int i);
         boolean onListItemLongClick(View v,int i);
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         @BindView(R.id.data)
-        public TextView mDate;
+        TextView mDate;
         @BindView(R.id.mancante)
-        public TextView mLeft;
+        TextView mLeft;
         @BindView(R.id.descrizionePersonale)
-        public TextView mDescription;
+        TextView mDescription;
         @BindView(R.id.iv_date_image)
-        public ImageView mImage;
-      /*  @BindView(R.id.alladata)
-        public TextView mFromOrTo;
-        @BindView(R.id.mancanoopassato)
-        public TextView mLeftOrPassed;
-        @BindView(R.id.progressi)
-        public TextRoundCornerProgressBar mProgress;*/
+        ImageView mImage;
 
-        //public View root;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
             //root=v;
@@ -74,8 +70,9 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         this.callback=callback;
     }
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
-    public DateListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public DateListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                          int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
@@ -84,7 +81,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
     }
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         Context context=holder.itemView.getContext();
         Data data = date.get(i);
         CardView cardView= (CardView) holder.itemView;
@@ -116,8 +113,6 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             holder.mDescription.setVisibility(View.VISIBLE);
             holder.mDescription.setText(s);
         }
-        if(p!=null && p.getDominantSwatch()!=null )
-            holder.mLeft.setTextColor(ColorUtils.setAlphaComponent(p.getDominantSwatch().getBodyTextColor(), 255));
         if(callback!=null) {
             holder.itemView.setOnClickListener(v -> callback.onListItemClick(holder.itemView,i));
             holder.itemView.setOnLongClickListener(v -> callback.onListItemLongClick(holder.itemView,i));
@@ -125,7 +120,13 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         }
 
     }
-    public SpannableStringBuilder makeSpannable(String text, String regex) {
+    public synchronized void sortList(Comparator<Data> comparator, boolean reverse){
+        Collections.sort(date, comparator);
+        if(reverse)
+            Collections.reverse(date);
+
+    }
+    private SpannableStringBuilder makeSpannable(String text, String regex) {
 
         StringBuffer sb = new StringBuffer();
         SpannableStringBuilder spannable = new SpannableStringBuilder();

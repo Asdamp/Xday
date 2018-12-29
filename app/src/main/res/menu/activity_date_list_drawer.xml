@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
 
-    <item android:title="Communicate">
+
+
+
+
+    <item
+        android:id="@+id/Riordina"
+        android:orderInCategory="1"
+        android:title="@string/riordina"
+        android:titleCondensed="@string/riordina"
+        android:visible="true">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                <item android:id="@+id/alphabetical" android:title="@string/alphabetical" android:icon="@drawable/ic_sort_by_alpha_black_24dp"/>
+                <item android:id="@+id/time" android:title="@string/time"  android:icon="@drawable/ic_time"/>
+                <item android:id="@+id/color" android:title="@string/color"  android:icon="@drawable/ic_color"/>
+
         </menu>
     </item>
 
+    <item
+        android:id="@+id/aboutMain"
+        android:orderInCategory="100"
+        android:title="@string/about"
+        android:titleCondensed="@string/about"/>
 </menu>

@@ -7,11 +7,13 @@ import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 
 import com.asdamp.widget.XdayWidgetProvider;
 import com.jakewharton.threetenabp.AndroidThreeTen;
+import com.pixplicity.easyprefs.library.Prefs;
 
 
 public class MainApplication extends Application {
@@ -24,7 +26,12 @@ public class MainApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		AndroidThreeTen.init(this);
+		new Prefs.Builder()
+				.setContext(this)
+				.setMode(ContextWrapper.MODE_PRIVATE)
+				.setPrefsName(getPackageName())
+				.setUseDefaultSharedPreference(true)
+				.build();		AndroidThreeTen.init(this);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 			NotificationChannel notificationChannel = new NotificationChannel("dates",

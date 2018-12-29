@@ -20,7 +20,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 /* this class isn't an activity. this class represent a Date*/
-public class Data extends GregorianCalendar implements Comparator<Data>, Parcelable{
+public class Data extends GregorianCalendar implements  Parcelable{
 	private static final long serialVersionUID = 8260403943016471526L;
 	public Data(){
 		super();
@@ -371,10 +371,10 @@ public class Data extends GregorianCalendar implements Comparator<Data>, Parcela
 		tipo = periodtype;
 	}
 
-	public int compare(Data lhs, Data rhs) {
-		if (lhs.getTimeInMillis() < rhs.getTimeInMillis())
+	public int compare(Data rhs) {
+		if (this.getTimeInMillis() < rhs.getTimeInMillis())
 			return 1;
-		else if (lhs.getTimeInMillis() > rhs.getTimeInMillis())
+		else if (this.getTimeInMillis() > rhs.getTimeInMillis())
 			return -1;
 		return 0;
 	}

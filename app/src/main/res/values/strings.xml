@@ -172,4 +172,7 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="share">Share</string>
     <string name="date_color">Background color</string>
     <string name="notification_channel_name_dates">Dates</string>
+    <string name="alphabetical">Alphabetical</string>
+    <string name="time">Time</string>
+    <string name="color">Color</string>
 </resources>
