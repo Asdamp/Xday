@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 
 import androidx.annotation.ColorInt;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.asdamp.views.CheckableFloatingActionButton;
@@ -40,7 +41,9 @@ import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class Add extends AppCompatActivity {
 
-
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     private static final int REQUEST_IMAGE_CHOOSE = 500;
     @BindView(R.id.text_field_boxes)
     TextFieldBoxes mTextFildTitleBox;

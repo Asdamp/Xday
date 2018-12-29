@@ -8,7 +8,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -17,9 +17,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd3d5e31-9702-4847-a03f-2ae4a46154c0" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_action_calendar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_action_clock.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_action_clock.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_calendar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_clock.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -109,68 +123,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DateListActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="349" column="61" selection-start-line="349" selection-start-column="61" selection-end-line="349" selection-end-column="61" />
+            <state relative-caret-position="340">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="widget_list_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_list_layout.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="-408" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_widget.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Add.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3551#3583#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_date_list.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_date_list.xml">
+      <file leaf-file-name="activity_add_date.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav_header_date_list.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_date_list.xml">
+      <file leaf-file-name="app_bar_add_date.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="714">
+              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="About.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/About.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app_bar_date_list.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_date_list.xml">
-          <provider selected="true" editor-type-id="android-designer2">
+      <file leaf-file-name="add.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
+          <provider editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckableFloatingActionButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bg_fab_select_photo.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml">
+          <provider editor-type-id="android-designer2">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="26" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -188,10 +235,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>picass</find>
-      <find>fabb</find>
-      <find>addeve</find>
-      <find>counter</find>
       <find>show</find>
       <find>colorpic</find>
       <find>circle</find>
@@ -218,6 +261,10 @@
       <find>onactivity</find>
       <find>onresu</find>
       <find>navigatio</find>
+      <find>floatin</find>
+      <find>ic_action_calenda</find>
+      <find>ic_action_cale</find>
+      <find>ic_action</find>
     </findStrings>
     <replaceStrings>
       <replace>app:si_no_dash=&quot;false&quot;</replace>
@@ -2512,17 +2559,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/principale.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/com/asdamp/x_day/R.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/views/a.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/Notification.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/ImageUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" />
@@ -2539,13 +2583,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/About.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/add.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="846" />
-    <option name="width" value="1941" />
-    <option name="height" value="2112" />
+    <option name="x" value="1294" />
+    <option name="y" value="4" />
+    <option name="width" value="1374" />
+    <option name="height" value="722" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -2597,6 +2645,23 @@
             </path>
             <path>
               <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Xday" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -2612,7 +2677,7 @@
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="C:/Android/Sdk" />
-    <property name="device.picker.selection" value="a88388c" />
+    <property name="device.picker.selection" value="Nexus_5X_API_18" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="D:/Documenti/Drive/Dev/Xday/KeyStoreAndroid" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -2911,7 +2976,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546080858288</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Logging basic events with analytics">
+      <created>1546085202294</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1546085202294</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2919,28 +2991,29 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info id="Build Variants" order="3" sideWeight="0.51482797" side_tool="true" weight="0.24970178" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500994" side_tool="true" visible="true" weight="0.32882166" />
+      <window_info anchor="bottom" id="Logcat" order="11" sideWeight="0.49383697" weight="0.32882166" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Assistant" order="9" visible="true" weight="0.32962227" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49304175" weight="0.32882166" />
+      <window_info id="Structure" order="1" sideWeight="0.51720047" side_tool="true" visible="true" weight="0.24970178" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821073" weight="0.39968154" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="4" />
-      <window_info id="Build Variants" order="3" sideWeight="0.51482797" side_tool="true" weight="0.24970178" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50695825" side_tool="true" visible="true" weight="0.32882166" />
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49940357" weight="0.32961783" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49662027" weight="0.32882166" />
-      <window_info anchor="bottom" id="Logcat" order="11" sideWeight="0.4942346" weight="0.32882166" />
       <window_info id="Captures" order="6" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48279953" visible="true" weight="0.24970178" />
-      <window_info anchor="right" id="Assistant" order="9" visible="true" weight="0.32962227" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49304175" visible="true" weight="0.32882166" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49900597" weight="0.32882166" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32962227" />
-      <window_info id="Structure" order="1" sideWeight="0.51720047" side_tool="true" visible="true" weight="0.24970178" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821073" weight="0.39968154" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -2950,7 +3023,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32960895" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2973,7 +3045,8 @@
     <MESSAGE value="Redesigned about screen" />
     <MESSAGE value="Donation link and libraries licenses added." />
     <MESSAGE value="alpha 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha 7" />
+    <MESSAGE value="Logging basic events with analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logging basic events with analytics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3006,81 +3079,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="32" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/material-1.0.0.aar/1672f8cf5578536794ea1575a8e8d189/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="950" column="17" selection-start-line="950" selection-start-column="17" selection-end-line="950" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.0.0/2151d26c3b241f0a887f2dadb9ab091649fcf020/recyclerview-1.0.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="10689" column="26" selection-start-line="10689" selection-start-column="26" selection-end-line="10689" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/principale.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/com/asdamp/x_day/R.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
           <caret line="26481" column="19" selection-start-line="26481" selection-start-column="19" selection-end-line="26481" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
@@ -3091,27 +3093,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
@@ -3170,16 +3155,6 @@
           <folding>
             <element signature="e#297#314#0" expanded="true" />
             <element signature="e#346#363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="259" selection-start-line="259" selection-end-line="259" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3412,10 +3387,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/widget_list_layout.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_fab_select_photo.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_calendar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_cancel.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_action_calendar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="136" column="22" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
