@@ -27,6 +27,7 @@ import android.view.View;
 
 import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pixplicity.easyprefs.library.Prefs;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 import com.skydoves.powermenu.MenuAnimation;
@@ -56,7 +57,7 @@ public class DateListActivity extends AppCompatActivity
     private ArrayList<Data> dates;
     private Timer timer;
     DateListAdapter mListAdapter;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     public Handler mHandler = new Handler() {
 
         synchronized public void handleMessage(Message msg) {
@@ -68,11 +69,12 @@ public class DateListActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_date_list);
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN,null);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, Add.class);
@@ -345,6 +347,7 @@ public class DateListActivity extends AppCompatActivity
                         Costanti.getDB().createData(data);
                         dates.add(data);
                         sortList();
+                        mFirebaseAnalytics.logEvent("NEW_DATE",null);
 
                         break;
                 }

@@ -26,8 +26,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         signingConfig signingConfigs.config
-        versionCode 36
-        versionName "2.0-alpha7"
+        versionCode 37
+        versionName "2.0-alpha8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -59,6 +59,7 @@ licenseReport {
 }
 
 import java.util.regex.Pattern
+
 task('increaseVersionCode') << {
 
     // Using build.gradle (recommended)
@@ -70,7 +71,6 @@ task('increaseVersionCode') << {
     def versionCode = Integer.parseInt(matcher.group(1))
     def manifestContent = matcher.replaceAll("versionCode " + ++versionCode)
     buildFile.write(manifestContent)
-
 
 
 }
@@ -121,5 +121,6 @@ dependencies {
     implementation 'com.thebluealliance:spectrum:0.7.1'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
+    implementation 'com.google.firebase:firebase-core:16.0.6'
 }
 apply plugin: 'com.google.gms.google-services'
