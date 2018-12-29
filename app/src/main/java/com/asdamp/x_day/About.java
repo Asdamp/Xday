@@ -1,13 +1,24 @@
 package com.asdamp.x_day;
 
 import android.app.ActionBar;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -25,7 +36,7 @@ public class About extends AppCompatActivity {
 		AboutBuilder builder = AboutBuilder.with(this)
 				.setAppIcon(R.mipmap.ic_launcher)
 				.setAppName(R.string.app_name)
-				.setPhoto(R.mipmap.profile_picture)
+				.setPhoto(R.drawable.aa_profile)
 				.setCover(R.mipmap.profile_cover)
 				.setLinksAnimated(true)
 				.setDividerDashGap(13)
@@ -43,9 +54,55 @@ public class About extends AppCompatActivity {
 				.setActionsColumnsCount(2)
 				.addFeedbackAction("altieriantonio.dev@gmail.com")
 				.addRemoveAdsAction((Intent) null)
-				.addDonateAction((Intent) null)
+				.addDonateAction(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						String url = "https://ko-fi.com/asdamp";
+						Intent i = new Intent(Intent.ACTION_VIEW);
+						i.setData(Uri.parse(url));
+						startActivity(i);
+					}
+				})
+
+				.addLicenseAction(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						final FragmentManager fm = About.this.getSupportFragmentManager();
+						final FragmentTransaction ft = fm.beginTransaction();
+						final Fragment prev = fm.findFragmentByTag("dialog_licenses");
+						if (prev != null) {
+							ft.remove(prev);
+						}
+						ft.addToBackStack(null);
+
+						new OpenSourceLicensesDialog().show(ft, "dialog_licenses");
+					}
+				})
 				.setWrapScrollView(true)
 				.setShowAsCard(true);
 		layout.addView(builder.build());
+	}
+
+	public static class OpenSourceLicensesDialog extends DialogFragment {
+
+		public OpenSourceLicensesDialog() {
+		}
+
+		@Override
+		public Dialog onCreateDialog(@NonNull Bundle savedInstanceState) {
+			final WebView webView = new WebView(getActivity());
+			webView.loadUrl("file:///android_asset/open_source_licenses.html");
+
+			return new AlertDialog.Builder(getActivity())
+					.setTitle("Open Source Licenses")
+					.setView(webView)
+					.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+									dialog.dismiss();
+								}
+							}
+					)
+					.create();
+		}
 	}
 }

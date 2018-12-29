@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
+apply plugin: "com.jaredsburrows.license"
 
 android {
     signingConfigs {
@@ -47,6 +48,16 @@ android {
     productFlavors {
     }
 }
+
+licenseReport {
+    generateHtmlReport = true
+    generateJsonReport = false
+
+    // These options are ignored for Java projects
+    copyHtmlReportToAssets = true
+    copyJsonReportToAssets = false
+}
+
 import java.util.regex.Pattern
 task('increaseVersionCode') << {
 
