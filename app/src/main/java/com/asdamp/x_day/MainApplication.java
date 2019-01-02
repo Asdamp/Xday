@@ -12,6 +12,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 
 import com.asdamp.widget.XdayWidgetProvider;
+import com.google.android.gms.ads.MobileAds;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -32,6 +33,8 @@ public class MainApplication extends Application {
 				.setPrefsName(getPackageName())
 				.setUseDefaultSharedPreference(true)
 				.build();		AndroidThreeTen.init(this);
+		MobileAds.initialize(this,
+				this.getResources().getString(R.string.banner_app_id));
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 			NotificationChannel notificationChannel = new NotificationChannel("dates",

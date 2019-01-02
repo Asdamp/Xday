@@ -10,6 +10,11 @@ import android.os.Message;
 import android.os.Parcelable;
 
 import com.asdamp.utility.ImageUtils;
+import com.asdamp.utility.UserInfoUtility;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,6 +42,7 @@ import com.skydoves.powermenu.PowerMenuItem;
 import org.threeten.bp.LocalDate;
 
 import java.io.IOException;
+import java.security.KeyPairGenerator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -76,6 +82,10 @@ public class DateListActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN,null);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+
+        AdView mAdView = findViewById(R.id.adView);
+        UserInfoUtility.loadAd(mAdView);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, Add.class);
             Date selectedDate = null;
