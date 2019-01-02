@@ -9,18 +9,28 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.asdamp.adapters.AddArrayAdapter;
+import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
+import com.asdamp.utility.ImageUtils;
 import com.asdamp.utility.SingleChoiceDialog;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
+import com.asdamp.x_day.DateListActivity;
 import com.asdamp.x_day.R;
+import com.skydoves.powermenu.MenuAnimation;
+import com.skydoves.powermenu.PowerMenu;
+import com.skydoves.powermenu.PowerMenuItem;
 
 import java.util.ArrayList;
 
@@ -34,7 +44,7 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		this.setContentView(R.layout.add);
+		this.setContentView(R.layout.widget_app_bar_date_list);
 		
 		Bundle bundle1 = getIntent().getExtras();
 		if (bundle1 != null)
@@ -46,52 +56,46 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 		try {
 			confPre = dbadapter.AssociaDataAWidget(mAppWidgetId);
 			data = dbadapter.cercaData(confPre.getLong(confPre.getColumnIndex("data")));
-			color=confPre.getInt(confPre.getColumnIndex("colore"));
 		} catch (WidgetConfigurationNotFoundException e) {
 			data=null;
-			color=Color.argb(161, 81, 81, 81);
 		}
 		
 		c = dbadapter.fetchAllData();
 		c.moveToFirst();
-		
-		//show ad
-		//AdView mAdView = (AdView) this.findViewById(R.id.adView);
-		/*ad request*/
-		SharedPreferences shprs = getSharedPreferences(
-				"PrivateOption", 0);
-		final android.content.SharedPreferences.Editor spe = shprs
-				.edit();
-		int i = shprs.getInt("Utilizzi", 0);
-		boolean ad;
-		if (i == 0) {
-			Resources r = this.getResources();
-			ad = r.getBoolean(R.bool.ad);
-			spe.putBoolean("Premium", ad).commit();
-		} else
-			ad = shprs.getBoolean("Premium", true);
-		/*if (ad)
-			mAdView.loadAd(new AdRequest().addTestDevice("TEST_EMULATOR").addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276").addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5").addTestDevice("3A4195F433B132420871F4202A7789C3"));*/
-		//end of show ad
-		AddArrayAdapter a = showLayout();
-/*		ListView lista = (ListView) this.findViewById(R.id.listaAdd);
-		lista.setAdapter(a);
-		lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				onListItemClick(arg1, arg2);
+		RecyclerView mDateRecyclerView=findViewById(R.id.rv_date_list);
+		mDateRecyclerView.setHasFixedSize(true);
+		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
+		mDateRecyclerView.setLayoutManager(layoutManager);
+		ArrayList<Data> dates=getAllDate();
+		DateListAdapter mListAdapter = new DateListAdapter(dates);
+		mListAdapter.setOnListItemClickListener(new DateListAdapter.OnListItemClickListener() {
+			@SuppressWarnings("ResultOfMethodCallIgnored")
+			@Override
+			public void onListItemClick(View v,int i) {
+				data=dates.get(i);
+				operazioniFinali();
 			}
 
-		});*/
-		
-			// dbadapter.close();
+			@Override
+			public boolean onListItemLongClick(View v, int i) {
+				return false;
+			}
+		});
+		mDateRecyclerView.setAdapter(mListAdapter);
 		
 	}
 	public boolean onCreateOptionsMenu(Menu menu) {
 		this.getMenuInflater().inflate(R.menu.widget_single_config, menu);
 		return true;
+	}
+	private ArrayList<Data> getAllDate() {
+		Cursor cursor = Costanti.getDB().fetchAllData();
+		ArrayList<Data> dates=new ArrayList<>();
+		while (cursor.moveToNext())
+			dates.add(Data.leggi(cursor));
+		return dates;
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -110,38 +114,8 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 		return super.onOptionsItemSelected(item);
 	}
 
-	private AddArrayAdapter showLayout() {
-		Bundle bf[]=new Bundle[2];
-		Bundle b=new Bundle();
-		Resources res=this.getResources();
-		b.putString(AddArrayAdapter.TITLE, res.getStringArray(R.array.WidgetSingleSelezionaData)[0]);
-		b.putString(AddArrayAdapter.SUBTITLE, res.getStringArray(R.array.WidgetSingleSelezionaData)[1]);
-		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_calendar);
-		bf[0]=(Bundle) b.clone();
-		b.putString(AddArrayAdapter.TITLE, res.getStringArray(R.array.WidgetSingleSelezionaColore)[0]);
-		b.putString(AddArrayAdapter.SUBTITLE, res.getStringArray(R.array.WidgetSingleSelezionaColore)[1]);
-		b.putInt(AddArrayAdapter.IMAGE, R.drawable.ic_action_color);
-		bf[1]=(Bundle) b.clone();
-		AddArrayAdapter a=new AddArrayAdapter(this, bf);
-		
-		return a;
-	}
-	protected void onListItemClick(View v, int position) {
-		switch(position){
-		case 0:
-			showSingleChoiceDialog(v);
-			break;
-		case 1:
-			showColorPickerDialog(v);
-			break;
-		}
-	}
-	private void showColorPickerDialog(View v) {
-	/*	ColorPickerDialog colorDialog = new ColorPickerDialog(this, color);
-		colorDialog.setOnColorChangedListener(this);
-		colorDialog.setAlphaSliderVisible(true);
-		colorDialog.show();		*/
-	}
+
+
 
 	public void onSingleDialogNegativeClick(int i) {
 	}

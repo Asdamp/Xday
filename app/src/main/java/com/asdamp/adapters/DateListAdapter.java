@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asdamp.exception.DateNotFoundException;
+import com.asdamp.utility.UserInfoUtility;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
 import com.asdamp.x_day.GlideApp;
@@ -99,7 +100,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         try{
             String lefttext=data.aggiorna(context);
 
-            holder.mLeft.setText(makeSpannable(lefttext, "\\d+"));
+            holder.mLeft.setText(UserInfoUtility.makeSpannable(lefttext, "\\d+"));
         }
         catch (ArithmeticException e){
             holder.mLeft.setText(context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");
@@ -126,29 +127,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             Collections.reverse(date);
 
     }
-    private SpannableStringBuilder makeSpannable(String text, String regex) {
 
-        StringBuffer sb = new StringBuffer();
-        SpannableStringBuilder spannable = new SpannableStringBuilder();
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            sb.setLength(0); // clear
-            String group = matcher.group();
-            // caution, this code assumes your regex has single char delimiters
-            matcher.appendReplacement(sb, group);
-
-            spannable.append(sb.toString());
-            int start = spannable.length() - group.length();
-
-            spannable.setSpan( new RelativeSizeSpan(2.0f), start, spannable.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
-        sb.setLength(0);
-        matcher.appendTail(sb);
-        spannable.append(sb.toString());
-        return spannable;
-    }
     @Override
     public int getItemCount() {
         return date.size();

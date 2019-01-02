@@ -9,18 +9,28 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 import com.asdamp.database.DBAdapter;
 import com.asdamp.exception.DateNotFoundException;
 import com.asdamp.exception.WidgetConfigurationNotFoundException;
+import com.asdamp.utility.UserInfoUtility;
 import com.asdamp.x_day.Costanti;
 import com.asdamp.x_day.Data;
+import com.asdamp.x_day.GlideApp;
 import com.asdamp.x_day.R;
+
+import androidx.cardview.widget.CardView;
+import androidx.palette.graphics.Palette;
 
 public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 
@@ -35,51 +45,36 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 			Data data, int color, Context context, int i){
 		RemoteViews remoteviews = new RemoteViews(context.getPackageName(),
 				R.layout.widget_single_data_layout);
-		remoteviews.setInt(R.id.relative_layout_widget_single_data, "setBackgroundColor", color);
-		
-		/*following intent are needed to enble user button on the widget*/
-			Intent intent = new Intent("com.asdamp.widget.REFRESH_WIDGET_SOLO");
-			intent.putExtra("appWidgetId", i);
-			remoteviews.setOnClickPendingIntent(R.id.refresh_widget_solo,
-					PendingIntent.getBroadcast(context, i, intent, 0));
-			Intent intent1 = new Intent("com.asdamp.widget.OPEN_APP_SOLO");
-			intent1.putExtra("appWidgetId", i);
-			remoteviews.setOnClickPendingIntent(
-					R.id.relative_layout_widget_single_data,
-					PendingIntent.getBroadcast(context, i, intent1, 0));
-			Intent intent2 = new Intent(OPEN_CONFIGURATION);
-			intent2.putExtra("appWidgetId", i);
-			remoteviews.setOnClickPendingIntent(
-					R.id.single_widget_configure,
-					PendingIntent.getBroadcast(context, i, intent2, 0));
-		/*end. All intents are enabled*/	
-			String s = data.toString();
-			remoteviews.setTextViewText(idData, s);
-			remoteviews.setTextViewText(idMancante, data.aggiorna(context));
-			String s1 = data.getDescrizione();
-			if (s1.equalsIgnoreCase("")) {
-				remoteviews.setViewVisibility(idDescrizionePersonale, 8);
-			} else {
-				try {
-					remoteviews.setTextColor(idDescrizionePersonale, dbadapter.cercaColore(data.getMillisecondiIniziali()));
-				} catch (DateNotFoundException e) {
-					remoteviews.setTextColor(idDescrizionePersonale, -16746590);
+		remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
 
-				}
-				remoteviews.setViewVisibility(idDescrizionePersonale, 0);
-				remoteviews.setTextViewText(idDescrizionePersonale, s1);
+		Palette p = null;
+		/*
+		holder.mImage.setImageDrawable(null);
+		if(data.getImage()!=null)
+			GlideApp.with(context).load(data.getImage()).centerCrop().into(holder.mImage);
+      /*  else
+            holder.mImage.setVisibility(View.INVISIBLE
+            );*/
+		remoteviews.setTextViewText(R.id.data,data.toString());
+		try{
+			String lefttext=data.aggiorna(context);
+			remoteviews.setTextViewText(R.id.mancante,UserInfoUtility.makeSpannable(lefttext, "\\d+"));
+
+		}
+		catch (ArithmeticException e){
+			remoteviews.setTextViewText(R.id.mancante,context.getResources().getQuantityString(R.plurals.Secondi, Integer.MAX_VALUE)+"+");
 			}
-			if (data.getPercentuale() == 1000) {
-				remoteviews.setTextViewText(R.id.mancanoopassato2,
-						context.getText(R.string.Passato));
-				remoteviews.setTextViewText(R.id.alladata2,
-						context.getText(R.string.DallaData));
-				remoteviews.setViewVisibility(idProgressi, View.GONE);
-			} else {
-				remoteviews.setProgressBar(idProgressi, 1000,
-						data.getPercentuale(), false);
-				remoteviews.setViewVisibility(idProgressi, 0);
-			}	
+		String s = data.getDescrizioneIfExists();
+		if(s.equalsIgnoreCase(""))
+		{
+			remoteviews.setInt(R.id.descrizionePersonale, "setVisibility", View.INVISIBLE);
+			} else
+		{
+			remoteviews.setInt(R.id.descrizionePersonale, "setVisibility", View.VISIBLE);
+			remoteviews.setTextViewText(R.id.descrizionePersonale,s);
+
+		}
+
 			appwidgetmanager.updateAppWidget(i, remoteviews);
 		
 
@@ -195,10 +190,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 	private static final String OPEN_CONFIGURATION = "com.asdamp.widget.OPEN_CONFIGURATION_SOLO";
 
 	private static final String REFRESH_WIDGET = "com.asdamp.widget.REFRESH_WIDGET_SOLO";
-	private static int idData = R.id.data2;
-	private static int idDescrizionePersonale = R.id.descrizionePersonale2;
-	private static int idMancante = R.id.mancante2;
-	private static int idProgressi = R.id.progressi2;
+
 	private static Handler sWorkerQueue;
 	private static HandlerThread sWorkerThread;
 	private static DBAdapter dbadapter=Costanti.getDB();

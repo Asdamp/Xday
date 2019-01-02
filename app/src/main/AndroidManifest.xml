@@ -65,7 +65,9 @@
             android:name="com.asdamp.widget.WidgetRemote"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <activity android:name="com.asdamp.widget.XdayWidgetSingleDateConfigure">
+        <activity android:theme="@style/AppTheme.NoActionBar" android:name="com.asdamp.widget.XdayWidgetSingleDateConfigure">
+
+
             <intent-filter>
                 <action android:name="com.asdamp.widget.CONFIGURE_WIDGET_SOLO" />
 
