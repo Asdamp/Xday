@@ -397,7 +397,7 @@ public class DateListActivity extends AppCompatActivity
         leggiDati();
         for(Data date:dates){
 
-            mCollapsibleCalendar.addEventTag(LocalDate.of(date.getYear(),date.getMonth()+1,date.getDay()),getResources().getColor(R.color.md_white_1000));
+            mCollapsibleCalendar.addEventTag(LocalDate.of(date.getYear(),date.getMonth()+1,date.getDay()),date.getColor());
         }
        /* if (lv == null) {
             lv = (ListView) findViewById(R.id.listaMainActivity);
