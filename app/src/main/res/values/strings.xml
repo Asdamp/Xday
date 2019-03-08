@@ -175,4 +175,5 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="alphabetical">Alphabetical</string>
     <string name="time">Time</string>
     <string name="color">Color</string>
+    <string name="button_ok">ok</string>
 </resources>

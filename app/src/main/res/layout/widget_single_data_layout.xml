@@ -72,7 +72,8 @@
         android:textStyle="bold"
         android:visibility="visible" />
 
-        <ImageView
+        <ImageViewcooltek16
+
             android:layout_toLeftOf="@id/data"
             android:layout_alignTop="@id/data"
             android:layout_width="match_parent"
