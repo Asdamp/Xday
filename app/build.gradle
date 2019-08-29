@@ -13,7 +13,7 @@ android {
             storePassword properties.getProperty('storePassword')
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion "28.0.3"
 
     defaultConfig {
@@ -21,7 +21,7 @@ android {
         multiDexEnabled true
 
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         vectorDrawables.useSupportLibrary = true
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
@@ -60,36 +60,14 @@ licenseReport {
     copyJsonReportToAssets = false
 }
 
-import java.util.regex.Pattern
 
-task('increaseVersionCode') << {
-
-    // Using build.gradle (recommended)
-    def buildFile = file("build.gradle")
-    def pattern = Pattern.compile("versionCode\\s+(\\d+)")
-    def manifestText = buildFile.getText()
-    def matcher = pattern.matcher(manifestText)
-    matcher.find()
-    def versionCode = Integer.parseInt(matcher.group(1))
-    def manifestContent = matcher.replaceAll("versionCode " + ++versionCode)
-    buildFile.write(manifestContent)
-
-
-}
-
-
-tasks.whenTaskAdded { task ->
-    if (task.name == 'assembleRelease') {
-        task.dependsOn 'increaseVersionCode'
-    }
-}
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0-alpha02', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'androidx.annotation:annotation:1.0.2'
+    implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.preference:preference:1.0.0'
@@ -103,30 +81,31 @@ dependencies {
     implementation group: 'org.joda', name: 'joda-convert', version: '2.0.1', classifier: 'classic'
 
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
-    implementation 'com.wdullaer:materialdatetimepicker:3.6.0'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.2'
     implementation 'com.jaychang:simpletext:2.0.1'
     implementation "com.github.skydoves:powermenu:2.0.5"
 
-    implementation 'com.github.shrikanth7698:Collapsible-Calendar-View-Android:-SNAPSHOT'
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.github.jrvansuita:MaterialAbout:0.2.3'
 
     implementation 'com.github.HITGIF:TextFieldBoxes:-SNAPSHOT'
     implementation 'com.github.zagum:Android-SwitchIcon:1.3.8'
     implementation 'com.nightonke:jellytogglebutton:1.0.2'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.thebluealliance:spectrum:0.7.1'
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.google.firebase:firebase-ads:17.1.3'
+    implementation 'com.google.firebase:firebase-ads:18.1.1'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation project(path: ':collapsiblecalendarview')
 
 }
 apply plugin: 'com.google.gms.google-services'

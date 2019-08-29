@@ -369,7 +369,7 @@ public class Add extends AppCompatActivity {
         };
         TimePickerDialog dp= TimePickerDialog.newInstance(onTimeSet,data.getHour(),data.getMinute(),true);
         dp.setVersion(TimePickerDialog.Version.VERSION_2);
-        dp.show(getFragmentManager(), getString(R.string.seleziona_ora));
+        dp.show(getSupportFragmentManager(), getString(R.string.seleziona_ora));
     }
 
     public void showDatePickerDialog() {
@@ -382,7 +382,7 @@ public class Add extends AppCompatActivity {
         };
         DatePickerDialog dp= DatePickerDialog.newInstance(onDateSet,data.getYear(),data.getMonth(),data.getDay());
         dp.setVersion(DatePickerDialog.Version.VERSION_2);
-        dp.show(getFragmentManager(), getString(R.string.seleziona_data));
+        dp.show(getSupportFragmentManager(), getString(R.string.seleziona_data));
 
 
 
