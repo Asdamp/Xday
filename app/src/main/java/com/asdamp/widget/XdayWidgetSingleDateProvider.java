@@ -16,6 +16,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,6 +33,8 @@ import com.asdamp.x_day.R;
 import androidx.cardview.widget.CardView;
 import androidx.palette.graphics.Palette;
 
+import java.io.IOException;
+
 public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 
 
@@ -45,7 +48,6 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 			Data data, int color, Context context, int i){
 		RemoteViews remoteviews = new RemoteViews(context.getPackageName(),
 				R.layout.widget_single_data_layout);
-		remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
 
 		Palette p = null;
 		/*
@@ -55,6 +57,21 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
       /*  else
             holder.mImage.setVisibility(View.INVISIBLE
             );*/
+
+		if(data.getImage()!=null) {
+			Bitmap bitmap = null;
+			try {
+				bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), data.getImage());
+				remoteviews.setImageViewBitmap(R.id.iv_date_image, bitmap);
+
+			} catch (IOException e) {
+				remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
+			}
+
+		}
+		else
+			remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
+
 		remoteviews.setTextViewText(R.id.data,data.toString());
 		try{
 			String lefttext=data.aggiorna(context);
@@ -75,6 +92,14 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 
 		}
 
+		Intent inte2 = new Intent(OPEN_APP);
+		inte2.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+		inte2.putExtra("action", OPEN_APP);
+
+		inte2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, i);
+		PendingIntent pi2 = PendingIntent
+				.getBroadcast(context, 4, inte2, PendingIntent.FLAG_UPDATE_CURRENT);
+		remoteviews.setOnClickPendingIntent(R.id.relative_layout_widget_single_data, pi2);
 			appwidgetmanager.updateAppWidget(i, remoteviews);
 		
 

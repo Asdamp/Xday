@@ -3,7 +3,7 @@
     android:configure="com.asdamp.widget.XdayWidgetSingleDateConfigure"
     android:initialLayout="@layout/loading_view"
     android:minHeight="40.0dip"
-    android:minWidth="250.0dip"
+    android:minWidth="150.0dip"
     android:previewImage="@drawable/widget_single_date"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1800000" 

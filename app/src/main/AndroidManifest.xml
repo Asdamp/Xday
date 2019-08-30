@@ -20,7 +20,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme.NoActionBar"
-        android:fullBackupContent="@xml/my_backup_rules">
+        android:fullBackupContent="@xml/my_backup_rules"
+        tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/banner_app_id"/>
@@ -47,7 +48,6 @@
 
         <receiver
             android:name="com.asdamp.widget.XdayWidgetProvider"
-            android:enabled="@bool/honeycombOrAbove"
             android:label="Xday (3x3)">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

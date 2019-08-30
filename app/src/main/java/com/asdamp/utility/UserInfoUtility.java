@@ -83,7 +83,7 @@ public class UserInfoUtility {
             spannable.append(sb.toString());
             int start = spannable.length() - group.length();
 
-            spannable.setSpan( new RelativeSizeSpan(2.0f), start, spannable.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan( new RelativeSizeSpan(1.5f), start, spannable.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         sb.setLength(0);
         matcher.appendTail(sb);

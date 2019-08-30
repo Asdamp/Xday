@@ -1,83 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relative_layout_widget_single_data"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     android:columnCount="5"
-    android:orientation="horizontal" >
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/card_background"
 
-    <TextView
-        android:id="@+id/mancanoopassato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/descrizionePersonale"
-        android:layout_gravity="left"
-        android:layout_marginLeft="14.0dip"
-        android:text="@string/Manca"
-        android:textSize="18.0sp" />
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/alladata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mancante"
-        android:layout_gravity="left"
-        android:layout_marginLeft="30.0dip"
-        android:layout_marginTop="3.0dip"
-        android:fontFamily="condensed"
-        android:text="@string/AllaData"
-        android:textSize="12.0sp" />
 
-    <TextView
-        android:id="@id/data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mancante"
-        android:layout_gravity="left"
-        android:layout_marginTop="3.0dip"
-        android:layout_toRightOf="@id/alladata"
-        android:fontFamily="condensed"
-        android:text="@string/Error"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textSize="12.0sp" />
 
-    <TextView
-        android:id="@id/mancante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/descrizionePersonale"
-        android:layout_gravity="left"
-        android:text="@string/Error"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textSize="18.0sp" />
+    <ImageView
+        android:id="@+id/iv_date_image"
 
-    <TextView
-        android:id="@id/descrizionePersonale"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
         android:layout_alignParentTop="true"
-        android:fontFamily="sans-serif-bold"
-        android:gravity="center"
-        android:text="@string/Error"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/android_blu"
-        android:textSize="20.0sp"
-        android:textStyle="italic"
-        android:typeface="sans" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
 
-    <ProgressBar
-        android:id="@+id/progressi"
-        style="?android:attr/progressBarStyleHorizontal"
+        android:contentDescription="Date image"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/mancante"
+        android:layout_below="@id/data"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_date_image"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:autoSizeTextType="uniform"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/md_white_1000"
+        android:textSize="12.0sp"
+        android:textStyle="bold"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/alladata"
-        android:layout_marginBottom="10.0dip"
-        android:layout_marginLeft="40.0dip"
-        android:layout_marginRight="20.0dip"
-        android:layout_marginTop="2.0dip"
-        android:max="1000" />
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/descrizionePersonale"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/md_white_1000"
+        android:textSize="18.0sp"
+        android:textStyle="bold|italic"
+        android:typeface="sans"
+        android:autoSizeTextType="uniform"
+        />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_centerHorizontal="true"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/descrizionePersonale"
+        android:fontFamily="sans-serif-light"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/md_white_1000"
+        android:textSize="18.0sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <ImageView
+
+        android:layout_toLeftOf="@id/data"
+        android:layout_alignTop="@id/data"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+
+        android:layout_height="1dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:paddingTop="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/md_grey_200" />
+
+    <ImageView
+        android:id="@+id/view"
+        android:layout_centerHorizontal="true"
+
+        android:layout_toRightOf="@id/data"
+        android:layout_alignTop="@id/data"
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/md_grey_200" />
+
 
 </RelativeLayout>

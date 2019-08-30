@@ -2,62 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg_widget_list" >
+    android:id="@+id/list_widget"
+
+    android:background="@color/transparent" >
 
     <RelativeLayout
         android:id="@+id/asdolollo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false" 
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/bar_widget_list"
-        android:gravity="top"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/apri_applicazione_widget"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/pulsante_add_widget"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10.0dip"
-            android:layout_toLeftOf="@+id/pulsante_refresh_widget"
-            android:background="#00000000"
-            android:gravity="left|center"
-            android:minHeight="0.0dip"
-            android:minWidth="0.0dip"
-            android:text="@string/app_name"
-            android:textSize="24.0sp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
+        android:background="@color/white"
+        android:gravity="top">
 
         <Button
             android:id="@+id/pulsante_add_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/ic_action_add"
-            android:maxHeight="48.0dip"
-            android:maxWidth="48.0dip"
-            android:minHeight="0.0dip"
-            android:minWidth="24.0dip" />
+            android:layout_width="42dp"
+            style="?android:buttonBarButtonStyle"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:drawableTop="@drawable/ic_action_add_grey" />
 
         <Button
             android:id="@+id/pulsante_refresh_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/pulsante_add_widget"
-            android:background="@drawable/navigation_refresh"
-            android:maxHeight="48.0dip"
-            android:maxWidth="48.0dip"
-            android:minHeight="0.0dip"
-            android:minWidth="24.0dip" />
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            style="?android:buttonBarButtonStyle"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/pulsante_add_widget"
+            android:layout_toRightOf="@+id/pulsante_add_widget"
+            android:drawableTop="@drawable/ic_action_refresh_grey" />
     </RelativeLayout>
 
     <ListView
@@ -65,7 +49,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:dividerHeight="0dp"
+        android:divider="@null"
         android:layout_alignParentLeft="true"
+        android:background="#33BDBDBD"
         android:layout_below="@id/asdolollo" />
 
 </RelativeLayout>
