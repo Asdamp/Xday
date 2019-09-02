@@ -103,6 +103,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-ads:18.1.1'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+    implementation 'com.github.Omega-R:OmegaRecyclerView:1.9.7@aar' // AndroidX
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
 
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation project(path: ':collapsiblecalendarview')

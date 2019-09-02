@@ -103,13 +103,17 @@ public class Add extends AppCompatActivity {
         super.onCreate(s);
 
         this.setContentView(R.layout.activity_add_date);
+
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         UserInfoUtility.loadAd(findViewById(R.id.adView));
         ActionBar bar = getSupportActionBar();
         if (bar != null) {
             bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowTitleEnabled(false);
+            bar.setTitle("");
         }
         Bundle b=this.getIntent().getExtras();
 

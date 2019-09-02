@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -34,7 +35,6 @@ import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pixplicity.easyprefs.library.Prefs;
-import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 import com.skydoves.powermenu.MenuAnimation;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
@@ -70,11 +70,11 @@ public class DateListActivity extends AppCompatActivity
             aggiorna();
         }
     };
-    private CollapsibleCalendar mCollapsibleCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_date_list);
         ButterKnife.bind(this);
@@ -88,17 +88,6 @@ public class DateListActivity extends AppCompatActivity
         UserInfoUtility.loadAd(mAdView);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, Add.class);
-            Date selectedDate = null;
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                try {
-                    selectedDate = formatter.parse("" + mCollapsibleCalendar.getSelectedDay().getDayOfMonth() + "-" + (mCollapsibleCalendar.getSelectedDay().getMonthValue()) + "-" + mCollapsibleCalendar.getSelectedDay().getYear());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-            if (selectedDate != null) {
-                intent.putExtra("data", (Parcelable) new Data(selectedDate.getTime()));
-            }
             intent.putExtra("requestCode", Costanti.CREA_DATA);
             startActivityForResult(intent, Costanti.CREA_DATA);
         });
@@ -160,44 +149,6 @@ public class DateListActivity extends AppCompatActivity
         });
         mDateRecyclerView.setAdapter(mListAdapter);
 
-        mCollapsibleCalendar = findViewById(R.id.calendarView);
-        mCollapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
-            @Override
-            public void onDaySelect() {
-                LocalDate day = mCollapsibleCalendar.getSelectedDay();
-                //todo selezionare date
-                Log.i(getClass().getName(), "Selected Day: "
-                        + day.getYear() + "/" + (day.getMonthValue()) + "/" + day.getDayOfMonth());
-                mCollapsibleCalendar.collapse(500);
-                for (int i = 0; i < dates.size(); i++) {
-                    Data date = dates.get(i);
-                    if (date.getDay() == day.getDayOfMonth()) {
-                        mDateRecyclerView.smoothScrollToPosition(i);
-                        break;
-                    }
-                }
-            }
-
-            @Override
-            public void onItemClick(View view) {
-
-            }
-
-            @Override
-            public void onDataUpdate() {
-
-            }
-
-            @Override
-            public void onMonthChange() {
-
-            }
-
-            @Override
-            public void onWeekChange(int i) {
-
-            }
-        });
     }
 
     @Override
@@ -395,10 +346,7 @@ public class DateListActivity extends AppCompatActivity
         super.onResume();
         this.resumeAutoUpdate();
         leggiDati();
-        for(Data date:dates){
 
-            mCollapsibleCalendar.addEventTag(LocalDate.of(date.getYear(),date.getMonth()+1,date.getDay()),date.getColor());
-        }
        /* if (lv == null) {
             lv = (ListView) findViewById(R.id.listaMainActivity);
 

@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -26,6 +27,12 @@ import com.asdamp.x_day.Data;
 import com.asdamp.x_day.GlideApp;
 import com.asdamp.x_day.R;
 import com.jaychang.st.SimpleText;
+import com.omega_r.libs.omegarecyclerview.OmegaRecyclerView;
+import com.omega_r.libs.omegarecyclerview.sticky_decoration.StickyAdapter;
+import com.pixplicity.easyprefs.library.Prefs;
+
+import org.threeten.bp.Month;
+import org.threeten.bp.format.TextStyle;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,11 +42,82 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHolder>
+import static org.apache.commons.lang3.StringUtils.capitalize;
+
+public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHolder>  implements StickyAdapter<DateListAdapter.HeaderHolder>
+
 {
     private ArrayList<Data> date;
     private OnListItemClickListener callback;
+
+    @Override
+    public long getStickyId(int position) {
+        if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
+            if(position>0)
+                return date.get(position).getMonth();
+            return date.get(0).getMonth();
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
+            if(position>0)
+                if(date.get(position).getDescrizioneIfExists()!=null && !date.get(position).getDescrizioneIfExists().equals(""))
+                    return date.get(position).getDescrizioneIfExists().charAt(0);
+                else return '#';
+            else{
+                    if(date.get(0).getDescrizioneIfExists()!=null && !date.get(0).getDescrizioneIfExists().equals(""))
+                        return date.get(0).getDescrizioneIfExists().charAt(0);
+                    else return '#';
+
+            }
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("color")){
+            if(position>0)
+                return date.get(position).getColor();
+            return date.get(0).getColor();
+        }
+
+        return '#';
+    }
+
+    @Override
+    public HeaderHolder onCreateStickyViewHolder(ViewGroup parent) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sticky_header_test, parent, false);
+        return new HeaderHolder(view);
+    }
+
+    @Override
+    public void onBindStickyViewHolder(HeaderHolder viewHolder, int position) {
+        Context context=viewHolder.itemView.getContext();
+
+        if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
+            String monthName = Month.of((int) getStickyId(position)).getDisplayName(TextStyle.FULL_STANDALONE, context.getResources().getConfiguration().locale) + " " + date.get(position).getYear();
+            monthName=capitalize(monthName);
+            viewHolder.text.setText(monthName);
+            viewHolder.text.setVisibility(View.VISIBLE);
+
+            viewHolder.color.setVisibility(View.GONE);
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
+            long iniziale=getStickyId(position);
+            viewHolder.text.setText(""+(char) getStickyId(position));
+            viewHolder.color.setVisibility(View.GONE);
+            viewHolder.text.setVisibility(View.VISIBLE);
+
+
+        }
+        else if(Prefs.getString("sortby","time").equalsIgnoreCase("color")){
+            viewHolder.color.setVisibility(View.VISIBLE);
+            viewHolder.text.setVisibility(View.GONE);
+
+            viewHolder.color.setImageDrawable(new ColorDrawable((int) getStickyId(position)));
+
+        }
+
+
+
+    }
+
     public interface OnListItemClickListener{
         void onListItemClick(View v,int i);
         boolean onListItemLongClick(View v,int i);
@@ -134,4 +212,14 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
     }
 
 
+    static class HeaderHolder extends OmegaRecyclerView.ViewHolder {
+        public TextView text;
+        public CircleImageView color;
+
+        public HeaderHolder(View itemView) {
+            super(itemView);
+            text = (TextView) itemView.findViewById(R.id.list_view_section_header);
+            color= itemView.findViewById(R.id.list_view_section_color);
+        }
+    }
 }
