@@ -18,7 +18,7 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_date_select">
+        >
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_year"
@@ -52,7 +52,7 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/btn_date_select">
+        >
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_month"
@@ -86,7 +86,7 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/btn_date_select">
+       >
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_week"
@@ -123,7 +123,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/btn_date_select">
+        >
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_day"

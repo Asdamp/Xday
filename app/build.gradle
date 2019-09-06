@@ -28,8 +28,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         signingConfig signingConfigs.config
-        versionCode 38
-        versionName "2.0-alpha9"
+        versionCode 39
+        versionName "2.0-alpha10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -107,7 +107,10 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.8.1'
 
     implementation 'de.hdodenhof:circleimageview:3.0.1'
-    implementation project(path: ':collapsiblecalendarview')
+    implementation 'com.github.AppIntro:AppIntro:5.1.0'
+    implementation 'com.airbnb.android:lottie:3.0.7'
 
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'

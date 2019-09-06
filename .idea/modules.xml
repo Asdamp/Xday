@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Xday.iml" filepath="$PROJECT_DIR$/Xday.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/collapsiblecalendarview/collapsiblecalendarview.iml" filepath="$PROJECT_DIR$/collapsiblecalendarview/collapsiblecalendarview.iml" />
     </modules>
   </component>
 </project>
