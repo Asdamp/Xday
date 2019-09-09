@@ -75,7 +75,7 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l\'app
   <string name="RecensisciSubito">Recensisci subito</string>
   <string name="RicordaTardi">Ricordami più tardi</string>
   <string name="RicordaMai">Non ricordare più</string>
-  <string name="nessunaData_empty_view">Non hai aggiunto ancora nessuna data ad Xday.</string>
+  <string name="nessunaData_empty_view">Aggiungi una data per iniziare a tracciare il tempo.</string>
   <string name="ConfigurationNotFoundWidgetSolo">"La data da visualizzare in questo widget è stata eliminata o è inaccessibile. Si prega di riconfigurare il widget."</string>
   <string name="loading">"Caricamento&#8230;"</string>
   <string name="importFile"> "Seleziona un file da importare"</string>

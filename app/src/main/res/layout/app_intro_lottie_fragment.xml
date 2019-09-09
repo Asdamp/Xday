@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
+    android:fitsSystemWindows="true"
     >
 
     <TextView
@@ -24,12 +25,12 @@
         tools:text="Welcome" />
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
 
         app:layout_constraintVertical_weight="5"
 
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_autoPlay="true"
         app:layout_constraintBottom_toTopOf="@+id/description"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,18 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.github.paolorotolo.appintro.ISlideBackgroundColorHolder
 import com.github.paolorotolo.appintro.ISlideSelectionListener
-import com.github.paolorotolo.appintro.model.SliderPage
 import com.github.paolorotolo.appintro.util.LogHelper
-import com.github.paolorotolo.appintro.util.TypefaceContainer
 
 internal const val ARG_TITLE = "title"
 internal const val ARG_TITLE_TYPEFACE = "title_typeface"
@@ -45,6 +41,7 @@ class AppIntroBaseLottieFragment : Fragment(), ISlideSelectionListener, ISlideBa
     private var title: String? = null
     private var description: String? = null
     private var mainLayout: ConstraintLayout? = null
+    private var slideAnim: LottieAnimationView? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +81,7 @@ class AppIntroBaseLottieFragment : Fragment(), ISlideSelectionListener, ISlideBa
         val view = inflater.inflate(R.layout.app_intro_lottie_fragment, container, false)
         val titleText = view.findViewById<TextView>(R.id.title)
         val descriptionText = view.findViewById<TextView>(R.id.description)
-        val slideImage = view.findViewById<LottieAnimationView>(R.id.animation_view)
+        slideAnim = view.findViewById<LottieAnimationView>(R.id.animation_view)
         mainLayout = view.findViewById(R.id.main)
 
         titleText.text = title
@@ -96,7 +93,7 @@ class AppIntroBaseLottieFragment : Fragment(), ISlideSelectionListener, ISlideBa
             descriptionText.setTextColor(descColor)
         }
 
-        slideImage.setAnimation(R.raw.clock_animation)
+        slideAnim?.setAnimation(animInt)
 
         mainLayout?.setBackgroundColor(backgroundColor)
 
@@ -121,6 +118,8 @@ class AppIntroBaseLottieFragment : Fragment(), ISlideSelectionListener, ISlideBa
 
     override fun onSlideSelected() {
         LogHelper.d(TAG, "Slide $title has been selected.")
+        slideAnim?.cancelAnimation()
+        slideAnim?.playAnimation()
     }
 
     override fun setBackgroundColor(@ColorInt backgroundColor: Int) {

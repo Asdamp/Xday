@@ -60,6 +60,8 @@ public class DateListActivity extends AppCompatActivity
 
     @BindView(R.id.rv_date_list)
     RecyclerView mDateRecyclerView;
+    @BindView(R.id.rv_date_list_empty_view)
+    View empty_view;
     private ArrayList<Data> dates;
     private Timer timer;
     DateListAdapter mListAdapter;
@@ -89,8 +91,8 @@ public class DateListActivity extends AppCompatActivity
         }
 
 
-    /*    getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).apply();*/
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).apply();
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -101,19 +103,15 @@ public class DateListActivity extends AppCompatActivity
 
         AdView mAdView = findViewById(R.id.adView);
         UserInfoUtility.loadAd(mAdView);
-        fab.setOnClickListener(view -> {
-            Intent intent = new Intent(this, Add.class);
-            intent.putExtra("requestCode", Costanti.CREA_DATA);
-            startActivityForResult(intent, Costanti.CREA_DATA);
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        fab.setOnClickListener(view -> addNewDate());
+        empty_view.setOnClickListener(view -> addNewDate());
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         dates=new ArrayList<>();
@@ -133,8 +131,8 @@ public class DateListActivity extends AppCompatActivity
             public boolean onListItemLongClick(View v, int i) {
 
                 PowerMenu powerMenu = new PowerMenu.Builder(DateListActivity.this)
-                        .addItem(new PowerMenuItem(getString(R.string.delete), false))
-                        .addItem(new PowerMenuItem(getString(R.string.share), false))
+                        .addItem(new PowerMenuItem(getString(R.string.delete), R.drawable.ic_delete_black_24dp))
+                        .addItem(new PowerMenuItem(getString(R.string.share), R.drawable.ic_share_black_24dp))
 
                         .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT) // Animation start point (TOP | LEFT)
                         .setMenuRadius(10f)
@@ -164,6 +162,12 @@ public class DateListActivity extends AppCompatActivity
         });
         mDateRecyclerView.setAdapter(mListAdapter);
 
+    }
+
+    private void addNewDate() {
+        Intent intent = new Intent(this, Add.class);
+        intent.putExtra("requestCode", Costanti.CREA_DATA);
+        startActivityForResult(intent, Costanti.CREA_DATA);
     }
 
     @Override
@@ -257,17 +261,20 @@ public class DateListActivity extends AppCompatActivity
         dates.clear();
         Cursor cursor = Costanti.getDB().fetchAllData();
 
-        do {
-            if (!cursor.moveToNext()) {
-                return cursor.getCount();
-            }
+        while (cursor.moveToNext()) {
             try {
                 dates.add(Data.leggi(cursor));
             } catch (IllegalArgumentException illegalargumentexception) {
                 Log.e("lettura", illegalargumentexception.getMessage(),
                         illegalargumentexception);
             }
-        } while (true);
+        }
+        if(dates.isEmpty()){
+            mDateRecyclerView.setVisibility(View.GONE);
+            empty_view.setVisibility(View.VISIBLE);
+        }
+        return cursor.getCount();
+
     }
 
     private void rimuoviData(int i) {
@@ -275,6 +282,11 @@ public class DateListActivity extends AppCompatActivity
         dates.remove(i);
         mDateRecyclerView.getAdapter().notifyItemRemoved(i);
         ((MainApplication) this.getApplication()).aggiornaWidget();
+        if(dates.isEmpty()){
+            mDateRecyclerView.setVisibility(View.GONE);
+            empty_view.setVisibility(View.VISIBLE);
+        }
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode,
@@ -324,7 +336,10 @@ public class DateListActivity extends AppCompatActivity
                         dates.add(data);
                         sortList();
                         mFirebaseAnalytics.logEvent("NEW_DATE",null);
-
+                        if(!dates.isEmpty()){
+                            mDateRecyclerView.setVisibility(View.VISIBLE);
+                            empty_view.setVisibility(View.GONE);
+                        }
                         break;
                 }
 

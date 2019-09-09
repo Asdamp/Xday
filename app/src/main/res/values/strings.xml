@@ -99,7 +99,7 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="RecensisciSubito">Review now</string>
     <string name="RicordaTardi">Remind me later</string>
     <string name="RicordaMai">Don\'t remind me anymore</string>
-    <string name="nessunaData_empty_view">You have not added any date in Xday.</string>
+    <string name="nessunaData_empty_view">Add a date to count the time to your big day!</string>
     <string name="ConfigurationNotFoundWidgetSolo">"The date to show in this widget has been deleted or it's inaccessible. Please reconfigure the widget."</string>
     <string name="loading">"Loading…"</string>
     <string name="importFile"> "Select a File to Import"</string>

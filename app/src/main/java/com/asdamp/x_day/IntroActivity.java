@@ -20,8 +20,8 @@ public class IntroActivity extends AppIntro {
         // Just create a `SliderPage` and provide title, description, background and image.
         // AppIntro will do the rest.
 
-        addSlide(AppIntroBaseLottieFragment.newInstance(R.raw.clock_animation,"BENVENUTO IN XDAY","Con Xday potrai sapere quanto tempo manca o è passato da un certo evento",this.getResources().getColor(R.color.md_green_500),Color.WHITE,Color.WHITE));
-        addSlide(AppIntroBaseLottieFragment.newInstance(R.raw.clock_animation,"INIZIAMO?","Aggiungi una nuova data nella prossima schermata successiva, e tieni traccia dei tuoi eventi più importanti",this.getResources().getColor(R.color.md_blue_500),Color.WHITE,Color.WHITE));
+        addSlide(AppIntroBaseLottieFragment.newInstance(R.raw.clock_animation,"BENVENUTO IN XDAY","Con Xday potrai sapere quanto tempo manca o è passato da un certo evento",this.getResources().getColor(R.color.md_blue_500),Color.WHITE,Color.WHITE));
+        addSlide(AppIntroBaseLottieFragment.newInstance(R.raw.completed_animation,"INIZIAMO?","Aggiungi una nuova data nella prossima schermata successiva, e tieni traccia dei tuoi eventi più importanti",this.getResources().getColor(R.color.md_green_500),Color.WHITE,Color.WHITE));
 
         // OPTIONAL METHODS
         // Override bar/separator color.
