@@ -4,51 +4,35 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-
-import com.asdamp.utility.ImageUtils;
-import com.asdamp.utility.UserInfoUtility;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.asdamp.adapters.DateListAdapter;
 import com.asdamp.database.DBAdapter;
+import com.asdamp.utility.ImageUtils;
+import com.asdamp.utility.UserInfoUtility;
+import com.google.android.gms.ads.AdView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pixplicity.easyprefs.library.Prefs;
 import com.skydoves.powermenu.MenuAnimation;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
 
-import org.threeten.bp.LocalDate;
-
 import java.io.IOException;
-import java.security.KeyPairGenerator;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,7 +40,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DateListActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+         {
 
     @BindView(R.id.rv_date_list)
     RecyclerView mDateRecyclerView;
@@ -81,8 +65,7 @@ public class DateListActivity extends AppCompatActivity
         setContentView(R.layout.activity_date_list);
         ButterKnife.bind(this);
 
-        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("isFirstRun", true);
+        boolean isFirstRun = Prefs.getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
             //show sign up activity
@@ -91,8 +74,7 @@ public class DateListActivity extends AppCompatActivity
         }
 
 
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).apply();
+        Prefs.putBoolean("isFirstRun", false);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -105,14 +87,7 @@ public class DateListActivity extends AppCompatActivity
         UserInfoUtility.loadAd(mAdView);
         fab.setOnClickListener(view -> addNewDate());
         empty_view.setOnClickListener(view -> addNewDate());
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         dates=new ArrayList<>();
         mDateRecyclerView.setHasFixedSize(true);
@@ -147,9 +122,7 @@ public class DateListActivity extends AppCompatActivity
                     powerMenu.dismiss();
                     switch (position){
                         case 0:
-                            Costanti.getDB().deleteData(dates.get(i));
-                            dates.remove(i);
-                            mListAdapter.notifyItemRemoved(i);
+                           rimuoviData(i);
                             break;
                         case 1:
                             ImageUtils.shareView(DateListActivity.this,v);
@@ -172,19 +145,14 @@ public class DateListActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+      super.onBackPressed();
+
     }
 
 
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -198,6 +166,7 @@ public class DateListActivity extends AppCompatActivity
                 else {
                     Prefs.putString("sortby", "time");
                     Prefs.putString("sorttype", "asc");
+
                 }
                 sortList();
 
@@ -235,8 +204,6 @@ public class DateListActivity extends AppCompatActivity
         }
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -368,9 +335,7 @@ public class DateListActivity extends AppCompatActivity
         return dates.get(i);
     }
 
-    public boolean onOptionsItemSelected(MenuItem menuitem) {
-        return true;
-    }
+
 
     protected void onResume() {
         super.onResume();
