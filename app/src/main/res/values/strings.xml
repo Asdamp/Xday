@@ -105,19 +105,11 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="importFile"> "Select a File to Import"</string>
     <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
 
-    <string name="prova_smartpizza">Try SmartPizza!</string>
     <string name="condividi">Share</string>
-    <string name="condividi_con">Share with</string>
-    <string name="Changelog">Changelog</string>
-    <string name="passato_all_evento">"Passed {0}from {1}."</string>
-    <string name="mancano_all_evento">"Left {0}from {1}."</string>
     <string name="sourceCode"><a href="http://github.com/Asdamp/Xday">Source Code</a></string>
     <string name="seleziona_ora">Time select</string>
     <string name="seleziona_data">Date select</string>
     <string name="overflow">Overflow. The result number is too big.</string>
-    <string name="this_code_is_invalid_please_try_to_insert_it_again_">This code is invalid. Please try to insert it again.</string>
-    <string name="inport_error_file_corrupted">The selected file is corrupted or it doesn\'t contain xday datas</string>
-    <string name="add_modify_date_settings">Add/modify date settings</string>
     <string name="settings">Settings</string>
     <string name="Share">Share</string>
     <string name="title_activity_date_list">DateListActivity</string>
@@ -136,47 +128,14 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="color">Color</string>
     <string name="button_ok">ok</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="ADDselezionaData">
-        <item>Set date</item>
-        <item>Set the date from which you want to know the left/passed time</item>
-    </string-array>
-    <string-array name="ADDselezionaOra">
-        <item>Set time</item>
-        <item>"Set time. By default 00:00"</item>
-    </string-array>
-    <string-array name="ADDselezionaParametri">
-        <item>Set parameters</item>
-        <item>Choose how accurately you want to calculate the remaining/past time </item>
-    </string-array>
-    <string-array name="ADDselezionaDescrizione">
-        <item>"Set a description"</item>
-        <item>"Insert a description of the date"</item>
-    </string-array>
-    <string-array name="ADDselezionaColore">
-        <item>"Select color"</item>
-        <item>"Set a color for the description"</item>
-    </string-array>
-    <string-array name="ADDselezionaPromemoria">
-        <item>"Set a reminder"</item>
-        <item>"Set a notification for your event"</item>
-    </string-array>
-    <string-array name="WidgetSingleSelezionaColore">
-        <item>"Select color"</item>
-        <item>"Set widget's background color"</item>
-    </string-array>
-    <string-array name="WidgetSingleSelezionaData">
-        <item>"Select event"</item>
-        <item>"Select the event to be displayed in the widget"</item>
-    </string-array>
-
+    <string name="notification">Notification</string>
+    <string name="Anni">"Years"</string>
+    <string name="Mesi">"Months"</string>
+    <string name="Settimane">"Weeks"</string>
+    <string name="Giorni">"Days"</string>
+    <string name="Ore">"Hours"</string>
+    <string name="Minuti">"Minutes"</string>
+    <string name="Secondi">"Seconds"</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="Parametri">
-        <item name="Anni">"Years"</item>
-        <item name="Mesi">"Months"</item>
-        <item name="Settimane">"Weeks"</item>
-        <item name="Giorni">"Days"</item>
-        <item name="Ore">"Hours"</item>
-        <item name="Minuti">"Minutes"</item>
-        <item name="Secondi">"Seconds"</item>
-    </string-array>
+
 </resources>

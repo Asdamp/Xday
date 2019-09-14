@@ -15,6 +15,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -95,11 +96,20 @@ public class DateListActivity extends AppCompatActivity
 
         mDateRecyclerView.setLayoutManager(layoutManager);
         mListAdapter = new DateListAdapter(dates);
+        mDateRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
+                if (dy > 0)
+                    fab.hide();
+                else if (dy < 0)
+                    fab.show();
+            }
+        });
         mListAdapter.setOnListItemClickListener(new DateListAdapter.OnListItemClickListener() {
             @SuppressWarnings("ResultOfMethodCallIgnored")
             @Override
             public void onListItemClick(View v,int i) {
-                DateListActivity.this.onListItemClick(i);
+                DateListActivity.this.onListItemClick(v,i);
             }
 
             @Override
@@ -323,11 +333,13 @@ public class DateListActivity extends AppCompatActivity
         return true;
     }
 
-    protected void onListItemClick(int i) {
+    protected void onListItemClick(View v,int i) {
             Intent intent = new Intent(this, Add.class);
             intent.putExtra("requestCode", 1);
             intent.putExtra("data", (Parcelable) getDate(i));
-            startActivityForResult(intent, 1);
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(this,  v.findViewById(R.id.iv_date_image), "date_image");
+            startActivityForResult(intent, 1,options.toBundle());
 
     }
 

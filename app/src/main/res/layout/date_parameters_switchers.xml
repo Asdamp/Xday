@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year" />
+            android:text="@string/Anni" />
 
     </LinearLayout>
 
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Month" />
+            android:text="@string/Mesi" />
 
     </LinearLayout>
 
@@ -105,7 +105,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Week" />
+            android:text="@string/Settimane" />
 
     </LinearLayout>
 
@@ -142,7 +142,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Day" />
+            android:text="@string/Giorni" />
 
     </LinearLayout>
 
@@ -174,7 +174,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hour" />
+            android:text="@string/Ore" />
 
     </LinearLayout>
 
@@ -211,7 +211,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Minute" />
+            android:text="@string/Minuti" />
 
     </LinearLayout>
 
@@ -243,7 +243,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Second" />
+            android:text="@string/Secondi" />
 
     </LinearLayout>
     <androidx.constraintlayout.widget.Guideline

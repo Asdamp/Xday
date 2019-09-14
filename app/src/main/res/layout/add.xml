@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DateListActivity"
     tools:showIn="@layout/activity_add_date"
+    style="@style/AppTheme"
    >
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
@@ -19,7 +20,7 @@
         android:layout_marginRight="8dp"
         app:hasClearButton="true"
         app:iconSignifier="@drawable/ic_title_black"
-
+        app:primaryColor="@color/md_grey_700"
         app:labelText="Nome"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,13 +128,13 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
-            app:jtbJelly="lazy_tremble_head_fatty"
+            app:jtbJelly="itself"
             app:jtbLeftBackgroundColor="@color/md_grey_400"
             app:jtbLeftTextColor="@color/md_grey_400"
-            app:jtbLeftThumbColor="?attr/colorPrimary"
-            app:jtbRightBackgroundColor="?attr/colorPrimary"
+            app:jtbLeftThumbColor="@color/md_blue_700"
+            app:jtbRightBackgroundColor="?attr/colorAccent"
             app:jtbRightTextColor="?attr/colorPrimary"
-            app:jtbRightThumbColor="@color/md_grey_400"
+            app:jtbRightThumbColor="@color/md_blue_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -145,7 +146,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Notification"
+            android:text="@string/notification"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
