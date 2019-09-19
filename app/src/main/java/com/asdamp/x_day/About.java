@@ -43,7 +43,7 @@ public class About extends AppCompatActivity {
 				.setName("Antonio Altieri")
 				.setSubTitle("Mobile Developer")
 				.setLinksColumnsCount(4)
-				.addGooglePlayStoreLink("8002078663318221363")
+				.addGooglePlayStoreLink(getResources().getString(R.string.play_store_link))
 				.addGitHubLink("asdamp")
 				.addLinkedInLink("antonio-altieri-4b2544b0")
 				.addEmailLink("altieriantonio.dev@gmail.com")

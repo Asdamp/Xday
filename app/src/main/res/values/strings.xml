@@ -28,6 +28,14 @@
         <item quantity="one">"1 second"</item>
         <item quantity="other">"%d seconds"</item>
     </plurals>
+    <string name="please_rate">Hey there! You seem to like Xday, would you mind visiting the Play Store and give a rating? It would help us a great deal!
+    \n\nIf instead you hate this app, we would love to hear your feedback so we can improve. Thanks!</string>
+    <string name="please_rate_short">Hey, you seem to like this app. You would help us a great deal with a 5-star rating!</string>
+    <string name="button_yes">Rate!</string>
+    <string name="button_no">No thanks</string>
+    <string name="button_feedback">Give feedback</string>
+    <string name="button_dont_ask">Don’t ask again</string>
+    <string name="swipe_to_dismiss">Swipe to dismiss</string>
 
     <string name="Annulla">Cancel</string>
     <string name="title_activity_main">Xday</string>

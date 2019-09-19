@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +30,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.pixplicity.easyprefs.library.Prefs;
+import com.pixplicity.generate.OnFeedbackListener;
+import com.pixplicity.generate.Rate;
 import com.skydoves.powermenu.MenuAnimation;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
@@ -36,13 +40,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DateListActivity extends AppCompatActivity
          {
-
+             Rate rate;
+             @BindView(R.id.coordinator)
+             CoordinatorLayout coordinatorLayout;
     @BindView(R.id.rv_date_list)
     RecyclerView mDateRecyclerView;
     @BindView(R.id.rv_date_list_empty_view)
@@ -64,6 +71,7 @@ public class DateListActivity extends AppCompatActivity
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_date_list);
+
         ButterKnife.bind(this);
 
         boolean isFirstRun = Prefs.getBoolean("isFirstRun", true);
@@ -73,8 +81,8 @@ public class DateListActivity extends AppCompatActivity
             startActivity(new Intent(this, IntroActivity.class));
 
         }
-
-
+        rateUs();
+        rate.count();
         Prefs.putBoolean("isFirstRun", false);
 
 
@@ -147,7 +155,48 @@ public class DateListActivity extends AppCompatActivity
 
     }
 
-    private void addNewDate() {
+             private void rateUs() {
+
+                 rate = new Rate.Builder(this)
+                         // Trigger dialog after this many events (optional, defaults to 6)
+                         .setTriggerCount(5)
+                         // After dismissal, trigger again after this many events (optional, defaults to 30)
+                         .setRepeatCount(5)
+                         .setMinimumInstallTime((int) TimeUnit.DAYS.toMillis(3))   // Optional, defaults to 7 days
+                         .setFeedbackAction(new OnFeedbackListener() {       // Optional
+                             @Override
+                             public void onFeedbackTapped() {
+                                 Intent i = new Intent(Intent.ACTION_SEND);
+                                 i.setType("message/rfc822");
+                                 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"altieriantonio.dev@gmail.com"});
+                                 i.putExtra(Intent.EXTRA_SUBJECT, "Xday feedback");
+                                 try {
+                                     startActivity(Intent.createChooser(i, "Send mail..."));
+                                 } catch (android.content.ActivityNotFoundException ex) {
+                                     Toast.makeText(DateListActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                 }
+                             }
+
+                             @Override
+                             public void onRateTapped() {
+                                 //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.play_store_link))));
+                             }
+
+                             @Override
+                             public void onRequestDismissed(boolean dontAskAgain) {
+                                   // Prefs.putBoolean("dismissed_forever",dontAskAgain);
+                             }
+                         })
+                         .setSnackBarParent(coordinatorLayout)                            // Optional, shows dialog by default
+
+                         .setLightTheme(true)                                // Default is dark
+                         .setSwipeToDismissVisible(true)                    // Add this when using the Snackbar
+                         // without a CoordinatorLayout as a parent.
+                         .build();
+                // rate.showRequest();
+             }
+
+             private void addNewDate() {
         Intent intent = new Intent(this, Add.class);
         intent.putExtra("requestCode", Costanti.CREA_DATA);
         startActivityForResult(intent, Costanti.CREA_DATA);
@@ -270,6 +319,12 @@ public class DateListActivity extends AppCompatActivity
                                     Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         Data data;
+        boolean dismissedForever=Prefs.getBoolean("dismissed_forever",false);
+    //    rate.test();
+
+        if(!dismissedForever) {
+            rate.showRequest();
+        }
         switch (requestCode) {
 
 
@@ -304,6 +359,7 @@ public class DateListActivity extends AppCompatActivity
                 }
 
         }
+
 
     }
 
