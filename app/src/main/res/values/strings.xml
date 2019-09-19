@@ -28,85 +28,38 @@
         <item quantity="one">"1 second"</item>
         <item quantity="other">"%d seconds"</item>
     </plurals>
-    <string name="CodiceAttivazione">"Promotional code"</string>
-    <string name="CodiceAttivazioneDescrizione">"Enter promotion code to remove ads"</string>
-    <string name="CodiceAccettato">"Congrats! You've unlocked the ad-free version of Xday."</string>
+
     <string name="app_name">Xday</string>
     <string name="Annulla">Cancel</string>
     <string name="title_activity_main">Xday</string>
     <string name="Aggiungi">Add</string>
     <string name="Aggiorna">Refresh</string>
-    <string name="Manca">Left:</string>
-    <string name="Passato">Passed:</string>
-    <string name="AllaData">To:</string>
-    <string name="Temporale">Automatic temporally sorting</string>
-    <string name="Manuale">Manual sorting</string>
     <string name="Notifica_il_giorno_e_arrivato">"The long-awaited day is finally here"</string>
-    <string name="DallaData">From:</string>
     <string name="Error">"I'm an error"</string>
-    <string name="DescrizioneDefault">[Click to insert description]</string>
     <string name="Elimina">Delete</string>
     <string name="Conferma">Confirm</string>
     <string name="Modifica">Edit</string>
-    <string name="SmartPizzaCorpo">Try it</string>
     <string name="Descrizione">"Description"</string>
-    <string name="InserisciDescrizione">"Insert a description of the date"</string>
     <string name="minimoNdate">"You must choose at least one parameter"</string>
-    <string name="creditsMe">"Application designed and developed by:
- Antonio Altieri"</string>
-    <string name="AltriRingraziamenti">\Tester:\n
-Circelli Fiorella\n
-Ruggiero Arianna\n
-\n
-<a href="http://www.getlocalization.com/xday/stats">Translators</a>\n
-German: maxhauser\n
-Slovak: stileth\n
-French: tnt, lordseta, Aurel45, oeil2lynx, ShaEnigma, Cza, fredatgetlocalization\n
-Portuguese: lookenx, fernandolopes, naldao\n
-Estonian: TanelTerras\n
-Chinese: Felix2yu\n
-This application uses <a href="http://www.joda.org/joda-time/">Joda-time</a>,
-<a href="http://actionbarsherlock.com/">ActionBarScherlock</a>,
-<a href="http://acra.ch/">Acra</a>,
-<a href="https://github.com/bauerca/drag-sort-listview">DragSortListView</a>,
-<a href="https://github.com/attenzione/android-ColorPickerPreference">ColorPickerPreference</a>,
-<a href="https://github.com/chrisjenx/Paralloid">Paralloid</a>,
-<a href="https://github.com/keyboardsurfer/Crouton">Crouton</a>,
- libraries granted under the Apache License 2.0.\n
-This application is Open source and it\'s granted under the Apache License 2.0\"</string>
-    <string name="acquisto">If you like Xday and you want to support me, buy Xday ad-free</string>
-    <string name="apacheLink"><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache license 2.0</a></string>
+<string name="riordina">Sort</string>
     <string name="about">About</string>
-    <string name="SourceCode">"Source code: "</string>
-    <string name="VediSubito">"Take a look"</string>
     <string name="SelezionaDataWidget">Select date</string>
-    <string name="Contatti">Contact the developer, report bugs, suggest features: \n altieriantonio.dev@gmail.com</string>
     <string name="Opzioni">Options</string>
     <string name="Parametri">Set parameters</string>
     <string name="nessunaData">You haven\'t still added any date in Xday, add a date before inserting a widget</string>
-    <string name="riordina">Reorder</string>
-    <string name="FineRiordinamento">Rearrange finished</string>
-    <string name="esporta">Export</string>
-    <string name="importa">Import</string>
+
     <string name="VotamiTitolo">Do you like Xday? Rate it!</string>
     <string name="VotamiCorpo">Xday is completely free and it\'s being continually updated, and it will remain forever. However, you can buy the ad-free version on the play store spending less than a cup of coffee. If you want to support me and help me in a totally free mode, you can rate the application on the play store. Thanks for your support!</string>
-    <string name="ExportError">"Unable to export the database."</string>
-    <string name="ExportSucceded">"Exported successfully in the path: %s"</string>
-    <string name="ImportError">"Error importing the file. Be sure to place the file in this location: %s"</string>
-    <string name="ImportSucceded">"Imported successfully."</string>
-    <string name="WrongFile">"Selected file is not valid. Select a file with xdy extension."</string>
-    <string name="sending_crash_report_to_developer">Sending crash report to developer</string>
+
     <string name="RecensisciSubito">Review now</string>
     <string name="RicordaTardi">Remind me later</string>
     <string name="RicordaMai">Don\'t remind me anymore</string>
     <string name="nessunaData_empty_view">Add a date to count the time to your big day!</string>
     <string name="ConfigurationNotFoundWidgetSolo">"The date to show in this widget has been deleted or it's inaccessible. Please reconfigure the widget."</string>
     <string name="loading">"Loading…"</string>
-    <string name="importFile"> "Select a File to Import"</string>
     <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
 
     <string name="condividi">Share</string>
-    <string name="sourceCode"><a href="http://github.com/Asdamp/Xday">Source Code</a></string>
     <string name="seleziona_ora">Time select</string>
     <string name="seleziona_data">Date select</string>
     <string name="overflow">Overflow. The result number is too big.</string>
@@ -136,6 +89,5 @@ This application is Open source and it\'s granted under the Apache License 2.0\"
     <string name="Ore">"Hours"</string>
     <string name="Minuti">"Minutes"</string>
     <string name="Secondi">"Seconds"</string>
-    <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

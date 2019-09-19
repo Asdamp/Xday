@@ -9,28 +9,5 @@
 
 
 
-    <item
-        android:id="@+id/Riordina"
-        android:orderInCategory="1"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_sort_by_alpha_black_24dp"
-        android:title="@string/riordina"
-        android:titleCondensed="@string/riordina"
-        android:visible="true">
-        <menu>
-                <item android:id="@+id/alphabetical" android:title="@string/alphabetical" android:icon="@drawable/ic_sort_by_alpha_black_24dp"/>
-                <item android:id="@+id/time" android:title="@string/time"  android:icon="@drawable/ic_time"/>
-                <item android:id="@+id/color" android:title="@string/color"  android:icon="@drawable/ic_color"/>
 
-        </menu>
-    </item>
-
-    <item
-        android:id="@+id/aboutMain"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_sort_by_alpha_black_24dp"
-
-        android:orderInCategory="100"
-        android:title="@string/about"
-        android:titleCondensed="@string/about"/>
 </menu>

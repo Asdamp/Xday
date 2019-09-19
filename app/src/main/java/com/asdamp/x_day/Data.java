@@ -389,17 +389,7 @@ public class Data extends GregorianCalendar implements  Parcelable{
 				
 	}
 
-	public String getShareText(Context c) {
-		String shareText;
 
-		if(getPercentuale()==1000)
-			shareText=MessageFormat.format(c.getString(R.string.passato_all_evento), aggiorna(c),
-					getDescrizione());
-		else shareText=MessageFormat.format(c.getString(R.string.mancano_all_evento), aggiorna(c),
-				getDescrizione());
-		shareText=shareText+"\n[Xday: https://play.google.com/store/apps/details?id=com.asdamp.x_day]";
-		return shareText;
-	}
 	
 	public boolean isAfterToday(){
 		Calendar today=new GregorianCalendar();

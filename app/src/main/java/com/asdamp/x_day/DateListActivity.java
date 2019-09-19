@@ -272,24 +272,7 @@ public class DateListActivity extends AppCompatActivity
         Data data;
         switch (requestCode) {
 
-            case Costanti.FILE_SELECT_CODE:
-                if (resultCode == RESULT_OK) {
-                    DBAdapter db=Costanti.getDB();
-                    Uri uri=intent.getData();
-                    try {
-                        db.importDB(intent.getData()/* Get the Uri of the selected file*/);
-                    } catch (IOException e) {
-                        Snackbar.make(mDateRecyclerView,this.getString(R.string.ImportError, uri.toString()), Snackbar.LENGTH_SHORT).show();
-                    }
-                    if (db.numRecordsDate() > 0)
-                        Snackbar.make(mDateRecyclerView,this.getString(R.string.ImportSucceded),Snackbar.LENGTH_SHORT).show();
-                    else
-                        Snackbar.make(mDateRecyclerView,R.string.inport_error_file_corrupted, Snackbar.LENGTH_SHORT).show();
-                    leggiDati();
-                    aggiorna();
 
-                }
-                break;
             case Costanti.MODIFICA_DATA:
                 data=intent.getParcelableExtra("data");
                 int index=dates.indexOf(data);

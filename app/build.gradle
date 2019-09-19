@@ -3,6 +3,9 @@ apply plugin: 'io.fabric'
 apply plugin: "com.jaredsburrows.license"
 
 android {
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
     signingConfigs {
         config {
             Properties properties = new Properties()
@@ -28,8 +31,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
         signingConfig signingConfigs.config
-        versionCode 40
-        versionName "2.0-alpha11"
+        versionCode 41
+        versionName "2.0-alpha12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -81,12 +84,12 @@ dependencies {
     implementation group: 'org.joda', name: 'joda-convert', version: '2.0.1', classifier: 'classic'
 
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
-    implementation 'com.wdullaer:materialdatetimepicker:4.2.2'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
     implementation 'com.jaychang:simpletext:2.0.1'
     implementation "com.github.skydoves:powermenu:2.1.2"
 
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.github.jrvansuita:MaterialAbout:0.2.3'
@@ -104,7 +107,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
     implementation 'com.github.Omega-R:OmegaRecyclerView:1.9.7@aar' // AndroidX
-    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'org.apache.commons:commons-lang3:3.9'
 
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'com.github.AppIntro:AppIntro:5.1.0'

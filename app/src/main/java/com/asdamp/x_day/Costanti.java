@@ -42,7 +42,7 @@ public class Costanti {
 		Os = VERSION.SDK_INT;
 		DisplayMetrics dm = c.getResources().getDisplayMetrics();
 		DPI = dm.densityDpi;	
-		DescrizioneDefault=c.getString(R.string.DescrizioneDefault);
+		DescrizioneDefault="";
 		shprs = c.getSharedPreferences(
 				"PrivateOption", 0);
 		final android.content.SharedPreferences.Editor spe = shprs
