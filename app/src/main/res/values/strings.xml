@@ -29,7 +29,6 @@
         <item quantity="other">"%d seconds"</item>
     </plurals>
 
-    <string name="app_name">Xday</string>
     <string name="Annulla">Cancel</string>
     <string name="title_activity_main">Xday</string>
     <string name="Aggiungi">Add</string>

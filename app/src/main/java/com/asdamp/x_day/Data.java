@@ -289,7 +289,9 @@ public class Data extends GregorianCalendar implements  Parcelable{
 				stringaTotale = resources.getQuantityString(R.plurals.Settimane, 0, 0);
 			} else if (tipo.isSupported(DurationFieldType.months())) {
 				stringaTotale = resources.getQuantityString(R.plurals.Mesi, 0, 0);
-			} else {
+			} else if (tipo.isSupported(DurationFieldType.years())) {
+				stringaTotale = resources.getQuantityString(R.plurals.Anni, 0, 0);
+			}else {
 				stringaTotale = resources.getQuantityString(R.plurals.Giorni, 0, 0);
 			}
 		

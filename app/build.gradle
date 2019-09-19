@@ -22,7 +22,7 @@ android {
     defaultConfig {
         applicationId "com.asdamp.x_day"
         multiDexEnabled true
-
+        versionName "Xday"
         minSdkVersion 16
         targetSdkVersion 29
         vectorDrawables.useSupportLibrary = true
@@ -50,7 +50,20 @@ android {
 
         }
     }
+    flavorDimensions "version"
+
     productFlavors {
+        ads {
+            dimension "version"
+            resValue "string", "app_name", "Xday"
+
+        }
+        full {
+            dimension "version"
+            applicationId 'com.asdamp.x_dayAdFree'
+            versionNameSuffix  "AdFree"
+            resValue "string", "app_name", "Xday Adfree"
+        }
     }
 }
 
@@ -112,6 +125,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'com.github.AppIntro:AppIntro:5.1.0'
     implementation 'com.airbnb.android:lottie:3.0.7'
+
+    implementation 'com.pixplicity.generate:library:1.1.2'
 
 }
 apply plugin: 'com.google.gms.google-services'

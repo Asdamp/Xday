@@ -56,8 +56,8 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
     public long getStickyId(int position) {
         if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
             if(position>0)
-                return date.get(position).getMonth();
-            return date.get(0).getMonth();
+                return Long.parseLong(date.get(position).getMonth()+""+date.get(position).getYear());
+            return Long.parseLong(date.get(0).getMonth()+""+date.get(0).getYear());
         }
         else if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
             if(position>0)
@@ -91,7 +91,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         Context context=viewHolder.itemView.getContext();
 
         if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
-            String monthName = Month.of((int) getStickyId(position)).getDisplayName(TextStyle.FULL_STANDALONE, context.getResources().getConfiguration().locale) + " " + date.get(position).getYear();
+            String monthName = Month.of(date.get(position).getMonth()).getDisplayName(TextStyle.FULL_STANDALONE, context.getResources().getConfiguration().locale) + " " + date.get(position).getYear();
             monthName=capitalize(monthName);
             viewHolder.text.setText(monthName);
             viewHolder.text.setVisibility(View.VISIBLE);
@@ -99,7 +99,6 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
             viewHolder.color.setVisibility(View.GONE);
         }
         else if(Prefs.getString("sortby","time").equalsIgnoreCase("alphabetical")){
-            long iniziale=getStickyId(position);
             viewHolder.text.setText(""+(char) getStickyId(position));
             viewHolder.color.setVisibility(View.GONE);
             viewHolder.text.setVisibility(View.VISIBLE);

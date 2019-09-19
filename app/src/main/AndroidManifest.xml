@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.asdamp.x_day"
+
     android:installLocation="auto"
     >
 
@@ -18,9 +19,9 @@
         android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:theme="@style/AppTheme.NoActionBar"
         android:fullBackupContent="@xml/my_backup_rules"
+
         tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -28,7 +29,8 @@
         <activity
             android:name=".DateListActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_main">
+
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
