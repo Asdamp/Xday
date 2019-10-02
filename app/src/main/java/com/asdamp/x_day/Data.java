@@ -19,6 +19,8 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Objects;
+
 /* this class isn't an activity. this class represent a Date*/
 public class Data extends GregorianCalendar implements  Parcelable{
 	private static final long serialVersionUID = 8260403943016471526L;
@@ -489,5 +491,10 @@ public class Data extends GregorianCalendar implements  Parcelable{
 
 	public void setImage(Uri image) {
 		this.image = image;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), descrizione, millisecondiIniziali);
 	}
 }

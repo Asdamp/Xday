@@ -91,7 +91,7 @@ public class DateListAdapter extends RecyclerView.Adapter<DateListAdapter.ViewHo
         Context context=viewHolder.itemView.getContext();
 
         if(Prefs.getString("sortby","time").equalsIgnoreCase("time")){
-            String monthName = Month.of(date.get(position).getMonth()).getDisplayName(TextStyle.FULL_STANDALONE, context.getResources().getConfiguration().locale) + " " + date.get(position).getYear();
+            String monthName = Month.of(date.get(position).getMonth()+1).getDisplayName(TextStyle.FULL_STANDALONE, context.getResources().getConfiguration().locale) + " " + date.get(position).getYear();
             monthName=capitalize(monthName);
             viewHolder.text.setText(monthName);
             viewHolder.text.setVisibility(View.VISIBLE);

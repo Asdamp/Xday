@@ -224,7 +224,7 @@ public class DateListActivity extends AppCompatActivity
                 }
                 else {
                     Prefs.putString("sortby", "time");
-                    Prefs.putString("sorttype", "asc");
+                    Prefs.putBoolean("reverse",false);
 
                 }
                 sortList();
@@ -239,7 +239,7 @@ public class DateListActivity extends AppCompatActivity
                 }
                 else {
                     Prefs.putString("sortby", "alphabetical");
-                    Prefs.putString("sorttype", "asc");
+                    Prefs.putBoolean("reverse",false);
                 }
                 sortList();
                 break;
@@ -250,7 +250,7 @@ public class DateListActivity extends AppCompatActivity
                 }
                 else {
                     Prefs.putString("sortby", "color");
-                    Prefs.putString("sorttype", "asc");
+                    Prefs.putBoolean("reverse",false);
                 }
                 sortList();
                 break;

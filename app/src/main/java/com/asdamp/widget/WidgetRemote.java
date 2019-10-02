@@ -64,7 +64,7 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 	}
 
 	public long getItemId(int arg0) {
-		return(date.get(arg0).getMillisecondiIniziali());
+		return(date.get(0).hashCode());
 	}
 
 	public RemoteViews getLoadingView() {
