@@ -28,14 +28,6 @@
         <item quantity="one">"1 second"</item>
         <item quantity="other">"%d seconds"</item>
     </plurals>
-    <string name="please_rate">Hey there! You seem to like Xday, would you mind visiting the Play Store and give a rating? It would help us a great deal!
-    \n\nIf instead you hate this app, we would love to hear your feedback so we can improve. Thanks!</string>
-    <string name="please_rate_short">Hey, you seem to like this app. You would help us a great deal with a 5-star rating!</string>
-    <string name="button_yes">Rate!</string>
-    <string name="button_no">No thanks</string>
-    <string name="button_feedback">Give feedback</string>
-    <string name="button_dont_ask">Don’t ask again</string>
-    <string name="swipe_to_dismiss">Swipe to dismiss</string>
 
     <string name="Annulla">Cancel</string>
     <string name="title_activity_main">Xday</string>
@@ -72,13 +64,6 @@
     <string name="overflow">Overflow. The result number is too big.</string>
     <string name="settings">Settings</string>
     <string name="Share">Share</string>
-    <string name="title_activity_date_list">DateListActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
     <string name="delete">Delete</string>
     <string name="share">Share</string>
     <string name="date_color">Background color</string>
@@ -87,7 +72,7 @@
     <string name="time">Time</string>
     <string name="color">Color</string>
     <string name="button_ok">ok</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="notification">Notification</string>
     <string name="Anni">"Years"</string>
     <string name="Mesi">"Months"</string>
@@ -96,5 +81,6 @@
     <string name="Ore">"Hours"</string>
     <string name="Minuti">"Minutes"</string>
     <string name="Secondi">"Seconds"</string>
+    <string name="select_widget_date">Let\'s select a date to show in your brand new widget</string>
 
 </resources>

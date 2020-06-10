@@ -96,7 +96,9 @@ public class Add extends AppCompatActivity {
     @BindView(R.id.iv_curr_color)
     CircleImageView mIvCurrColor;
     private Data data;
-  //  private Uri mImageSelected;
+    int requestCode;
+
+    //  private Uri mImageSelected;
 
     @Override
     protected void onCreate(Bundle s) {
@@ -135,6 +137,7 @@ public class Add extends AppCompatActivity {
             setupNewDate();
 
         }
+        requestCode = this.getIntent().getIntExtra("requestCode",Costanti.CREA_DATA);
         configViews();
 
         //set previous/default date and time
@@ -315,6 +318,16 @@ public class Add extends AppCompatActivity {
         data.setPeriodType(mSwitchYear.isIconEnabled(),mSwitchMonth.isIconEnabled(),mSwitchWeek.isIconEnabled(),mSwitchDay.isIconEnabled(),mSwitchHour.isIconEnabled(),mSwitchMinute.isIconEnabled(),mSwitchSecond.isIconEnabled());
         data.setNotification(mNotificationSwitch.isChecked());
         data.setDescription(mEditTitle.getText().toString());
+        if (resultCode == Costanti.TUTTO_BENE) {
+            if (requestCode == Costanti.CREA_DATA) {
+                Costanti.getDB().createData(data);
+
+            } else if (requestCode == Costanti.MODIFICA_DATA) {
+                Costanti.getDB().updateData(data);
+
+            }
+        }
+
         setResult(resultCode, this.getIntent().putExtra("data", (Parcelable) data));
         Costanti.updateWidget(this);
         XdayNotification.scheduleNotificationById(this,data);

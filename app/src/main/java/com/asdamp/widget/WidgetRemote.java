@@ -139,7 +139,10 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 	            cursore.close();
 	        }
 	        cursore = database.fetchAllData();
-	       
+		   date.clear();
+		while(cursore.moveToNext()){
+			date.add(Data.leggi(cursore));
+		}
 	}
 
 	public void onDestroy() {

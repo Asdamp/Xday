@@ -34,10 +34,9 @@ public class XdayWidgetProvider extends AppWidgetProvider {
         sWorkerThread.start();
         sWorkerQueue = new Handler(sWorkerThread.getLooper());
 	}
-	@SuppressLint("NewApi")
+
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
-		super.onUpdate(context,appWidgetManager,appWidgetIds);
 		for (int appWidgetId : appWidgetIds) {
 			System.out.println("inizio aggiornamento posizione numero "
 					+ appWidgetId);
@@ -76,6 +75,8 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 			rv.setRemoteAdapter( R.id.list_view_widget, intent);
 			appWidgetManager.updateAppWidget(appWidgetId, rv);
 		}
+		super.onUpdate(context,appWidgetManager,appWidgetIds);
+
 
 	}
 
@@ -96,12 +97,13 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 				add.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				add.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				context.startActivity(add);
-			} else if (currAction.equals(OPEN_APP)|| currAction.equals(OPEN_APP_SOLO)) {
-						PackageManager pm = context.getPackageManager();
-						Intent i = pm.getLaunchIntentForPackage(context.getPackageName());
-						i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-						i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						context.startActivity(i);
+			}
+			else if (currAction.equals(OPEN_APP)|| currAction.equals(OPEN_APP_SOLO)) {
+				PackageManager pm = context.getPackageManager();
+				Intent i = pm.getLaunchIntentForPackage(context.getPackageName());
+				i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				context.startActivity(i);
 
 			}
 			sWorkerQueue.post(new Runnable() {
