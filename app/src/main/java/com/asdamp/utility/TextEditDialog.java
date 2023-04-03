@@ -26,7 +26,7 @@ public class TextEditDialog extends DialogFragment {
 	public final static String STRINGA_BASE="strBase";
 	
 	public interface TextEditDialogInterface {
-		public void OnTextEditDialogPositiveClick(String t);
+		void OnTextEditDialogPositiveClick(String t);
 	}
 	
 	@Override

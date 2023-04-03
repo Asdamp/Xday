@@ -29,73 +29,41 @@
     <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
     <string name="condividi">Share</string>
 
-    <string-array name="ADDselezionaData">
-    <item>Set date</item>
-    <item>Set the date from which you want to know the left/passed time</item>
-  </string-array>
-  <string-array name="ADDselezionaOra">
-    <item>Set time</item>
-    <item>"Set time. By default 00:00"</item>
-  </string-array>
-  <string-array name="ADDselezionaParametri">
-    <item>Set parameters</item>
-    <item>Choose how accurately you want to calculate the remaining/past time </item>
-  </string-array>
-  <string-array name="ADDselezionaDescrizione">
-    <item>"Set a description"</item>
-    <item>"Insert a description of the date"</item>
-  </string-array>
-  <string-array name="ADDselezionaColore">
-    <item>"Select color"</item>
-    <item>"Set a color for the description"</item>
-  </string-array>
-  <string-array name="ADDselezionaPromemoria">
-    <item>"Set a reminder"</item>
-    <item>"Set a notification for your event"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaColore">
-    <item>"Select color"</item>
-    <item>"Set widget's background color"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaData">
-    <item>"Select event"</item>
-    <item>"Select the event to be displayed in the widget"</item>
-  </string-array>
-  <string-array name="Parametri">
-    <item name="Anni">"Years"</item>
-    <item name="Mesi">"Months"</item>
-    <item>Semanas</item>
-    <item>Dias</item>
-    <item>Horas</item>
-    <item>Minutos</item>
-    <item>Segundos</item>
-  </string-array>
+
+
+
+
+
+
+
+
+
   <plurals name="Anni">
-    <item quantity="one">"1 year"</item>
+    <item quantity="one">"%d year"</item>
     <item quantity="other">"%d years"</item>
   </plurals>
   <plurals name="Mesi">
-    <item quantity="one">"1 month"</item>
+    <item quantity="one">"%d month"</item>
     <item quantity="other">"%d months"</item>
   </plurals>
   <plurals name="Settimane">
-    <item quantity="one">"1 week"</item>
+    <item quantity="one">"%d week"</item>
     <item quantity="other">"%d weeks"</item>
   </plurals>
   <plurals name="Giorni">
-    <item quantity="one">"1 day"</item>
+    <item quantity="one">"%d day"</item>
     <item quantity="other">"%d days"</item>
   </plurals>
   <plurals name="Ore">
-    <item quantity="one">"1 hour"</item>
+    <item quantity="one">"%d hour"</item>
     <item quantity="other">"%d hours"</item>
   </plurals>
   <plurals name="Minuti">
-    <item quantity="one">"1 minute"</item>
+    <item quantity="one">"%d minute"</item>
     <item quantity="other">"%d minutes"</item>
   </plurals>
   <plurals name="Secondi">
-    <item quantity="one">"1 second"</item>
+    <item quantity="one">"%d second"</item>
     <item quantity="other">"%d seconds"</item>
   </plurals>
     <string name="seleziona_ora">Time select</string>

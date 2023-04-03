@@ -29,47 +29,15 @@
     <string name="nessunaDataSelezionata">Du hast kein Datum ausgewählt. Das Widget wird nicht hinzugefügt.</string>
     <string name="condividi">Teilen</string>
 
-    <string-array name="ADDselezionaData">
-    <item>"Datum einstellen"</item>
-    <item>"Stell das Datum ein, zu dem du die verbleibene/überschrittene Zeit wissen möchtest"</item>
-  </string-array>
-  <string-array name="ADDselezionaOra">
-    <item>"Uhrzeit einstellen"</item>
-    <item>"Uhrzeit einstellen. Standard 00:00"</item>
-  </string-array>
-  <string-array name="ADDselezionaParametri">
-    <item>"Einstellungen vornehmen"</item>
-    <item>"Wähle aus, wie genau die verbleibende/überschrittene Zeit angezeigt werden soll "</item>
-  </string-array>
-  <string-array name="ADDselezionaDescrizione">
-    <item>"Beschreibung"</item>
-    <item>"Füge eine Beschreibung des Termins ein"</item>
-  </string-array>
-  <string-array name="ADDselezionaColore">
-    <item>Farbe auswählen</item>
-    <item>Beschreibung</item>
-  </string-array>
-  <string-array name="ADDselezionaPromemoria">
-    <item>Erinnerung einstellen</item>
-    <item>Benachrichtigung für dein Ereignis</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaColore">
-    <item>Farbe auswählen</item>
-    <item>Widget Hintergrundfarbe</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaData">
-    <item>Ereignis auswählen</item>
-    <item>Ereignis auswählen</item>
-  </string-array>
-  <string-array name="Parametri">
-    <item>"Jahre"</item>
-    <item>"Monate"</item>
-    <item>"Wochen"</item>
-    <item>"Tage"</item>
-    <item>"Stunden"</item>
-    <item>"Minuten"</item>
-    <item>"Sekunden"</item>
-  </string-array>
+
+
+
+
+
+
+
+
+
   <plurals name="Anni">
     <item quantity="one">"1 Jahr"</item>
     <item quantity="other">"%d Jahre"</item>

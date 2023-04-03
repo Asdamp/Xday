@@ -31,47 +31,15 @@ Se vuoi supportarmi ed aiutarmi in modo totalmente gratuito puoi valutare l\'app
     <string name="nessunaDataSelezionata">Non hai selezionato nessuna data, pertanto il widget non sarà aggiunto</string>
     <string name="condividi">Condividi</string>
 
-    <string-array name="ADDselezionaData">
-    <item>Seleziona data</item>
-    <item>Scegli la data da cui vuoi conoscere il tempo mancante/passato</item>
-  </string-array>
-  <string-array name="ADDselezionaOra">
-    <item>Seleziona ora</item>
-    <item>"Seleziona l\'ora. Per default è 00:00"</item>
-  </string-array>
-  <string-array name="ADDselezionaParametri">
-    <item>Seleziona parametri</item>
-    <item>Scegli con quale precisione calcolare il tempo mancante/passato</item>
-  </string-array>
-  <string-array name="ADDselezionaDescrizione">
-    <item>"Imposta una descrizione"</item>
-    <item>"Inserisci una descrizione per la data"</item>
-  </string-array>
-  <string-array name="ADDselezionaColore">
-    <item>"Seleziona colore"</item>
-    <item>"Imposta un colore per la descrizione"</item>
-  </string-array>
-  <string-array name="ADDselezionaPromemoria">
-    <item>"Imposta promemoria"</item>
-    <item>"Imposta una notifica per il tuo evento"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaColore">
-    <item>"Seleziona colore"</item>
-    <item>"Imposta il colore di sfondo del widget"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaData">
-    <item>"Seleziona evento"</item>
-    <item>"Scegli l\'evento da visualizzare nel widget"</item>
-  </string-array>
-  <string-array name="Parametri">
-    <item>"Anni"</item>
-    <item>"Mesi"</item>
-    <item>"Settimane"</item>
-    <item>"Giorni"</item>
-    <item>"Ore"</item>
-    <item>"Minuti"</item>
-    <item>"Secondi"</item>
-  </string-array>
+
+
+
+
+
+
+
+
+
   <plurals name="Anni">
     <item quantity="one">"1 anno"</item>
     <item quantity="other">"%d anni"</item>

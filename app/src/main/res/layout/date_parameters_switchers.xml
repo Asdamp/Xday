@@ -13,12 +13,11 @@
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:background="?selectableItemBackgroundBorderless"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_year"
@@ -47,12 +46,11 @@
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:background="?selectableItemBackgroundBorderless"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_month"
@@ -81,12 +79,11 @@
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:background="?selectableItemBackgroundBorderless"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-       >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_week"
@@ -115,7 +112,6 @@
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="?selectableItemBackgroundBorderless"
@@ -123,7 +119,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.github.zagum.switchicon.SwitchIconView
             android:id="@+id/switch_day"

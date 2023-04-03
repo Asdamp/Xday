@@ -12,7 +12,7 @@ public class TimePickerFragment extends DialogFragment implements
 		android.app.TimePickerDialog.OnTimeSetListener {
 
 	public interface TimePickerListener {
-		public void setTime(int ora,int minuti);
+		void setTime(int ora, int minuti);
 
 	}
 

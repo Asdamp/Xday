@@ -19,7 +19,7 @@ import com.asdamp.x_day.R;
 
 public class AddArrayAdapter extends ArrayAdapter<Object> {
 	private final Context context;
-	private Bundle bundle[];
+	private final Bundle[] bundle;
 	public static final String TITLE="titolo";
 	public static final String SUBTITLE="subtitle";
 	public static final String IMAGE="immagine";
@@ -35,7 +35,7 @@ public class AddArrayAdapter extends ArrayAdapter<Object> {
 
 
 
-	public AddArrayAdapter(Context context, Bundle b[]) {
+	public AddArrayAdapter(Context context, Bundle[] b) {
 		super(context, R.layout.rawlayout, b);
 		this.context = context;
 		bundle=b;

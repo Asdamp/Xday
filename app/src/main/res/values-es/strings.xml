@@ -29,47 +29,15 @@
     <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
     <string name="condividi">Share</string>
 
-    <string-array name="ADDselezionaData">
-    <item>"Establezca la fecha"</item>
-    <item>"Establezca la fecha para saber el tiempo que falta/pasado"</item>
-  </string-array>
-  <string-array name="ADDselezionaOra">
-    <item>"Establecer el tiempo de"</item>
-    <item>"Tiempo programado. Por defecto 00:00"</item>
-  </string-array>
-  <string-array name="ADDselezionaParametri">
-    <item>"Configure los parámetros"</item>
-    <item>"Elija la precisión con que desea calcular el tiempo restante/pasado "</item>
-  </string-array>
-  <string-array name="ADDselezionaDescrizione">
-    <item>"Configure una descripción de"</item>
-    <item>"Introduzca una descripción del evento"</item>
-  </string-array>
-  <string-array name="ADDselezionaColore">
-    <item>"Select color"</item>
-    <item>"Set a color for the description"</item>
-  </string-array>
-  <string-array name="ADDselezionaPromemoria">
-    <item>"Set a reminder"</item>
-    <item>"Set a notification for your event"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaColore">
-    <item>"Select color"</item>
-    <item>"Set widget's background color"</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaData">
-    <item>"Select event"</item>
-    <item>"Select the event to be displayed in the widget"</item>
-  </string-array>
-  <string-array name="Parametri">
-    <item>"Años"</item>
-    <item>"Meses"</item>
-    <item>"Semanas"</item>
-    <item>"Días"</item>
-    <item>"Horas"</item>
-    <item>"Minutos"</item>
-    <item>"Segundos"</item>
-  </string-array>
+
+
+
+
+
+
+
+
+
   <plurals name="Anni">
     <item quantity="one">"1 año"</item>
     <item quantity="other">"%d años"</item>

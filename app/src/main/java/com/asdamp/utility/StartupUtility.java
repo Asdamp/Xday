@@ -21,7 +21,7 @@ import com.asdamp.x_day.R;
 public class StartupUtility {
 	private static final String CURR_VERSION = "currVersion";
 	private static final String UTILIZZI_PER_REVIEW = "utv";
-	private Context c;
+	private final Context c;
 	private static StartupUtility singleton = null;
 	public final Editor spe;
 	private boolean ad;

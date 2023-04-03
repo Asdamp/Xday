@@ -168,7 +168,7 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 				date.add(s);
 			} while (c.moveToNext());
 		Bundle bundle = new Bundle();
-		String as[] = new String[date.size()];
+		String[] as = new String[date.size()];
 		date.toArray(as);
 		SingleChoiceDialog singlechoicedialog = new SingleChoiceDialog();
 		bundle.putCharSequenceArray("parametriString", as);

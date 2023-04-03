@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/mancante"
-        android:includeFontPadding="false"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:gravity="left"
+        android:includeFontPadding="false"
 
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/md_white_1000"
@@ -23,10 +23,10 @@
         app:autoSizeMinTextSize="12sp"
         app:autoSizeStepGranularity="2sp"
         app:autoSizeTextType="none"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mancante3"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="90dp"
-        tools:layout_editor_absoluteY="35dp"
         tools:text="day" />
 
     <TextView
@@ -46,6 +46,8 @@
 
         app:autoSizeStepGranularity="2sp"
         app:autoSizeTextType="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="25dp"
         tools:layout_conversion_absoluteWidth="90dp"
         tools:text="1" />

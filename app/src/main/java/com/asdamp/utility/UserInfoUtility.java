@@ -14,7 +14,12 @@ import com.asdamp.x_day.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,8 +41,16 @@ public class UserInfoUtility {
 
     public static void loadAd(AdView mAdView){
         if(BuildConfig.FLAVOR.equals("ads")) {
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice("84CB6E16E0036C15923721465142F5AC").build();
-            mAdView.loadAd(adRequest);
+            List<String> testDevices = new ArrayList<>();
+            testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
+            testDevices.add("5EB7988838123C5FFF92C7C11AA450F9");
+
+            RequestConfiguration requestConfiguration
+                    = new RequestConfiguration.Builder()
+                    .setTestDeviceIds(testDevices)
+                    .build();
+            MobileAds.setRequestConfiguration(requestConfiguration);
+            mAdView.loadAd(new AdRequest.Builder().build());
             mAdView.setAdListener(new AdListener() {
                 @Override
                 public void onAdLoaded() {
@@ -45,7 +58,7 @@ public class UserInfoUtility {
                 }
 
                 @Override
-                public void onAdFailedToLoad(int errorCode) {
+                public void onAdFailedToLoad(LoadAdError adError) {
                     mAdView.setVisibility(View.GONE);
                 }
 

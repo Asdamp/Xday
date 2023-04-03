@@ -39,11 +39,11 @@ public class WidgetRemote extends RemoteViewsService {
 
 class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 
-	private Context ctxt;
+	private final Context ctxt;
 	private Cursor cursore;
-	private DBAdapter database;
-	private List<Data> date;
-	private int widgetID;
+	private final DBAdapter database;
+	private final List<Data> date;
+	private final int widgetID;
 	public ListViewFactory(Context ctxt, Intent intent) {
 		/*if(!Costanti.inizializzato()) Costanti.inizializza(ctxt);*/
 		database=Costanti.getDB()/*.apri()*/;

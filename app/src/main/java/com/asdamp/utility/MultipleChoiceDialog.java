@@ -31,8 +31,8 @@ public class MultipleChoiceDialog extends DialogFragment{
 	 * 				deve essere vero. se il numero � strettamente inferiore visualizza un messaggio di errore
 	 * */
 	public interface MultipleChoiceDialogListener {
-        public void onMultipleDialogPositiveClick(boolean[] parametri);
-        public void onMultipleDialogNegativeClick(DialogFragment dialog);
+        void onMultipleDialogPositiveClick(boolean[] parametri);
+        void onMultipleDialogNegativeClick(DialogFragment dialog);
     }
 	
 	public MultipleChoiceDialog(){

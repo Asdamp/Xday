@@ -29,47 +29,15 @@
     <string name="nessunaDataSelezionata">You haven\'t selected any date, so the widget will be not added</string>
     <string name="condividi">Jaga</string>
 
-    <string-array name="ADDselezionaData">
-    <item>Määra kuupäev</item>
-    <item>Sea kuupäev millest alates sooviksid teada järgi jäänud/kulunud aega</item>
-  </string-array>
-  <string-array name="ADDselezionaOra">
-    <item>Määra aeg</item>
-    <item>Määra aeg. Vaikimisi väärtus on 00:00</item>
-  </string-array>
-  <string-array name="ADDselezionaParametri">
-    <item>Määra parameetrid</item>
-    <item>Vali, kui täpselt sa sooviksid arvutada alles jäänud/kulunud aega</item>
-  </string-array>
-  <string-array name="ADDselezionaDescrizione">
-    <item>Määra kirjeldus</item>
-    <item>Sisesta kirjeldus kuupäevast</item>
-  </string-array>
-  <string-array name="ADDselezionaColore">
-    <item>Vali värvus</item>
-    <item>Määra kirjeldusele värvus</item>
-  </string-array>
-  <string-array name="ADDselezionaPromemoria">
-    <item>Sea meeldetuletus</item>
-    <item>Sea teadaanne oma üritusele</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaColore">
-    <item>Vali värvus</item>
-    <item>Määra vidina taustavärvus</item>
-  </string-array>
-  <string-array name="WidgetSingleSelezionaData">
-    <item>Vali üritus</item>
-    <item>Vali üritus, mida kuvada vidinas</item>
-  </string-array>
-  <string-array name="Parametri">
-    <item>Aastat</item>
-    <item>Kuud</item>
-    <item>Nädalat</item>
-    <item>Päeva</item>
-    <item>Tundi</item>
-    <item>Minutit</item>
-    <item>Sekundit</item>
-  </string-array>
+
+
+
+
+
+
+
+
+
   <plurals name="Anni">
     <item quantity="one">1 aasta</item>
     <item quantity="other">%d aastat</item>

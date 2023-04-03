@@ -110,7 +110,7 @@ public class DBAdapter {
 
 	public int cercaColore(long i) throws DateNotFoundException {
 
-		String column[] = new String[1];
+		String[] column = new String[1];
 		column[0] = "colore";
 		Cursor cursor = database.query(NOME_TAVOLA, column,
 				MILLISECONDI_INIZIALI + "=" + i, null, null, null, null);
@@ -249,12 +249,9 @@ public class DBAdapter {
 	public boolean updateData(Data data) {
 		ContentValues contentvalues = createContentValues(data, -1);
 		boolean flag;
-		if (database.update(NOME_TAVOLA, contentvalues, (new StringBuilder(
-				"millisecondiIniziali="))
-				.append(data.getMillisecondiIniziali()).toString(), null) > 0)
-			flag = true;
-		else
-			flag = false;
+        flag = database.update(NOME_TAVOLA, contentvalues, (new StringBuilder(
+                "millisecondiIniziali="))
+                .append(data.getMillisecondiIniziali()).toString(), null) > 0;
 		return flag;
 	}
 
@@ -308,7 +305,7 @@ public class DBAdapter {
 	public static final String IDWIDGET = "idWidget";
 	public static final String COLORE_WIDGET = "colore";
 
-	private Context context;
+	private final Context context;
 	public SQLiteDatabase database;
 	private DBHelper dbHelper;
 

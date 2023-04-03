@@ -10,12 +10,12 @@ import androidx.fragment.app.DialogFragment;
 
 public class SingleChoiceDialog extends DialogFragment
 {
-    public static interface SingleChoiceDialogListener
+    public interface SingleChoiceDialogListener
     {
 
-        public abstract void onSingleDialogNegativeClick(int i);
+        void onSingleDialogNegativeClick(int i);
 
-        public abstract void onSingleDialogPositiveClick(int i);
+        void onSingleDialogPositiveClick(int i);
     }
 
 
@@ -34,7 +34,7 @@ public class SingleChoiceDialog extends DialogFragment
         }
         catch(ClassCastException classcastexception)
         {
-            throw new ClassCastException((new StringBuilder(String.valueOf(activity.toString()))).append(" must implement NoticeDialogListener").toString());
+            throw new ClassCastException((new StringBuilder(activity.toString())).append(" must implement NoticeDialogListener").toString());
         }
     }
 
@@ -74,7 +74,7 @@ public class SingleChoiceDialog extends DialogFragment
     public static final String PARAMETRI_STRING = "parametriString";
     public static final String TITOLO = "titolo";
     private SingleChoiceDialogListener chiamante;
-    private String descrizioni[];
+    private String[] descrizioni;
     private int selezionato;
     private String titolo;
 

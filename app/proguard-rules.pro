@@ -25,7 +25,6 @@
 #-renamesourcefileattribute SourceFile
 -ignorewarnings
 -keep public class * extends java.lang.Exception
--keep class com.crashlytics.** { *; }
 -dontwarn com.crashlytics.**
 -dontwarn com.squareup.picasso.**
 

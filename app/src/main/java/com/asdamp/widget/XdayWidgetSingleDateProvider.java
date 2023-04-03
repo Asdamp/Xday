@@ -167,7 +167,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 						DBAdapter dbadapter = Costanti.getDB()/*.apri()*/;
 						AppWidgetManager appwidgetmanager = AppWidgetManager
 								.getInstance(context);
-						int a[]=appwidgetmanager.getAppWidgetIds(new ComponentName(context, XdayWidgetSingleDateProvider.class));
+						int[] a =appwidgetmanager.getAppWidgetIds(new ComponentName(context, XdayWidgetSingleDateProvider.class));
 						for(int id:a) {
 							Log.d("IDwidget",""+id);
 		
@@ -187,7 +187,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 	}
 
 	public void onUpdate(Context context, AppWidgetManager appwidgetmanager,
-			int ai[]) {
+						 int[] ai) {
 
 		for (int i = 0; i < ai.length; i++) {
 			 try {
@@ -218,5 +218,5 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 
 	private static Handler sWorkerQueue;
 	private static HandlerThread sWorkerThread;
-	private static DBAdapter dbadapter=Costanti.getDB();
+	private static final DBAdapter dbadapter=Costanti.getDB();
 }

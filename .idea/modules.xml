@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Xday.iml" filepath="$PROJECT_DIR$/Xday.iml" group="Xday" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Xday/app" />
+      <module fileurl="file://$PROJECT_DIR$/Xday.iml" filepath="$PROJECT_DIR$/Xday.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Xday.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Xday.app.iml" />
     </modules>
   </component>
 </project>

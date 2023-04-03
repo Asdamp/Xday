@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -120,38 +121,15 @@ public class Data extends GregorianCalendar implements  Parcelable{
 		boolean giorni;
 		boolean settimane;
 		boolean secondi;
-		if (cursor.getInt(cursor.getColumnIndex("ore")) > 0)
-			ore = true;
-		else
-			ore = false;
-		if (cursor.getInt(cursor.getColumnIndex("secondi")) > 0)
-			secondi = true;
-		else
-			secondi = false;
-		if (cursor.getInt(cursor.getColumnIndex("minuti")) > 0)
-			minuti = true;
-		else
-			minuti = false;
-		if (cursor.getInt(cursor.getColumnIndex("anni")) > 0)
-			anni = true;
-		else
-			anni = false;
-		if (cursor.getInt(cursor.getColumnIndex("mesi")) > 0)
-			mesi = true;
-		else
-			mesi = false;
-		if (cursor.getInt(cursor.getColumnIndex("giorni")) > 0)
-			giorni = true;
-		else
-			giorni = false;
-		if (cursor.getInt(cursor.getColumnIndex("settimane")) > 0)
-			settimane = true;
-		else
-			settimane = false;
+		ore = cursor.getInt(cursor.getColumnIndex("ore")) > 0;
+		secondi = cursor.getInt(cursor.getColumnIndex("secondi")) > 0;
+		minuti = cursor.getInt(cursor.getColumnIndex("minuti")) > 0;
+		anni = cursor.getInt(cursor.getColumnIndex("anni")) > 0;
+		mesi = cursor.getInt(cursor.getColumnIndex("mesi")) > 0;
+		giorni = cursor.getInt(cursor.getColumnIndex("giorni")) > 0;
+		settimane = cursor.getInt(cursor.getColumnIndex("settimane")) > 0;
 		boolean notifica;
-		 if(cursor.getInt(cursor.getColumnIndex("notifica")) > 0)
-	            notifica = true;
-		 else notifica=false;
+		notifica = cursor.getInt(cursor.getColumnIndex("notifica")) > 0;
 		 Uri imageUri;
 		 if(image!=null)
 		 	imageUri=Uri.parse(image);
@@ -496,5 +474,6 @@ public class Data extends GregorianCalendar implements  Parcelable{
 	@Override
 	public int hashCode() {
 		return Objects.hash(super.hashCode(), descrizione, millisecondiIniziali);
+
 	}
 }

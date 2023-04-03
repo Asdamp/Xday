@@ -45,12 +45,6 @@ class DateListActivity : AppCompatActivity() {
     private var timer: Timer? = null
     var mListAdapter: DateListAdapter = DateListAdapter(dates)
     private var mFirebaseAnalytics =  FirebaseAnalytics.getInstance(this)
-    var mHandler: Handler = object : Handler() {
-        @Synchronized
-        override fun handleMessage(msg: Message) {
-            aggiorna()
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +60,7 @@ class DateListActivity : AppCompatActivity() {
         Prefs.putBoolean("isFirstRun", false)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        mFirebaseAnalytics!!.logEvent(FirebaseAnalytics.Event.APP_OPEN, null)
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null)
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         val mAdView = findViewById<AdView>(R.id.adView)
         UserInfoUtility.loadAd(mAdView)
@@ -153,10 +147,6 @@ class DateListActivity : AppCompatActivity() {
         startActivityForResult(intent, Costanti.CREA_DATA)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
@@ -209,7 +199,9 @@ class DateListActivity : AppCompatActivity() {
 
     @Synchronized
     private fun aggiorna() {
-        rv_date_list.adapter!!.notifyDataSetChanged()
+        runOnUiThread {
+            rv_date_list.adapter!!.notifyDataSetChanged()
+        }
     }
 
     // Get all the date in db
@@ -232,11 +224,11 @@ class DateListActivity : AppCompatActivity() {
     }
 
     private fun rimuoviData(i: Int) {
-        Costanti.getDB().deleteData(dates!![i])
+        Costanti.getDB().deleteData(dates[i])
         dates.removeAt(i)
         rv_date_list.adapter!!.notifyItemRemoved(i)
         (this.application as MainApplication).aggiornaWidget()
-        if (dates!!.isEmpty()) {
+        if (dates.isEmpty()) {
             rv_date_list.visibility = View.GONE
             rv_date_list_empty_view.visibility = View.VISIBLE
         }
@@ -253,7 +245,7 @@ class DateListActivity : AppCompatActivity() {
         }
         when (requestCode) {
             Costanti.MODIFICA_DATA -> {
-                data = intent!!.getParcelableExtra("data")
+                data = intent!!.getParcelableExtra("data")!!
                 val index = dates.indexOf(data)
                 when (resultCode) {
                     Costanti.TUTTO_BENE -> {
@@ -265,7 +257,7 @@ class DateListActivity : AppCompatActivity() {
                 }
             }
             Costanti.CREA_DATA -> {
-                data = intent!!.getParcelableExtra("data")
+                data = intent!!.getParcelableExtra("data")!!
                 when (resultCode) {
                     Costanti.TUTTO_BENE -> {
                         dates.add(data)
@@ -320,7 +312,7 @@ class DateListActivity : AppCompatActivity() {
             timer = Timer()
             timer?.scheduleAtFixedRate(object : TimerTask() {
                 override fun run() {
-                    mHandler.obtainMessage(1).sendToTarget()
+                   aggiorna()
                 }
             }, 0, 1000)
 

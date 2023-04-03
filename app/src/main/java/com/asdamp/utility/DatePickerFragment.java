@@ -13,7 +13,7 @@ public class DatePickerFragment extends DialogFragment
 implements android.app.DatePickerDialog.OnDateSetListener {
 //interfaccia necessaria
 	public interface DatePickerListener{
-		public void onDateSet(int y,int m,int d);
+		void onDateSet(int y, int m, int d);
 	}
 	
 	//variabili di stato
