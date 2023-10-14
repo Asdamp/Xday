@@ -53,7 +53,7 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 			inte.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 			inte.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 			inte.putExtra(action, ACTION_ADD);
-			PendingIntent pi = PendingIntent.getBroadcast(context, 0, inte, PendingIntent.FLAG_UPDATE_CURRENT);
+			PendingIntent pi = PendingIntent.getBroadcast(context, 0, inte, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			rv.setOnClickPendingIntent(R.id.pulsante_add_widget, pi);
 
 			Intent inte2 = new Intent(OPEN_APP);
@@ -62,7 +62,7 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 
 			inte2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 			PendingIntent pi2 = PendingIntent
-					.getBroadcast(context, 3, inte2, PendingIntent.FLAG_UPDATE_CURRENT);
+					.getBroadcast(context, 3, inte2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			rv.setOnClickPendingIntent(R.id.list_widget, pi2);
 
 			Intent inte3 = new Intent(REFRESH_WIDGET);
@@ -70,7 +70,7 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 			inte3.putExtra(action, REFRESH_WIDGET);
 
 			inte3.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-			PendingIntent pi3 = PendingIntent.getBroadcast(context, 1, inte3, PendingIntent.FLAG_UPDATE_CURRENT);
+			PendingIntent pi3 = PendingIntent.getBroadcast(context, 1, inte3, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			rv.setOnClickPendingIntent(R.id.pulsante_refresh_widget, pi3);
 			rv.setRemoteAdapter( R.id.list_view_widget, intent);
 			appWidgetManager.updateAppWidget(appWidgetId, rv);

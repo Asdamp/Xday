@@ -19,8 +19,6 @@ import com.omega_r.libs.omegarecyclerview.OmegaRecyclerView
 import com.omega_r.libs.omegarecyclerview.sticky_decoration.StickyAdapter
 import com.pixplicity.easyprefs.library.Prefs
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.principale.view.*
-import kotlinx.android.synthetic.main.sticky_header_test.view.*
 import org.apache.commons.lang3.StringUtils
 import org.threeten.bp.Month
 import org.threeten.bp.format.TextStyle
@@ -92,10 +90,10 @@ class DateListAdapter(private val date: MutableList<Data>) : RecyclerView.Adapte
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         // each data item is just a string in this case
-        var mDate: TextView = v.data
-        var mLeft: TextView = v.mancante
-        var mDescription: TextView = v.descrizionePersonale
-        var mImage: ImageView = v.iv_date_image
+        var mDate: TextView = v.findViewById(R.id.data)
+        var mLeft: TextView = v.findViewById(R.id.mancante)
+        var mDescription: TextView = v.findViewById(R.id.descrizionePersonale)
+        var mImage: ImageView = v.findViewById(R.id.iv_date_image)
 
     }
 
@@ -154,8 +152,8 @@ class DateListAdapter(private val date: MutableList<Data>) : RecyclerView.Adapte
     }
 
     class HeaderHolder(itemView: View) : OmegaRecyclerView.ViewHolder(itemView) {
-        var text: TextView = itemView.list_view_section_header
-        var color: CircleImageView = itemView.list_view_section_color
+        var text: TextView = itemView.findViewById(R.id.list_view_section_header)
+        var color: CircleImageView = itemView.findViewById(R.id.list_view_section_color)
 
     }
 

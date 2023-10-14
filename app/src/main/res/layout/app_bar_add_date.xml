@@ -70,7 +70,7 @@
 
         android:layout_height="match_parent">
 
-        <include layout="@layout/add"
+        <include android:id="@+id/add_layout" layout="@layout/add"
             />
 
     </androidx.core.widget.NestedScrollView>

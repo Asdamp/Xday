@@ -55,7 +55,8 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 		Cursor confPre;
 		try {
 			confPre = dbadapter.AssociaDataAWidget(mAppWidgetId);
-			data = dbadapter.cercaData(confPre.getLong(confPre.getColumnIndex("data")));
+			int dataIndex = confPre.getColumnIndex("data");
+			data = dbadapter.cercaData(confPre.getLong(dataIndex));
 		} catch (WidgetConfigurationNotFoundException e) {
 			data=null;
 		}
@@ -99,12 +100,14 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()){
-		case R.id.Conferma:
-		
+		int itemId = item.getItemId();
+		if (itemId == R.id.Conferma) {
 			this.operazioniFinali();
-			
-		case R.id.Annulla:
+			Intent intent = new Intent();
+			intent.putExtra("appWidgetId", mAppWidgetId);
+			setResult(Activity.RESULT_CANCELED, intent);
+			finish();
+		} else if (itemId == R.id.Annulla) {
 			Intent intent = new Intent();
 			intent.putExtra("appWidgetId", mAppWidgetId);
 			setResult(Activity.RESULT_CANCELED, intent);
@@ -161,8 +164,9 @@ public class XdayWidgetSingleDateConfigure extends AppCompatActivity implements
 			startActivity(add);
 		} else {
 			do {
-				
-				String s = c.getString(c.getColumnIndex("descrizione"));
+
+				int descrizioneIndex = c.getColumnIndex("descrizione");
+				String s = c.getString(descrizioneIndex);
 				if (s.equals(""))
 					s = Data.leggi(c).toString();
 				date.add(s);

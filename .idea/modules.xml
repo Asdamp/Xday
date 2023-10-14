@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Xday.iml" filepath="$PROJECT_DIR$/Xday.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Xday.iml" filepath="$PROJECT_DIR$/.idea/modules/Xday.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Xday.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Xday.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Xday.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Xday.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Xday.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Xday.app.main.iml" />

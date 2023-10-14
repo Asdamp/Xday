@@ -9,6 +9,7 @@
     tools:openDrawer="start">
 
     <include
+        android:id="@+id/list"
         layout="@layout/app_bar_date_list"
         android:fitsSystemWindows="true"
 

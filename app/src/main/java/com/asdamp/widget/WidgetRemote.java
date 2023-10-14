@@ -97,7 +97,7 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 
 		}
 		row.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
-		if(data.getImage()!=null) {
+		/*if(data.getImage()!=null) {
 
 			Bitmap bitmap = null;
 			try {
@@ -108,14 +108,14 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 
 			}
 
-		}
+		}*/
 		Intent inte2 = new Intent(OPEN_APP);
 		inte2.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 		inte2.putExtra("action", OPEN_APP);
 
 		inte2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetID);
 		PendingIntent pi2 = PendingIntent
-				.getBroadcast(ctxt, 5, inte2, PendingIntent.FLAG_UPDATE_CURRENT);
+				.getBroadcast(ctxt, 5, inte2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 		row.setOnClickPendingIntent(R.id.iv_date_image, pi2);
 		return (row);
 	}

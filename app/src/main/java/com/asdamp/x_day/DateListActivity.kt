@@ -4,8 +4,6 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
 import android.os.Parcelable
 import android.util.Log
 import android.view.Menu
@@ -14,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,41 +21,40 @@ import com.asdamp.adapters.DateListAdapter
 import com.asdamp.adapters.DateListAdapter.OnListItemClickListener
 import com.asdamp.utility.ImageUtils
 import com.asdamp.utility.UserInfoUtility
+import com.asdamp.x_day.databinding.ActivityDateListBinding
 import com.google.android.gms.ads.AdView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.omega_r.libs.omegarecyclerview.OmegaRecyclerView
 import com.pixplicity.easyprefs.library.Prefs
-import com.pixplicity.generate.OnFeedbackListener
-import com.pixplicity.generate.Rate
 import com.skydoves.powermenu.MenuAnimation
 import com.skydoves.powermenu.OnMenuItemClickListener
 import com.skydoves.powermenu.PowerMenu
 import com.skydoves.powermenu.PowerMenuItem
-import kotlinx.android.synthetic.main.app_bar_date_list.*
-import kotlinx.android.synthetic.main.content_date_list.*
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
 
 class DateListActivity : AppCompatActivity() {
-    var rate: Rate? = null
-
     private var dates: MutableList<Data> = mutableListOf()
     private var timer: Timer? = null
     var mListAdapter: DateListAdapter = DateListAdapter(dates)
     private var mFirebaseAnalytics =  FirebaseAnalytics.getInstance(this)
+    private lateinit var binding: ActivityDateListBinding
+    private lateinit var emptyListView: ConstraintLayout
+    private lateinit var listView: OmegaRecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_date_list)
-        ButterKnife.bind(this)
+        binding= ActivityDateListBinding.inflate(layoutInflater)
+        emptyListView=binding.list.include.rvDateListEmptyView.root
+        listView=binding.list.include.rvDateList
+
+        setContentView(binding.root)
         val isFirstRun = Prefs.getBoolean("isFirstRun", true)
         if (isFirstRun) {
             //show sign up activity
             startActivity(Intent(this, IntroActivity::class.java))
         }
-        rateUs()
-        rate!!.count()
         Prefs.putBoolean("isFirstRun", false)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -65,13 +63,13 @@ class DateListActivity : AppCompatActivity() {
         val mAdView = findViewById<AdView>(R.id.adView)
         UserInfoUtility.loadAd(mAdView)
         fab.setOnClickListener { view: View? -> addNewDate() }
-        rv_date_list_empty_view.setOnClickListener { view: View? -> addNewDate() }
+        emptyListView.setOnClickListener { view: View? -> addNewDate() }
         dates = ArrayList()
-        rv_date_list.setHasFixedSize(true)
+        listView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
-        rv_date_list.layoutManager = layoutManager
+        listView.layoutManager = layoutManager
         mListAdapter = DateListAdapter(dates)
-        rv_date_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        listView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy > 0) fab.hide() else if (dy < 0) fab.show()
             }
@@ -83,8 +81,8 @@ class DateListActivity : AppCompatActivity() {
 
             override fun onListItemLongClick(v: View, i: Int): Boolean {
                 val powerMenu = PowerMenu.Builder(this@DateListActivity)
-                        .addItem(PowerMenuItem(getString(R.string.delete), R.drawable.ic_delete_black_24dp))
-                        .addItem(PowerMenuItem(getString(R.string.share), R.drawable.ic_share_black_24dp))
+                        .addItem(PowerMenuItem(getString(R.string.delete),false, R.drawable.ic_delete_black_24dp))
+                        .addItem(PowerMenuItem(getString(R.string.share),false, R.drawable.ic_share_black_24dp))
                         .setAnimation(MenuAnimation.SHOWUP_TOP_RIGHT) // Animation start point (TOP | LEFT)
                         .setMenuRadius(10f)
                         .setMenuShadow(10f)
@@ -103,43 +101,9 @@ class DateListActivity : AppCompatActivity() {
                 return true
             }
         })
-        rv_date_list.adapter = mListAdapter
+        listView.adapter = mListAdapter
     }
 
-    private fun rateUs() {
-        rate = Rate.Builder(this) // Trigger dialog after this many events (optional, defaults to 6)
-                .setTriggerCount(5) // After dismissal, trigger again after this many events (optional, defaults to 30)
-                .setRepeatCount(5)
-                .setMinimumInstallTime(TimeUnit.DAYS.toMillis(3).toInt()) // Optional, defaults to 7 days
-                .setFeedbackAction(object : OnFeedbackListener {
-                    // Optional
-                    override fun onFeedbackTapped() {
-                        val i = Intent(Intent.ACTION_SEND)
-                        i.type = "message/rfc822"
-                        i.putExtra(Intent.EXTRA_EMAIL, arrayOf("altieriantonio.dev@gmail.com"))
-                        i.putExtra(Intent.EXTRA_SUBJECT, "Xday feedback")
-                        try {
-                            startActivity(Intent.createChooser(i, "Send mail..."))
-                        } catch (ex: ActivityNotFoundException) {
-                            Toast.makeText(this@DateListActivity, "There are no email clients installed.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-
-                    override fun onRateTapped() {
-                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.play_store_link))));
-                    }
-
-                    override fun onRequestDismissed(dontAskAgain: Boolean) {
-                        // Prefs.putBoolean("dismissed_forever",dontAskAgain);
-                    }
-                })
-                .setSnackBarParent(coordinator)
-                .setLightTheme(true) // Default is dark
-                .setSwipeToDismissVisible(true) // Add this when using the Snackbar
-                // without a CoordinatorLayout as a parent.
-                .build()
-        // rate.showRequest();
-    }
 
     private fun addNewDate() {
         val intent = Intent(this, Add::class.java)
@@ -200,7 +164,7 @@ class DateListActivity : AppCompatActivity() {
     @Synchronized
     private fun aggiorna() {
         runOnUiThread {
-            rv_date_list.adapter!!.notifyDataSetChanged()
+            listView.adapter!!.notifyDataSetChanged()
         }
     }
 
@@ -217,8 +181,8 @@ class DateListActivity : AppCompatActivity() {
             }
         }
         if (dates.isEmpty()) {
-            rv_date_list.visibility = View.GONE
-            rv_date_list_empty_view.visibility = View.VISIBLE
+            listView.visibility = View.GONE
+            emptyListView.visibility = View.VISIBLE
         }
         return cursor.count
     }
@@ -226,11 +190,11 @@ class DateListActivity : AppCompatActivity() {
     private fun rimuoviData(i: Int) {
         Costanti.getDB().deleteData(dates[i])
         dates.removeAt(i)
-        rv_date_list.adapter!!.notifyItemRemoved(i)
+        listView.adapter!!.notifyItemRemoved(i)
         (this.application as MainApplication).aggiornaWidget()
         if (dates.isEmpty()) {
-            rv_date_list.visibility = View.GONE
-            rv_date_list_empty_view.visibility = View.VISIBLE
+            listView.visibility = View.GONE
+            emptyListView.visibility = View.VISIBLE
         }
     }
 
@@ -238,11 +202,6 @@ class DateListActivity : AppCompatActivity() {
                                   intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
         val data: Data
-        val dismissedForever = Prefs.getBoolean("dismissed_forever", false)
-        //    rate.test();
-        if (!dismissedForever) {
-            rate!!.showRequest()
-        }
         when (requestCode) {
             Costanti.MODIFICA_DATA -> {
                 data = intent!!.getParcelableExtra("data")!!
@@ -264,8 +223,8 @@ class DateListActivity : AppCompatActivity() {
                         sortList()
                         mFirebaseAnalytics.logEvent("NEW_DATE", null)
                         if (!dates.isEmpty()) {
-                            rv_date_list.visibility = View.VISIBLE
-                            rv_date_list_empty_view.visibility = View.GONE
+                            listView.visibility = View.VISIBLE
+                            emptyListView.visibility = View.GONE
                         }
                     }
                 }

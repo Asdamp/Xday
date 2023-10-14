@@ -139,7 +139,7 @@ public class XdayNotification extends BroadcastReceiver {
 		inte.putExtra("titolo", d.getDescrizione());
 
 		PendingIntent pi = PendingIntent.getBroadcast(c, 0, inte,
-				PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 		AlarmManager am = (AlarmManager) c
 				.getSystemService(Context.ALARM_SERVICE);
 		if (d.isNotificationEnabled() && d.isAfterToday()) {

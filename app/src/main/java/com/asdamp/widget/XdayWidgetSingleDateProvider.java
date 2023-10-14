@@ -58,19 +58,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
             holder.mImage.setVisibility(View.INVISIBLE
             );*/
 
-		if(data.getImage()!=null) {
-			Bitmap bitmap = null;
-			try {
-				bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), data.getImage());
-				remoteviews.setImageViewBitmap(R.id.iv_date_image, bitmap);
-
-			} catch (IOException e) {
-				remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
-			}
-
-		}
-		else
-			remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
+		remoteviews.setInt(R.id.iv_date_image, "setBackgroundColor", data.getColor());
 
 		remoteviews.setTextViewText(R.id.data,data.toString());
 		try{
@@ -98,7 +86,7 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 
 		inte2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, i);
 		PendingIntent pi2 = PendingIntent
-				.getBroadcast(context, 4, inte2, PendingIntent.FLAG_UPDATE_CURRENT);
+				.getBroadcast(context, 4, inte2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 		remoteviews.setOnClickPendingIntent(R.id.relative_layout_widget_single_data, pi2);
 			appwidgetmanager.updateAppWidget(i, remoteviews);
 		
@@ -111,8 +99,10 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 		int col;
 		Data data;
 		try {
-			data = dbadapter.cercaData(c.getLong(c.getColumnIndex("data")));
-			col= c.getInt(c.getColumnIndex(DBAdapter.COLORE_WIDGET));
+			int dataIndex = c.getColumnIndex("data");
+			data = dbadapter.cercaData(c.getLong(dataIndex));
+			int coloreIndex = c.getColumnIndex(DBAdapter.COLORE_WIDGET);
+			col= c.getInt(coloreIndex);
 			c.close();
 			aggiornaWidget(appwidgetmanager, data, col, context, i);
 		} catch (WidgetConfigurationNotFoundException e) {
@@ -123,12 +113,12 @@ public class XdayWidgetSingleDateProvider extends AppWidgetProvider {
 	public static void ConfigurationNotFound(AppWidgetManager appwidgetmanager, Context context, int irta){
 		Log.d("WidgetErrIrta",""+irta);
 		RemoteViews remoteviews = new RemoteViews(context.getPackageName(),
-				R.layout.empty_view);
+				R.layout.widget_empty_view);
 		remoteviews.setTextViewText(R.id.empty_view_text, context.getString(R.string.ConfigurationNotFoundWidgetSolo));
 		Intent intent1 = new Intent(OPEN_CONFIGURATION);
 		intent1.putExtra("appWidgetId", irta);
 		remoteviews.setOnClickPendingIntent(R.id.empty_view_text,
-				PendingIntent.getBroadcast(context, irta, intent1, 0));
+				PendingIntent.getBroadcast(context, irta, intent1, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
 		appwidgetmanager.updateAppWidget(irta, remoteviews);
 
 	}

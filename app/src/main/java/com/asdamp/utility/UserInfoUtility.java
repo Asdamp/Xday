@@ -9,8 +9,8 @@ import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
 
-import com.asdamp.x_day.BuildConfig;
-import com.asdamp.x_day.R;
+import androidx.multidex.BuildConfig;
+
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -66,11 +66,6 @@ public class UserInfoUtility {
                 public void onAdOpened() {
                     // Code to be executed when an ad opens an overlay that
                     // covers the screen.
-                }
-
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
                 }
 
                 @Override

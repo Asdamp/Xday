@@ -34,8 +34,7 @@ public class MainApplication extends Application {
 				.setPrefsName(getPackageName())
 				.setUseDefaultSharedPreference(true)
 				.build();		AndroidThreeTen.init(this);
-		MobileAds.initialize(this,
-				this.getResources().getString(R.string.banner_app_id));
+		MobileAds.initialize(this);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 			NotificationChannel notificationChannel = new NotificationChannel("dates",

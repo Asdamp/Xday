@@ -6,7 +6,7 @@
     >
 
     <uses-sdk tools:overrideLibrary="com.shrikanthravi.collapsiblecalendarview" />
-
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
