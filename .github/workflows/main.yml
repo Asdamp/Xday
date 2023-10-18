@@ -30,7 +30,12 @@ jobs:
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: echo $GOOGLE_SERVICES_JSON | base64 -di > ./app/google-services.json
-              
+        
+      - name: Create Google Services JSON File
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.PRIVATE_STRINGS_XML }}
+        run: echo $PRIVATE_STRINGS_XML | base64 -di > ./app/src/main/res/values/private_strings.xml        
+            
       - name: Build with Gradle
         id: build
         run: ./gradlew build
