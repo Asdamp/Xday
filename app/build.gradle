@@ -37,7 +37,7 @@ android {
         applicationId "com.asdamp.x_day"
         multiDexEnabled true
         versionName "Xday"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 33
         compileSdk 33
         vectorDrawables.useSupportLibrary = true

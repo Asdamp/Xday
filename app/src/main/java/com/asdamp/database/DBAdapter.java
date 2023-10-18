@@ -185,7 +185,7 @@ public class DBAdapter {
 		Intent inte = new Intent(context, XdayNotification.class);
 		inte.setData(Uri.parse(l + ""));
 		PendingIntent pi = PendingIntent.getBroadcast(context, 0, inte,
-				PendingIntent.FLAG_UPDATE_CURRENT);
+				PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 		AlarmManager am = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 		am.cancel(pi);
