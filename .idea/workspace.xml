@@ -21,42 +21,23 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="lib upgrade">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_empty_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="Lib upgrade">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Xday.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/adapters/DateListAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/StartupUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/StartupUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/WidgetRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/WidgetRemote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateConfigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/widget/XdayWidgetSingleDateProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-tvdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_date.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_date_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_date_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/MainApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +121,19 @@
       </map>
     </option>
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c60c91e7-ca1f-411c-a1db-ce1c69fc5566" />
+        <option name="url" value="https://github.com/Asdamp/Xday.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -152,21 +146,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "com.android.tools.idea.devicemanager.tab": "Physical",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/anton/StudioProjects/Xday/app/src/main/res/layout",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "experimental",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anton/StudioProjects/Xday/app&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;experimental&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="config" />
@@ -174,6 +168,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anton\StudioProjects\Xday\app" />
       <recent name="C:\Users\anton\StudioProjects\Xday\app\src\main\res\layout" />
       <recent name="C:\Users\R4i\AndroidStudioProjects\Xday\app\src\main\res\raw" />
       <recent name="C:\Users\R4i\AndroidStudioProjects\Xday" />
@@ -182,6 +177,12 @@
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.asdamp.x_day" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle dependencyUpdates -Drevision=release " />
+      <command value="gradle analyzeAdsDebugDependencies" />
+    </option>
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -269,6 +270,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Xday [analyzeAdsDebugDependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="analyzeAdsDebugDependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Xday [dependencyUpdates]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="-Drevision=release" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencyUpdates" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Xday [licenseReleaseReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -281,6 +324,48 @@
         <option name="taskNames">
           <list>
             <option value="licenseReleaseReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Xday:app [assembleAdsRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleAdsRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Xday:app [bundleAdsRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bundleAdsRelease" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -318,10 +403,18 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
+      <item itemvalue="Gradle.Xday [analyzeAdsDebugDependencies]" />
+      <item itemvalue="Gradle.Xday [dependencyUpdates]" />
+      <item itemvalue="Gradle.Xday:app [assembleAdsRelease]" />
+      <item itemvalue="Gradle.Xday:app [bundleAdsRelease]" />
       <item itemvalue="Gradle.Xday [licenseReleaseReport]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Xday:app [bundleAdsRelease]" />
+        <item itemvalue="Gradle.Xday [analyzeAdsDebugDependencies]" />
+        <item itemvalue="Gradle.Xday:app [assembleAdsRelease]" />
+        <item itemvalue="Gradle.Xday [dependencyUpdates]" />
         <item itemvalue="Gradle.Xday [licenseReleaseReport]" />
       </list>
     </recent_temporary>
@@ -561,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680511262194</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Lib upgrade">
+      <created>1697300206916</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1697300206916</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -590,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Notifications now works on Android 8+" />
     <MESSAGE value="Compatible with api level 16+ instead of 19+" />
     <MESSAGE value="Scroll to date when selected" />
     <MESSAGE value="Sort alphabetical, by time and by color" />
@@ -615,7 +714,8 @@
     <MESSAGE value="rate us dialog" />
     <MESSAGE value="bgfix" />
     <MESSAGE value="Beta 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Beta 1" />
+    <MESSAGE value="Lib upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lib upgrade" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -637,13 +737,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/DateListActivity.kt</url>
-          <line>113</line>
+          <line>112</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Add.java</url>
-          <line>133</line>
+          <line>134</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/asdamp/utility/UserInfoUtility.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

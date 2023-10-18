@@ -114,9 +114,11 @@ class ListViewFactory implements RemoteViewsService.RemoteViewsFactory {
 		inte2.putExtra("action", OPEN_APP);
 
 		inte2.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetID);
+		Intent fillInIntent = new Intent();
+
 		PendingIntent pi2 = PendingIntent
 				.getBroadcast(ctxt, 5, inte2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-		row.setOnClickPendingIntent(R.id.iv_date_image, pi2);
+		row.setOnClickFillInIntent(R.id.relative_layout_widget_single_data, inte2);
 		return (row);
 	}
 

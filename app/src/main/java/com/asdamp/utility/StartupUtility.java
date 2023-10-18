@@ -55,17 +55,6 @@ public class StartupUtility {
 		spe.commit();
 	}
 
-	/*public void showAdMobAds(AdView ads) {
-		if (ad)
-			ads.loadAd(new AdRequest().addTestDevice(AdRequest.TEST_EMULATOR)
-					.addTestDevice("8D2F8A681D6D472A953FBC3E75CE9276")
-					.addTestDevice("A2642CE92F5DAD2149B05FE4B1F32EA5")
-					.addTestDevice("3A4195F433B132420871F4202A7789C3")
-					.addTestDevice("814F884FB86C9018023155DD51B428D0")
-					.addTestDevice("814F884FB86C9018023155DD51B428D0")
-					.addTestDevice("1446FFC17C4E7DE72643A70DA2233EE2")
-);
-	}*/
 
 	public void setPremium(boolean ads) {
 		spe.putBoolean("Premium", ads);
@@ -76,118 +65,6 @@ public class StartupUtility {
 	public boolean isPremium() {
 		return  !ad;
 
-	}
-
-	public void toPlayStore(CharSequence titolo, CharSequence descrizione, int iconId,
-			CharSequence positive, CharSequence negative, CharSequence neutral, int times,
-			final CharSequence packageName) {
-		final int nVolte = shprs.getInt(UTILIZZI_PER_REVIEW, times);
-		if (utilizzi == nVolte) {
-			Builder builder = new android.app.AlertDialog.Builder(c);
-			builder.setMessage(descrizione).setTitle(titolo).setIcon(iconId);
-			if(positive!=null)
-			builder.setPositiveButton(positive,
-					new DialogInterface.OnClickListener() {
-						/*
-						 * this onclick method open the play store for the app
-						 * review. if the play store doesn't exist, open the
-						 * amazon appshop if neither play store nor appshop are
-						 * installed, the method open the app play store web
-						 * page
-						 */
-						public void onClick(DialogInterface dialog, int which) {
-							Uri ur;
-							try {
-								ur = Uri.parse("market://details?id="
-										+ packageName);
-								c.startActivity(new Intent(
-										"android.intent.action.VIEW", ur));
-							} catch (ActivityNotFoundException activitynotfoundexception)
-
-							{
-								try {
-									ur = Uri.parse("amzn://apps/android?p="
-											+ packageName);
-									c.startActivity(new Intent(
-											"android.intent.action.VIEW", ur));
-								} catch (ActivityNotFoundException acnf) {
-									c.startActivity(new Intent(
-											Intent.ACTION_VIEW,
-											Uri.parse("http://play.google.com/store/apps/details?id="
-													+ packageName)));
-								}
-							}
-
-						}
-
-					});
-			if(negative!=null)
-			builder.setNegativeButton(negative,
-					new DialogInterface.OnClickListener() {
-
-						public void onClick(DialogInterface dialog, int which) {
-
-						}
-
-					});
-			if(neutral!=null)
-			builder.setNeutralButton(neutral,
-					new DialogInterface.OnClickListener() {
-
-						public void onClick(DialogInterface dialog, int which) {
-							spe.putInt(UTILIZZI_PER_REVIEW, nVolte + 5);
-
-						}
-					});
-			
-			try{
-				builder.create().show();
-				}
-				catch(BadTokenException e)
-				{
-					//do nothing. if for some reason, the changelog can't be showed, don't show it, and try next time
-				}
-		}
-	}
-
-	public void showChangelogIfVersionChanged(CharSequence cl, CharSequence title) {
-		PackageInfo pInfo;
-		int packVersion;
-		try {
-			pInfo = c.getPackageManager().getPackageInfo(c.getPackageName(), 0);
-			packVersion = pInfo.versionCode;
-		} catch (NameNotFoundException e) {
-			packVersion = 0;
-		}
-
-		int currVersion = shprs.getInt(CURR_VERSION, 0);
-		int diffVersion = packVersion - currVersion;
-		if (diffVersion > 0) {// se la versione corrente è superiore a quella
-								// dell'ultimo avvio
-			final AlertDialog alert;
-			Builder builder = new android.app.AlertDialog.Builder(c);
-			builder.setMessage(cl).setTitle(title)
-					.setIcon(R.drawable.ic_launcher);
-
-			builder.setPositiveButton(c.getText(R.string.Conferma),
-					new DialogInterface.OnClickListener() {
-
-						public void onClick(DialogInterface dialog, int which) {
-							// dismiss
-
-						}
-					});
-			alert = builder.create();
-			try{
-			alert.show();
-			spe.putInt(CURR_VERSION, packVersion); 
-			spe.commit();
-			}
-			catch(BadTokenException e)
-			{
-				//do nothing. if for some reason, the changelog can't be showed, don't show it, and try next time
-			}
-		}
 	}
 
 	public void note(String titolo, String descrizione, int iconId) {

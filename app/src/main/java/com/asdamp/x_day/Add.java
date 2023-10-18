@@ -96,6 +96,7 @@ public class Add extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle s) {
         super.onCreate(s);
+
         binding = ActivityAddDateBinding.inflate(getLayoutInflater());
         innerBinding = binding.appBarLayout.addLayout;
         this.setContentView(binding.getRoot());
@@ -152,6 +153,7 @@ public class Add extends AppCompatActivity {
         innerBinding.notificationSwitch.setCheckedImmediately(data.isNotifica());
         if (data.getImage() != null)
             binding.appBarLayout.fabAddImage.setChecked(true);
+
     }
 
     private void configViews() {
@@ -225,7 +227,13 @@ public class Add extends AppCompatActivity {
         ColorDrawable cd = new ColorDrawable(data.getColor());
 
         innerBinding.ivCurrColor.setImageDrawable(cd);
-        GlideApp.with(this).load(data.getImage()).fitCenter().into(binding.appBarLayout.ivDateImage);
+        if(data.getImage()!=null ) {
+            GlideApp.with(this).load(data.getImage()).fitCenter().into(binding.appBarLayout.ivDateImage);
+        }
+        else{
+            GlideApp.with(this).load(cd).fitCenter().into(binding.appBarLayout.ivDateImage);
+
+        }
 
     }
 
@@ -237,9 +245,7 @@ public class Add extends AppCompatActivity {
             //this.data.setImage(Matisse.obtainResult(data).get(0));
             Uri selectedImage = data.getData();
             this.data.setImage(selectedImage);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                this.getContentResolver().takePersistableUriPermission(selectedImage, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            }
+            this.getContentResolver().takePersistableUriPermission(selectedImage, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
             //Log.d("Matisse", "mSelected: " + mImageSelected);
             GlideApp.with(this).load(this.data.getImage()).fitCenter().into(binding.appBarLayout.ivDateImage);
             binding.appBarLayout.fabAddImage.setChecked(true);
@@ -254,15 +260,12 @@ public class Add extends AppCompatActivity {
                 .setSelectedColor(data.getColor())
                 .setDismissOnColorSelected(true)
                 .setOutlineWidth(2)
-                .setOnColorSelectedListener(new SpectrumDialog.OnColorSelectedListener() {
-                    @Override
-                    public void onColorSelected(boolean positiveResult, @ColorInt int color) {
-                        if (positiveResult) {
-                            data.setColor(color);
-                            ColorDrawable cd = new ColorDrawable(data.getColor());
+                .setOnColorSelectedListener((positiveResult, color) -> {
+                    if (positiveResult) {
+                        data.setColor(color);
+                        ColorDrawable cd = new ColorDrawable(data.getColor());
 
-                            innerBinding.ivCurrColor.setImageDrawable(cd);
-                        }
+                        innerBinding.ivCurrColor.setImageDrawable(cd);
                     }
                 }).build().show(getSupportFragmentManager(), "dialog_demo_1");
     }

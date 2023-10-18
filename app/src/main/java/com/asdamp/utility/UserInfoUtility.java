@@ -9,19 +9,20 @@ import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
 
-import androidx.multidex.BuildConfig;
 
+import com.asdamp.x_day.BuildConfig;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import timber.log.Timber;
 
 public class UserInfoUtility {
     public static void smallVibration(Context c){
@@ -43,7 +44,7 @@ public class UserInfoUtility {
         if(BuildConfig.FLAVOR.equals("ads")) {
             List<String> testDevices = new ArrayList<>();
             testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
-            testDevices.add("5EB7988838123C5FFF92C7C11AA450F9");
+            testDevices.add("D443C852D1059D95BAACAE55EF01A624");
 
             RequestConfiguration requestConfiguration
                     = new RequestConfiguration.Builder()
@@ -59,6 +60,7 @@ public class UserInfoUtility {
 
                 @Override
                 public void onAdFailedToLoad(LoadAdError adError) {
+                    Timber.d(adError.getMessage());
                     mAdView.setVisibility(View.GONE);
                 }
 

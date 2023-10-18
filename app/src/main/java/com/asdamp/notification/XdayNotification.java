@@ -42,7 +42,7 @@ public class XdayNotification extends BroadcastReceiver {
 		Uri alarmSound = RingtoneManager
 				.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 		Intent openMain = new Intent(c, DateListActivity.class);
-		PendingIntent pIntent = PendingIntent.getActivity(c, 0, openMain, 0);
+		PendingIntent pIntent = PendingIntent.getActivity(c, 0, openMain, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 		Cursor notificationDataCursor = Costanti.getDB().fetchOneDate(idData);
 		if (notificationDataCursor.moveToFirst()) {
 			Data d = Data.leggi(notificationDataCursor);
@@ -54,7 +54,7 @@ public class XdayNotification extends BroadcastReceiver {
 			openAdd.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			openAdd.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			PendingIntent pendingAdd = PendingIntent.getActivity(c, 0, openAdd,
-					0);
+					PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			Bitmap bitmap=null;
 
 			try {

@@ -16,7 +16,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.ButterKnife
 import com.asdamp.adapters.DateListAdapter
 import com.asdamp.adapters.DateListAdapter.OnListItemClickListener
 import com.asdamp.utility.ImageUtils
