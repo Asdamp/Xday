@@ -11,16 +11,6 @@ android {
         buildConfig true
 
     }
-    signingConfigs {
-        config {
-            Properties properties = new Properties()
-            properties.load(project.rootProject.file('private.properties').newDataInputStream())
-            keyAlias properties.getProperty('keyAlias')
-            keyPassword properties.getProperty('keyPassword')
-            storeFile file(properties.getProperty('storeFile'))
-            storePassword properties.getProperty('storePassword')
-        }
-    }
 
     kotlin {
         jvmToolchain {
@@ -41,7 +31,6 @@ android {
         targetSdkVersion 33
         compileSdk 33
         vectorDrawables.useSupportLibrary = true
-        signingConfig signingConfigs.config
         versionCode 47
         versionName "2.0-beta2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -54,7 +43,6 @@ android {
             debuggable false
             jniDebuggable false
             renderscriptDebuggable false
-            signingConfig signingConfigs.config
         }
         debug {
             zipAlignEnabled false

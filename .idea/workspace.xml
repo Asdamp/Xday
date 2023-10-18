@@ -21,33 +21,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="">
+    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="Widget bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/database/DBAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/notification/XdayNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v19/extended_window_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_add_date.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_date_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_date_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_date_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/empty_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/empty_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_widget.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/principale.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/principale.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/rawlayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/rawlayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sticky_header_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sticky_header_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/widget_empty_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_empty_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/widget_list_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_list_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/widget_single_data_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget_single_data_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ad59174b]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-ad59174b-I2knku._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -117,12 +99,12 @@
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="89e96f9e9bdc62d87b470def1c9b2c05715f133a" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -149,22 +131,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android-custom-viewC:/Users/anton/StudioProjects/Xday/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java_SELECTED": "CheckableFloatingActionButton",
-    "cidr.known.project.marker": "true",
-    "com.android.tools.idea.devicemanager.tab": "Physical",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/anton/StudioProjects/Xday/app",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "experimental",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;android-custom-viewC:/Users/anton/StudioProjects/Xday/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java_SELECTED&quot;: &quot;CheckableFloatingActionButton&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anton/StudioProjects/Xday/app&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;experimental&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="config" />
@@ -188,7 +170,7 @@
       <command value="gradle analyzeAdsDebugDependencies" />
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Gradle.Xday:app [bundleAdsRelease]">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -672,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697626784274</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Widget bugfix">
+      <created>1697640253384</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1697640253384</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -701,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Scroll to date when selected" />
     <MESSAGE value="Sort alphabetical, by time and by color" />
     <MESSAGE value="Redesigned about screen" />
     <MESSAGE value="Donation link and libraries licenses added." />
@@ -726,7 +714,8 @@
     <MESSAGE value="Beta 1" />
     <MESSAGE value="Lib upgrade" />
     <MESSAGE value="Bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfix" />
+    <MESSAGE value="Widget bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Widget bugfix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
