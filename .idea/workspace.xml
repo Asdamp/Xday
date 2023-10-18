@@ -21,7 +21,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="Widget bugfix">
+    <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +105,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -661,7 +662,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697640253384</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="removed keys">
+      <created>1697643526318</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1697643526318</updated>
+    </task>
+    <task id="LOCAL-00037" summary="lib fix">
+      <created>1697650266660</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1697650266660</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -690,8 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sort alphabetical, by time and by color" />
-    <MESSAGE value="Redesigned about screen" />
     <MESSAGE value="Donation link and libraries licenses added." />
     <MESSAGE value="alpha 7" />
     <MESSAGE value="Logging basic events with analytics" />
@@ -715,7 +728,9 @@
     <MESSAGE value="Lib upgrade" />
     <MESSAGE value="Bugfix" />
     <MESSAGE value="Widget bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Widget bugfix" />
+    <MESSAGE value="removed keys" />
+    <MESSAGE value="lib fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="lib fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
