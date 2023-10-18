@@ -33,7 +33,7 @@ jobs:
         
       - name: Create Google Services JSON File
         env:
-          GOOGLE_SERVICES_JSON: ${{ secrets.PRIVATE_STRINGS_XML }}
+          PRIVATE_STRINGS_XML: ${{ secrets.PRIVATE_STRINGS_XML }}
         run: echo $PRIVATE_STRINGS_XML | base64 -di > ./app/src/main/res/values/private_strings.xml        
             
       - name: Build with Gradle
