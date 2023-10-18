@@ -5,6 +5,7 @@
     android:layout_height="150dp"
     android:columnCount="5"
     android:layout_marginBottom="2dp"
+    android:background="@drawable/card_background"
 
     android:orientation="horizontal">
 
@@ -93,7 +94,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-/>
+        android:background="@color/md_grey_200" />
 
     <ImageView
         android:id="@+id/view"
@@ -109,7 +110,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-  />
+        android:background="@color/md_grey_200" />
 
 
 </RelativeLayout>

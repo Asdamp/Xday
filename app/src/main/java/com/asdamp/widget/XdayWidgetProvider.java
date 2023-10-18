@@ -38,6 +38,8 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
 		for (int appWidgetId : appWidgetIds) {
+			System.out.println("inizio aggiornamento posizione numero "
+					+ appWidgetId);
 			Intent intent = new Intent(context, WidgetRemote.class);
 			intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
 					appWidgetId);
@@ -62,8 +64,6 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 			PendingIntent pi2 = PendingIntent
 					.getBroadcast(context, 3, inte2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 			rv.setOnClickPendingIntent(R.id.list_widget, pi2);
-			rv.setOnClickPendingIntent(R.id.list_view_widget, pi2);
-
 
 			Intent inte3 = new Intent(REFRESH_WIDGET);
 			inte3.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -83,6 +83,8 @@ public class XdayWidgetProvider extends AppWidgetProvider {
 	@Override
 	public void onReceive(final Context context, final Intent intent) {
 		super.onReceive(context, intent);
+
+		System.out.println("premuto");
 		String currAction=null;
 		if(intent.getExtras()!=null) {
 			currAction = intent.getExtras().getString(action);
