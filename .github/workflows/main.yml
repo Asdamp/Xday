@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Signed app bundle
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          path: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
           retention-days: 4
   
       - name: Create Release
