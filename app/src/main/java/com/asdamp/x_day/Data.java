@@ -327,9 +327,8 @@ public class Data extends GregorianCalendar implements  Parcelable{
 	}
 	public String toString()
     {
-	    String date =Costanti.dt.format(this.getTime());
-	    String time =Costanti.tf.format(this.getTime());
-		return date+" - "+time;
+	    String date =Costanti.humanReadableDateFormat.format(this.getTime());
+		return date;
 		}
 
 	public long getMillisecondiIniziali() {

@@ -9,11 +9,11 @@
     android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="3dp"
+    android:elevation="0dp"
     android:theme="@style/AppTheme"
     app:cardCornerRadius="6dp"
-    app:cardElevation="10dp"
 
-    >
+    app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
@@ -26,13 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Date image"
-            android:transitionName="date_image"
+            android:elevation="0dp"
 
             android:scaleType="centerCrop"
+            android:transitionName="date_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
 
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -109,10 +110,9 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:background="@color/md_white_1000"
             app:layout_constraintBottom_toBottomOf="@+id/data"
             app:layout_constraintEnd_toStartOf="@+id/data"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,10 +123,9 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
+            android:background="@color/md_white_1000"
             app:layout_constraintBottom_toBottomOf="@+id/data"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

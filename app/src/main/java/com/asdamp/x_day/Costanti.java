@@ -12,6 +12,9 @@ import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import com.asdamp.database.DBAdapter;
 import com.asdamp.widget.XdayWidgetProvider;
+
+import java.text.SimpleDateFormat;
+
 //the class Costanti is supposed to be a singleton. this class is initializated by MainApplication class
 public class Costanti {
 	public static final int MODIFICA_DATA = 1;
@@ -30,6 +33,8 @@ public class Costanti {
 	private static int Os;
 	public static SharedPreferences shprs;
 	public static android.content.SharedPreferences.Editor spe;
+	public static SimpleDateFormat humanReadableDateFormat;
+
 	public static void inizializza(Context c) {
 		if(costanti==null) costanti= new Costanti(c);
 	}
@@ -38,6 +43,7 @@ public class Costanti {
 		
 		dt = DateFormat.getDateFormat(c);
 		tf = DateFormat.getTimeFormat(c);
+		humanReadableDateFormat = new SimpleDateFormat(DateFormat.getBestDateTimePattern(c.getResources().getConfiguration().locale,"ddMMMyyyyHHmmss"));
 		database = (new DBAdapter(c));
 		Os = VERSION.SDK_INT;
 		DisplayMetrics dm = c.getResources().getDisplayMetrics();

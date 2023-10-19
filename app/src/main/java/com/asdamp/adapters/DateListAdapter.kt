@@ -128,7 +128,7 @@ class DateListAdapter(private val date: MutableList<Data>) : RecyclerView.Adapte
         } catch (e: ArithmeticException) {
             holder.mLeft.text = context.resources.getQuantityString(R.plurals.Secondi, Int.MAX_VALUE) + "+"
         }
-        val s = data.descrizioneIfExists
+        val s = data.descrizione
         if (s.equals("", ignoreCase = true)) {
             holder.mDescription.visibility = View.GONE
         } else {

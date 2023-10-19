@@ -29,6 +29,8 @@ import com.thebluealliance.spectrum.SpectrumDialog;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import timber.log.Timber;
+
 public class Add extends AppCompatActivity {
 
     static {
@@ -38,56 +40,7 @@ public class Add extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CHOOSE = 500;
     private AddBinding innerBinding;
     private ActivityAddDateBinding binding;
-    //    @BindView(R.id.text_field_boxes)
-//    TextFieldBoxes mTextFildTitleBox;
-//    @BindView(R.id.etv_event_name)
-//    ExtendedEditText mEditTitle;
-//    @BindView(R.id.btn_date_select)
-//    Button mBtnSelectDate;
-//    @BindView(R.id.btn_time_select)
-//    Button mBtnSelectTime;
-//    @BindView(R.id.btn_color_select)
-//    Button mBtnColorSelect;
-//    @BindView(R.id.toggle_year)
-//    View mToggleYear;
-//    @BindView(R.id.toggle_month)
-//    View mToggleMonth;
-//    @BindView(R.id.toggle_day)
-//    View mToggleDay;
-//    @BindView(R.id.toggle_week)
-//    View mToggleWeek;
-//    @BindView(R.id.toggle_hour)
-//    View mToggleHour;
-//    @BindView(R.id.toggle_minute)
-//    View mToggleMinute;
-//    @BindView(R.id.toggle_second)
-//    View mToggleSecond;
-//    @BindView(R.id.switch_year)
-//    SwitchIconView mSwitchYear;
-//    @BindView(R.id.switch_month)
-//    SwitchIconView mSwitchMonth;
-//    @BindView(R.id.switch_week)
-//    SwitchIconView mSwitchWeek;
-//    @BindView(R.id.switch_day)
-//    SwitchIconView mSwitchDay;
-//    @BindView(R.id.switch_hour)
-//    SwitchIconView mSwitchHour;
-//    @BindView(R.id.switch_minute)
-//    SwitchIconView mSwitchMinute;
-//    @BindView(R.id.switch_second)
-//    SwitchIconView mSwitchSecond;
-//    @BindView(R.id.fab_add_image)
-//    CheckableFloatingActionButton mFabAddImage;
-//    @BindView(R.id.fab)
-//    FloatingActionButton mFabConfirm;
-//    @BindView(R.id.iv_date_image)
-//    ImageView mImageView;
-//    @BindView(R.id.notification_switch)
-//    JellyToggleButton mNotificationSwitch;
-//    @BindView(R.id.coordinator)
-//    CoordinatorLayout mCoordinator;
-//    @BindView(R.id.iv_curr_color)
-//    CircleImageView mIvCurrColor;
+
     private Data data;
     int requestCode;
 
@@ -150,7 +103,9 @@ public class Add extends AppCompatActivity {
 
         innerBinding.etvEventName.setText(data.getDescrizioneIfExists());
 
-        innerBinding.notificationSwitch.setCheckedImmediately(data.isNotifica());
+        innerBinding.notificationSwitch.setChecked(data.isNotifica());
+        innerBinding.notificationSwitch.setEnabled(data.isAfterToday());
+
         if (data.getImage() != null)
             binding.appBarLayout.fabAddImage.setChecked(true);
 
@@ -343,18 +298,18 @@ public class Add extends AppCompatActivity {
      *
      */
     private void aggiornaOpzioniAttive() {
-        // mNotificationSwitch.setEnabled(!data.isAfterToday());
+        innerBinding.notificationSwitch.setEnabled(data.isAfterToday());
     }
 
 
     public void showTimePickerDialog() {
         TimePickerDialog.OnTimeSetListener onTimeSet = (view, hourOfDay, minute, second) -> {
-            Log.d("Hour", hourOfDay + "");
-            Log.d("Minute", minute + "");
+            Timber.tag("Hour").d(hourOfDay + "");
+            Timber.tag("Minute").d(minute + "");
 
             data.setHour(hourOfDay);
             data.setMinute(minute);
-            innerBinding.btnDateSelect.setText(Costanti.tf.format(data.getTime()));
+            innerBinding.btnTimeSelect.setText(Costanti.tf.format(data.getTime()));
 
             aggiornaOpzioniAttive();
         };
@@ -368,7 +323,7 @@ public class Add extends AppCompatActivity {
             data.setYear(year);
             data.setMonth(monthOfYear);
             data.setDay(dayOfMonth);
-            innerBinding.btnTimeSelect.setText(Costanti.dt.format(data.getTime()));
+            innerBinding.btnDateSelect.setText(Costanti.dt.format(data.getTime()));
             aggiornaOpzioniAttive();
         };
         DatePickerDialog dp = DatePickerDialog.newInstance(onDateSet, data.getYear(), data.getMonth(), data.getDay());
