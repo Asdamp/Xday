@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: "com.jaredsburrows.license"
-apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
@@ -12,16 +11,18 @@ android {
         buildConfig true
 
     }
-
+    lintOptions{
+        disable 'MissingTranslation'
+    }
     kotlin {
         jvmToolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
+            languageVersion.set(JavaLanguageVersion.of(11))
         }
         jvmToolchain(17)
     }
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
+            languageVersion.set(JavaLanguageVersion.of(11))
         }
     }
     defaultConfig {
@@ -73,11 +74,10 @@ android {
     }
     namespace 'com.asdamp.x_day'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     compileSdk 34
-    buildToolsVersion '34.0.0'
 }
 
 licenseReport {

@@ -105,15 +105,24 @@ public class Data extends GregorianCalendar implements  Parcelable{
 	}
 
 	public static Data leggi(Cursor cursor) {
-		int anno = cursor.getInt(cursor.getColumnIndex("anno"));
-		int mese = cursor.getInt(cursor.getColumnIndex("mese"));
-		int giorno = cursor.getInt(cursor.getColumnIndex("giorno"));
-		int ora = cursor.getInt(cursor.getColumnIndex("ora"));
-		int minuto = cursor.getInt(cursor.getColumnIndex("minuto"));
-		long l1 = cursor.getLong(cursor.getColumnIndex("millisecondiIniziali"));
-		String s = cursor.getString(cursor.getColumnIndex("descrizione"));
-		int colore=cursor.getInt(cursor.getColumnIndex("colore"));
-		String image=cursor.getString(cursor.getColumnIndex("immagine"));
+		int annoIndex = cursor.getColumnIndex("anno");
+		int anno = cursor.getInt(annoIndex);
+		int meseIndex = cursor.getColumnIndex("mese");
+		int mese = cursor.getInt(meseIndex);
+		int giornoIndex = cursor.getColumnIndex("giorno");
+		int giorno = cursor.getInt(giornoIndex);
+		int oraIndex = cursor.getColumnIndex("ora");
+		int ora = cursor.getInt(oraIndex);
+		int minutoindex = cursor.getColumnIndex("minuto");
+		int minuto = cursor.getInt(minutoindex);
+		int msInitIndex = cursor.getColumnIndex("millisecondiIniziali");
+		long l1 = cursor.getLong(msInitIndex);
+		int descrizioneIndex = cursor.getColumnIndex("descrizione");
+		String s = cursor.getString(descrizioneIndex);
+		int coloreIndex = cursor.getColumnIndex("colore");
+		int colore=cursor.getInt(coloreIndex);
+		int immagineIndex = cursor.getColumnIndex("immagine");
+		String image=cursor.getString(immagineIndex);
 		boolean ore;
 		boolean minuti;
 		boolean anni;
@@ -121,15 +130,23 @@ public class Data extends GregorianCalendar implements  Parcelable{
 		boolean giorni;
 		boolean settimane;
 		boolean secondi;
-		ore = cursor.getInt(cursor.getColumnIndex("ore")) > 0;
-		secondi = cursor.getInt(cursor.getColumnIndex("secondi")) > 0;
-		minuti = cursor.getInt(cursor.getColumnIndex("minuti")) > 0;
-		anni = cursor.getInt(cursor.getColumnIndex("anni")) > 0;
-		mesi = cursor.getInt(cursor.getColumnIndex("mesi")) > 0;
-		giorni = cursor.getInt(cursor.getColumnIndex("giorni")) > 0;
-		settimane = cursor.getInt(cursor.getColumnIndex("settimane")) > 0;
+		int oreIndex = cursor.getColumnIndex("ore");
+		ore = cursor.getInt(oreIndex) > 0;
+		int secondiindex = cursor.getColumnIndex("secondi");
+		secondi = cursor.getInt(secondiindex) > 0;
+		int minutiIndex = cursor.getColumnIndex("minuti");
+		minuti = cursor.getInt(minutiIndex) > 0;
+		int anniIndex = cursor.getColumnIndex("anni");
+		anni = cursor.getInt(anniIndex) > 0;
+		int mesiindex = cursor.getColumnIndex("mesi");
+		mesi = cursor.getInt(mesiindex) > 0;
+		int giorniIndex = cursor.getColumnIndex("giorni");
+		giorni = cursor.getInt(giorniIndex) > 0;
+		int settimaneIndex = cursor.getColumnIndex("settimane");
+		settimane = cursor.getInt(settimaneIndex) > 0;
 		boolean notifica;
-		notifica = cursor.getInt(cursor.getColumnIndex("notifica")) > 0;
+		int notificaIndex = cursor.getColumnIndex("notifica");
+		notifica = cursor.getInt(notificaIndex) > 0;
 		 Uri imageUri;
 		 if(image!=null)
 		 	imageUri=Uri.parse(image);
