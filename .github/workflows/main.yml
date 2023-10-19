@@ -64,5 +64,5 @@ jobs:
         with:
           serviceAccountJson: ./service_account.json
           packageName: com.asdamp.x_day
-          releaseFiles: ${{SIGNED_RELEASE_FILE}}
+          releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
           track: beta
