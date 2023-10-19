@@ -92,7 +92,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          asset_path: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
           asset_name: app-release-v${{ github.run_number }}.zip
           asset_content_type: application/zip
           
@@ -106,5 +106,5 @@ jobs:
         with:
           serviceAccountJson: ./service_account.json
           packageName: com.asdamp.x_day
-          releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
+          releaseFiles: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
           track: beta
