@@ -62,7 +62,7 @@ jobs:
         id: deploy
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJson: service_account.json
+          serviceAccountJson: ./service_account.json
           packageName: com.asdamp.x_day
-          releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
+          releaseFiles: ${{SIGNED_RELEASE_FILE}}
           track: beta
