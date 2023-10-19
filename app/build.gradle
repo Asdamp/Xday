@@ -34,7 +34,7 @@ android {
         targetSdkVersion 33
         compileSdk 33
         vectorDrawables.useSupportLibrary = true
-        versionCode 48
+        versionCode 49
         versionName "2.0-beta3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

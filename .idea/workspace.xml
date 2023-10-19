@@ -23,7 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -707,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697703484641</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Version Code bump">
+      <created>1697711970881</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1697711970881</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -736,7 +743,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Logging basic events with analytics" />
     <MESSAGE value="fix for api lower than 21" />
     <MESSAGE value="Admob integration" />
     <MESSAGE value="Calendar dot color is now the same as the date" />
@@ -761,7 +767,8 @@
     <MESSAGE value="lib fix" />
     <MESSAGE value="Permission fix" />
     <MESSAGE value="Lint Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lint Fix" />
+    <MESSAGE value="Version Code bump" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version Code bump" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
