@@ -64,6 +64,5 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: com.asdamp.x_day
-          releaseFile: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
+          releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
           track: beta
-          whatsNewDirectory: whatsnew/
