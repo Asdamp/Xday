@@ -22,16 +22,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e91a77f-bafd-44f6-b979-0fca20d3da7b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/asdamp/x_day/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-cs-rCZ/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-cs-rCZ/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-sk-rSK/changelog.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-sk-rSK/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,22 +141,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;android-custom-viewC:/Users/anton/StudioProjects/Xday/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java_SELECTED&quot;: &quot;CheckableFloatingActionButton&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anton/StudioProjects/Xday/app&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "android-custom-viewC:/Users/anton/StudioProjects/Xday/app/src/main/java/com/asdamp/views/CheckableFloatingActionButton.java_SELECTED": "CheckableFloatingActionButton",
+    "cidr.known.project.marker": "true",
+    "com.android.tools.idea.devicemanager.tab": "Physical",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/anton/StudioProjects/Xday/app",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.kotlinCompiler",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="config" />
@@ -188,7 +182,7 @@
       <command value="gradle app:lintAdsDebug" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Xday [app:lintAdsDebug]">
+  <component name="RunManager" selected="Gradle.Xday:app [bundleAdsRelease]">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -274,27 +268,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Xday [analyzeAdsDebugDependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="analyzeAdsDebugDependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="Xday [app:lintAdsDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -358,6 +331,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Xday:app [bundleAds]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bundleAds" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Xday:app [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -408,18 +402,18 @@
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Gradle.Xday [app:lintAdsDebug]" />
+      <item itemvalue="Gradle.Xday:app [bundleAds]" />
       <item itemvalue="Gradle.Xday:app [clean]" />
-      <item itemvalue="Gradle.Xday [analyzeAdsDebugDependencies]" />
       <item itemvalue="Gradle.Xday:app [assembleAdsRelease]" />
       <item itemvalue="Gradle.Xday:app [bundleAdsRelease]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Xday [app:lintAdsDebug]" />
         <item itemvalue="Gradle.Xday:app [bundleAdsRelease]" />
         <item itemvalue="Gradle.Xday:app [clean]" />
-        <item itemvalue="Gradle.Xday [analyzeAdsDebugDependencies]" />
         <item itemvalue="Gradle.Xday:app [assembleAdsRelease]" />
+        <item itemvalue="Gradle.Xday:app [bundleAds]" />
+        <item itemvalue="Gradle.Xday [app:lintAdsDebug]" />
       </list>
     </recent_temporary>
   </component>
@@ -700,7 +694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697651043780</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Lint Fix">
+      <created>1697702307782</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1697702307782</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -729,7 +730,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="alpha 7" />
     <MESSAGE value="Logging basic events with analytics" />
     <MESSAGE value="fix for api lower than 21" />
     <MESSAGE value="Admob integration" />
@@ -754,7 +754,8 @@
     <MESSAGE value="removed keys" />
     <MESSAGE value="lib fix" />
     <MESSAGE value="Permission fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Permission fix" />
+    <MESSAGE value="Lint Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lint Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
