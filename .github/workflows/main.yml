@@ -67,34 +67,7 @@ jobs:
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Signed app bundle
-          path: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
-          retention-days: 4
-  
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release V${{ github.run_number }}
-          draft: false
-          prerelease: false
 
-      - name: Upload Release AAB
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./app/build/outputs/bundle/adsRelease/app-ads-release.aab
-          asset_name: app-release-v${{ github.run_number }}.zip
-          asset_content_type: application/zip
           
       - name: Create service_account.json
         id: createServiceAccount
